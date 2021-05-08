@@ -1,0 +1,49 @@
+﻿
+@model QLNHATHAU.Models.HopDongValidation
+
+@using (Html.BeginForm("UploadFile", "HopDong", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-dialog" id="form">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="ModalTitle"></h5>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        @Html.TextBox("file", "", new { type = "file" }) <br />
+
+                        @ViewBag.Message
+                    </div>
+                    <div class="col-md-12">
+                        <input type="submit" value="Xác nhận" class="btn btn-success button_submit" />
+                        <input type="reset" value="Hủy" class="btn btn-danger button_cancel" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .button_submit {
+        float: right;
+        margin-bottom: 15px;
+    }
+
+    .button_cancel {
+        float: right;
+        margin-right: 15px
+    }
+
+    .margin-checkbox {
+        margin-right: 30px;
+    }
+
+    div[disabled] {
+        pointer-events: none;
+        opacity: 0.7;
+    }
+</style>

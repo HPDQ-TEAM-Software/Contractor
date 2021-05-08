@@ -1,0 +1,457 @@
+﻿@{
+    ViewBag.Title = "Tổng Quan";
+}
+
+@*<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-five">
+                    <div class="stat-icon dib flat-color-1">
+                        <i class="pe-7f-cash"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-text">$<span class="count">23569</span></div>
+                            <div class="stat-heading">Revenue</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-five">
+                    <div class="stat-icon dib flat-color-2">
+                        <i class="pe-7f-cart"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-text"><span class="count">3435</span></div>
+                            <div class="stat-heading">Sales</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-five">
+                    <div class="stat-icon dib flat-color-3">
+                        <i class="pe-7f-browser"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-text"><span class="count">349</span></div>
+                            <div class="stat-heading">Templates</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-five">
+                    <div class="stat-icon dib flat-color-4">
+                        <i class="pe-7f-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-text"><span class="count">2986</span></div>
+                            <div class="stat-heading">Clients</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="box-title">Traffic </h4>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card-body">
+
+                        <div id="traffic-chart" class="traffic-chart"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-grids"><line y1="300" y2="300" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="264.375" y2="264.375" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="228.75" y2="228.75" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="193.125" y2="193.125" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="157.5" y2="157.5" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="121.875" y2="121.875" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="86.25" y2="86.25" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="50.625" y2="50.625" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="15" y2="15" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line></g><g><g class="ct-series ct-series-a"><path d="M50,300L50,157.5C84.518,162.25,119.036,171.75,153.554,171.75C188.072,171.75,222.59,50.625,257.108,50.625C291.626,50.625,326.144,171.75,360.661,171.75C395.179,171.75,429.697,126.031,464.215,121.875C498.733,117.719,533.251,114.75,567.769,114.75C602.287,114.75,636.805,136.917,671.323,143.25C705.841,149.583,740.359,152.75,774.877,157.5C809.395,162.25,843.913,171.75,878.431,171.75C912.948,171.75,947.466,91,981.984,50.625L981.984,300Z" class="ct-area"></path></g><g class="ct-series ct-series-b"><path d="M50,300L50,193.125C84.518,174.125,119.036,136.125,153.554,136.125C188.072,136.125,222.59,193.125,257.108,193.125C291.626,193.125,326.144,86.25,360.661,86.25C395.179,86.25,429.697,157.5,464.215,157.5C498.733,157.5,533.251,79.125,567.769,79.125C602.287,79.125,636.805,193.125,671.323,193.125C705.841,193.125,740.359,193.125,774.877,193.125C809.395,193.125,843.913,136.125,878.431,136.125C912.948,136.125,947.466,174.125,981.984,193.125L981.984,300Z" class="ct-area"></path></g><g class="ct-series ct-series-c"><path d="M50,300L50,121.875C84.518,145.625,119.036,193.125,153.554,193.125C188.072,193.125,222.59,29.25,257.108,29.25C291.626,29.25,326.144,91.207,360.661,118.313C395.179,145.418,429.697,193.125,464.215,193.125C498.733,193.125,533.251,157.5,567.769,139.688C602.287,121.875,636.805,86.25,671.323,86.25C705.841,86.25,740.359,106.042,774.877,121.875C809.395,137.708,843.913,193.125,878.431,193.125C912.948,193.125,947.466,83.875,981.984,29.25L981.984,300Z" class="ct-area"></path></g></g><g class="ct-labels"><foreignObject style="overflow: visible;" x="50" y="305" width="103.55381944444444" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Sun</span></foreignObject><foreignObject style="overflow: visible;" x="153.55381944444446" y="305" width="103.55381944444444" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Mon</span></foreignObject><foreignObject style="overflow: visible;" x="257.1076388888889" y="305" width="103.55381944444443" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Tue</span></foreignObject><foreignObject style="overflow: visible;" x="360.6614583333333" y="305" width="103.55381944444446" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Wed</span></foreignObject><foreignObject style="overflow: visible;" x="464.21527777777777" y="305" width="103.5538194444444" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Thu</span></foreignObject><foreignObject style="overflow: visible;" x="567.7690972222222" y="305" width="103.55381944444446" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Fri</span></foreignObject><foreignObject style="overflow: visible;" x="671.3229166666666" y="305" width="103.55381944444446" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Sat</span></foreignObject><foreignObject style="overflow: visible;" x="774.8767361111111" y="305" width="103.55381944444446" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Sun</span></foreignObject><foreignObject style="overflow: visible;" x="878.4305555555555" y="305" width="103.55381944444446" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Mon</span></foreignObject><foreignObject style="overflow: visible;" x="981.984375" y="305" width="30" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 30px; height: 20px;">Tue</span></foreignObject><foreignObject style="overflow: visible;" y="264.375" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">0</span></foreignObject><foreignObject style="overflow: visible;" y="228.75" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">5000</span></foreignObject><foreignObject style="overflow: visible;" y="193.125" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">10000</span></foreignObject><foreignObject style="overflow: visible;" y="157.5" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">15000</span></foreignObject><foreignObject style="overflow: visible;" y="121.875" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">20000</span></foreignObject><foreignObject style="overflow: visible;" y="86.25" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">25000</span></foreignObject><foreignObject style="overflow: visible;" y="50.625" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">30000</span></foreignObject><foreignObject style="overflow: visible;" y="15" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">35000</span></foreignObject><foreignObject style="overflow: visible;" y="-15" x="10" height="30" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 30px; width: 30px;">40000</span></foreignObject></g></svg></div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card-body">
+                        <div class="progress-box progress-1">
+                            <h4 class="por-title">Visits</h4>
+                            <div class="por-txt">96,930 Users (40%)</div>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-flat-color-1" role="progressbar" style="width: 40%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="progress-box progress-2">
+                            <h4 class="por-title">Bounce Rate</h4>
+                            <div class="por-txt">3,220 Users (24%)</div>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-flat-color-2" role="progressbar" style="width: 24%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="progress-box progress-2">
+                            <h4 class="por-title">Unique Visitors</h4>
+                            <div class="por-txt">29,658 Users (60%)</div>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-flat-color-3" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="progress-box progress-2">
+                            <h4 class="por-title">Targeted Visitors</h4>
+                            <div class="por-txt">99,658 Users (90%)</div>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-flat-color-4" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<div class="orders">
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="box-title">Orders </h4>
+                </div>
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="serial">#</th>
+                                    <th class="avatar">Avatar</th>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="serial">1.</td>
+                                    <td class="avatar">
+                                        <div class="round-img">
+                                            <a href="#"><img class="rounded-circle" src="images/avatar/1.jpg" alt=""></a>
+                                        </div>
+                                    </td>
+                                    <td> #5469 </td>
+                                    <td> <span class="name">Louis Stanley</span> </td>
+                                    <td> <span class="product">iMax</span> </td>
+                                    <td><span class="count">231</span></td>
+                                    <td>
+                                        <span class="badge badge-complete">Complete</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="serial">2.</td>
+                                    <td class="avatar">
+                                        <div class="round-img">
+                                            <a href="#"><img class="rounded-circle" src="images/avatar/2.jpg" alt=""></a>
+                                        </div>
+                                    </td>
+                                    <td> #5468 </td>
+                                    <td> <span class="name">Gregory Dixon</span> </td>
+                                    <td> <span class="product">iPad</span> </td>
+                                    <td><span class="count">250</span></td>
+                                    <td>
+                                        <span class="badge badge-complete">Complete</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="serial">3.</td>
+                                    <td class="avatar">
+                                        <div class="round-img">
+                                            <a href="#"><img class="rounded-circle" src="images/avatar/3.jpg" alt=""></a>
+                                        </div>
+                                    </td>
+                                    <td> #5467 </td>
+                                    <td> <span class="name">Catherine Dixon</span> </td>
+                                    <td> <span class="product">SSD</span> </td>
+                                    <td><span class="count">250</span></td>
+                                    <td>
+                                        <span class="badge badge-complete">Complete</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="serial">4.</td>
+                                    <td class="avatar">
+                                        <div class="round-img">
+                                            <a href="#"><img class="rounded-circle" src="images/avatar/4.jpg" alt=""></a>
+                                        </div>
+                                    </td>
+                                    <td> #5466 </td>
+                                    <td> <span class="name">Mary Silva</span> </td>
+                                    <td> <span class="product">Magic Mouse</span> </td>
+                                    <td><span class="count">250</span></td>
+                                    <td>
+                                        <span class="badge badge-pending">Pending</span>
+                                    </td>
+                                </tr>
+                                <tr class=" pb-0">
+                                    <td class="serial">5.</td>
+                                    <td class="avatar pb-0">
+                                        <div class="round-img">
+                                            <a href="#"><img class="rounded-circle" src="images/avatar/6.jpg" alt=""></a>
+                                        </div>
+                                    </td>
+                                    <td> #5465 </td>
+                                    <td> <span class="name">Johnny Stephens</span> </td>
+                                    <td> <span class="product">Monitor</span> </td>
+                                    <td><span class="count">250</span></td>
+                                    <td>
+                                        <span class="badge badge-complete">Complete</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="row">
+                <div class="col-lg-6 col-xl-12">
+                    <div class="card br-0">
+                        <div class="card-body">
+                            <div class="chart-container ov-h">
+                                <div id="flotPie1" class="float-chart" style="padding: 0px; position: relative;"><canvas class="flot-base" width="270" height="150" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 270px; height: 150px;"></canvas><canvas class="flot-overlay" width="270" height="150" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 270px; height: 150px;"></canvas><div class="legend"><div style="position: absolute; width: 101px; height: 72px; top: 5px; right: 5px; background-color: rgb(255, 255, 255); opacity: 0.85;"> </div><table style="position:absolute;top:5px;right:5px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #5c6bc0;overflow:hidden"></div></div></td><td class="legendLabel">Desktop visits</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #ef5350;overflow:hidden"></div></div></td><td class="legendLabel">Tab visits</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #66bb6a;overflow:hidden"></div></div></td><td class="legendLabel">Mobile visits</td></tr></tbody></table></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-12 mb-0">
+                    <div class="card bg-flat-color-3  ">
+                        <div class="card-body">
+                            <h4 class="card-title m-0  white-color ">August 2018</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="flotLine5" class="flot-line" style="padding: 0px; position: relative;"><canvas class="flot-base" width="464" height="95" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 464px; height: 95px;"></canvas><canvas class="flot-overlay" width="464" height="95" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 464px; height: 95px;"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title box-title">To Do List</h4>
+                <div class="card-content">
+                    <div class="todo-list">
+                        <div class="tdl-holder">
+                            <div class="tdl-content">
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox"><i class="check-box"></i><span>Conveniently fabricate interactive technology for ....</span>
+                                            <a href="#" class="fa fa-times"></a>
+                                            <a href="#" class="fa fa-pencil"></a>
+                                            <a href="#" class="fa fa-check"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox"><i class="check-box"></i><span>Creating component page</span>
+                                            <a href="#" class="fa fa-times"></a>
+                                            <a href="#" class="fa fa-pencil"></a>
+                                            <a href="#" class="fa fa-check"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked=""><i class="check-box"></i><span>Follow back those who follow you</span>
+                                            <a href="#" class="fa fa-times"></a>
+                                            <a href="#" class="fa fa-pencil"></a>
+                                            <a href="#" class="fa fa-check"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked=""><i class="check-box"></i><span>Design One page theme</span>
+                                            <a href="#" class="fa fa-times"></a>
+                                            <a href="#" class="fa fa-pencil"></a>
+                                            <a href="#" class="fa fa-check"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked=""><i class="check-box"></i><span>Creating component page</span>
+                                            <a href="#" class="fa fa-times"></a>
+                                            <a href="#" class="fa fa-pencil"></a>
+                                            <a href="#" class="fa fa-check"></a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title box-title">Live Chat</h4>
+                <div class="card-content">
+                    <div class="messenger-box">
+                        <ul>
+                            <li>
+                                <div class="msg-received msg-container">
+                                    <div class="avatar">
+                                        <img src="images/avatar/64-1.jpg" alt="">
+                                        <div class="send-time">11.11 am</div>
+                                    </div>
+                                    <div class="msg-box">
+                                        <div class="inner-box">
+                                            <div class="name">
+                                                John Doe
+                                            </div>
+                                            <div class="meg">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis sunt placeat velit ad reiciendis ipsam
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="msg-sent msg-container">
+                                    <div class="avatar">
+                                        <img src="images/avatar/64-2.jpg" alt="">
+                                        <div class="send-time">11.11 am</div>
+                                    </div>
+                                    <div class="msg-box">
+                                        <div class="inner-box">
+                                            <div class="name">
+                                                John Doe
+                                            </div>
+                                            <div class="meg">
+                                                Hay how are you doing?
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="send-mgs">
+                            <div class="yourmsg">
+                                <input class="form-control" type="text">
+                            </div>
+                            <button class="btn msg-send-btn">
+                                <i class="pe-7f-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 col-lg-4">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="calender-cont widget-calender">
+                    <div id="calendar" class="fc fc-unthemed fc-ltr"><div class="fc-toolbar fc-header-toolbar"><div class="fc-left"><div class="fc-button-group"><button type="button" class="fc-prev-button fc-button fc-state-default fc-corner-left"><span class="fc-icon fc-icon-left-single-arrow"></span></button><button type="button" class="fc-next-button fc-button fc-state-default fc-corner-right"><span class="fc-icon fc-icon-right-single-arrow"></span></button></div><button type="button" class="fc-today-button fc-button fc-state-default fc-corner-left fc-corner-right fc-state-disabled" disabled="">today</button></div><div class="fc-right"><div class="fc-button-group"><button type="button" class="fc-month-button fc-button fc-state-default fc-corner-left fc-state-active">month</button><button type="button" class="fc-agendaWeek-button fc-button fc-state-default">week</button><button type="button" class="fc-agendaDay-button fc-button fc-state-default fc-corner-right">day</button></div></div><div class="fc-center"><h2>March 2021</h2></div><div class="fc-clear"></div></div><div class="fc-view-container" style=""><div class="fc-view fc-month-view fc-basic-view" style=""><table><thead class="fc-head"><tr><td class="fc-head-container fc-widget-header"><div class="fc-row fc-widget-header"><table><thead><tr><th class="fc-day-header fc-widget-header fc-sun"><span>Sun</span></th><th class="fc-day-header fc-widget-header fc-mon"><span>Mon</span></th><th class="fc-day-header fc-widget-header fc-tue"><span>Tue</span></th><th class="fc-day-header fc-widget-header fc-wed"><span>Wed</span></th><th class="fc-day-header fc-widget-header fc-thu"><span>Thu</span></th><th class="fc-day-header fc-widget-header fc-fri"><span>Fri</span></th><th class="fc-day-header fc-widget-header fc-sat"><span>Sat</span></th></tr></thead></table></div></td></tr></thead><tbody class="fc-body"><tr><td class="fc-widget-content"><div class="fc-scroller fc-day-grid-container" style="overflow: hidden scroll; height: 730px;"><div class="fc-day-grid fc-unselectable"><div class="fc-row fc-week fc-widget-content fc-rigid" style="height: 121px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-other-month fc-past" data-date="2021-02-28"></td><td class="fc-day fc-widget-content fc-mon fc-today fc-state-highlight" data-date="2021-03-01"></td><td class="fc-day fc-widget-content fc-tue fc-future" data-date="2021-03-02"></td><td class="fc-day fc-widget-content fc-wed fc-future" data-date="2021-03-03"></td><td class="fc-day fc-widget-content fc-thu fc-future" data-date="2021-03-04"></td><td class="fc-day fc-widget-content fc-fri fc-future" data-date="2021-03-05"></td><td class="fc-day fc-widget-content fc-sat fc-future" data-date="2021-03-06"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-sun fc-other-month fc-past" data-date="2021-02-28"><span class="fc-day-number">28</span></td><td class="fc-day-top fc-mon fc-today fc-state-highlight" data-date="2021-03-01"><span class="fc-day-number">1</span></td><td class="fc-day-top fc-tue fc-future" data-date="2021-03-02"><span class="fc-day-number">2</span></td><td class="fc-day-top fc-wed fc-future" data-date="2021-03-03"><span class="fc-day-number">3</span></td><td class="fc-day-top fc-thu fc-future" data-date="2021-03-04"><span class="fc-day-number">4</span></td><td class="fc-day-top fc-fri fc-future" data-date="2021-03-05"><span class="fc-day-number">5</span></td><td class="fc-day-top fc-sat fc-future" data-date="2021-03-06"><span class="fc-day-number">6</span></td></tr></thead><tbody><tr><td></td><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end bg-danger fc-draggable"><div class="fc-content"><span class="fc-time">10:36a</span> <span class="fc-title">See John Deo</span></div></a></td><td></td><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end bg-dark fc-draggable"><div class="fc-content"><span class="fc-time">6:29a</span> <span class="fc-title">Hey!</span></div></a></td><td></td><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end bg-primary fc-draggable"><div class="fc-content"><span class="fc-time">8:29a</span> <span class="fc-title">Buy a Theme</span></div></a></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content fc-rigid" style="height: 121px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-future" data-date="2021-03-07"></td><td class="fc-day fc-widget-content fc-mon fc-future" data-date="2021-03-08"></td><td class="fc-day fc-widget-content fc-tue fc-future" data-date="2021-03-09"></td><td class="fc-day fc-widget-content fc-wed fc-future" data-date="2021-03-10"></td><td class="fc-day fc-widget-content fc-thu fc-future" data-date="2021-03-11"></td><td class="fc-day fc-widget-content fc-fri fc-future" data-date="2021-03-12"></td><td class="fc-day fc-widget-content fc-sat fc-future" data-date="2021-03-13"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-sun fc-future" data-date="2021-03-07"><span class="fc-day-number">7</span></td><td class="fc-day-top fc-mon fc-future" data-date="2021-03-08"><span class="fc-day-number">8</span></td><td class="fc-day-top fc-tue fc-future" data-date="2021-03-09"><span class="fc-day-number">9</span></td><td class="fc-day-top fc-wed fc-future" data-date="2021-03-10"><span class="fc-day-number">10</span></td><td class="fc-day-top fc-thu fc-future" data-date="2021-03-11"><span class="fc-day-number">11</span></td><td class="fc-day-top fc-fri fc-future" data-date="2021-03-12"><span class="fc-day-number">12</span></td><td class="fc-day-top fc-sat fc-future" data-date="2021-03-13"><span class="fc-day-number">13</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content fc-rigid" style="height: 121px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-future" data-date="2021-03-14"></td><td class="fc-day fc-widget-content fc-mon fc-future" data-date="2021-03-15"></td><td class="fc-day fc-widget-content fc-tue fc-future" data-date="2021-03-16"></td><td class="fc-day fc-widget-content fc-wed fc-future" data-date="2021-03-17"></td><td class="fc-day fc-widget-content fc-thu fc-future" data-date="2021-03-18"></td><td class="fc-day fc-widget-content fc-fri fc-future" data-date="2021-03-19"></td><td class="fc-day fc-widget-content fc-sat fc-future" data-date="2021-03-20"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-sun fc-future" data-date="2021-03-14"><span class="fc-day-number">14</span></td><td class="fc-day-top fc-mon fc-future" data-date="2021-03-15"><span class="fc-day-number">15</span></td><td class="fc-day-top fc-tue fc-future" data-date="2021-03-16"><span class="fc-day-number">16</span></td><td class="fc-day-top fc-wed fc-future" data-date="2021-03-17"><span class="fc-day-number">17</span></td><td class="fc-day-top fc-thu fc-future" data-date="2021-03-18"><span class="fc-day-number">18</span></td><td class="fc-day-top fc-fri fc-future" data-date="2021-03-19"><span class="fc-day-number">19</span></td><td class="fc-day-top fc-sat fc-future" data-date="2021-03-20"><span class="fc-day-number">20</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content fc-rigid" style="height: 121px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-future" data-date="2021-03-21"></td><td class="fc-day fc-widget-content fc-mon fc-future" data-date="2021-03-22"></td><td class="fc-day fc-widget-content fc-tue fc-future" data-date="2021-03-23"></td><td class="fc-day fc-widget-content fc-wed fc-future" data-date="2021-03-24"></td><td class="fc-day fc-widget-content fc-thu fc-future" data-date="2021-03-25"></td><td class="fc-day fc-widget-content fc-fri fc-future" data-date="2021-03-26"></td><td class="fc-day fc-widget-content fc-sat fc-future" data-date="2021-03-27"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-sun fc-future" data-date="2021-03-21"><span class="fc-day-number">21</span></td><td class="fc-day-top fc-mon fc-future" data-date="2021-03-22"><span class="fc-day-number">22</span></td><td class="fc-day-top fc-tue fc-future" data-date="2021-03-23"><span class="fc-day-number">23</span></td><td class="fc-day-top fc-wed fc-future" data-date="2021-03-24"><span class="fc-day-number">24</span></td><td class="fc-day-top fc-thu fc-future" data-date="2021-03-25"><span class="fc-day-number">25</span></td><td class="fc-day-top fc-fri fc-future" data-date="2021-03-26"><span class="fc-day-number">26</span></td><td class="fc-day-top fc-sat fc-future" data-date="2021-03-27"><span class="fc-day-number">27</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content fc-rigid" style="height: 121px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-future" data-date="2021-03-28"></td><td class="fc-day fc-widget-content fc-mon fc-future" data-date="2021-03-29"></td><td class="fc-day fc-widget-content fc-tue fc-future" data-date="2021-03-30"></td><td class="fc-day fc-widget-content fc-wed fc-future" data-date="2021-03-31"></td><td class="fc-day fc-widget-content fc-thu fc-other-month fc-future" data-date="2021-04-01"></td><td class="fc-day fc-widget-content fc-fri fc-other-month fc-future" data-date="2021-04-02"></td><td class="fc-day fc-widget-content fc-sat fc-other-month fc-future" data-date="2021-04-03"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-sun fc-future" data-date="2021-03-28"><span class="fc-day-number">28</span></td><td class="fc-day-top fc-mon fc-future" data-date="2021-03-29"><span class="fc-day-number">29</span></td><td class="fc-day-top fc-tue fc-future" data-date="2021-03-30"><span class="fc-day-number">30</span></td><td class="fc-day-top fc-wed fc-future" data-date="2021-03-31"><span class="fc-day-number">31</span></td><td class="fc-day-top fc-thu fc-other-month fc-future" data-date="2021-04-01"><span class="fc-day-number">1</span></td><td class="fc-day-top fc-fri fc-other-month fc-future" data-date="2021-04-02"><span class="fc-day-number">2</span></td><td class="fc-day-top fc-sat fc-other-month fc-future" data-date="2021-04-03"><span class="fc-day-number">3</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content fc-rigid" style="height: 125px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-other-month fc-future" data-date="2021-04-04"></td><td class="fc-day fc-widget-content fc-mon fc-other-month fc-future" data-date="2021-04-05"></td><td class="fc-day fc-widget-content fc-tue fc-other-month fc-future" data-date="2021-04-06"></td><td class="fc-day fc-widget-content fc-wed fc-other-month fc-future" data-date="2021-04-07"></td><td class="fc-day fc-widget-content fc-thu fc-other-month fc-future" data-date="2021-04-08"></td><td class="fc-day fc-widget-content fc-fri fc-other-month fc-future" data-date="2021-04-09"></td><td class="fc-day fc-widget-content fc-sat fc-other-month fc-future" data-date="2021-04-10"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-sun fc-other-month fc-future" data-date="2021-04-04"><span class="fc-day-number">4</span></td><td class="fc-day-top fc-mon fc-other-month fc-future" data-date="2021-04-05"><span class="fc-day-number">5</span></td><td class="fc-day-top fc-tue fc-other-month fc-future" data-date="2021-04-06"><span class="fc-day-number">6</span></td><td class="fc-day-top fc-wed fc-other-month fc-future" data-date="2021-04-07"><span class="fc-day-number">7</span></td><td class="fc-day-top fc-thu fc-other-month fc-future" data-date="2021-04-08"><span class="fc-day-number">8</span></td><td class="fc-day-top fc-fri fc-other-month fc-future" data-date="2021-04-09"><span class="fc-day-number">9</span></td><td class="fc-day-top fc-sat fc-other-month fc-future" data-date="2021-04-10"><span class="fc-day-number">10</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div></div></div></td></tr></tbody></table></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="card ov-h">
+            <div class="card-body bg-flat-color-2">
+                <div id="flotBarChart" class="float-chart ml-4 mr-4" style="padding: 0px; position: relative;"><canvas class="flot-base" width="420" height="150" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 420px; height: 150px;"></canvas><canvas class="flot-overlay" width="420" height="150" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 420px; height: 150px;"></canvas></div>
+            </div>
+            <div id="cellPaiChart" class="float-chart" style="padding: 0px; position: relative;"><canvas class="flot-base" width="502" height="160" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 502px; height: 160px;"></canvas><canvas class="flot-overlay" width="502" height="160" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 502px; height: 160px;"></canvas><span class="pieLabel" id="pieLabel0" style="position: absolute; top: 90px; left: 283px;"><div style="font-size:x-small;text-align:center;padding:2px;color:#5b83de;">Direct Sell<br>65%</div></span><span class="pieLabel" id="pieLabel1" style="position: absolute; top: 18px; left: 132.5px;"><div style="font-size:x-small;text-align:center;padding:2px;color:#00bfa5;">Channel Sell<br>35%</div></span></div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="card weather-box">
+            <h4 class="weather-title box-title">Weather</h4>
+            <div class="card-body">
+                <div class="weather-widget">
+                    <div id="weather-one" class="weather-one"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade none-border" id="event-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title"><strong>Add New Event</strong></h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
+                <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade none-border" id="add-category">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title"><strong>Add a category </strong></h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="control-label">Category Name</label>
+                            <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label">Choose Category Color</label>
+                            <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
+                                <option value="success">Success</option>
+                                <option value="danger">Danger</option>
+                                <option value="info">Info</option>
+                                <option value="pink">Pink</option>
+                                <option value="primary">Primary</option>
+                                <option value="warning">Warning</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
+            </div>
+        </div>
+    </div>
+</div>*@
