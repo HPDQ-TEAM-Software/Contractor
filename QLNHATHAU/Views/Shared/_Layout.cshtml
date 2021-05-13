@@ -22,24 +22,26 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
 </head>
 <body>
-
+    
     <aside id="left-panel" class="left-panel">
+        <div class="left-overlay" id="left-overlay"></div>
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Tổng quan </a>
+                        <a href="index.html"><i class="menu-icon fa fa-laptop"></i><span>Tổng quan</span> </a>
                     </li>
-                    <li class="menu-title">Cấu hình</li>
+                    <li class="menu-title"><span>Cấu hình</span></li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Quản trị</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cog"></i><span>Quản trị</span></a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-users"></i><a href="@Url.Action("Index","NhanVien")">Nhân viên</a></li>
-                            <li><i class="fa fa-puzzle-piece"></i><a href="@Url.Action("Index","Quyen")">Quyền</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="@Url.Action("Index","Permission")">Phân Quyền</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="@Url.Action("Index","NguoiDung")">Người dùng</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="@Url.Action("Index","HopDong")">Hợp đồng</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="@Url.Action("Index","ContractExtension")">Gia hạn hợp đồng</a></li>
+                            <li><i class="fa fa-users"></i><a href="@Url.Action("Index","NhanVien")"><span>Nhân viên</span></a></li>
+                            <li><i class="fa fa-key" aria-hidden="true"></i><a href="@Url.Action("Index","Quyen")"><span>Quyền</span></a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="@Url.Action("Index","Permission")"><span>Phân Quyền</span></a></li>
+                            <li><i class="fa fa-user" aria-hidden="true"></i><a href="@Url.Action("Index","NguoiDung")"><span>Người dùng</span></a></li>
+                            <li><i class="fa fa-file-text-o" aria-hidden="true"></i><a href="@Url.Action("Index","HopDong")"><span>Hợp đồng</span></a></li>
+                            <li><i class="fa fa-calendar" aria-hidden="true"></i><a href="@Url.Action("Index","ContractExtension")"><span>Gia hạn hợp đồng</span></a></li>
+                            <li><i class="fa fa-bars" aria-hidden="true"></i><a href="@Url.Action("Index","LoaiKhaches")"><span>Loại Khách</span></a></li>
                             @*<li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">Cards</a></li>
         <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">Alerts</a></li>
         <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">Progress Bars</a></li>
@@ -49,39 +51,39 @@
         <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li>*@
                         </ul>
                     </li>
-                    <li class="menu-title">Hệ Thống</li>
+                    <li class="menu-title"><span>Hệ Thống</span></li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Nhà thầu</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-suitcase"></i><span>Nhà thầu</span></a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-id-badge"></i><a href="@Url.Action("Index","ContractorStaff")">Nhân viên nhà thầu</a></li>
-                            <li><i class="fa fa-leanpub"></i><a href="@Url.Action("Index","ResultsLearnSafe")">Kết quả học an toàn</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="@Url.Action("Index","ContractorStaff")"><span>Nhân viên nhà thầu</span></a></li>
+                            <li><i class="fa fa-leanpub"></i><a href="@Url.Action("Index","ResultsLearnSafe")"><span>Kết quả học an toàn</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
+                        <a href="widgets.html"> <i class="menu-icon ti-email"></i><span>Widgets</span> </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i><span>Charts</span></a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-line-chart"></i><a href="charts-chartjs.html">Chart JS</a></li>
-                            <li><i class="menu-icon fa fa-area-chart"></i><a href="charts-flot.html">Flot Chart</a></li>
-                            <li><i class="menu-icon fa fa-pie-chart"></i><a href="charts-peity.html">Peity Chart</a></li>
+                            <li><i class="menu-icon fa fa-line-chart"></i><a href="charts-chartjs.html"><span>Chart JS</span></a></li>
+                            <li><i class="menu-icon fa fa-area-chart"></i><a href="charts-flot.html"><span>Flot Chart</span></a></li>
+                            <li><i class="menu-icon fa fa-pie-chart"></i><a href="charts-peity.html"><span>Peity Chart</span></a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-map-marker"></i>Maps</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-map-marker"></i><span>Maps</span></a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-map-o"></i><a href="maps-gmap.html">Google Maps</a></li>
-                            <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html">Vector Maps</a></li>
+                            <li><i class="menu-icon fa fa-map-o"></i><a href="maps-gmap.html"><span>Google Maps</span></a></li>
+                            <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html"><span>Vector Maps</span></a></li>
                         </ul>
                     </li>
-                    <li class="menu-title">Extras</li>
+                    <li class="menu-title"><span>Extras</span></li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i><span>Pages</span></a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
-                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html"><span>Login</span></a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html"><span>Register</span></a></li>
+                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html"><span>Forget Pass</span></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -95,9 +97,9 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><img src="/images/logo.png" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="/images/logo2.png" alt="Logo"></a>
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                    <a class="navbar-brand" href="./"><img src="/images/logo.png" alt="logo"></a>
+                    <a class="navbar-brand hidden" href="./"><img src="#" alt="Logo"></a>
+                    <a id="menuToggle" class="menutoggle" onclick="collapseAside()"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
             <div class="top-right">
@@ -228,3 +230,39 @@
 </body>
 
 </html>
+<script>
+    function collapseAside() {
+
+        /*var a = document.getElementsByClassName("hpContainer")[0];
+        a.classList.toggle("active");
+        console.log("dic cha");
+
+        var item = document.getElementsByClassName("logo")[0];
+        if (item.style.display === "none") {
+            item.style.display = "inline-block";
+        } else {
+            item.style.display = "none";
+        }
+       
+
+        var item = document.getElementById("ctMenu");
+        if (item.style.display === "none") {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+        console.log("ok");*/
+        var l = document.getElementById("left-panel");
+        l.classList.toggle("colapse");
+
+        var r = document.getElementById("right-panel");
+        r.classList.toggle("colapse");
+
+        var lo = document.getElementById("left-overlay");
+        lo.classList.toggle("colapse");
+
+        var sp = document.getElementById("main-menu");
+        sp.classList.toggle("colapse")
+
+    }
+</script>
