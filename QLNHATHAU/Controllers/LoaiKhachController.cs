@@ -40,7 +40,7 @@ namespace QLNHATHAU.Controllers
             {
                 try
                 {
-                    var data = db_context.LoaiKhaces_insert(
+                    var data = db_context.LoaiKhach_insert(
                         _DO.IDLoaiKhach,
                         _DO.TenKhach
                  );

@@ -692,5 +692,6 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="LoaiKhach_update" FunctionName="QLNhaThauModel.Store.LoaiKhach_update" />
+    <FunctionImportMapping FunctionImportName="LoaiKhach_insert" FunctionName="QLNhaThauModel.Store.LoaiKhach_insert" />
   </EntityContainerMapping>
 </Mapping>

@@ -795,6 +795,10 @@
       <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
       <Parameter Name="TenKhach" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="LoaiKhach_insert">
+      <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
+      <Parameter Name="TenKhach" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="Card_SearchByID_Result">
     <Property Type="Int32" Name="IDCard" Nullable="false" />

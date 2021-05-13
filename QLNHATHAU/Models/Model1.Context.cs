@@ -1265,5 +1265,18 @@ namespace QLNHATHAU.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LoaiKhach_update", iDLoaiKhachParameter, tenKhachParameter);
         }
+    
+        public virtual int LoaiKhach_insert(Nullable<int> iDLoaiKhach, string tenKhach)
+        {
+            var iDLoaiKhachParameter = iDLoaiKhach.HasValue ?
+                new ObjectParameter("IDLoaiKhach", iDLoaiKhach) :
+                new ObjectParameter("IDLoaiKhach", typeof(int));
+    
+            var tenKhachParameter = tenKhach != null ?
+                new ObjectParameter("TenKhach", tenKhach) :
+                new ObjectParameter("TenKhach", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LoaiKhach_insert", iDLoaiKhachParameter, tenKhachParameter);
+        }
     }
 }

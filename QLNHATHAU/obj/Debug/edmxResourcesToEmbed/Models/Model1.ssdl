@@ -461,6 +461,10 @@
   <Function Name="LoaiKhach_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
   </Function>
+  <Function Name="LoaiKhach_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
+    <Parameter Name="TenKhach" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="LoaiKhach_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
   </Function>

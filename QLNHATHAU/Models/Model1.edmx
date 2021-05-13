@@ -466,6 +466,10 @@
         <Function Name="LoaiKhach_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
         </Function>
+        <Function Name="LoaiKhach_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
+          <Parameter Name="TenKhach" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="LoaiKhach_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
         </Function>
@@ -1563,13 +1567,17 @@
           </FunctionImport>
           <FunctionImport Name="LK_Select" ReturnType="Collection(QLNhaThauModel.LK_Select_Result)" />
           <FunctionImport Name="LoaiKhach_delete">
-            <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
+          <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LoaiKhach_SearchByID" ReturnType="Collection(QLNhaThauModel.LoaiKhach_SearchByID_Result)">
-            <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
+          <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LoaiKhach_Select" ReturnType="Collection(QLNhaThauModel.LoaiKhach_Select_Result)" />
           <FunctionImport Name="LoaiKhach_update">
+            <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
+            <Parameter Name="TenKhach" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="LoaiKhach_insert">
             <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
             <Parameter Name="TenKhach" Mode="In" Type="String" />
           </FunctionImport>
@@ -2547,6 +2555,7 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="LoaiKhach_update" FunctionName="QLNhaThauModel.Store.LoaiKhach_update" />
+          <FunctionImportMapping FunctionImportName="LoaiKhach_insert" FunctionName="QLNhaThauModel.Store.LoaiKhach_insert" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
