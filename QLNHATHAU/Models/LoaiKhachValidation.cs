@@ -9,7 +9,7 @@ namespace QLNHATHAU.Models
     public class LoaiKhachValidation
     {
         //[Required]
-        public int Id { get; set; }
+        public int IDLoaiKhach { get; set; }
         public string TenKhach { get; set; }
     }
 } 

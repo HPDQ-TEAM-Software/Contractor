@@ -32,7 +32,7 @@
     <Key>
       <PropertyRef Name="IDCONG" />
     </Key>
-    <Property Name="IDCONG" Type="int" Nullable="false" />
+    <Property Name="IDCONG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenCong" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="GiaHanHD">
@@ -332,7 +332,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PhanQuyen_Quyen">
+  <Association Name="FK_PhanQuyen_Quyen1">
     <End Role="Quyen" Type="Self.Quyen" Multiplicity="0..1" />
     <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
     <ReferentialConstraint>
@@ -458,10 +458,17 @@
     <Parameter Name="NgayHoc" Type="datetime" Mode="In" />
     <Parameter Name="KetQua" Type="bit" Mode="In" />
   </Function>
-  <Function Name="LK_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="id" Type="int" Mode="In" />
+  <Function Name="LoaiKhach_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
   </Function>
-  <Function Name="LK_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="LoaiKhach_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LoaiKhach_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="LoaiKhach_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
+    <Parameter Name="TenKhach" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="MaNVNT_KQHocANT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
   </Function>
@@ -646,7 +653,7 @@
     <Parameter Name="TenQuyen" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="Quyen_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="IDQuyen" Type="int" Mode="In" />
+    <Parameter Name="IDCong" Type="int" Mode="In" />
   </Function>
   <Function Name="Quyen_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Quyen_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -757,7 +764,7 @@
       <End Role="NguoiDung" EntitySet="NguoiDung" />
       <End Role="PhanQuyen" EntitySet="PhanQuyen" />
     </AssociationSet>
-    <AssociationSet Name="FK_PhanQuyen_Quyen" Association="Self.FK_PhanQuyen_Quyen">
+    <AssociationSet Name="FK_PhanQuyen_Quyen1" Association="Self.FK_PhanQuyen_Quyen1">
       <End Role="Quyen" EntitySet="Quyen" />
       <End Role="PhanQuyen" EntitySet="PhanQuyen" />
     </AssociationSet>

@@ -674,21 +674,23 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="TenNT_KQHocANT" FunctionName="QLNhaThauModel.Store.TenNT_KQHocANT" />
-    <FunctionImportMapping FunctionImportName="LK_Delete" FunctionName="QLNhaThauModel.Store.LK_Delete">
+    <FunctionImportMapping FunctionImportName="LoaiKhach_delete" FunctionName="QLNhaThauModel.Store.LoaiKhach_delete" />
+    <FunctionImportMapping FunctionImportName="LoaiKhach_SearchByID" FunctionName="QLNhaThauModel.Store.LoaiKhach_SearchByID">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="QLNhaThauModel.LK_Delete_Result">
+        <ComplexTypeMapping TypeName="QLNhaThauModel.LoaiKhach_SearchByID_Result">
           <ScalarProperty Name="IDLoaiKhach" ColumnName="IDLoaiKhach" />
           <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="LK_Select" FunctionName="QLNhaThauModel.Store.LK_Select">
+    <FunctionImportMapping FunctionImportName="LoaiKhach_Select" FunctionName="QLNhaThauModel.Store.LoaiKhach_Select">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="QLNhaThauModel.LK_Select_Result">
+        <ComplexTypeMapping TypeName="QLNhaThauModel.LoaiKhach_Select_Result">
           <ScalarProperty Name="IDLoaiKhach" ColumnName="IDLoaiKhach" />
           <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LoaiKhach_update" FunctionName="QLNhaThauModel.Store.LoaiKhach_update" />
   </EntityContainerMapping>
 </Mapping>

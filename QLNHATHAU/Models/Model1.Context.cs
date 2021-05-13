@@ -1059,13 +1059,13 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Quyen_insert", tenQuyenParameter);
         }
     
-        public virtual ObjectResult<Quyen_SearchByID_Result> Quyen_SearchByID(Nullable<int> iDQuyen)
+        public virtual ObjectResult<Quyen_SearchByID_Result> Quyen_SearchByID(Nullable<int> iDCong)
         {
-            var iDQuyenParameter = iDQuyen.HasValue ?
-                new ObjectParameter("IDQuyen", iDQuyen) :
-                new ObjectParameter("IDQuyen", typeof(int));
+            var iDCongParameter = iDCong.HasValue ?
+                new ObjectParameter("IDCong", iDCong) :
+                new ObjectParameter("IDCong", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Quyen_SearchByID_Result>("Quyen_SearchByID", iDQuyenParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Quyen_SearchByID_Result>("Quyen_SearchByID", iDCongParameter);
         }
     
         public virtual ObjectResult<Quyen_select_Result> Quyen_select()
@@ -1228,6 +1228,42 @@ namespace QLNHATHAU.Models
         public virtual ObjectResult<LK_Select_Result> LK_Select()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LK_Select_Result>("LK_Select");
+        }
+    
+        public virtual int LoaiKhach_delete(Nullable<int> iDLoaiKhach)
+        {
+            var iDLoaiKhachParameter = iDLoaiKhach.HasValue ?
+                new ObjectParameter("IDLoaiKhach", iDLoaiKhach) :
+                new ObjectParameter("IDLoaiKhach", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LoaiKhach_delete", iDLoaiKhachParameter);
+        }
+    
+        public virtual ObjectResult<LoaiKhach_SearchByID_Result> LoaiKhach_SearchByID(Nullable<int> iDLoaiKhach)
+        {
+            var iDLoaiKhachParameter = iDLoaiKhach.HasValue ?
+                new ObjectParameter("IDLoaiKhach", iDLoaiKhach) :
+                new ObjectParameter("IDLoaiKhach", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LoaiKhach_SearchByID_Result>("LoaiKhach_SearchByID", iDLoaiKhachParameter);
+        }
+    
+        public virtual ObjectResult<LoaiKhach_Select_Result> LoaiKhach_Select()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LoaiKhach_Select_Result>("LoaiKhach_Select");
+        }
+    
+        public virtual int LoaiKhach_update(Nullable<int> iDLoaiKhach, string tenKhach)
+        {
+            var iDLoaiKhachParameter = iDLoaiKhach.HasValue ?
+                new ObjectParameter("IDLoaiKhach", iDLoaiKhach) :
+                new ObjectParameter("IDLoaiKhach", typeof(int));
+    
+            var tenKhachParameter = tenKhach != null ?
+                new ObjectParameter("TenKhach", tenKhach) :
+                new ObjectParameter("TenKhach", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LoaiKhach_update", iDLoaiKhachParameter, tenKhachParameter);
         }
     }
 }

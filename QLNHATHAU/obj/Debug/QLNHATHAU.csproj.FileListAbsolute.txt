@@ -581,7 +581,4 @@ D:\OneDrive - hoaphat.com.vn\QLNHATHAU\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.Copy
 D:\OneDrive - hoaphat.com.vn\QLNHATHAU\QLNHATHAU\obj\Debug\QLNHATHAU.dll
 D:\OneDrive - hoaphat.com.vn\QLNHATHAU\QLNHATHAU\obj\Debug\QLNHATHAU.pdb
 D:\OneDrive - hoaphat.com.vn\QLNHATHAU\QLNHATHAU\obj\Debug\QLNHATHAU.csprojAssemblyReference.cache
-C:\Users\HPDQ\QLNT\QLNHATHAU\obj\Debug\QLNHATHAU.csprojAssemblyReference.cache
 C:\Users\HPDQ\QLNT\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CoreCompileInputs.cache
-C:\Users\HPDQ\QLNT\QLNHATHAU\obj\Debug\QLNHATHAU.dll
-C:\Users\HPDQ\QLNT\QLNHATHAU\obj\Debug\QLNHATHAU.pdb

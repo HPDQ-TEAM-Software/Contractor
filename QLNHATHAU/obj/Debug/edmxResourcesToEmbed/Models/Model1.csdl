@@ -734,7 +734,7 @@
       <Parameter Name="TenQuyen" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="Quyen_SearchByID" ReturnType="Collection(QLNhaThauModel.Quyen_SearchByID_Result)">
-      <Parameter Name="IDQuyen" Mode="In" Type="Int32" />
+      <Parameter Name="IDCong" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Quyen_select" ReturnType="Collection(QLNhaThauModel.Quyen_select_Result)" />
     <FunctionImport Name="Quyen_update">
@@ -784,6 +784,17 @@
       <Parameter Name="id" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="LK_Select" ReturnType="Collection(QLNhaThauModel.LK_Select_Result)" />
+    <FunctionImport Name="LoaiKhach_delete">
+      <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LoaiKhach_SearchByID" ReturnType="Collection(QLNhaThauModel.LoaiKhach_SearchByID_Result)">
+      <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LoaiKhach_Select" ReturnType="Collection(QLNhaThauModel.LoaiKhach_Select_Result)" />
+    <FunctionImport Name="LoaiKhach_update">
+      <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
+      <Parameter Name="TenKhach" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="Card_SearchByID_Result">
     <Property Type="Int32" Name="IDCard" Nullable="false" />
@@ -1050,6 +1061,14 @@
     <Property Type="String" Name="TenKhach" Nullable="true" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="LK_Select_Result">
+    <Property Type="Int32" Name="IDLoaiKhach" Nullable="false" />
+    <Property Type="String" Name="TenKhach" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="LoaiKhach_SearchByID_Result">
+    <Property Type="Int32" Name="IDLoaiKhach" Nullable="false" />
+    <Property Type="String" Name="TenKhach" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="LoaiKhach_Select_Result">
     <Property Type="Int32" Name="IDLoaiKhach" Nullable="false" />
     <Property Type="String" Name="TenKhach" Nullable="true" MaxLength="50" />
   </ComplexType>

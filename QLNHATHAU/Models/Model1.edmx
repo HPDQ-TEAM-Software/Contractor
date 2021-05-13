@@ -37,7 +37,7 @@
           <Key>
             <PropertyRef Name="IDCONG" />
           </Key>
-          <Property Name="IDCONG" Type="int" Nullable="false" />
+          <Property Name="IDCONG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenCong" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="GiaHanHD">
@@ -337,7 +337,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PhanQuyen_Quyen">
+        <Association Name="FK_PhanQuyen_Quyen1">
           <End Role="Quyen" Type="Self.Quyen" Multiplicity="0..1" />
           <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
           <ReferentialConstraint>
@@ -463,10 +463,17 @@
           <Parameter Name="NgayHoc" Type="datetime" Mode="In" />
           <Parameter Name="KetQua" Type="bit" Mode="In" />
         </Function>
-        <Function Name="LK_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
+        <Function Name="LoaiKhach_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
         </Function>
-        <Function Name="LK_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="LoaiKhach_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
+        </Function>
+        <Function Name="LoaiKhach_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="LoaiKhach_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
+          <Parameter Name="TenKhach" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="MaNVNT_KQHocANT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
         </Function>
@@ -651,7 +658,7 @@
           <Parameter Name="TenQuyen" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="Quyen_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IDQuyen" Type="int" Mode="In" />
+          <Parameter Name="IDCong" Type="int" Mode="In" />
         </Function>
         <Function Name="Quyen_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Quyen_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -762,7 +769,7 @@
             <End Role="NguoiDung" EntitySet="NguoiDung" />
             <End Role="PhanQuyen" EntitySet="PhanQuyen" />
           </AssociationSet>
-          <AssociationSet Name="FK_PhanQuyen_Quyen" Association="Self.FK_PhanQuyen_Quyen">
+          <AssociationSet Name="FK_PhanQuyen_Quyen1" Association="Self.FK_PhanQuyen_Quyen1">
             <End Role="Quyen" EntitySet="Quyen" />
             <End Role="PhanQuyen" EntitySet="PhanQuyen" />
           </AssociationSet>
@@ -1505,7 +1512,7 @@
           <Parameter Name="TenQuyen" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Quyen_SearchByID" ReturnType="Collection(QLNhaThauModel.Quyen_SearchByID_Result)">
-          <Parameter Name="IDQuyen" Mode="In" Type="Int32" />
+          <Parameter Name="IDCong" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Quyen_select" ReturnType="Collection(QLNhaThauModel.Quyen_select_Result)" />
           <FunctionImport Name="Quyen_update">
@@ -1555,6 +1562,17 @@
             <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LK_Select" ReturnType="Collection(QLNhaThauModel.LK_Select_Result)" />
+          <FunctionImport Name="LoaiKhach_delete">
+            <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="LoaiKhach_SearchByID" ReturnType="Collection(QLNhaThauModel.LoaiKhach_SearchByID_Result)">
+            <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="LoaiKhach_Select" ReturnType="Collection(QLNhaThauModel.LoaiKhach_Select_Result)" />
+          <FunctionImport Name="LoaiKhach_update">
+            <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
+            <Parameter Name="TenKhach" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Card_SearchByID_Result">
           <Property Type="Int32" Name="IDCard" Nullable="false" />
@@ -1821,6 +1839,14 @@
           <Property Type="String" Name="TenKhach" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="LK_Select_Result">
+          <Property Type="Int32" Name="IDLoaiKhach" Nullable="false" />
+          <Property Type="String" Name="TenKhach" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="LoaiKhach_SearchByID_Result">
+          <Property Type="Int32" Name="IDLoaiKhach" Nullable="false" />
+          <Property Type="String" Name="TenKhach" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="LoaiKhach_Select_Result">
           <Property Type="Int32" Name="IDLoaiKhach" Nullable="false" />
           <Property Type="String" Name="TenKhach" Nullable="true" MaxLength="50" />
         </ComplexType>
@@ -2503,23 +2529,25 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="TenNT_KQHocANT" FunctionName="QLNhaThauModel.Store.TenNT_KQHocANT" />
-          <FunctionImportMapping FunctionImportName="LK_Delete" FunctionName="QLNhaThauModel.Store.LK_Delete">
+          <FunctionImportMapping FunctionImportName="LoaiKhach_delete" FunctionName="QLNhaThauModel.Store.LoaiKhach_delete" />
+          <FunctionImportMapping FunctionImportName="LoaiKhach_SearchByID" FunctionName="QLNhaThauModel.Store.LoaiKhach_SearchByID">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="QLNhaThauModel.LK_Delete_Result">
+              <ComplexTypeMapping TypeName="QLNhaThauModel.LoaiKhach_SearchByID_Result">
                 <ScalarProperty Name="IDLoaiKhach" ColumnName="IDLoaiKhach" />
                 <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="LK_Select" FunctionName="QLNhaThauModel.Store.LK_Select">
+          <FunctionImportMapping FunctionImportName="LoaiKhach_Select" FunctionName="QLNhaThauModel.Store.LoaiKhach_Select">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="QLNhaThauModel.LK_Select_Result">
+              <ComplexTypeMapping TypeName="QLNhaThauModel.LoaiKhach_Select_Result">
                 <ScalarProperty Name="IDLoaiKhach" ColumnName="IDLoaiKhach" />
                 <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-        </EntityContainerMapping>
+          <FunctionImportMapping FunctionImportName="LoaiKhach_update" FunctionName="QLNhaThauModel.Store.LoaiKhach_update" />
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
