@@ -141,6 +141,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CongController.cs" />
     <Compile Include="Controllers\ContractExtensionController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\ContractorStaffController.cs" />
@@ -175,6 +176,13 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cong.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CongValidation.cs" />
+    <Compile Include="Models\Cong_SearchByID_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cong_Select_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ContractExtensionValidation.cs" />
@@ -1080,6 +1088,9 @@
     <Content Include="Views\EmployeeIndetityCard\Create.cshtml" />
     <Content Include="Views\LoaiKhach\Index.cshtml" />
     <Content Include="Views\LoaiKhach\Create.cshtml" />
+    <Content Include="Views\Cong\Create.cshtml" />
+    <Content Include="Views\Cong\Edit.cshtml" />
+    <Content Include="Views\Cong\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1059,13 +1059,13 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Quyen_insert", tenQuyenParameter);
         }
     
-        public virtual ObjectResult<Quyen_SearchByID_Result> Quyen_SearchByID(Nullable<int> iDCong)
+        public virtual ObjectResult<Quyen_SearchByID_Result> Quyen_SearchByID(Nullable<int> iDQuyen)
         {
-            var iDCongParameter = iDCong.HasValue ?
-                new ObjectParameter("IDCong", iDCong) :
-                new ObjectParameter("IDCong", typeof(int));
+            var iDQuyenParameter = iDQuyen.HasValue ?
+                new ObjectParameter("IDQuyen", iDQuyen) :
+                new ObjectParameter("IDQuyen", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Quyen_SearchByID_Result>("Quyen_SearchByID", iDCongParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Quyen_SearchByID_Result>("Quyen_SearchByID", iDQuyenParameter);
         }
     
         public virtual ObjectResult<Quyen_select_Result> Quyen_select()
@@ -1277,6 +1277,51 @@ namespace QLNHATHAU.Models
                 new ObjectParameter("TenKhach", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LoaiKhach_insert", iDLoaiKhachParameter, tenKhachParameter);
+        }
+    
+        public virtual int Cong_delete(Nullable<int> iDCong)
+        {
+            var iDCongParameter = iDCong.HasValue ?
+                new ObjectParameter("IDCong", iDCong) :
+                new ObjectParameter("IDCong", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Cong_delete", iDCongParameter);
+        }
+    
+        public virtual int Cong_insert(string tenCong)
+        {
+            var tenCongParameter = tenCong != null ?
+                new ObjectParameter("TenCong", tenCong) :
+                new ObjectParameter("TenCong", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Cong_insert", tenCongParameter);
+        }
+    
+        public virtual ObjectResult<Cong_SearchByID_Result> Cong_SearchByID(Nullable<int> iDCong)
+        {
+            var iDCongParameter = iDCong.HasValue ?
+                new ObjectParameter("IDCong", iDCong) :
+                new ObjectParameter("IDCong", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cong_SearchByID_Result>("Cong_SearchByID", iDCongParameter);
+        }
+    
+        public virtual ObjectResult<Cong_Select_Result> Cong_Select()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cong_Select_Result>("Cong_Select");
+        }
+    
+        public virtual int Cong_update(Nullable<int> iDCong, string tenCong)
+        {
+            var iDCongParameter = iDCong.HasValue ?
+                new ObjectParameter("IDCong", iDCong) :
+                new ObjectParameter("IDCong", typeof(int));
+    
+            var tenCongParameter = tenCong != null ?
+                new ObjectParameter("TenCong", tenCong) :
+                new ObjectParameter("TenCong", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Cong_update", iDCongParameter, tenCongParameter);
         }
     }
 }

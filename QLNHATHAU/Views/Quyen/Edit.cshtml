@@ -17,7 +17,7 @@
                 <fieldset id="SubmitForm">
                     @Html.HiddenFor(model => model.IDQuyen)
                     <div class="form-row">
-                        <label class="small mb-1">Thêm quyền</label>
+                        <label class="small mb-1">Thêm tên quyền</label>
                         @Html.EditorFor(model => model.TenQuyen, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập Tên Quyền", @id = "TenQuyen" } })
                         @Html.ValidationMessageFor(model => model.TenQuyen, "", new { @class = "text-danger" })
                     </div>

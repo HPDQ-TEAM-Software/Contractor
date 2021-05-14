@@ -734,7 +734,7 @@
       <Parameter Name="TenQuyen" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="Quyen_SearchByID" ReturnType="Collection(QLNhaThauModel.Quyen_SearchByID_Result)">
-      <Parameter Name="IDCong" Mode="In" Type="Int32" />
+      <Parameter Name="IDQuyen" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Quyen_select" ReturnType="Collection(QLNhaThauModel.Quyen_select_Result)" />
     <FunctionImport Name="Quyen_update">
@@ -798,6 +798,20 @@
     <FunctionImport Name="LoaiKhach_insert">
       <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
       <Parameter Name="TenKhach" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Cong_delete">
+      <Parameter Name="IDCong" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Cong_insert">
+      <Parameter Name="TenCong" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Cong_SearchByID" ReturnType="Collection(QLNhaThauModel.Cong_SearchByID_Result)">
+      <Parameter Name="IDCong" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Cong_Select" ReturnType="Collection(QLNhaThauModel.Cong_Select_Result)" />
+    <FunctionImport Name="Cong_update">
+      <Parameter Name="IDCong" Mode="In" Type="Int32" />
+      <Parameter Name="TenCong" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="Card_SearchByID_Result">
@@ -1075,5 +1089,13 @@
   <ComplexType Name="LoaiKhach_Select_Result">
     <Property Type="Int32" Name="IDLoaiKhach" Nullable="false" />
     <Property Type="String" Name="TenKhach" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Cong_SearchByID_Result">
+    <Property Type="Int32" Name="IDCONG" Nullable="false" />
+    <Property Type="String" Name="TenCong" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Cong_Select_Result">
+    <Property Type="Int32" Name="IDCong" Nullable="false" />
+    <Property Type="String" Name="TenCong" Nullable="true" MaxLength="50" />
   </ComplexType>
 </Schema>

@@ -693,5 +693,24 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="LoaiKhach_update" FunctionName="QLNhaThauModel.Store.LoaiKhach_update" />
     <FunctionImportMapping FunctionImportName="LoaiKhach_insert" FunctionName="QLNhaThauModel.Store.LoaiKhach_insert" />
+    <FunctionImportMapping FunctionImportName="Cong_delete" FunctionName="QLNhaThauModel.Store.Cong_delete" />
+    <FunctionImportMapping FunctionImportName="Cong_insert" FunctionName="QLNhaThauModel.Store.Cong_insert" />
+    <FunctionImportMapping FunctionImportName="Cong_SearchByID" FunctionName="QLNhaThauModel.Store.Cong_SearchByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLNhaThauModel.Cong_SearchByID_Result">
+          <ScalarProperty Name="IDCONG" ColumnName="IDCONG" />
+          <ScalarProperty Name="TenCong" ColumnName="TenCong" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Cong_Select" FunctionName="QLNhaThauModel.Store.Cong_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLNhaThauModel.Cong_Select_Result">
+          <ScalarProperty Name="IDCong" ColumnName="IDCong" />
+          <ScalarProperty Name="TenCong" ColumnName="TenCong" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Cong_update" FunctionName="QLNhaThauModel.Store.Cong_update" />
   </EntityContainerMapping>
 </Mapping>

@@ -365,6 +365,20 @@
           <Parameter Name="MaCard" Type="nchar" Mode="In" />
           <Parameter Name="NgayHetHan" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="Cong_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDCong" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Cong_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenCong" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Cong_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDCong" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Cong_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Cong_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDCong" Type="int" Mode="In" />
+          <Parameter Name="TenCong" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="Delete_PhanQyen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NguoiDungID" Type="int" Mode="In" />
         </Function>
@@ -662,7 +676,7 @@
           <Parameter Name="TenQuyen" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="Quyen_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IDCong" Type="int" Mode="In" />
+          <Parameter Name="IDQuyen" Type="int" Mode="In" />
         </Function>
         <Function Name="Quyen_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Quyen_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1516,7 +1530,7 @@
           <Parameter Name="TenQuyen" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Quyen_SearchByID" ReturnType="Collection(QLNhaThauModel.Quyen_SearchByID_Result)">
-          <Parameter Name="IDCong" Mode="In" Type="Int32" />
+          <Parameter Name="IDQuyen" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Quyen_select" ReturnType="Collection(QLNhaThauModel.Quyen_select_Result)" />
           <FunctionImport Name="Quyen_update">
@@ -1580,6 +1594,20 @@
           <FunctionImport Name="LoaiKhach_insert">
             <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
             <Parameter Name="TenKhach" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Cong_delete">
+          <Parameter Name="IDCong" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Cong_insert">
+          <Parameter Name="TenCong" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Cong_SearchByID" ReturnType="Collection(QLNhaThauModel.Cong_SearchByID_Result)">
+          <Parameter Name="IDCong" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Cong_Select" ReturnType="Collection(QLNhaThauModel.Cong_Select_Result)" />
+          <FunctionImport Name="Cong_update">
+            <Parameter Name="IDCong" Mode="In" Type="Int32" />
+            <Parameter Name="TenCong" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Card_SearchByID_Result">
@@ -1857,6 +1885,14 @@
         <ComplexType Name="LoaiKhach_Select_Result">
           <Property Type="Int32" Name="IDLoaiKhach" Nullable="false" />
           <Property Type="String" Name="TenKhach" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Cong_SearchByID_Result">
+          <Property Type="Int32" Name="IDCONG" Nullable="false" />
+          <Property Type="String" Name="TenCong" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Cong_Select_Result">
+          <Property Type="Int32" Name="IDCong" Nullable="false" />
+          <Property Type="String" Name="TenCong" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2556,6 +2592,25 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="LoaiKhach_update" FunctionName="QLNhaThauModel.Store.LoaiKhach_update" />
           <FunctionImportMapping FunctionImportName="LoaiKhach_insert" FunctionName="QLNhaThauModel.Store.LoaiKhach_insert" />
+          <FunctionImportMapping FunctionImportName="Cong_delete" FunctionName="QLNhaThauModel.Store.Cong_delete" />
+          <FunctionImportMapping FunctionImportName="Cong_insert" FunctionName="QLNhaThauModel.Store.Cong_insert" />
+          <FunctionImportMapping FunctionImportName="Cong_SearchByID" FunctionName="QLNhaThauModel.Store.Cong_SearchByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLNhaThauModel.Cong_SearchByID_Result">
+                <ScalarProperty Name="IDCONG" ColumnName="IDCONG" />
+                <ScalarProperty Name="TenCong" ColumnName="TenCong" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Cong_Select" FunctionName="QLNhaThauModel.Store.Cong_Select">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLNhaThauModel.Cong_Select_Result">
+                <ScalarProperty Name="IDCong" ColumnName="IDCong" />
+                <ScalarProperty Name="TenCong" ColumnName="TenCong" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Cong_update" FunctionName="QLNhaThauModel.Store.Cong_update" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

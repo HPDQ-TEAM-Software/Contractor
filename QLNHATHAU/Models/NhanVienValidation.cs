@@ -24,7 +24,10 @@ namespace QLNHATHAU.Models
         [RegularExpression(@"^(\d{10})$", ErrorMessage = "Số điện thoại không hợp lệ.")]
         [Required(ErrorMessage = "Số điện thoại.")]
         public string SDT { get; set; }
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+
+        
+        [EmailAddress(ErrorMessage = "Email không hợp lệ.")]
+        [Required(ErrorMessage = "Nhập tên Email.")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Nhập ngày vào làm.")]
