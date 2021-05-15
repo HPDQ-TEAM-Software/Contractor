@@ -1147,7 +1147,7 @@ aside.left-panel:hover {
 /* 3.2 ------- Right panel ------ */
 
 .right-panel {
-  background: #f5f5f5;
+  background: #fcfcfc;
   margin-left: 16rem;
   margin-top: 50px; 
   height: calc(100vh - 50px);
@@ -3375,7 +3375,7 @@ img.align-self-center.rounded-circle.mr-3 {
 /* 17 ------- Footer ------- */
 
 footer.site-footer {
-  background-color: #f5f5f5;
+  background-color: #fcfcfc;
   padding: 0 1.875em; 
 }
 footer.site-footer .footer-inner {
