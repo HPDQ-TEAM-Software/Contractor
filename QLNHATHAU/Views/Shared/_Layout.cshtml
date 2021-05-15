@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Quản lý nhà thầu - Công Ty Cổ Phần Thep Hòa Phát Dung Quất</title>
+    <title>Quản lý nhà thầu - Công Ty Cổ Phần Thép Hòa Phát Dung Quất</title>
     <meta name="description" content="Quản lý nhà thầu - Công Ty Cổ Phần Thep Hòa Phát Dung Quất">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="images/favicon.png">
@@ -22,16 +22,14 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
 </head>
 <body>
-    
+
     <aside id="left-panel" class="left-panel">
-        <div class="left-overlay" id="left-overlay"></div>
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li class="">
                         <a href="index.html"><i class="menu-icon fa fa-laptop"></i><span>Tổng quan</span> </a>
                     </li>
-                    <li class="menu-title"><span>Cấu hình</span></li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cog"></i><span>Quản trị</span></a>
                         <ul class="sub-menu children dropdown-menu">
@@ -42,18 +40,16 @@
                             <li><i class="fa fa-file-text-o" aria-hidden="true"></i><a href="@Url.Action("Index","HopDong")"><span>Hợp đồng</span></a></li>
                             <li><i class="fa fa-calendar" aria-hidden="true"></i><a href="@Url.Action("Index","ContractExtension")"><span>Gia hạn hợp đồng</span></a></li>
                             <li><i class="fa fa-bars" aria-hidden="true"></i><a href="@Url.Action("Index","LoaiKhach")"><span>Loại Khách</span></a></li>
-                            <li><i class="fa fa-dungeon" aria-hidden="true"></i><a href="@Url.Action("Index","Cong")"><span>Cổng</span></a></li>
-                   
                             @*<li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">Cards</a></li>
-        <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">Alerts</a></li>
-        <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">Progress Bars</a></li>
-        <li><i class="fa fa-fire"></i><a href="ui-modals.html">Modals</a></li>
-        <li><i class="fa fa-book"></i><a href="ui-switches.html">Switches</a></li>
-        <li><i class="fa fa-th"></i><a href="ui-grids.html">Grids</a></li>
-        <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li>*@
+                            <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">Alerts</a></li>
+                            <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">Progress Bars</a></li>
+                            <li><i class="fa fa-fire"></i><a href="ui-modals.html">Modals</a></li>
+                            <li><i class="fa fa-book"></i><a href="ui-switches.html">Switches</a></li>
+                            <li><i class="fa fa-th"></i><a href="ui-grids.html">Grids</a></li>
+                            <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li>*@
                         </ul>
                     </li>
-                    <li class="menu-title"><span>Hệ Thống</span></li>
+
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-suitcase"></i><span>Nhà thầu</span></a>
                         <ul class="sub-menu children dropdown-menu">
@@ -79,7 +75,7 @@
                             <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html"><span>Vector Maps</span></a></li>
                         </ul>
                     </li>
-                    <li class="menu-title"><span>Extras</span></li>
+
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i><span>Pages</span></a>
                         <ul class="sub-menu children dropdown-menu">
@@ -96,100 +92,317 @@
 
     <div id="right-panel" class="right-panel">
 
-        <header id="header" class="header">
-            <div class="top-left">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><img src="/images/logo.png" alt="logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="#" alt="Logo"></a>
-                    <a id="menuToggle" class="menutoggle" onclick="collapseAside()"><i class="fa fa-bars"></i></a>
-                </div>
-            </div>
-            <div class="top-right">
-                <div class="header-menu">
-                    <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
-                        <div class="form-inline">
-                            <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                            </form>
-                        </div>
-                        <div class="dropdown for-notification">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-bell"></i>
-                                <span class="count bg-danger">3</span>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="notification">
-                                <p class="red">You have 3 Notification</p>
-                                <a class="dropdown-item media" href="#">
-                                    <i class="fa fa-check"></i>
-                                    <p>Server #1 overloaded.</p>
-                                </a>
-                                <a class="dropdown-item media" href="#">
-                                    <i class="fa fa-info"></i>
-                                    <p>Server #2 overloaded.</p>
-                                </a>
-                                <a class="dropdown-item media" href="#">
-                                    <i class="fa fa-warning"></i>
-                                    <p>Server #3 overloaded.</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="dropdown for-message">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-envelope"></i>
-                                <span class="count bg-primary">4</span>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="message">
-                                <p class="red">You have 4 Mails</p>
-                                <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
-                                    <div class="message media-body">
-                                        <span class="name float-left">Jonathan Smith</span>
-                                        <span class="time float-right">Just now</span>
-                                        <p>Hello, this is an example msg</p>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"></span>
-                                    <div class="message media-body">
-                                        <span class="name float-left">Jack Sanders</span>
-                                        <span class="time float-right">5 minutes ago</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"></span>
-                                    <div class="message media-body">
-                                        <span class="name float-left">Cheryl Wheeler</span>
-                                        <span class="time float-right">10 minutes ago</span>
-                                        <p>Hello, this is an example msg</p>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"></span>
-                                    <div class="message media-body">
-                                        <span class="name float-left">Rachel Santos</span>
-                                        <span class="time float-right">15 minutes ago</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
-                        </a>
-                        <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
-                            <a class="nav-link" href="#"><i class="fa fa-bell-o"></i>Notifications <span class="count">13</span></a>
-                            <a class="nav-link" href="#"><i class="fa fa-cog"></i>Settings</a>
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
-                        </div>
+        @*<header id="header" class="header">
+                <div class="top-left">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="./"><img src="/images/logo.png" alt="logo"></a>
+                        <a class="navbar-brand hidden" href="./"><img src="#" alt="Logo"></a>
+                        <a id="menuToggle" class="menutoggle" onclick="collapseAside()"><i class="fa fa-bars"></i></a>
                     </div>
                 </div>
-            </div>
+                <div class="top-right">
+                    <div class="header-menu">
+                        <div class="header-left">
+                            <button class="search-trigger"><i class="fa fa-search"></i></button>
+                            <div class="form-inline">
+                                <form class="search-form">
+                                    <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                                    <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                                </form>
+                            </div>
+                            <div class="dropdown for-notification">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-bell"></i>
+                                    <span class="count bg-danger">3</span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="notification">
+                                    <p class="red">You have 3 Notification</p>
+                                    <a class="dropdown-item media" href="#">
+                                        <i class="fa fa-check"></i>
+                                        <p>Server #1 overloaded.</p>
+                                    </a>
+                                    <a class="dropdown-item media" href="#">
+                                        <i class="fa fa-info"></i>
+                                        <p>Server #2 overloaded.</p>
+                                    </a>
+                                    <a class="dropdown-item media" href="#">
+                                        <i class="fa fa-warning"></i>
+                                        <p>Server #3 overloaded.</p>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown for-message">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-envelope"></i>
+                                    <span class="count bg-primary">4</span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="message">
+                                    <p class="red">You have 4 Mails</p>
+                                    <a class="dropdown-item media" href="#">
+                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
+                                        <div class="message media-body">
+                                            <span class="name float-left">Jonathan Smith</span>
+                                            <span class="time float-right">Just now</span>
+                                            <p>Hello, this is an example msg</p>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item media" href="#">
+                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"></span>
+                                        <div class="message media-body">
+                                            <span class="name float-left">Jack Sanders</span>
+                                            <span class="time float-right">5 minutes ago</span>
+                                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item media" href="#">
+                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"></span>
+                                        <div class="message media-body">
+                                            <span class="name float-left">Cheryl Wheeler</span>
+                                            <span class="time float-right">10 minutes ago</span>
+                                            <p>Hello, this is an example msg</p>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item media" href="#">
+                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"></span>
+                                        <div class="message media-body">
+                                            <span class="name float-left">Rachel Santos</span>
+                                            <span class="time float-right">15 minutes ago</span>
+                                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown for-color">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="for-color">
+                                    <ul class="rad-dropmenu-item rad-settings active">
+                                        <li class="rad-dropmenu-header"><a href="#">Settings</a></li>
+                                        <li class="rad-notification-item text-left">
+                                            <div class="pull-left"><i class="fa fa-link"></i></div>
+                                            <div class="pull-right">
+                                                <label class="rad-chk-pin pull-right">
+                                                    <input type="checkbox"><span></span>
+                                                </label>
+                                            </div>
+                                            <div class="rad-notification-body">
+                                                <div class="lg-text">Change to Flat Theme</div>
+                                                <div class="sm-text">Flattify it</div>
+                                            </div>
+                                        </li>
+                                        <li id="rad-color-opts" class="rad-notification-item text-left">
+                                            <div class="pull-left"><i class="fa fa-puzzle-piece"></i></div>
+                                            <div class="pull-right">
+                                                <div class="rad-color-swatch">
+                                                    <label class="colors rad-bg-crimson rad-option-selected">
+                                                        <input type="radio" checked="" name="color" value="crimson">
+                                                    </label>
+                                                    <label class="colors rad-bg-teal">
+                                                        <input type="radio" name="color" value="teal">
+                                                    </label>
+                                                    <label class="colors rad-bg-purple">
+                                                        <input type="radio" name="color" value="purple">
+                                                    </label>
+                                                    <label class="colors rad-bg-orange">
+                                                        <input type="radio" name="color" value="orange">
+                                                    </label>
+                                                    <label class="colors rad-bg-twitter">
+                                                        <input type="radio" name="color" value="twitter">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="rad-notification-body">
+                                                <div class="lg-text">Choose a color</div>
+                                                <div class="sm-text">Make it colorful</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="user-area dropdown">
+                            <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                            </a>
+                            <div class="user-menu dropdown-menu">
+                                <a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
+                                <a class="nav-link" href="#"><i class="fa fa-bell-o"></i>Notifications <span class="count">13</span></a>
+                                <a class="nav-link" href="#"><i class="fa fa-cog"></i>Settings</a>
+                                <a class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </header>*@
+
+        <header>
+            <nav class="rad-navigation">
+                <div class="rad-logo-container">
+                   <a href="./" class="rad-logo">Quản Lý Nhà Thầu</a>
+                    @*<a class="rad-logo" href="#"><img src="/images/logo-white.png" alt="logo"></a>*@
+                    <a href="#" class="rad-toggle-btn pull-right" onclick = collapseAside()><i class="fa fa-bars"></i></a>
+                </div>
+                <a href="#" class="rad-logo-hidden">HPDQ</a>
+                <div class="rad-top-nav-container">
+                    
+                    <ul class="pull-right links">
+                        <li class="rad-dropdown no-color">
+                            <a class="rad-menu-item" href="#"><img class="rad-list-img sm-img" src="https://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/oK6DEDS7grM/w56-h56/photo.jpg" alt="me"></a>
+                            <ul class="rad-dropmenu-item sm-menu">
+                                <li class="rad-notification-item">
+                                    <a class="rad-notification-content lg-text" href="#"><i class="fa fa-edit"></i> My Profile</a>
+                                </li>
+                                <li class="rad-notification-item">
+                                    <a class="rad-notification-content lg-text" href="#"><i class="fa fa-power-off"></i> Sign out</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="rad-dropdown">
+                            <a class="rad-menu-item" href="#"><i class="fa fa-cog"></i></a>
+                            <ul class="rad-dropmenu-item rad-settings">
+                                <li class="rad-dropmenu-header"><a href="#">Settings</a></li>
+                                <li class="rad-notification-item text-left">
+                                    <div class="pull-left"><i class="fa fa-link"></i></div>
+                                    <div class="pull-right">
+                                        <label class="rad-chk-pin pull-right">
+                                            <input type="checkbox"><span></span>
+                                        </label>
+                                    </div>
+                                    <div class="rad-notification-body">
+                                        <div class="lg-text">Change to Flat Theme</div>
+                                        <div class="sm-text">Flattify it</div>
+                                    </div>
+                                </li>
+                                <li id="rad-color-opts" class="rad-notification-item text-left">
+                                    <div class="pull-left"><i class="fa fa-puzzle-piece"></i></div>
+                                    <div class="pull-right">
+                                        <div class="rad-color-swatch">
+                                            <label class="colors rad-bg-teal rad-option-selected
+                                                   ">
+                                                <input type="radio"  name="color" value="teal">
+                                            </label>
+                                            <label class="colors rad-bg-crimson">
+                                                <input type="radio"  name="color" value="crimson">
+                                            </label>
+                                            
+                                            @*<label class="colors rad-bg-purple">
+                                                <input type="radio" name="color" value="purple">
+                                            </label>*@
+                                            <label class="colors rad-bg-orange">
+                                                <input type="radio" name="color" value="orange">
+                                            </label>
+                                            <label class="colors rad-bg-twitter">
+                                                <input type="radio" name="color" value="twitter">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="rad-notification-body">
+                                        <div class="lg-text">Choose a color</div>
+                                        <div class="sm-text">Make it colorful</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="pull-right links">
+                        <li>
+                            <a class="rad-menu-item" href="#"><i class="fa fa-comment-o"><span class="rad-menu-badge rad-bg-success">0</span></i></a>
+                        </li>
+                        <li class="rad-dropdown">
+                            <a class="rad-menu-item" href="#"><i class="fa fa-envelope-o"><span class="rad-menu-badge rad-bg-primary">23</span></i></a>
+                            <ul class="rad-dropmenu-item">
+                                <li class="rad-dropmenu-header"><a href="#">Your Notifications</a></li>
+                                <li class="rad-notification-item text-left">
+                                    <a class="rad-notification-content" href="#">
+                                        <div class="pull-left">
+                                            <i class="fa fa-html5 fa-2x"></i>
+                                        </div>
+                                        <div class="rad-notification-body">
+                                            <div class="lg-text">Introduction to fetch()</div>
+                                            <div class="sm-text">The fetch API</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="rad-notification-item text-left">
+                                    <a class="rad-notification-content" href="#">
+                                        <div class="pull-left">
+                                            <i class="fa fa-bitbucket fa-2x"></i>
+                                        </div>
+                                        <div class="rad-notification-body">
+                                            <div class="lg-text">Check your BitBucket</div>
+                                            <div class="sm-text">Last Chance</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="rad-notification-item text-left">
+                                    <a class="rad-notification-content" href="#">
+                                        <div class="pull-left">
+                                            <i class="fa fa-google fa-2x"></i>
+                                        </div>
+                                        <div class="rad-notification-body">
+                                            <div class="lg-text">Google Account</div>
+                                            <div class="sm-text">sathishlxg@gmail.com</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="rad-dropmenu-footer"><a href="#">See all notifications</a></li>
+                            </ul>
+                        </li>
+                        <li class="rad-dropdown">
+                            <a class="rad-menu-item" href="#"><i class="fa fa-bell-o"><span class="rad-menu-badge">49</span></i></a>
+                            <ul class="rad-dropmenu-item">
+                                <li class="rad-dropmenu-header"><a href="#">Your Alerts</a></li>
+                                <li class="rad-notification-item text-left">
+                                    <a class="rad-notification-content" href="#">
+                                        <div class="pull-left">
+                                            <i class="fa fa-html5 fa-2x"></i>
+                                        </div>
+                                        <div class="rad-notification-body">
+                                            <div class="lg-text">Introduction to fetch()</div>
+                                            <div class="sm-text">The fetch API</div>
+                                            <em class="pull-right sm-text"><i class="fa fa-clock-o"></i> 2 sec ago</em>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="rad-notification-item text-left">
+                                    <a class="rad-notification-content" href="#">
+                                        <div class="pull-left">
+                                            <i class="fa fa-bitbucket fa-2x"></i>
+                                        </div>
+                                        <div class="rad-notification-body">
+                                            <div class="lg-text">Check your BitBucket</div>
+                                            <div class="sm-text">Last Chance</div>
+                                            <em class="pull-right sm-text"><i class="fa fa-clock-o"></i> 49 mins ago</em>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="rad-notification-item text-left">
+                                    <a class="rad-notification-content" href="#">
+                                        <div class="pull-left">
+                                            <i class="fa fa-google fa-2x"></i>
+                                        </div>
+                                        <div class="rad-notification-body">
+                                            <div class="lg-text">Google Account</div>
+                                            <div class="sm-text">sathishlxg@gmail.com</div>
+                                            <em class="pull-right sm-text"><i class="fa fa-clock-o"></i> 2 days ago</em>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="rad-dropmenu-footer"><a href="#">See all alerts</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </header>
 
         <div class="content pb-0">
@@ -199,7 +412,7 @@
         </div>
         <div class="clearfix"></div>
         <footer class="site-footer">
-            <div class="footer-inner bg-white">
+            <div class="footer-inner">
                 <div class="row">
                     <div class="col-sm-6">
                         Copyright © @DateTime.Now.Year Ban Công nghệ thông tin
@@ -232,39 +445,144 @@
 </body>
 
 </html>
-<script>
-    function collapseAside() {
 
-        /*var a = document.getElementsByClassName("hpContainer")[0];
-        a.classList.toggle("active");
-        console.log("dic cha");
 
-        var item = document.getElementsByClassName("logo")[0];
-        if (item.style.display === "none") {
-            item.style.display = "inline-block";
-        } else {
-            item.style.display = "none";
+<script src='https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js'></script>
+<script src='https://code.jquery.com/ui/1.11.4/jquery-ui.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.3/jquery.slimscroll.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.8.0/lodash.min.js'></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+
+<script >
+   
+        function setFlatTheme() {
+            /*$("body").toggleClass("flat-theme");*/
+            $("#rad-color-opts").toggleClass("hide");
+            $(".rad-chk-pin input[type=checkbox]").prop("checked", false);
         }
-       
 
-        var item = document.getElementById("ctMenu");
-        if (item.style.display === "none") {
-            item.style.display = "block";
-        } else {
-            item.style.display = "none";
+        setFlatTheme();
+
+        $(window).on("scroll", function (e) {
+            if ($(window).scrollTop() > 50) {
+                $("body").addClass("sticky");
+            } else {
+                $("body").removeClass("sticky");
+            }
+        });
+
+        $(document).on("click", function () {
+            //e.preventDefault();
+            var $item = $(".rad-dropmenu-item");
+            if ($item.hasClass("active")) {
+                $item.removeClass("active");
+            }
+        });
+
+        $(".rad-sidebar a").on("click", function (e) {
+            e.stopPropagation();
+        });
+
+        $(".rad-chat-body").slimScroll({
+            height: "450px",
+            color: "#c6c6c6"
+        });
+
+
+        $(".rad-timeline-body").slimScroll({
+            height: "450px",
+            color: "#c6c6c6"
+        });
+
+
+        $(".rad-activity-body").slimScroll({
+            height: "250px",
+            color: "#c6c6c6"
+        });
+
+
+        $(".rad-toggle-btn").on("click", function () {
+            $(".rad-logo-container").toggleClass("rad-nav-min");
+            $(".rad-sidebar").toggleClass("rad-nav-min");
+            $(".rad-body-wrapper").toggleClass("rad-nav-min");
+        });
+
+        $("li.rad-dropdown > a.rad-menu-item").on("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(".rad-dropmenu-item").removeClass("active");
+            $(this).next(".rad-dropmenu-item").toggleClass("active");
+        });
+
+        $(".fa-chevron-down").on("click", function () {
+            var $ele = $(this).parents(".panel-heading");
+            $ele.siblings(".panel-footer").toggleClass("rad-collapse");
+            $ele.siblings(".panel-body").toggleClass("rad-collapse");
+        });
+
+        $(".fa-close").on("click", function () {
+            var $ele = $(this).parents(".panel");
+            $ele.addClass("panel-close");
+            setTimeout(function () {
+                $ele.parent().remove();
+            }, 210);
+        });
+
+        $(".fa-rotate-right").on("click", function () {
+            var $ele = $(this).parents(".panel-heading").siblings(".panel-body");
+            $ele.append(
+                '<div class="overlay"><div class="overlay-content"><i class="fa fa-refresh fa-2x fa-spin"></i></div></div>');
+
+            setTimeout(function () {
+                $ele.find(".overlay").remove();
+            }, 2000);
+        });
+
+
+
+        $(".rad-chk-pin input[type=checkbox]").change(function (e) {
+            $("body").toggleClass("flat-theme");
+            $("#rad-color-opts").toggleClass("hide");
+            var selectedTheme = $(".rad-color-swatch input[type=radio]:checked");
+            var fillColor = '#C6C6C6';
+            var scale = ["#C8EEFF", "#0071A4"];
+
+            if (this.checked) {
+                scale = ["#A8ECFF", "#FA71D4"];
+               
+            }
+            
+        });
+
+        $(".rad-color-swatch input[type=radio]").change(function (e) {
+            if ($(".rad-chk-pin input[type=checkbox]").is(":checked")) {
+                $("body").removeClass().addClass("flat-theme").addClass(this.value);
+                $(".rad-color-swatch label").removeClass("rad-option-selected");
+                $(this).parent().addClass("rad-option-selected");
+                $(window).scrollTop(0);
+
+                
+            }
+        });
+
+        $(".rad-notification-item").on("click", function (e) {
+            e.stopPropagation();
+        });
+
+        function collapseAside() {
+
+ 
+            var l = document.getElementById("left-panel");
+            l.classList.toggle("colapse");
+
+            var r = document.getElementById("right-panel");
+            r.classList.toggle("colapse");
+
+            var sp = document.getElementById("main-menu");
+            sp.classList.toggle("colapse");
+
         }
-        console.log("ok");*/
-        var l = document.getElementById("left-panel");
-        l.classList.toggle("colapse");
-
-        var r = document.getElementById("right-panel");
-        r.classList.toggle("colapse");
-
-        var lo = document.getElementById("left-overlay");
-        lo.classList.toggle("colapse");
-
-        var sp = document.getElementById("main-menu");
-        sp.classList.toggle("colapse")
-
-    }
+        
 </script>
