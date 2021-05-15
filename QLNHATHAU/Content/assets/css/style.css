@@ -841,7 +841,7 @@ aside.left-panel:hover {
   position: relative; 
 }
 .navbar .navbar-nav > li {
-  padding: 1rem;
+  padding: .5rem 1rem;
   
 }
 /*.navbar .navbar-nav > li.active {
