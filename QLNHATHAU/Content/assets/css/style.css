@@ -773,7 +773,7 @@ aside.left-panel {
     position: fixed;
     left: 0;
     bottom: 0;
-    top: 50px;
+    top: 79px;
     padding-bottom: 4em;
     z-index: 9;
     -ms-overflow-style: none;
@@ -1149,8 +1149,8 @@ aside.left-panel:hover {
 .right-panel {
   background: #fcfcfc;
   margin-left: 16rem;
-  margin-top: 50px; 
-  height: calc(100vh - 50px);
+  margin-top: 79px; 
+  height: calc(100vh - 79px);
 }
 .right-panel.colapse {
   margin-left: 6rem !important;
@@ -1471,13 +1471,15 @@ header .form-inline .search-form.close {
   background: #f5f5f5;
   z-index: 10000;
   text-align: center;
+  height: 79px ;
+  line-height: 79px;
 }
 .rad-navigation ul {
   margin-bottom: 0;
 }
 
 .rad-logo-hidden {
-  line-height: 75px;
+  line-height: 79px;
   font-weight: 900;
   text-transform: uppercase;
   font-size: 15px;
@@ -1595,7 +1597,7 @@ header .form-inline .search-form.close {
 .rad-logo-container {
   width: 16rem;
   text-align: center;
-  height: 50px;
+  height: 79px;
   float: left;
   transition: all 0.2s ease-in-out;
 }
@@ -1603,16 +1605,17 @@ header .form-inline .search-form.close {
 .rad-top-nav-container {
   float: right;
   transition: all 0.2s ease-in-out;
+  line-height: 59px;
 }
 
 .rad-toggle-btn,
 .rad-logo {
   text-decoration: none;
   position: relative;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 15px;
-  font-size: 15px;
+  height: 79px;
+  line-height: 79px;
+  padding: 0 5px;
+  font-size: 13px;
   font-weight: 900;
   text-transform: uppercase;
   text-decoration: none;
@@ -1625,7 +1628,12 @@ header .form-inline .search-form.close {
   vertical-align: middle;
   margin-right: 10px;
 }
+.rad-logo img {
+  width: 40px;
+  height: 30px;
+  vertical-align: middle;
 
+}
 .rad-toggle-btn:hover {
   background: #f9f9f9;
 }
