@@ -1614,8 +1614,8 @@ header .form-inline .search-form.close {
   position: relative;
   height: 79px;
   line-height: 79px;
-  padding: 0 5px;
-  font-size: 13px;
+  padding: 0 3px;
+  font-size: 14px;
   font-weight: 900;
   text-transform: uppercase;
   text-decoration: none;
@@ -1630,7 +1630,7 @@ header .form-inline .search-form.close {
 }
 .rad-logo img {
   width: 40px;
-  height: 30px;
+  height: 24px;
   vertical-align: middle;
 
 }
