@@ -3841,10 +3841,12 @@ footer.site-footer .footer-inner a {
   aside.left-panel.open-menu {
     overflow-x: scroll; 
   }
-
+  aside.left-panel .navbar-nav li span {
+  display:none; 
+    }
   aside.left-panel {
-    max-width: 83px;
-    width: 83px; 
+    max-width: 6rem;
+    width: 6rem; 
   }
   aside.left-panel .navbar .navbar-header {
     padding: 0; 
@@ -3908,7 +3910,7 @@ footer.site-footer .footer-inner a {
   }
   aside.left-panel .navbar .navbar-nav li.menu-item-has-children .sub-menu {
     background-color: #fff;
-    display: block;
+    display: none;
     left: inherit;
     right: -150px;
     top: 0; 
@@ -3978,7 +3980,7 @@ footer.site-footer .footer-inner a {
     opacity: 1; 
   }
   .right-panel {
-    margin-left: 83px;
+    margin-left: 6rem;
   }
 
   .navbar .main-menu {
