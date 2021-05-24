@@ -144,6 +144,7 @@
     <Compile Include="Controllers\CongController.cs" />
     <Compile Include="Controllers\ContractExtensionController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
+    <Compile Include="Controllers\ContractorsController.cs" />
     <Compile Include="Controllers\ContractorStaffController.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
@@ -283,6 +284,7 @@
     <Compile Include="Models\NhaThau.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NhaThauValidation.cs" />
     <Compile Include="Models\NhaThau_list_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -1129,6 +1131,7 @@
     <Content Include="Views\Department\Index.cshtml" />
     <Content Include="Views\Department\Create.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Contractors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
