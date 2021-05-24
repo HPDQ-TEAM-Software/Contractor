@@ -19,12 +19,12 @@
                 <fieldset id="SubmitForm">
                     <div class="form-group">
                         <label class="small mb-1" for="inputLastName">Tên viết tắt (ISO)</label>
-                        @Html.EditorFor(model => model.TenVT, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập địa chỉ" } })
+                        @Html.EditorFor(model => model.TenVT, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập địa chỉ", @id= "TenVT" } })
                         @Html.ValidationMessageFor(model => model.TenVT, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
                         <label class="small mb-1" for="inputLastName">Tên phòng ban</label>
-                        @Html.EditorFor(model => model.TenDai, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập địa chỉ" } })
+                        @Html.EditorFor(model => model.TenDai, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập địa chỉ", @id = "TenDai" } })
                         @Html.ValidationMessageFor(model => model.TenDai, "", new { @class = "text-danger" })
                     </div>
 
@@ -34,7 +34,7 @@
                         @Html.ValidationMessageFor(model => model.PCHN, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Thêm mới" class="btn btn-primary" id="btncreate" />
+                        <input type="submit" value="Cập nhật" class="btn btn-primary" id="btncreate" />
                     </div>
                 </fieldset>
 
@@ -42,11 +42,16 @@
         </div>
     </div>
     <script>
-
-    $('#btncreate').click(function () {
-
-    });
-
+        $('#btncreate').click(function () {
+            if ($('#TenVT').val().length == 0) {
+                alert('Vui lòng nhập tên viết tắt BP/NM');
+                return false;
+            }
+            if ($('#TenDai').val().length == 0) {
+                alert('Vui lòng nhập tên BP/NM');
+                return false;
+            }
+        });
     </script>
 
 }
