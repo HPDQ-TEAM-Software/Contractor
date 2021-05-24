@@ -1469,7 +1469,7 @@ header .form-inline .search-form.close {
   top: 0;
   box-shadow: 0 0px 9px 4px rgba(0, 0, 0, 0.1), 0 -5px 2px 2px rgba(0, 0, 0, 0.1);
   background: #f5f5f5;
-  z-index: 10000;
+  z-index: 100;
   text-align: center;
   height: 68px ;
   line-height: 68px;

@@ -11,9 +11,11 @@ namespace QLNHATHAU.Models
 {
     using System;
     
-    public partial class LK_Select_Result
+    public partial class PhongBan_SearchByID_Result
     {
-        public int IDLoaiKhach { get; set; }
-        public string TenKhach { get; set; }
+        public int IDPhongBan { get; set; }
+        public string TenVT { get; set; }
+        public string TenDai { get; set; }
+        public Nullable<bool> PCHN { get; set; }
     }
 }

@@ -146,6 +146,7 @@
     <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\ContractorStaffController.cs" />
     <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeIndetityCardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HopDongController.cs" />
@@ -161,218 +162,225 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Card.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CardNhanVien.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Card_SearchByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Card_select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CauHinhPheDuyet.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cong.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CongValidation.cs" />
     <Compile Include="Models\Cong_SearchByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cong_Select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ContractExtensionValidation.cs" />
     <Compile Include="Models\ContractorStaffValidation.cs" />
     <Compile Include="Models\ContractorValidation.cs" />
     <Compile Include="Models\CardValidation.cs" />
     <Compile Include="Models\EmplIndentityCard_SearchByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EmplIndentityCard_select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EmployeeIndetityCardValidation.cs" />
     <Compile Include="Models\GiaHanHD.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GiaHanHopDong_SearchByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GiaHanHopDong_select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HopDong.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HopDongValidation.cs" />
     <Compile Include="Models\HopDong_SearchByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HopDong_select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IDKetQuaHoc_ByMaNV_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KeQuaHoc.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KetQuaHoc_SearchByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KetQuaHoc_select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LK_Delete_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LK_Select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiH.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiKhach.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiKhachValidation.cs" />
     <Compile Include="Models\LoaiKhach_SearchByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiKhach_Select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModelT.cs" />
     <Compile Include="Models\NguoiDung.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NguoiDungValidation.cs" />
     <Compile Include="Models\NguoiDung_danhsach_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NguoiDung_get_IDPhanQuyen_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NguoiDung_Get_PhanQuyen_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NguoiDung_SearchByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NguoiDung_select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVien.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVienNT.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVienNT_SearchByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVienNT_select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVienValidation.cs" />
     <Compile Include="Models\NhanVien_SearchByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVien_select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhaThau.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhaThau_list_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhaThau_select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PCHN_HopDong.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PCHN_HopDong_SearchByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PCHN_HopDong_select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PermissionValidation.cs" />
     <Compile Include="Models\PhanQuyen.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhanQuyen_NDSelectAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhanQuyen_selectAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhanQuyen_select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PheDuyet.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PheDuyet_SearchByID_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhongBan.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PhongBanValidation.cs" />
     <Compile Include="Models\PhongBan_ISPCHN_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhongBan_list_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhongBan_PCHN_SearchByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhongBan_SearchByID_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLNT.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLNT.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLNT.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLNT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLNT.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Quyen.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QuyenValidation.cs" />
     <Compile Include="Models\Quyen_SearchByID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Quyen_select_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ResultAfterChange.cs" />
     <Compile Include="Models\ResultsLearnSafeValidation.cs" />
     <Compile Include="Models\SelectedTenQuyen.cs" />
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Table1.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TenNT_HopDong_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TongQuan.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TongQuan_Select_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VanBan.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -865,6 +873,7 @@
     <Content Include="Content\assets\weather\js\jquery.simpleWeather.min.js" />
     <Content Include="Content\assets\weather\js\weather-init.js" />
     <Content Include="Content\assets\css\PagedList.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\ToastrJquery\toastr.css" />
     <Content Include="Content\ToastrJquery\toastr.min.css" />
@@ -887,15 +896,15 @@
     <Content Include="Images\flag\it.png" />
     <Content Include="Images\flag\us.png" />
     <Content Include="Images\logo.png" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\QLNT.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>QLNT.edmx</DependentUpon>
+      <LastGenOutput>QLNT.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\QLNT.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>QLNT.edmx</DependentUpon>
+      <LastGenOutput>QLNT.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1013,12 +1022,12 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
-    <EntityDeploy Include="Models\Model1.edmx">
+    <EntityDeploy Include="Models\QLNT.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLNT.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <Content Include="Models\QLNT.edmx.diagram">
+      <DependentUpon>QLNT.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
@@ -1091,6 +1100,35 @@
     <Content Include="Views\Cong\Create.cshtml" />
     <Content Include="Views\Cong\Edit.cshtml" />
     <Content Include="Views\Cong\Index.cshtml" />
+    <Content Include="UploadedFiles\202104221514-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104231429-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104231432-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104231440-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104231452-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104291405-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104291406-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104291410-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104291414-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104291415-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104291417-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104291420-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104291423-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104291426-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104291427-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104291430-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104291434-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202104291512-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202105060834-TB_TTr_CaiTien_PhanMem.pdf" />
+    <Content Include="UploadedFiles\202105080837-HPDQ_To chuc dao tao Office 365.pdf" />
+    <Content Include="UploadedFiles\202105080841-NhanVienNT2.xlsx" />
+    <Content Include="UploadedFiles\202105080842-NhanVienNT2.xlsx" />
+    <Content Include="Uploads\NhanVienNT.xlsx" />
+    <Content Include="Uploads\NhanVienNT1.xlsx" />
+    <Content Include="Uploads\NhanVienNT2.xlsx" />
+    <Content Include="Uploads\Nhu cau chi tiet E learning 26.03.21.xlsx" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

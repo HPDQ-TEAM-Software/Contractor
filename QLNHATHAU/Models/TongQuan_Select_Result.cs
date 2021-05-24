@@ -10,12 +10,14 @@
 namespace QLNHATHAU.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Table1
+    public partial class TongQuan_Select_Result
     {
-        public string @as { get; set; }
-        public string sa { get; set; }
-        public string q { get; set; }
+        public int IDTongQuan { get; set; }
+        public string VBCuaToi { get; set; }
+        public string VBChoKy { get; set; }
+        public string VBChuyenDi { get; set; }
+        public string VBChuaDoc { get; set; }
+        public Nullable<int> NhanvienID { get; set; }
     }
 }

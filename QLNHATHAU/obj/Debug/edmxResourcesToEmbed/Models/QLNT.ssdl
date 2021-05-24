@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="IDCard" />
     </Key>
-    <Property Name="IDCard" Type="int" Nullable="false" />
+    <Property Name="IDCard" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaCard" Type="nchar" MaxLength="10" />
     <Property Name="NgayHetHan" Type="datetime" />
   </EntityType>
@@ -12,7 +12,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CardID" Type="int" />
     <Property Name="NhanVienNTID" Type="int" />
   </EntityType>
@@ -32,14 +32,14 @@
     <Key>
       <PropertyRef Name="IDCONG" />
     </Key>
-    <Property Name="IDCONG" Type="int" Nullable="false" />
+    <Property Name="IDCONG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenCong" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="GiaHanHD">
     <Key>
       <PropertyRef Name="IDGHHD" />
     </Key>
-    <Property Name="IDGHHD" Type="int" Nullable="false" />
+    <Property Name="IDGHHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="HDID" Type="int" />
     <Property Name="LyDo" Type="nvarchar" MaxLength="250" />
     <Property Name="NgayKetThuc" Type="datetime" />
@@ -48,7 +48,7 @@
     <Key>
       <PropertyRef Name="IDHD" />
     </Key>
-    <Property Name="IDHD" Type="int" Nullable="false" />
+    <Property Name="IDHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SoHD" Type="varchar" MaxLength="50" />
     <Property Name="TenHD" Type="nvarchar" MaxLength="150" />
     <Property Name="NguoiDaiDien" Type="nvarchar" MaxLength="150" />
@@ -67,8 +67,20 @@
     <Property Name="NhanVienNTID" Type="int" />
     <Property Name="HDID" Type="int" />
     <Property Name="NhaThauID" Type="int" />
-    <Property Name="NgayHoc" Type="date" />
+    <Property Name="NgayHoc" Type="datetime" />
     <Property Name="KetQua" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Khach">
+          <Property Name="IDKhach" Type="int" />
+        </EntityType>-->
+  <EntityType Name="LoaiHS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="LoaiKhach">
     <Key>
@@ -112,13 +124,14 @@
     <Key>
       <PropertyRef Name="IDNhanVienNT" />
     </Key>
-    <Property Name="IDNhanVienNT" Type="int" Nullable="false" />
-    <Property Name="MaNV" Type="nchar" MaxLength="10" />
+    <Property Name="IDNhanVienNT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNV" Type="nvarchar" MaxLength="50" />
     <Property Name="SCMND" Type="nchar" MaxLength="10" />
     <Property Name="HoTen" Type="nvarchar" MaxLength="150" />
     <Property Name="NgaySinh" Type="datetime" />
-    <Property Name="GioiTinh" Type="bit" />
+    <Property Name="GioiTinh" Type="int" />
     <Property Name="QuocTich" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="NhaThau">
     <Key>
@@ -136,7 +149,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PhongBanID" Type="int" />
     <Property Name="HopDongID" Type="int" />
   </EntityType>
@@ -147,6 +160,16 @@
     <Property Name="IDPhanQuyen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NguoiDungID" Type="int" />
     <Property Name="QuyenID" Type="int" />
+  </EntityType>
+  <EntityType Name="PheDuyet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="NguoiDungID" Type="int" />
+    <Property Name="LoaiHSID" Type="int" />
+    <Property Name="TinhTrang" Type="bit" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="PhongBan">
     <Key>
@@ -173,6 +196,33 @@
     <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TongQuan">
+    <Key>
+      <PropertyRef Name="IDTongquan" />
+    </Key>
+    <Property Name="IDTongquan" Type="int" Nullable="false" />
+    <Property Name="VBCuatoi" Type="nchar" MaxLength="10" />
+    <Property Name="VBChoky" Type="nchar" MaxLength="10" />
+    <Property Name="VBChuyendi" Type="nchar" MaxLength="10" />
+    <Property Name="VBChuadoc" Type="nchar" MaxLength="10" />
+    <Property Name="NhanvienID" Type="int" />
+  </EntityType>
+  <EntityType Name="VanBan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NoiDungVB" Type="nvarchar" MaxLength="300" />
+    <Property Name="DoKhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="HinhThucVB" Type="nvarchar" MaxLength="250" />
+    <Property Name="NguoiKy" Type="nvarchar" MaxLength="50" />
+    <Property Name="TinhTrangXL" Type="nvarchar" MaxLength="1" />
+    <Property Name="DonViTK" Type="nvarchar" MaxLength="300" />
+    <Property Name="NgayNhan" Type="datetime" />
+    <Property Name="File" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
   </EntityType>
   <Association Name="FK_CardNhanVien_Card">
     <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
@@ -306,7 +356,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PhanQuyen_Quyen">
+  <Association Name="FK_PhanQuyen_Quyen1">
     <End Role="Quyen" Type="Self.Quyen" Multiplicity="0..1" />
     <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
     <ReferentialConstraint>
@@ -318,12 +368,152 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="Card_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDCard" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Card_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaCard" Type="nchar" Mode="In" />
+    <Parameter Name="NgayHetHan" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Card_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDCard" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Card_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Card_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDCard" Type="int" Mode="In" />
+    <Parameter Name="MaCard" Type="nchar" Mode="In" />
+    <Parameter Name="NgayHetHan" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Cong_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDCong" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Cong_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenCong" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Cong_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDCong" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Cong_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Cong_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDCong" Type="int" Mode="In" />
+    <Parameter Name="TenCong" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="Delete_PhanQyen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NguoiDungID" Type="int" Mode="In" />
   </Function>
+  <Function Name="EmplIndentityCard_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="a" Type="int" Mode="In" />
+  </Function>
+  <Function Name="EmplIndentityCard_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CardId" Type="int" Mode="In" />
+    <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="EmplIndentityCard_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="EmplIndentityCard_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="EmplIndentityCard_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="CardId" Type="int" Mode="In" />
+    <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
+  </Function>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="GiaHanHopDong_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDGHHD" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GiaHanHopDong_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HDID" Type="int" Mode="In" />
+    <Parameter Name="LyDo" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayKetThuc" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="GiaHanHopDong_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDGHHD" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GiaHanHopDong_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GiaHanHopDong_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDGHHD" Type="int" Mode="In" />
+    <Parameter Name="HDID" Type="int" Mode="In" />
+    <Parameter Name="LyDo" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayKetThuc" Type="datetime" Mode="In" />
+  </Function>
   <Function Name="HopDong_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDHD" Type="int" Mode="In" />
+  </Function>
+  <Function Name="HopDong_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SoHD" Type="varchar" Mode="In" />
+    <Parameter Name="TenHD" Type="nvarchar" Mode="In" />
+    <Parameter Name="NguoiDaiDien" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayBD" Type="smalldatetime" Mode="In" />
+    <Parameter Name="NgayKT" Type="smalldatetime" Mode="In" />
+    <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
+    <Parameter Name="File" Type="nvarchar" Mode="In" />
+    <Parameter Name="TinhTrang" Type="bit" Mode="In" />
+    <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="PhongBanID" Type="int" Mode="In" />
+    <Parameter Name="IDHD" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="HopDong_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDHD" Type="int" Mode="In" />
+  </Function>
+  <Function Name="HopDong_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="HopDong_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDHD" Type="int" Mode="In" />
+    <Parameter Name="SoHD" Type="varchar" Mode="In" />
+    <Parameter Name="TenHD" Type="nvarchar" Mode="In" />
+    <Parameter Name="NguoiDaiDien" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayBD" Type="smalldatetime" Mode="In" />
+    <Parameter Name="NgayKT" Type="smalldatetime" Mode="In" />
+    <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
+    <Parameter Name="File" Type="nvarchar" Mode="In" />
+    <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="PhongBanID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IDKetQuaHoc_ByMaNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaNV" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="KetQuaHoc_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDKQHAT" Type="int" Mode="In" />
+  </Function>
+  <Function Name="KetQuaHoc_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HDID" Type="int" Mode="In" />
+    <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
+    <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="KetQua" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="KetQuaHoc_save" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDKQHAT" Type="int" Mode="In" />
+    <Parameter Name="KetQua" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="KetQuaHoc_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDKQHAT" Type="int" Mode="In" />
+  </Function>
+  <Function Name="KetQuaHoc_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="KetQuaHoc_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDKQHAT" Type="int" Mode="In" />
+    <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
+    <Parameter Name="HDID" Type="int" Mode="In" />
+    <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="NgayHoc" Type="datetime" Mode="In" />
+    <Parameter Name="KetQua" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="LoaiKhach_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LoaiKhach_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
+    <Parameter Name="TenKhach" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="LoaiKhach_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LoaiKhach_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="LoaiKhach_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
+    <Parameter Name="TenKhach" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="MaNVNT_KQHocANT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
   </Function>
   <Function Name="NguoiDung_CapNhatQuyen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDNguoiDung" Type="int" Mode="In" />
@@ -336,12 +526,17 @@
   <Function Name="NguoiDung_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDNguoiDung" Type="int" Mode="In" />
   </Function>
+  <Function Name="NguoiDung_DeletePermission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
+    <Parameter Name="IDNguoiDung" Type="int" Mode="InOut" />
+  </Function>
   <Function Name="NguoiDung_get_IDPhanQuyen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NguoiDungID" Type="int" Mode="In" />
   </Function>
   <Function Name="NguoiDung_Get_PhanQuyen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NguoiDungID" Type="int" Mode="In" />
   </Function>
+  <Function Name="NguoiDung_GetAllId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="NguoiDung_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
     <Parameter Name="MatKhau" Type="nvarchar" Mode="In" />
@@ -402,6 +597,59 @@
     <Parameter Name="TinhTrangLV" Type="bit" Mode="In" />
     <Parameter Name="NgayNghiViec" Type="datetime" Mode="In" />
   </Function>
+  <Function Name="NhanVienNT_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDNVNT" Type="int" Mode="In" />
+  </Function>
+  <Function Name="NhanVienNT_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaNV" Type="nvarchar" Mode="In" />
+    <Parameter Name="SCMND" Type="nchar" Mode="In" />
+    <Parameter Name="HoTen" Type="nvarchar" Mode="In" />
+    <Parameter Name="ChucVu" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgaySinh" Type="datetime" Mode="In" />
+    <Parameter Name="GioiTinh" Type="int" Mode="In" />
+    <Parameter Name="QuocTich" Type="nvarchar" Mode="In" />
+    <Parameter Name="IDNVNT" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="NhanVienNT_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDNVNT" Type="int" Mode="In" />
+  </Function>
+  <Function Name="NhanVienNT_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="NhanVienNT_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDNVNT" Type="int" Mode="In" />
+    <Parameter Name="MaNV" Type="nvarchar" Mode="In" />
+    <Parameter Name="SCMND" Type="nchar" Mode="In" />
+    <Parameter Name="HoTen" Type="nvarchar" Mode="In" />
+    <Parameter Name="ChucVu" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgaySinh" Type="datetime" Mode="In" />
+    <Parameter Name="GioiTinh" Type="int" Mode="In" />
+    <Parameter Name="QuocTich" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Nhathau_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaNT" Type="varchar" Mode="In" />
+    <Parameter Name="MST" Type="varchar" Mode="In" />
+    <Parameter Name="Ten" Type="nvarchar" Mode="In" />
+    <Parameter Name="Diachi" Type="nvarchar" Mode="In" />
+    <Parameter Name="DienThoai" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="NhaThau_list" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="NhaThau_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PCHN_HopDong_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PCHN_HopDong_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PhongBanID" Type="int" Mode="In" />
+    <Parameter Name="HopDongID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PCHN_HopDong_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PCHN_HopDong_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PCHN_HopDong_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="PhongBanID" Type="int" Mode="In" />
+    <Parameter Name="HopDongID" Type="int" Mode="In" />
+  </Function>
   <Function Name="PhanQuyen_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDPhanQuyen" Type="int" Mode="In" />
   </Function>
@@ -409,11 +657,57 @@
     <Parameter Name="NguoiDungID" Type="int" Mode="In" />
     <Parameter Name="QuyenID" Type="int" Mode="In" />
   </Function>
+  <Function Name="PhanQuyen_NDSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="PhanQuyen_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PhanQuyen_selectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NguoiDungID" Type="int" Mode="In" />
+  </Function>
   <Function Name="PhanQuyen_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDPhanQuyen" Type="int" Mode="In" />
     <Parameter Name="NguoiDungID" Type="int" Mode="In" />
     <Parameter Name="QuyenID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PheDuyet_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="NguoiDungID" Type="int" Mode="In" />
+    <Parameter Name="LoaiHSID" Type="int" Mode="In" />
+    <Parameter Name="TinhTrang" Type="bit" Mode="In" />
+    <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="PheDuyet_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PheDuyet_Updata" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="NguoiDungID" Type="nvarchar" Mode="In" />
+    <Parameter Name="LoaiHSID" Type="nvarchar" Mode="In" />
+    <Parameter Name="TinhTrang" Type="bit" Mode="In" />
+    <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="PhongBan_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDPhongBan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PhongBan_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenVT" Type="varchar" Mode="In" />
+    <Parameter Name="TenDai" Type="nvarchar" Mode="In" />
+    <Parameter Name="PCHN" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="PhongBan_ISPCHN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PhongBan_list" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PhongBan_PCHN_loadedit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDHopDong" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PhongBan_PCHN_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDHopDong" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PhongBan_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDPhongBan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PhongBan_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDPhongban" Type="int" Mode="In" />
+    <Parameter Name="TenVT" Type="varchar" Mode="In" />
+    <Parameter Name="TenDai" Type="nvarchar" Mode="In" />
+    <Parameter Name="PCHN" Type="bit" Mode="In" />
   </Function>
   <Function Name="Quyen_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDQuyen" Type="int" Mode="In" />
@@ -428,6 +722,9 @@
   <Function Name="Quyen_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDQuyen" Type="int" Mode="In" />
     <Parameter Name="TenQuyen" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SoHD_KQHocANT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDHD" Type="int" Mode="In" />
   </Function>
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -459,6 +756,13 @@
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TenNT_HopDong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDNhaThau" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TenNT_KQHocANT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDNhaThau" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TongQuan_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="QLNhaThauModelStoreContainer">
     <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CardNhanVien" EntityType="Self.CardNhanVien" Schema="dbo" store:Type="Tables" />
@@ -467,6 +771,7 @@
     <EntitySet Name="GiaHanHD" EntityType="Self.GiaHanHD" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HopDong" EntityType="Self.HopDong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KeQuaHoc" EntityType="Self.KeQuaHoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiHS" EntityType="Self.LoaiHS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoaiKhach" EntityType="Self.LoaiKhach" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
@@ -474,9 +779,12 @@
     <EntitySet Name="NhaThau" EntityType="Self.NhaThau" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PCHN_HopDong" EntityType="Self.PCHN_HopDong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhanQuyen" EntityType="Self.PhanQuyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PheDuyet" EntityType="Self.PheDuyet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhongBan" EntityType="Self.PhongBan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Quyen" EntityType="Self.Quyen" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TongQuan" EntityType="Self.TongQuan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VanBan" EntityType="Self.VanBan" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_CardNhanVien_Card" Association="Self.FK_CardNhanVien_Card">
       <End Role="Card" EntitySet="Card" />
       <End Role="CardNhanVien" EntitySet="CardNhanVien" />
@@ -521,7 +829,7 @@
       <End Role="NguoiDung" EntitySet="NguoiDung" />
       <End Role="PhanQuyen" EntitySet="PhanQuyen" />
     </AssociationSet>
-    <AssociationSet Name="FK_PhanQuyen_Quyen" Association="Self.FK_PhanQuyen_Quyen">
+    <AssociationSet Name="FK_PhanQuyen_Quyen1" Association="Self.FK_PhanQuyen_Quyen1">
       <End Role="Quyen" EntitySet="Quyen" />
       <End Role="PhanQuyen" EntitySet="PhanQuyen" />
     </AssociationSet>

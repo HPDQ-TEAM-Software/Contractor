@@ -65,8 +65,8 @@ namespace QLNHATHAU.Controllers
                 try
                 {
                     ObjectParameter returnId = new ObjectParameter("IDHD", typeof(int));
-                    db_context.HopDong_insert(
-                        _DO.SoHD, _DO.TenHD, _DO.NguoiDaiDien, _DO.NgayBD, _DO.NgayKT, _DO.GhiChu, UploadFile(_DO), _DO.NhaThauID, _DO.PhongBanID, returnId);
+                    //db_context.HopDong_insert(
+                    //    _DO.SoHD, _DO.TenHD, _DO.NguoiDaiDien, _DO.NgayBD, _DO.NgayKT, _DO.GhiChu, UploadFile(_DO), _DO.NhaThauID, _DO.PhongBanID, returnId);
                     int idHD = Convert.ToInt32(returnId.Value);
                     foreach (var p in _DO.PhongBanCN)
                     {

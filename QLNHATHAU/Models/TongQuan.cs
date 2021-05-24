@@ -10,10 +10,15 @@
 namespace QLNHATHAU.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class LK_Delete_Result
+    public partial class TongQuan
     {
-        public int IDLoaiKhach { get; set; }
-        public string TenKhach { get; set; }
+        public int IDTongquan { get; set; }
+        public string VBCuatoi { get; set; }
+        public string VBChoky { get; set; }
+        public string VBChuyendi { get; set; }
+        public string VBChuadoc { get; set; }
+        public Nullable<int> NhanvienID { get; set; }
     }
 }

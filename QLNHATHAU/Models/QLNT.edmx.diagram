@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="412111f7df7c4f5fabeeecae657f36d0" Name="Diagram1">
+      <Diagram DiagramId="1cd45d58c10d4d6c86636ae7f1755f14" Name="Diagram1">
         <EntityTypeShape EntityType="QLNhaThauModel.Card" Width="1.5" PointX="6" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLNhaThauModel.CardNhanVien" Width="1.5" PointX="8.25" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLNhaThauModel.CauHinhPheDuyet" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
@@ -24,7 +24,8 @@
         <EntityTypeShape EntityType="QLNhaThauModel.PhongBan" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QLNhaThauModel.Quyen" Width="1.5" PointX="11" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QLNhaThauModel.sysdiagram" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLNhaThauModel.Table1" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhaThauModel.TongQuan" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhaThauModel.VanBan" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
         <AssociationConnector Association="QLNhaThauModel.FK_CardNhanVien_Card" ManuallyRouted="false" />
         <AssociationConnector Association="QLNhaThauModel.FK_CardNhanVien_NhanVienNT" ManuallyRouted="false" />
         <AssociationConnector Association="QLNhaThauModel.FK_GiaHanHD_HopDong" ManuallyRouted="false" />
@@ -36,7 +37,7 @@
         <AssociationConnector Association="QLNhaThauModel.FK_NguoiDung_NhanVien" ManuallyRouted="false" />
         <AssociationConnector Association="QLNhaThauModel.FK_PhanQuyen_NguoiDung" ManuallyRouted="false" />
         <AssociationConnector Association="QLNhaThauModel.FK_PCHN_HopDong_PhongBan" ManuallyRouted="false" />
-        <AssociationConnector Association="QLNhaThauModel.FK_PhanQuyen_Quyen" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhaThauModel.FK_PhanQuyen_Quyen1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
