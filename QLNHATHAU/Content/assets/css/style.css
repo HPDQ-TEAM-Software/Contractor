@@ -2099,7 +2099,7 @@ header .form-inline .search-form.close {
 /*** modal  config ****/
 
 .modal.show .modal-dialog{
-    margin-top: 70px;
+    margin-top: 50px;
 }
 
 /*** end modal config ***/
