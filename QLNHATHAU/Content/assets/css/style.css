@@ -2093,6 +2093,7 @@ header .form-inline .search-form.close {
 }
 .navbar .navbar-nav li > a:hover, .navbar .navbar-nav li > a:hover .menu-icon {
     color: #05428c !important;
+    font-weight: bold;
 }
 /** end  change nav li a **/
 
