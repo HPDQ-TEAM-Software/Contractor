@@ -70,11 +70,6 @@
     <Property Name="NgayHoc" Type="datetime" />
     <Property Name="KetQua" Type="bit" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Khach">
-          <Property Name="IDKhach" Type="int" />
-        </EntityType>-->
   <EntityType Name="LoaiHS">
     <Key>
       <PropertyRef Name="ID" />
@@ -624,6 +619,9 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
     <Parameter Name="GioiTinh" Type="int" Mode="In" />
     <Parameter Name="QuocTich" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="Nhathau_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDNhaThau" Type="int" Mode="In" />
+  </Function>
   <Function Name="Nhathau_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaNT" Type="varchar" Mode="In" />
     <Parameter Name="MST" Type="varchar" Mode="In" />
@@ -633,7 +631,19 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
     <Parameter Name="Email" Type="varchar" Mode="In" />
   </Function>
   <Function Name="NhaThau_list" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Nhathau_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDNhaThau" Type="int" Mode="In" />
+  </Function>
   <Function Name="NhaThau_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Nhathau_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDNhaThau" Type="int" Mode="In" />
+    <Parameter Name="MaNT" Type="varchar" Mode="In" />
+    <Parameter Name="MST" Type="varchar" Mode="In" />
+    <Parameter Name="Ten" Type="nvarchar" Mode="In" />
+    <Parameter Name="Diachi" Type="nvarchar" Mode="In" />
+    <Parameter Name="DienThoai" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="PCHN_HopDong_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>

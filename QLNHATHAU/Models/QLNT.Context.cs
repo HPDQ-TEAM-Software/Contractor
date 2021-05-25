@@ -949,9 +949,51 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<NhaThau_list_Result>("NhaThau_list");
         }
     
+        public virtual ObjectResult<Nhathau_SearchByID_Result> Nhathau_SearchByID(Nullable<int> iDNhaThau)
+        {
+            var iDNhaThauParameter = iDNhaThau.HasValue ?
+                new ObjectParameter("IDNhaThau", iDNhaThau) :
+                new ObjectParameter("IDNhaThau", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nhathau_SearchByID_Result>("Nhathau_SearchByID", iDNhaThauParameter);
+        }
+    
         public virtual ObjectResult<NhaThau_select_Result> NhaThau_select()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<NhaThau_select_Result>("NhaThau_select");
+        }
+    
+        public virtual int Nhathau_update(Nullable<int> iDNhaThau, string maNT, string mST, string ten, string diachi, string dienThoai, string email)
+        {
+            var iDNhaThauParameter = iDNhaThau.HasValue ?
+                new ObjectParameter("IDNhaThau", iDNhaThau) :
+                new ObjectParameter("IDNhaThau", typeof(int));
+    
+            var maNTParameter = maNT != null ?
+                new ObjectParameter("MaNT", maNT) :
+                new ObjectParameter("MaNT", typeof(string));
+    
+            var mSTParameter = mST != null ?
+                new ObjectParameter("MST", mST) :
+                new ObjectParameter("MST", typeof(string));
+    
+            var tenParameter = ten != null ?
+                new ObjectParameter("Ten", ten) :
+                new ObjectParameter("Ten", typeof(string));
+    
+            var diachiParameter = diachi != null ?
+                new ObjectParameter("Diachi", diachi) :
+                new ObjectParameter("Diachi", typeof(string));
+    
+            var dienThoaiParameter = dienThoai != null ?
+                new ObjectParameter("DienThoai", dienThoai) :
+                new ObjectParameter("DienThoai", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Nhathau_update", iDNhaThauParameter, maNTParameter, mSTParameter, tenParameter, diachiParameter, dienThoaiParameter, emailParameter);
         }
     
         public virtual int PCHN_HopDong_Delete(Nullable<int> iD)
@@ -1386,6 +1428,15 @@ namespace QLNHATHAU.Models
         public virtual ObjectResult<TongQuan_Select_Result> TongQuan_Select()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TongQuan_Select_Result>("TongQuan_Select");
+        }
+    
+        public virtual int Nhathau_delete(Nullable<int> iDNhaThau)
+        {
+            var iDNhaThauParameter = iDNhaThau.HasValue ?
+                new ObjectParameter("IDNhaThau", iDNhaThau) :
+                new ObjectParameter("IDNhaThau", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Nhathau_delete", iDNhaThauParameter);
         }
     }
 }

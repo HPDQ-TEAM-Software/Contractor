@@ -721,7 +721,19 @@
       <Parameter Name="Email" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="NhaThau_list" ReturnType="Collection(QLNhaThauModel.NhaThau_list_Result)" />
+    <FunctionImport Name="Nhathau_SearchByID" ReturnType="Collection(QLNhaThauModel.Nhathau_SearchByID_Result)">
+      <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="NhaThau_select" ReturnType="Collection(QLNhaThauModel.NhaThau_select_Result)" />
+    <FunctionImport Name="Nhathau_update">
+      <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
+      <Parameter Name="MaNT" Mode="In" Type="String" />
+      <Parameter Name="MST" Mode="In" Type="String" />
+      <Parameter Name="Ten" Mode="In" Type="String" />
+      <Parameter Name="Diachi" Mode="In" Type="String" />
+      <Parameter Name="DienThoai" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="PCHN_HopDong_Delete">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -851,6 +863,9 @@
       <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="TongQuan_Select" ReturnType="Collection(QLNhaThauModel.TongQuan_Select_Result)" />
+    <FunctionImport Name="Nhathau_delete">
+      <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="Card_SearchByID_Result">
     <Property Type="Int32" Name="IDCard" Nullable="false" />
@@ -1047,6 +1062,15 @@
     <Property Type="String" Name="QuocTich" Nullable="true" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="NhaThau_list_Result">
+    <Property Type="Int32" Name="IDNhaThau" Nullable="false" />
+    <Property Type="String" Name="MaNT" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MST" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Ten" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="550" />
+    <Property Type="String" Name="DienThoai" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Nhathau_SearchByID_Result">
     <Property Type="Int32" Name="IDNhaThau" Nullable="false" />
     <Property Type="String" Name="MaNT" Nullable="true" MaxLength="10" />
     <Property Type="String" Name="MST" Nullable="true" MaxLength="10" />

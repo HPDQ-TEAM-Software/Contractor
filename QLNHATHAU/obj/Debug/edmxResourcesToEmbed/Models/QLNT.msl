@@ -583,6 +583,19 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Nhathau_SearchByID" FunctionName="QLNhaThauModel.Store.Nhathau_SearchByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLNhaThauModel.Nhathau_SearchByID_Result">
+          <ScalarProperty Name="IDNhaThau" ColumnName="IDNhaThau" />
+          <ScalarProperty Name="MaNT" ColumnName="MaNT" />
+          <ScalarProperty Name="MST" ColumnName="MST" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="NhaThau_select" FunctionName="QLNhaThauModel.Store.NhaThau_select">
       <ResultMapping>
         <ComplexTypeMapping TypeName="QLNhaThauModel.NhaThau_select_Result">
@@ -596,6 +609,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Nhathau_update" FunctionName="QLNhaThauModel.Store.Nhathau_update" />
     <FunctionImportMapping FunctionImportName="PCHN_HopDong_Delete" FunctionName="QLNhaThauModel.Store.PCHN_HopDong_Delete" />
     <FunctionImportMapping FunctionImportName="PCHN_HopDong_Insert" FunctionName="QLNhaThauModel.Store.PCHN_HopDong_Insert" />
     <FunctionImportMapping FunctionImportName="PCHN_HopDong_SearchByID" FunctionName="QLNhaThauModel.Store.PCHN_HopDong_SearchByID">
@@ -767,5 +781,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Nhathau_delete" FunctionName="QLNhaThauModel.Store.Nhathau_delete" />
   </EntityContainerMapping>
 </Mapping>

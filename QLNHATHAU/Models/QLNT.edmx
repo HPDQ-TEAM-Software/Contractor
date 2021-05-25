@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QLNhaThauModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QLNhaThauModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Card">
           <Key>
             <PropertyRef Name="IDCard" />
@@ -75,11 +75,6 @@
           <Property Name="NgayHoc" Type="datetime" />
           <Property Name="KetQua" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Khach">
-          <Property Name="IDKhach" Type="int" />
-        </EntityType>-->
         <EntityType Name="LoaiHS">
           <Key>
             <PropertyRef Name="ID" />
@@ -629,6 +624,9 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
           <Parameter Name="GioiTinh" Type="int" Mode="In" />
           <Parameter Name="QuocTich" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="Nhathau_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDNhaThau" Type="int" Mode="In" />
+        </Function>
         <Function Name="Nhathau_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MaNT" Type="varchar" Mode="In" />
           <Parameter Name="MST" Type="varchar" Mode="In" />
@@ -638,7 +636,19 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
           <Parameter Name="Email" Type="varchar" Mode="In" />
         </Function>
         <Function Name="NhaThau_list" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Nhathau_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDNhaThau" Type="int" Mode="In" />
+        </Function>
         <Function Name="NhaThau_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Nhathau_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDNhaThau" Type="int" Mode="In" />
+          <Parameter Name="MaNT" Type="varchar" Mode="In" />
+          <Parameter Name="MST" Type="varchar" Mode="In" />
+          <Parameter Name="Ten" Type="nvarchar" Mode="In" />
+          <Parameter Name="Diachi" Type="nvarchar" Mode="In" />
+          <Parameter Name="DienThoai" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="PCHN_HopDong_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
@@ -839,8 +849,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <End Role="PhanQuyen" EntitySet="PhanQuyen" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLNhaThauModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1302,14 +1311,14 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <End Role="PhanQuyen" EntitySet="PhanQuyens" />
           </AssociationSet>
           <FunctionImport Name="Card_Delete">
-            <Parameter Name="IDCard" Mode="In" Type="Int32" />
+          <Parameter Name="IDCard" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Card_insert">
             <Parameter Name="MaCard" Mode="In" Type="String" />
             <Parameter Name="NgayHetHan" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="Card_SearchByID" ReturnType="Collection(QLNhaThauModel.Card_SearchByID_Result)">
-            <Parameter Name="IDCard" Mode="In" Type="Int32" />
+          <Parameter Name="IDCard" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Card_select" ReturnType="Collection(QLNhaThauModel.Card_select_Result)" />
           <FunctionImport Name="Card_update">
@@ -1318,13 +1327,13 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="NgayHetHan" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="Cong_delete">
-            <Parameter Name="IDCong" Mode="In" Type="Int32" />
+          <Parameter Name="IDCong" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Cong_insert">
-            <Parameter Name="TenCong" Mode="In" Type="String" />
+          <Parameter Name="TenCong" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Cong_SearchByID" ReturnType="Collection(QLNhaThauModel.Cong_SearchByID_Result)">
-            <Parameter Name="IDCong" Mode="In" Type="Int32" />
+          <Parameter Name="IDCong" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Cong_Select" ReturnType="Collection(QLNhaThauModel.Cong_Select_Result)" />
           <FunctionImport Name="Cong_update">
@@ -1332,7 +1341,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="TenCong" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Delete_PhanQyen">
-            <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
+          <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="EmplIndentityCard_Delete">
             <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -1343,7 +1352,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="NhanVienNTID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="EmplIndentityCard_SearchByID" ReturnType="Collection(QLNhaThauModel.EmplIndentityCard_SearchByID_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="EmplIndentityCard_select" ReturnType="Collection(QLNhaThauModel.EmplIndentityCard_select_Result)" />
           <FunctionImport Name="EmplIndentityCard_update">
@@ -1352,7 +1361,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="NhanVienNTID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GiaHanHopDong_Delete">
-            <Parameter Name="IDGHHD" Mode="In" Type="Int32" />
+          <Parameter Name="IDGHHD" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GiaHanHopDong_Insert">
             <Parameter Name="HDID" Mode="In" Type="Int32" />
@@ -1360,7 +1369,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="NgayKetThuc" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="GiaHanHopDong_SearchByID" ReturnType="Collection(QLNhaThauModel.GiaHanHopDong_SearchByID_Result)">
-            <Parameter Name="IDGHHD" Mode="In" Type="Int32" />
+          <Parameter Name="IDGHHD" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GiaHanHopDong_select" ReturnType="Collection(QLNhaThauModel.GiaHanHopDong_select_Result)" />
           <FunctionImport Name="GiaHanHopDong_update">
@@ -1370,7 +1379,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="NgayKetThuc" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="HopDong_delete">
-            <Parameter Name="IDHD" Mode="In" Type="Int32" />
+          <Parameter Name="IDHD" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="HopDong_insert">
             <Parameter Name="SoHD" Mode="In" Type="String" />
@@ -1386,7 +1395,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="IDHD" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="HopDong_SearchByID" ReturnType="Collection(QLNhaThauModel.HopDong_SearchByID_Result)">
-            <Parameter Name="IDHD" Mode="In" Type="Int32" />
+          <Parameter Name="IDHD" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="HopDong_select" ReturnType="Collection(QLNhaThauModel.HopDong_select_Result)" />
           <FunctionImport Name="HopDong_update">
@@ -1402,10 +1411,10 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="IDKetQuaHoc_ByMaNV" ReturnType="Collection(QLNhaThauModel.IDKetQuaHoc_ByMaNV_Result)">
-            <Parameter Name="MaNV" Mode="In" Type="String" />
+          <Parameter Name="MaNV" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="KetQuaHoc_Delete">
-            <Parameter Name="IDKQHAT" Mode="In" Type="Int32" />
+          <Parameter Name="IDKQHAT" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="KetQuaHoc_insert">
             <Parameter Name="HDID" Mode="In" Type="Int32" />
@@ -1418,7 +1427,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="KetQua" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="KetQuaHoc_SearchByID" ReturnType="Collection(QLNhaThauModel.KetQuaHoc_SearchByID_Result)">
-            <Parameter Name="IDKQHAT" Mode="In" Type="Int32" />
+          <Parameter Name="IDKQHAT" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="KetQuaHoc_select" ReturnType="Collection(QLNhaThauModel.KetQuaHoc_select_Result)" />
           <FunctionImport Name="KetQuaHoc_update">
@@ -1430,14 +1439,14 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="KetQua" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="LoaiKhach_delete">
-            <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
+          <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LoaiKhach_insert">
             <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
             <Parameter Name="TenKhach" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="LoaiKhach_SearchByID" ReturnType="Collection(QLNhaThauModel.LoaiKhach_SearchByID_Result)">
-            <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
+          <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LoaiKhach_Select" ReturnType="Collection(QLNhaThauModel.LoaiKhach_Select_Result)" />
           <FunctionImport Name="LoaiKhach_update">
@@ -1445,7 +1454,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="TenKhach" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MaNVNT_KQHocANT" ReturnType="Collection(String)">
-            <Parameter Name="NhanVienNTID" Mode="In" Type="Int32" />
+          <Parameter Name="NhanVienNTID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NguoiDung_CapNhatQuyen">
             <Parameter Name="IDNguoiDung" Mode="In" Type="Int32" />
@@ -1456,17 +1465,17 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="IDNhanVien" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NguoiDung_delete">
-            <Parameter Name="IDNguoiDung" Mode="In" Type="Int32" />
+          <Parameter Name="IDNguoiDung" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NguoiDung_DeletePermission">
             <Parameter Name="TenDangNhap" Mode="In" Type="String" />
             <Parameter Name="IDNguoiDung" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NguoiDung_get_IDPhanQuyen" ReturnType="Collection(QLNhaThauModel.NguoiDung_get_IDPhanQuyen_Result)">
-            <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
+          <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NguoiDung_Get_PhanQuyen" ReturnType="Collection(QLNhaThauModel.NguoiDung_Get_PhanQuyen_Result)">
-            <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
+          <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NguoiDung_GetAllId" ReturnType="Collection(Int32)" />
           <FunctionImport Name="NguoiDung_insert">
@@ -1479,7 +1488,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
           </FunctionImport>
           <FunctionImport Name="NguoiDung_Max_ID" ReturnType="Collection(Int32)" />
           <FunctionImport Name="NguoiDung_SearchByID" ReturnType="Collection(QLNhaThauModel.NguoiDung_SearchByID_Result)">
-            <Parameter Name="IDNguoiDung" Mode="In" Type="Int32" />
+          <Parameter Name="IDNguoiDung" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NguoiDung_select" ReturnType="Collection(QLNhaThauModel.NguoiDung_select_Result)" />
           <FunctionImport Name="NguoiDung_update">
@@ -1495,7 +1504,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="QuyenID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NhanVien_delete">
-            <Parameter Name="IDNhanVien" Mode="In" Type="Int32" />
+          <Parameter Name="IDNhanVien" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NhanVien_insert">
             <Parameter Name="IDNhanVien" Mode="In" Type="Int32" />
@@ -1514,7 +1523,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="UpdateBy" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="NhanVien_SearchByID" ReturnType="Collection(QLNhaThauModel.NhanVien_SearchByID_Result)">
-            <Parameter Name="IDNhanVien" Mode="In" Type="Int32" />
+          <Parameter Name="IDNhanVien" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NhanVien_select" ReturnType="Collection(QLNhaThauModel.NhanVien_select_Result)" />
           <FunctionImport Name="NhanVien_update">
@@ -1530,7 +1539,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="NgayNghiViec" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="NhanVienNT_Delete">
-            <Parameter Name="IDNVNT" Mode="In" Type="Int32" />
+          <Parameter Name="IDNVNT" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NhanVienNT_insert">
             <Parameter Name="MaNV" Mode="In" Type="String" />
@@ -1543,7 +1552,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="IDNVNT" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NhanVienNT_SearchByID" ReturnType="Collection(QLNhaThauModel.NhanVienNT_SearchByID_Result)">
-            <Parameter Name="IDNVNT" Mode="In" Type="Int32" />
+          <Parameter Name="IDNVNT" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NhanVienNT_select" ReturnType="Collection(QLNhaThauModel.NhanVienNT_select_Result)" />
           <FunctionImport Name="NhanVienNT_update">
@@ -1565,16 +1574,28 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="Email" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="NhaThau_list" ReturnType="Collection(QLNhaThauModel.NhaThau_list_Result)" />
+          <FunctionImport Name="Nhathau_SearchByID" ReturnType="Collection(QLNhaThauModel.Nhathau_SearchByID_Result)">
+          <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="NhaThau_select" ReturnType="Collection(QLNhaThauModel.NhaThau_select_Result)" />
+          <FunctionImport Name="Nhathau_update">
+            <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
+            <Parameter Name="MaNT" Mode="In" Type="String" />
+            <Parameter Name="MST" Mode="In" Type="String" />
+            <Parameter Name="Ten" Mode="In" Type="String" />
+            <Parameter Name="Diachi" Mode="In" Type="String" />
+            <Parameter Name="DienThoai" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="PCHN_HopDong_Delete">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PCHN_HopDong_Insert">
             <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
             <Parameter Name="HopDongID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PCHN_HopDong_SearchByID" ReturnType="Collection(QLNhaThauModel.PCHN_HopDong_SearchByID_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PCHN_HopDong_select" ReturnType="Collection(QLNhaThauModel.PCHN_HopDong_select_Result)" />
           <FunctionImport Name="PCHN_HopDong_update">
@@ -1583,7 +1604,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="HopDongID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PhanQuyen_delete">
-            <Parameter Name="IDPhanQuyen" Mode="In" Type="Int32" />
+          <Parameter Name="IDPhanQuyen" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PhanQuyen_insert">
             <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
@@ -1592,7 +1613,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
           <FunctionImport Name="PhanQuyen_NDSelectAll" ReturnType="Collection(QLNhaThauModel.PhanQuyen_NDSelectAll_Result)" />
           <FunctionImport Name="PhanQuyen_select" ReturnType="Collection(QLNhaThauModel.PhanQuyen_select_Result)" />
           <FunctionImport Name="PhanQuyen_selectAll" ReturnType="Collection(QLNhaThauModel.PhanQuyen_selectAll_Result)">
-            <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
+          <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PhanQuyen_update">
             <Parameter Name="IDPhanQuyen" Mode="In" Type="Int32" />
@@ -1607,7 +1628,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="GhiChu" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="PheDuyet_SearchByID" ReturnType="Collection(QLNhaThauModel.PheDuyet_SearchByID_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PheDuyet_Updata">
             <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -1617,7 +1638,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="GhiChu" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="PhongBan_delete">
-            <Parameter Name="IDPhongBan" Mode="In" Type="Int32" />
+          <Parameter Name="IDPhongBan" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PhongBan_insert">
             <Parameter Name="TenVT" Mode="In" Type="String" />
@@ -1627,13 +1648,13 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
           <FunctionImport Name="PhongBan_ISPCHN" ReturnType="Collection(QLNhaThauModel.PhongBan_ISPCHN_Result)" />
           <FunctionImport Name="PhongBan_list" ReturnType="Collection(QLNhaThauModel.PhongBan_list_Result)" />
           <FunctionImport Name="PhongBan_PCHN_loadedit" ReturnType="Collection(Int32)">
-            <Parameter Name="IDHopDong" Mode="In" Type="Int32" />
+          <Parameter Name="IDHopDong" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PhongBan_PCHN_SearchByID" ReturnType="Collection(QLNhaThauModel.PhongBan_PCHN_SearchByID_Result)">
-            <Parameter Name="IDHopDong" Mode="In" Type="Int32" />
+          <Parameter Name="IDHopDong" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PhongBan_SearchByID" ReturnType="Collection(QLNhaThauModel.PhongBan_SearchByID_Result)">
-            <Parameter Name="IDPhongBan" Mode="In" Type="Int32" />
+          <Parameter Name="IDPhongBan" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PhongBan_update">
             <Parameter Name="IDPhongban" Mode="In" Type="Int32" />
@@ -1642,13 +1663,13 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="PCHN" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="Quyen_delete">
-            <Parameter Name="IDQuyen" Mode="In" Type="Int32" />
+          <Parameter Name="IDQuyen" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Quyen_insert">
-            <Parameter Name="TenQuyen" Mode="In" Type="String" />
+          <Parameter Name="TenQuyen" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Quyen_SearchByID" ReturnType="Collection(QLNhaThauModel.Quyen_SearchByID_Result)">
-            <Parameter Name="IDQuyen" Mode="In" Type="Int32" />
+          <Parameter Name="IDQuyen" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Quyen_select" ReturnType="Collection(QLNhaThauModel.Quyen_select_Result)" />
           <FunctionImport Name="Quyen_update">
@@ -1656,7 +1677,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
             <Parameter Name="TenQuyen" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SoHD_KQHocANT" ReturnType="Collection(String)">
-            <Parameter Name="IDHD" Mode="In" Type="Int32" />
+          <Parameter Name="IDHD" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -1689,12 +1710,15 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="TenNT_HopDong" ReturnType="Collection(QLNhaThauModel.TenNT_HopDong_Result)">
-            <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
+          <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="TenNT_KQHocANT" ReturnType="Collection(String)">
-            <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
+          <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="TongQuan_Select" ReturnType="Collection(QLNhaThauModel.TongQuan_Select_Result)" />
+          <FunctionImport Name="Nhathau_delete">
+            <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Card_SearchByID_Result">
           <Property Type="Int32" Name="IDCard" Nullable="false" />
@@ -1891,6 +1915,15 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
           <Property Type="String" Name="QuocTich" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="NhaThau_list_Result">
+          <Property Type="Int32" Name="IDNhaThau" Nullable="false" />
+          <Property Type="String" Name="MaNT" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="MST" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Ten" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="550" />
+          <Property Type="String" Name="DienThoai" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Nhathau_SearchByID_Result">
           <Property Type="Int32" Name="IDNhaThau" Nullable="false" />
           <Property Type="String" Name="MaNT" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="MST" Nullable="true" MaxLength="10" />
@@ -2581,6 +2614,19 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Nhathau_SearchByID" FunctionName="QLNhaThauModel.Store.Nhathau_SearchByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLNhaThauModel.Nhathau_SearchByID_Result">
+                <ScalarProperty Name="IDNhaThau" ColumnName="IDNhaThau" />
+                <ScalarProperty Name="MaNT" ColumnName="MaNT" />
+                <ScalarProperty Name="MST" ColumnName="MST" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="NhaThau_select" FunctionName="QLNhaThauModel.Store.NhaThau_select">
             <ResultMapping>
               <ComplexTypeMapping TypeName="QLNhaThauModel.NhaThau_select_Result">
@@ -2594,6 +2640,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Nhathau_update" FunctionName="QLNhaThauModel.Store.Nhathau_update" />
           <FunctionImportMapping FunctionImportName="PCHN_HopDong_Delete" FunctionName="QLNhaThauModel.Store.PCHN_HopDong_Delete" />
           <FunctionImportMapping FunctionImportName="PCHN_HopDong_Insert" FunctionName="QLNhaThauModel.Store.PCHN_HopDong_Insert" />
           <FunctionImportMapping FunctionImportName="PCHN_HopDong_SearchByID" FunctionName="QLNhaThauModel.Store.PCHN_HopDong_SearchByID">
@@ -2765,6 +2812,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Nhathau_delete" FunctionName="QLNhaThauModel.Store.Nhathau_delete" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

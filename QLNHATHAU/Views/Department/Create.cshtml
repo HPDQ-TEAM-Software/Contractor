@@ -16,12 +16,12 @@
                 <fieldset id="SubmitForm">
                     <div class="form-group">
                         <label class="small mb-1" for="inputLastName">Tên viết tắt (ISO)</label>
-                        @Html.EditorFor(model => model.TenVT, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập địa chỉ", @id = "TenVT" } })
+                        @Html.EditorFor(model => model.TenVT, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập tên viết tắt (ISO)", @id = "TenVT" } })
                         @Html.ValidationMessageFor(model => model.TenVT, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
                         <label class="small mb-1" for="inputLastName">Tên phòng ban</label>
-                        @Html.EditorFor(model => model.TenDai, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập địa chỉ", @id = "TenDai" } })
+                        @Html.EditorFor(model => model.TenDai, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập BP/NM", @id = "TenDai" } })
                         @Html.ValidationMessageFor(model => model.TenDai, "", new { @class = "text-danger" })
                     </div>
 

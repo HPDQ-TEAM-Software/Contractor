@@ -288,6 +288,9 @@
     <Compile Include="Models\NhaThau_list_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Nhathau_SearchByID_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\NhaThau_select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -1132,6 +1135,8 @@
     <Content Include="Views\Department\Create.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Contractors\Index.cshtml" />
+    <Content Include="Views\Contractors\Create.cshtml" />
+    <Content Include="Views\Contractors\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

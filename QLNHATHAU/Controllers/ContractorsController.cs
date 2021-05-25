@@ -56,23 +56,29 @@ namespace QLNHATHAU.Controllers
 
         public ActionResult Edit(int id)
         {
-            var res = (from dm in db_context.PhongBan_SearchByID(id)
-                       select new PhongBanValidation
+            var res = (from dm in db_context.Nhathau_SearchByID(id)
+                       select new NhaThauValidation
                        {
-                           IDPhongBan = dm.IDPhongBan,
-                           TenVT = dm.TenVT,
-                           TenDai = dm.TenDai,
-                           PCHN = (bool)dm.PCHN
+                           IDNhaThau = dm.IDNhaThau,
+                           MaNT = dm.MaNT,
+                           MST = dm.MST,
+                           Ten = dm.Ten,
+                           DiaChi=dm.DiaChi,
+                           DienThoai=dm.DienThoai,
+                           Email=dm.Email
                        }).ToList();
-            PhongBanValidation DO = new PhongBanValidation();
+            NhaThauValidation DO = new NhaThauValidation();
             if (res.Count > 0)
             {
                 foreach (var dm in res)
                 {
-                    DO.IDPhongBan = dm.IDPhongBan;
-                    DO.TenVT = dm.TenVT;
-                    DO.TenDai = dm.TenDai;
-                    DO.PCHN = dm.PCHN;
+                    DO.IDNhaThau = dm.IDNhaThau;
+                    DO.MaNT = dm.MaNT;
+                    DO.MST = dm.MST;
+                    DO.Ten = dm.Ten;
+                    DO.DiaChi = dm.DiaChi;
+                    DO.DienThoai = dm.DienThoai;
+                    DO.Email = dm.Email;
                 }
             }
             else
@@ -83,31 +89,31 @@ namespace QLNHATHAU.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(PhongBanValidation _DO)
+        public ActionResult Edit(NhaThauValidation _DO)
         {
             try
             {
-                db_context.PhongBan_update(_DO.IDPhongBan, _DO.TenVT, _DO.TenDai, _DO.PCHN);
+                db_context.Nhathau_update(_DO.IDNhaThau,_DO.MaNT, _DO.MST, _DO.Ten, _DO.DiaChi, _DO.DienThoai, _DO.Email);
                 TempData["msgSuccess"] = "<script>alert('Cập nhập thành công');</script>";
             }
             catch (Exception e)
             {
                 TempData["msgSuccess"] = "<script>alert('Cập nhập thất bại: " + e.Message + "');</script>";
             }
-            return RedirectToAction("Index", "Department");
+            return RedirectToAction("Index", "Contractors");
         }
 
         public ActionResult Delete(int id)
         {
             try
             {
-                db_context.PhongBan_delete(id);
+                db_context.Nhathau_delete(id);
             }
             catch (Exception e)
             {
                 TempData["msgSuccess"] = "<script>alert('Xóa dữ liệu thất bại: " + e.Message + "');</script>";
             }
-            return RedirectToAction("Index", "Department");
+            return RedirectToAction("Index", "Contractors");
         }
     }
 }
