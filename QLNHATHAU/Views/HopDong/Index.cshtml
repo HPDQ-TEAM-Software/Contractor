@@ -85,12 +85,9 @@
                         <tr>
                             <th>Số hợp đồng</th>
                             <th>Tên hợp đồng</th>
-                            <th>Người đại diện</th>
+                            <th>Nhà thầu</th>
                             <th>Ngày bắt đầu</th>
                             <th>Ngày kết thúc</th>
-                            <th>Ghi chú</th>
-                            <th>Nhà thầu</th>
-                            <th>Phòng ban</th>
                             <th>File</th>
                             <th>Thao tác</th>
                         </tr>
@@ -101,12 +98,9 @@
                         <tr>
                             <td>@item.SoHD </td>
                             <td>@item.TenHD</td>
-                            <td>@item.NguoiDaiDien</td>
+                            <td>@item.TenNhaThau</td>
                             <td class="center-td">@item.NgayBD.Value.ToString("dd-MM-yyyy")</td>
                             <td class="center-td">@item.NgayKT.Value.ToString("dd-MM-yyyy")</td>
-                            <td>@item.GhiChu</td>
-                            <td>@item.TenNhaThau</td>
-                            <td>@item.TenPhongBan</td>
                             <td class="file-path">
                                 @if (item.FilePath != null)
                                 {
