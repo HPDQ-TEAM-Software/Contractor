@@ -459,9 +459,12 @@ canvas {
 .font-4xl {
   font-size: 3.75em; 
 }
-
+.btn-primary{
+  background-color: #1d428a !important;
+  border-color: #1d428a !important;
+}
 .width-90 {
-  width: 90px; 
+    width: 90px;
 }
 
 .height-15 {
@@ -2270,6 +2273,8 @@ header .form-inline .search-form.close {
 .card-header label{
     line-height: 32.25px;
     margin: auto;
+    color: #1d428a;
+    text-transform:uppercase;
 }
 .card .box-title,
 .card-header h4,
@@ -2438,7 +2443,7 @@ header .form-inline .search-form.close {
 }
 .card .card-body {
   float: left;
-  padding: 1.25em;
+  padding: 1.25em 0;
   position: relative;
   width: 100%; 
 }
@@ -2617,7 +2622,8 @@ header .form-inline .search-form.close {
   padding: .7325rem .75rem;
 }
 table tr th {
-    background: #e8e9ef !important;
+    background: #0097d0 !important;
+    color: white !important;
 }
 
 /* 5 -------- Timeline ------- */
