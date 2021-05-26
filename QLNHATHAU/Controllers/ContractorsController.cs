@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ExcelDataReader;
 using PagedList;
 using QLNHATHAU.Models;
 
@@ -114,6 +117,122 @@ namespace QLNHATHAU.Controllers
                 TempData["msgSuccess"] = "<script>alert('Xóa dữ liệu thất bại: " + e.Message + "');</script>";
             }
             return RedirectToAction("Index", "Contractors");
+        }
+        public ActionResult ImportExcel()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public ActionResult ImportExcel(NhaThauValidation _DO)
+        {
+            string filePath = string.Empty;
+            if (Request != null)
+            {
+                HttpPostedFileBase file = Request.Files["FileUpload"];
+                if ((file != null) && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
+                {
+                    string path = Server.MapPath("~/Uploads/");
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    filePath = path + Path.GetFileName(file.FileName);
+
+                    file.SaveAs(filePath);
+                    Stream stream = file.InputStream;
+                    // We return the interface, so that  
+                    IExcelDataReader reader = null;
+                    if (file.FileName.ToLower().EndsWith(".xls"))
+                    {
+                        reader = ExcelReaderFactory.CreateBinaryReader(stream);
+                    }
+                    else if (file.FileName.ToLower().EndsWith(".xlsx"))
+                    {
+                        reader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+                    }
+                    else
+                    {
+                        TempData["msg"] = "<script>alert('Vui lòng chọn đúng định dạng file Excel');</script>";
+                        return View();
+                    }
+                    DataSet result = reader.AsDataSet();
+                    DataTable dt = result.Tables[0];
+                    reader.Close();
+                    int dtc = 0, dtrung = 0;
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        try
+                        {
+
+                            for (int i = 1; i < dt.Rows.Count; i++)
+                            {
+                               if(CheckMaNT(dt.Rows[i][0].ToString()))
+                                {
+                                    db_context.Nhathau_insert(dt.Rows[i][0].ToString(), dt.Rows[i][4].ToString(), dt.Rows[i][2].ToString(), dt.Rows[i][3].ToString(), dt.Rows[i][5].ToString(), dt.Rows[i][6].ToString());
+                                    dtc++;
+                                }    
+                                
+                            }
+
+                            string msg = "";
+                            if (dtc != 0 && dtrung != 0)
+                            {
+                                msg = "Import được " + dtc + " dòng dữ liệu, " + "Có " + dtrung + " dòng trùng Mã HM cập nhập nội dung";
+                            }
+                            else if (dtc != 0 && dtrung == 0)
+                            {
+                                msg = "Import được " + dtc + " dòng dữ liệu";
+                            }
+                            else if (dtc == 0 && dtrung != 0)
+                            {
+                                msg = "Có " + dtrung + " dòng trùng Mã HM cập nhập nội dung";
+                            }
+                            else { msg = "File import không có dữ liệu"; }
+
+                            TempData["msgSuccess"] = "<script>alert('" + msg + "');</script>";
+
+                        }
+                        catch
+                        {
+                            TempData["msgSuccess"] = "<script>alert('File import không đúng định dạng. Vui lòng tải biểu mẫu file import');</script>";
+                        }
+                    }
+                    else
+                    {
+                        TempData["msgSuccess"] = "<script>alert('File import không đúng định dạng. Vui lòng tải biểu mẫu file import');</script>";
+                    }
+
+                }
+                else
+                {
+                    TempData["msgSuccess"] = "<script>alert('Vui lòng nhập file Import');</script>";
+                }
+            }
+            else
+            {
+                TempData["msgSuccess"] = "<script>alert('Vui lòng nhập file Import');</script>";
+            }
+
+            return RedirectToAction("Index", "Contractors");
+        }
+        public bool CheckMaNT(string MaNT)
+        {
+            var Regsbb = (from u in db_context.NhaThaus
+                          where u.MaNT.ToLower() == MaNT.ToLower()
+                          select new { u.MaNT }).FirstOrDefault();
+            bool status;
+            if (Regsbb != null)
+            {
+                //Already registered  
+                status = false;
+            }
+            else
+            {
+                //Available to use  
+                status = true;
+            }
+            return status;
         }
     }
 }

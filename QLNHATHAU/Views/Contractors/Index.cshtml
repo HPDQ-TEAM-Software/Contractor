@@ -20,6 +20,9 @@
         <label class="pull-left">Danh sách nhà thầu</label>
         <button type="button" id="btn-add" class="btn btn-primary pull-right" data-target="#myModal"><i class="fa fa-plus">&nbsp;</i>&nbsp;Thêm mới </button>
         <div class="modal fade" id="myModal" role="dialog" tabindex="-1" aria-labelledby="scrollmodalLabel" aria-hidden="true" data-url='@Url.Action("Create","Contractors")'></div>
+
+        <a class="btn btn-default pull-right" href="#" id="btn-Import"><i class="far fa-file-excel"></i>&nbsp Import</a>
+        <div class="modal fade" id="myModalimport" role="dialog" data-url='@Url.Action("ImportExcel","Contractors")'></div>
     </div>
 
     <div class="card-body">
@@ -98,6 +101,14 @@
         $.get(url, function (data) {
             $("#myModal").html(data);
             $("#ModalTitle").html("Thêm nhà thầu");
+            $("#myModal").modal('show');
+        });
+    });
+    $('#btn-Import').click(function () {
+        var url = $('#myModalimport').data('url');
+        $.get(url, function (data) {
+            $("#myModal").html(data);
+            $("#ModalTitle").html("Import nhà thầu");
             $("#myModal").modal('show');
         });
     });
