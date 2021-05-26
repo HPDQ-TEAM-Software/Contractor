@@ -59,6 +59,7 @@ body {
   font-size: 15px;
   line-height: 24px;
   width: 100%; 
+  background-color: #fcfcfc;
 }
 
 p {
@@ -2262,13 +2263,15 @@ header .form-inline .search-form.close {
   border-colorius: 5px;
   padding: 0;
   overflow: hidden;
-  border: 0px solid transparent;
+  border: none !important;
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.08); 
+  background-color: #f7f7f7 !important;
 }
 .card-header {
-  background-color: #fff;
+  background-color: #fff !important;
   font-weight: bold !important;
+  border-radius: 5px;
 }
 .card-header label{
     line-height: 32.25px;
@@ -2423,7 +2426,7 @@ header .form-inline .search-form.close {
 .card .card-top.bg-flat-color-4,
 .card .card-footer.bg-flat-color-4 {
   background: #ef5350;
-  border: none; 
+  border: none; .card .card-body
 }
 .card .card-top.bg-flat-color-5,
 .card .card-footer.bg-flat-color-5 {
@@ -2443,9 +2446,14 @@ header .form-inline .search-form.close {
 }
 .card .card-body {
   float: left;
-  padding: 1.25em 0;
+  margin-top: 1.25em;
   position: relative;
   width: 100%; 
+  background-color: white;
+  border: 1px solid rgba(0,0,0,.125);
+  padding: 0;
+  padding-bottom: 1.25rem;
+  border-radius: 5px;
 }
 .card .user-header .media img {
   border: 5px solid rgba(255, 255, 255, 0.3);
@@ -2621,6 +2629,7 @@ header .form-inline .search-form.close {
 .table td, .table th {
   padding: .7325rem .75rem;
 }
+
 table tr th {
     background: #0097d0 !important;
     color: white !important;
