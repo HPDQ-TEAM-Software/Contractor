@@ -1137,6 +1137,7 @@
     <Content Include="Views\Contractors\Index.cshtml" />
     <Content Include="Views\Contractors\Create.cshtml" />
     <Content Include="Views\Contractors\Edit.cshtml" />
+    <Content Include="Views\Contractors\ImportExcel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
