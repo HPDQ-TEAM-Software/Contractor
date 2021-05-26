@@ -23,7 +23,7 @@ namespace QLNHATHAU.Controllers
 
                       };
             if (page == null) page = 1;
-            int pageSize = 10;
+            int pageSize = 20;
             int pageNumber = (page ?? 1);
             return View(res.ToList().ToPagedList(pageNumber, pageSize));
         }

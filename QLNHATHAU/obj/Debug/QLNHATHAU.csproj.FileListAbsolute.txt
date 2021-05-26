@@ -855,7 +855,6 @@ C:\Users\HPDQ\Contractor\QLNHATHAU\bin\System.Web.WebPages.Razor.xml
 C:\Users\HPDQ\Contractor\QLNHATHAU\bin\Newtonsoft.Json.xml
 C:\Users\HPDQ\Contractor\QLNHATHAU\bin\Antlr3.Runtime.pdb
 C:\Users\HPDQ\Contractor\QLNHATHAU\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csprojAssemblyReference.cache
 C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CoreCompileInputs.cache
 C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CopyComplete
 C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.dll
