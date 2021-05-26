@@ -31,7 +31,7 @@
                         <th width="30px">STT</th>
                         <th width="120px">Mã BP/NM</th>
                         <th>Tên BP/NM</th>
-                        <th width="150px">Pòng chức năng</th>
+                        <th class="text-center" width="180px">Phòng chức năng</th>
                         <th width="150px" class="text-center">Thao tác</th>
                     </tr>
                 </thead>
@@ -49,7 +49,7 @@
                                 <td class="text-center"> @RowNo@{RowNo++;}</td>
                                 <td>@item.TenVT</td>
                                 <td>@item.TenDai</td>
-                                <td> @Html.DisplayFor(modelItem => item.PCHN)</td>
+                                <td class="text-center"> @Html.DisplayFor(modelItem => item.PCHN)</td>
 
                                 <td class="text-center">
                                     <a id="btn-edit_@item.IDPhongBan" href="#" title="Sửa"><i class="fa fa-edit"></i> </a>
