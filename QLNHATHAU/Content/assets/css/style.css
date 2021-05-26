@@ -2265,6 +2265,11 @@ header .form-inline .search-form.close {
 }
 .card-header {
   background-color: #fff;
+  font-weight: bold !important;
+}
+.card-header label{
+    line-height: 32.25px;
+    margin: auto;
 }
 .card .box-title,
 .card-header h4,
@@ -2610,6 +2615,9 @@ header .form-inline .search-form.close {
 .table-stats table th, .table-stats table td,
 .table td, .table th {
   padding: .7325rem .75rem;
+}
+table tr th {
+    background: #e8e9ef !important;
 }
 
 /* 5 -------- Timeline ------- */
