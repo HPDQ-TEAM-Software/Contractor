@@ -58,6 +58,7 @@
     <Property Name="File" Type="nvarchar" MaxLength="250" />
     <Property Name="NhaThauID" Type="int" />
     <Property Name="PhongBanID" Type="int" />
+    <Property Name="TinhTrang" Type="int" />
   </EntityType>
   <EntityType Name="KeQuaHoc">
     <Key>
@@ -218,6 +219,23 @@
     <Property Name="File" Type="nvarchar" MaxLength="250" />
     <Property Name="CreateDate" Type="datetime" />
     <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QLNhaThau.dbo.ViPham' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViPham">
+    <Key>
+      <PropertyRef Name="IDViPham" />
+    </Key>
+    <Property Name="IDViPham" Type="int" Nullable="false" />
+    <Property Name="MaNVVP" Type="char" MaxLength="10" />
+    <Property Name="TenNVVP" Type="nvarchar" MaxLength="150" />
+    <Property Name="TenNhaThau" Type="nvarchar" MaxLength="150" />
+    <Property Name="HangMuc" Type="nvarchar" MaxLength="150" />
+    <Property Name="NDViPham" Type="nvarchar" MaxLength="250" />
+    <Property Name="NgayVP" Type="datetime" />
+    <Property Name="MucVP" Type="nvarchar" MaxLength="50" />
+    <Property Name="TongVP" Type="int" />
+    <Property Name="CatThe" Type="bit" />
   </EntityType>
   <Association Name="FK_CardNhanVien_Card">
     <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
@@ -443,10 +461,10 @@
     <Parameter Name="NgayKT" Type="smalldatetime" Mode="In" />
     <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
     <Parameter Name="File" Type="nvarchar" Mode="In" />
-    <Parameter Name="TinhTrang" Type="bit" Mode="In" />
     <Parameter Name="NhaThauID" Type="int" Mode="In" />
     <Parameter Name="PhongBanID" Type="int" Mode="In" />
     <Parameter Name="IDHD" Type="int" Mode="InOut" />
+    <Parameter Name="PCNID" Type="int" Mode="In" />
   </Function>
   <Function Name="HopDong_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDHD" Type="int" Mode="In" />
@@ -678,7 +696,6 @@
     <Parameter Name="QuyenID" Type="int" Mode="In" />
   </Function>
   <Function Name="PheDuyet_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="NguoiDungID" Type="int" Mode="In" />
     <Parameter Name="LoaiHSID" Type="int" Mode="In" />
     <Parameter Name="TinhTrang" Type="bit" Mode="In" />
@@ -773,6 +790,37 @@
     <Parameter Name="IDNhaThau" Type="int" Mode="In" />
   </Function>
   <Function Name="TongQuan_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ViPham_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDViPham" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ViPham_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDViPham" Type="int" Mode="In" />
+    <Parameter Name="MaNVVP" Type="char" Mode="In" />
+    <Parameter Name="TenNVVP" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenNhaThau" Type="nvarchar" Mode="In" />
+    <Parameter Name="HangMuc" Type="nvarchar" Mode="In" />
+    <Parameter Name="NDViPham" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayVP" Type="datetime" Mode="In" />
+    <Parameter Name="MucVP" Type="nvarchar" Mode="In" />
+    <Parameter Name="TongVP" Type="int" Mode="In" />
+    <Parameter Name="CatThe" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="ViPham_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDViPham" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ViPham_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ViPham_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDViPham" Type="int" Mode="In" />
+    <Parameter Name="MaNVVP" Type="char" Mode="In" />
+    <Parameter Name="TenNVVP" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenNhaThau" Type="nvarchar" Mode="In" />
+    <Parameter Name="HangMuc" Type="nvarchar" Mode="In" />
+    <Parameter Name="NDViPham" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayVP" Type="datetime" Mode="In" />
+    <Parameter Name="MucVP" Type="nvarchar" Mode="In" />
+    <Parameter Name="TongVP" Type="int" Mode="In" />
+    <Parameter Name="CatThe" Type="bit" Mode="In" />
+  </Function>
   <EntityContainer Name="QLNhaThauModelStoreContainer">
     <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CardNhanVien" EntityType="Self.CardNhanVien" Schema="dbo" store:Type="Tables" />
@@ -795,6 +843,20 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TongQuan" EntityType="Self.TongQuan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VanBan" EntityType="Self.VanBan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViPham" EntityType="Self.ViPham" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViPham].[IDViPham] AS [IDViPham], 
+    [ViPham].[MaNVVP] AS [MaNVVP], 
+    [ViPham].[TenNVVP] AS [TenNVVP], 
+    [ViPham].[TenNhaThau] AS [TenNhaThau], 
+    [ViPham].[HangMuc] AS [HangMuc], 
+    [ViPham].[NDViPham] AS [NDViPham], 
+    [ViPham].[NgayVP] AS [NgayVP], 
+    [ViPham].[MucVP] AS [MucVP], 
+    [ViPham].[TongVP] AS [TongVP], 
+    [ViPham].[CatThe] AS [CatThe]
+    FROM [dbo].[ViPham] AS [ViPham]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_CardNhanVien_Card" Association="Self.FK_CardNhanVien_Card">
       <End Role="Card" EntitySet="Card" />
       <End Role="CardNhanVien" EntitySet="CardNhanVien" />

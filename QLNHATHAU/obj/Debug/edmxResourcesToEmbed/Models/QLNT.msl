@@ -53,6 +53,7 @@
     <EntitySetMapping Name="HopDongs">
       <EntityTypeMapping TypeName="QLNhaThauModel.HopDong">
         <MappingFragment StoreEntitySet="HopDong">
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
           <ScalarProperty Name="IDHD" ColumnName="IDHD" />
           <ScalarProperty Name="SoHD" ColumnName="SoHD" />
           <ScalarProperty Name="TenHD" ColumnName="TenHD" />
@@ -782,5 +783,56 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="Nhathau_delete" FunctionName="QLNhaThauModel.Store.Nhathau_delete" />
+    <FunctionImportMapping FunctionImportName="ViPham_delete" FunctionName="QLNhaThauModel.Store.ViPham_delete" />
+    <FunctionImportMapping FunctionImportName="ViPham_insert" FunctionName="QLNhaThauModel.Store.ViPham_insert" />
+    <FunctionImportMapping FunctionImportName="ViPham_SearchByID" FunctionName="QLNhaThauModel.Store.ViPham_SearchByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLNhaThauModel.ViPham_SearchByID_Result">
+          <ScalarProperty Name="IDViPham" ColumnName="IDViPham" />
+          <ScalarProperty Name="MaNVVP" ColumnName="MaNVVP" />
+          <ScalarProperty Name="TenNVVP" ColumnName="TenNVVP" />
+          <ScalarProperty Name="TenNhaThau" ColumnName="TenNhaThau" />
+          <ScalarProperty Name="HangMuc" ColumnName="HangMuc" />
+          <ScalarProperty Name="NDViPham" ColumnName="NDViPham" />
+          <ScalarProperty Name="NgayVP" ColumnName="NgayVP" />
+          <ScalarProperty Name="MucVP" ColumnName="MucVP" />
+          <ScalarProperty Name="TongVP" ColumnName="TongVP" />
+          <ScalarProperty Name="CatThe" ColumnName="CatThe" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ViPham_Select" FunctionName="QLNhaThauModel.Store.ViPham_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLNhaThauModel.ViPham_Select_Result">
+          <ScalarProperty Name="IDViPham" ColumnName="IDViPham" />
+          <ScalarProperty Name="MaNVVP" ColumnName="MaNVVP" />
+          <ScalarProperty Name="TenNVVP" ColumnName="TenNVVP" />
+          <ScalarProperty Name="TenNhaThau" ColumnName="TenNhaThau" />
+          <ScalarProperty Name="HangMuc" ColumnName="HangMuc" />
+          <ScalarProperty Name="NDViPham" ColumnName="NDViPham" />
+          <ScalarProperty Name="NgayVP" ColumnName="NgayVP" />
+          <ScalarProperty Name="MucVP" ColumnName="MucVP" />
+          <ScalarProperty Name="TongVP" ColumnName="TongVP" />
+          <ScalarProperty Name="CatThe" ColumnName="CatThe" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ViPham_update" FunctionName="QLNhaThauModel.Store.ViPham_update" />
+    <EntitySetMapping Name="ViPhams">
+      <EntityTypeMapping TypeName="QLNhaThauModel.ViPham">
+        <MappingFragment StoreEntitySet="ViPham">
+          <ScalarProperty Name="CatThe" ColumnName="CatThe" />
+          <ScalarProperty Name="TongVP" ColumnName="TongVP" />
+          <ScalarProperty Name="MucVP" ColumnName="MucVP" />
+          <ScalarProperty Name="NgayVP" ColumnName="NgayVP" />
+          <ScalarProperty Name="NDViPham" ColumnName="NDViPham" />
+          <ScalarProperty Name="HangMuc" ColumnName="HangMuc" />
+          <ScalarProperty Name="TenNhaThau" ColumnName="TenNhaThau" />
+          <ScalarProperty Name="TenNVVP" ColumnName="TenNVVP" />
+          <ScalarProperty Name="MaNVVP" ColumnName="MaNVVP" />
+          <ScalarProperty Name="IDViPham" ColumnName="IDViPham" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

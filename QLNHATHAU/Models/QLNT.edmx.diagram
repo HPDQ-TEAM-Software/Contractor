@@ -38,6 +38,7 @@
         <AssociationConnector Association="QLNhaThauModel.FK_PhanQuyen_NguoiDung" ManuallyRouted="false" />
         <AssociationConnector Association="QLNhaThauModel.FK_PCHN_HopDong_PhongBan" ManuallyRouted="false" />
         <AssociationConnector Association="QLNhaThauModel.FK_PhanQuyen_Quyen1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLNhaThauModel.ViPham" Width="1.5" PointX="10.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

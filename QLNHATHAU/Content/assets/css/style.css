@@ -3328,7 +3328,8 @@ img.align-self-center.rounded-circle.mr-3 {
 /*  15  Widget Five
 ---------------------------*/
 .stat-widget-five {
-  min-height: 60px; 
+  min-height: 2rem; 
+
 }
 .stat-widget-five .stat-icon {
   font-size: 55px;

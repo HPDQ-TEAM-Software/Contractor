@@ -66,6 +66,7 @@
     <NavigationProperty Name="PhongBan" Relationship="Self.FK_HopDong_PhongBan" FromRole="HopDong" ToRole="PhongBan" />
     <NavigationProperty Name="KeQuaHocs" Relationship="Self.FK_KeQuaHoc_HopDong" FromRole="HopDong" ToRole="KeQuaHoc" />
     <NavigationProperty Name="PCHN_HopDong" Relationship="Self.FK_PCHN_HopDong_HopDong" FromRole="HopDong" ToRole="PCHN_HopDong" />
+    <Property Name="TinhTrang" Type="Int32" />
   </EntityType>
   <EntityType Name="KeQuaHoc">
     <Key>
@@ -536,10 +537,10 @@
       <Parameter Name="NgayKT" Mode="In" Type="DateTime" />
       <Parameter Name="GhiChu" Mode="In" Type="String" />
       <Parameter Name="File" Mode="In" Type="String" />
-      <Parameter Name="TinhTrang" Mode="In" Type="Boolean" />
       <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
       <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
       <Parameter Name="IDHD" Mode="InOut" Type="Int32" />
+      <Parameter Name="PCNID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="HopDong_SearchByID" ReturnType="Collection(QLNhaThauModel.HopDong_SearchByID_Result)">
       <Parameter Name="IDHD" Mode="In" Type="Int32" />
@@ -768,7 +769,6 @@
       <Parameter Name="QuyenID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="PheDuyet_Insert">
-      <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
       <Parameter Name="LoaiHSID" Mode="In" Type="Int32" />
       <Parameter Name="TinhTrang" Mode="In" Type="Boolean" />
@@ -866,6 +866,38 @@
     <FunctionImport Name="Nhathau_delete">
       <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="ViPham_delete">
+      <Parameter Name="IDViPham" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ViPham_insert">
+      <Parameter Name="IDViPham" Mode="In" Type="Int32" />
+      <Parameter Name="MaNVVP" Mode="In" Type="String" />
+      <Parameter Name="TenNVVP" Mode="In" Type="String" />
+      <Parameter Name="TenNhaThau" Mode="In" Type="String" />
+      <Parameter Name="HangMuc" Mode="In" Type="String" />
+      <Parameter Name="NDViPham" Mode="In" Type="String" />
+      <Parameter Name="NgayVP" Mode="In" Type="DateTime" />
+      <Parameter Name="MucVP" Mode="In" Type="String" />
+      <Parameter Name="TongVP" Mode="In" Type="Int32" />
+      <Parameter Name="CatThe" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="ViPham_SearchByID" ReturnType="Collection(QLNhaThauModel.ViPham_SearchByID_Result)">
+      <Parameter Name="IDViPham" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ViPham_Select" ReturnType="Collection(QLNhaThauModel.ViPham_Select_Result)" />
+    <FunctionImport Name="ViPham_update">
+      <Parameter Name="IDViPham" Mode="In" Type="Int32" />
+      <Parameter Name="MaNVVP" Mode="In" Type="String" />
+      <Parameter Name="TenNVVP" Mode="In" Type="String" />
+      <Parameter Name="TenNhaThau" Mode="In" Type="String" />
+      <Parameter Name="HangMuc" Mode="In" Type="String" />
+      <Parameter Name="NDViPham" Mode="In" Type="String" />
+      <Parameter Name="NgayVP" Mode="In" Type="DateTime" />
+      <Parameter Name="MucVP" Mode="In" Type="String" />
+      <Parameter Name="TongVP" Mode="In" Type="Int32" />
+      <Parameter Name="CatThe" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <EntitySet Name="ViPhams" EntityType="QLNhaThauModel.ViPham" />
   </EntityContainer>
   <ComplexType Name="Card_SearchByID_Result">
     <Property Type="Int32" Name="IDCard" Nullable="false" />
@@ -1173,4 +1205,43 @@
     <Property Type="String" Name="VBChuaDoc" Nullable="true" MaxLength="10" />
     <Property Type="Int32" Name="NhanvienID" Nullable="true" />
   </ComplexType>
+  <ComplexType Name="ViPham_SearchByID_Result">
+    <Property Type="Int32" Name="IDViPham" Nullable="false" />
+    <Property Type="String" Name="MaNVVP" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="TenNVVP" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="TenNhaThau" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="HangMuc" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="NDViPham" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="NgayVP" Nullable="true" Precision="23" />
+    <Property Type="String" Name="MucVP" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="TongVP" Nullable="true" />
+    <Property Type="Boolean" Name="CatThe" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ViPham_Select_Result">
+    <Property Type="Int32" Name="IDViPham" Nullable="false" />
+    <Property Type="String" Name="MaNVVP" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="TenNVVP" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="TenNhaThau" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="HangMuc" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="NDViPham" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="NgayVP" Nullable="true" Precision="23" />
+    <Property Type="String" Name="MucVP" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="TongVP" Nullable="true" />
+    <Property Type="Boolean" Name="CatThe" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="ViPham">
+    <Key>
+      <PropertyRef Name="IDViPham" />
+    </Key>
+    <Property Name="IDViPham" Type="Int32" Nullable="false" />
+    <Property Name="MaNVVP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TenNVVP" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TenNhaThau" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="HangMuc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NDViPham" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NgayVP" Type="DateTime" Precision="3" />
+    <Property Name="MucVP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TongVP" Type="Int32" />
+    <Property Name="CatThe" Type="Boolean" />
+  </EntityType>
 </Schema>
