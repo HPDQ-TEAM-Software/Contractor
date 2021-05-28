@@ -1123,7 +1123,7 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PhanQuyen_update", iDPhanQuyenParameter, nguoiDungIDParameter, quyenIDParameter);
         }
     
-        public virtual int PheDuyet_Insert(Nullable<int> nguoiDungID, Nullable<int> loaiHSID, Nullable<bool> tinhTrang, string ghiChu)
+        public virtual int PheDuyet_Insert(Nullable<int> nguoiDungID, Nullable<int> loaiHSID, Nullable<int> hoSoID, Nullable<bool> tinhTrang, string ghiChu)
         {
             var nguoiDungIDParameter = nguoiDungID.HasValue ?
                 new ObjectParameter("NguoiDungID", nguoiDungID) :
@@ -1133,6 +1133,10 @@ namespace QLNHATHAU.Models
                 new ObjectParameter("LoaiHSID", loaiHSID) :
                 new ObjectParameter("LoaiHSID", typeof(int));
     
+            var hoSoIDParameter = hoSoID.HasValue ?
+                new ObjectParameter("HoSoID", hoSoID) :
+                new ObjectParameter("HoSoID", typeof(int));
+    
             var tinhTrangParameter = tinhTrang.HasValue ?
                 new ObjectParameter("TinhTrang", tinhTrang) :
                 new ObjectParameter("TinhTrang", typeof(bool));
@@ -1141,7 +1145,7 @@ namespace QLNHATHAU.Models
                 new ObjectParameter("GhiChu", ghiChu) :
                 new ObjectParameter("GhiChu", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PheDuyet_Insert", nguoiDungIDParameter, loaiHSIDParameter, tinhTrangParameter, ghiChuParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PheDuyet_Insert", nguoiDungIDParameter, loaiHSIDParameter, hoSoIDParameter, tinhTrangParameter, ghiChuParameter);
         }
     
         public virtual ObjectResult<PheDuyet_SearchByID_Result> PheDuyet_SearchByID(Nullable<int> iD)

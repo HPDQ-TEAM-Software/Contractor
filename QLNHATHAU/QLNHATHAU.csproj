@@ -182,6 +182,7 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CheckInforContract.cs" />
+    <Compile Include="Models\CheckInformation.cs" />
     <Compile Include="Models\Cong.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>

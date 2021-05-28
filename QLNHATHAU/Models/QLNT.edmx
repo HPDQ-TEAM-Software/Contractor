@@ -57,8 +57,8 @@
           <Property Name="SoHD" Type="varchar" MaxLength="50" />
           <Property Name="TenHD" Type="nvarchar" MaxLength="150" />
           <Property Name="NguoiDaiDien" Type="nvarchar" MaxLength="150" />
-          <Property Name="NgayBD" Type="smalldatetime" />
-          <Property Name="NgayKT" Type="smalldatetime" />
+          <Property Name="NgayBD" Type="datetime" />
+          <Property Name="NgayKT" Type="datetime" />
           <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
           <Property Name="File" Type="nvarchar" MaxLength="250" />
           <Property Name="NhaThauID" Type="int" />
@@ -183,6 +183,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
           <Property Name="ID" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="NguoiDungID" Type="int" />
           <Property Name="LoaiHSID" Type="int" />
+          <Property Name="HoSoID" Type="int" />
           <Property Name="TinhTrang" Type="bit" />
           <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -760,6 +761,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
         <Function Name="PheDuyet_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NguoiDungID" Type="int" Mode="In" />
           <Parameter Name="LoaiHSID" Type="int" Mode="In" />
+          <Parameter Name="HoSoID" Type="int" Mode="In" />
           <Parameter Name="TinhTrang" Type="bit" Mode="In" />
           <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
         </Function>
@@ -1032,8 +1034,8 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Property Name="SoHD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TenHD" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="NguoiDaiDien" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="NgayBD" Type="DateTime" Precision="0" />
-          <Property Name="NgayKT" Type="DateTime" Precision="0" />
+          <Property Name="NgayBD" Type="DateTime" Precision="3" />
+          <Property Name="NgayKT" Type="DateTime" Precision="3" />
           <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="File" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="NhaThauID" Type="Int32" />
@@ -1173,6 +1175,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="NguoiDungID" Type="Int32" />
           <Property Name="LoaiHSID" Type="Int32" />
+          <Property Name="HoSoID" Type="Int32" />
           <Property Name="TinhTrang" Type="Boolean" />
           <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -1838,6 +1841,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <FunctionImport Name="PheDuyet_Insert">
             <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
             <Parameter Name="LoaiHSID" Mode="In" Type="Int32" />
+            <Parameter Name="HoSoID" Mode="In" Type="Int32" />
             <Parameter Name="TinhTrang" Mode="In" Type="Boolean" />
             <Parameter Name="GhiChu" Mode="In" Type="String" />
           </FunctionImport>
@@ -2009,8 +2013,8 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Property Type="String" Name="SoHD" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="TenHD" Nullable="true" MaxLength="150" />
           <Property Type="String" Name="NguoiDaiDien" Nullable="true" MaxLength="150" />
-          <Property Type="DateTime" Name="NgayBD" Nullable="true" Precision="16" />
-          <Property Type="DateTime" Name="NgayKT" Nullable="true" Precision="16" />
+          <Property Type="DateTime" Name="NgayBD" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="NgayKT" Nullable="true" Precision="23" />
           <Property Type="String" Name="GhiChu" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="File" Nullable="true" MaxLength="250" />
           <Property Type="Int32" Name="NhaThauID" Nullable="true" />
@@ -2022,8 +2026,8 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Property Type="String" Name="SoHD" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="TenHD" Nullable="true" MaxLength="150" />
           <Property Type="String" Name="NguoiDaiDien" Nullable="true" MaxLength="150" />
-          <Property Type="DateTime" Name="NgayBD" Nullable="true" Precision="16" />
-          <Property Type="DateTime" Name="NgayKT" Nullable="true" Precision="16" />
+          <Property Type="DateTime" Name="NgayBD" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="NgayKT" Nullable="true" Precision="23" />
           <Property Type="String" Name="GhiChu" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="File" Nullable="true" MaxLength="250" />
           <Property Type="Int32" Name="NhaThauID" Nullable="true" />
@@ -2479,6 +2483,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NguoiDungID" ColumnName="NguoiDungID" />
                 <ScalarProperty Name="LoaiHSID" ColumnName="LoaiHSID" />
+                <ScalarProperty Name="HoSoID" ColumnName="HoSoID" />
                 <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
                 <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
               </MappingFragment>

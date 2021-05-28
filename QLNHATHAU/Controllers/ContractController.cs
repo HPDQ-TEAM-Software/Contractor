@@ -223,6 +223,7 @@ namespace QLNHATHAU.Controllers
         }
         public ActionResult CheckInformation(int id)
         {
+            CheckInforContract _DO = new CheckInforContract();
             var res = (from hd in db_context.HopDong_SearchByID(id)
                        select new HopDongValidation
                        {
@@ -235,7 +236,8 @@ namespace QLNHATHAU.Controllers
                            GhiChu = hd.GhiChu,
                            FilePath = hd.File,
                            NhaThauID = (int)hd.NhaThauID,
-                           PhongBanID = (int)hd.PhongBanID
+                           PhongBanID = (int)hd.PhongBanID,
+                           PBCHNID=(int)hd.PBCHNID,
                        }).ToList();
 
             HopDongValidation DO = new HopDongValidation();
@@ -253,17 +255,65 @@ namespace QLNHATHAU.Controllers
                     DO.FilePath = hd.FilePath;
                     DO.NhaThauID = (int)hd.NhaThauID;
                     DO.PhongBanID = (int)hd.PhongBanID;
+                    DO.PBCHNID = (int)hd.PBCHNID;
                 }
-                List<NguoiDung> TrBPql = db_context.NguoiDungs.Where(x => x.PhongBanID == DO.PhongBanID).ToList();
-                List<NguoiDung> TrPCHN = db_context.NguoiDungs.Where(x => x.PhongBanID == DO.PhongBanID).ToList();
-                List<NguoiDung> BGD = db_context.NguoiDungs.Where(x => x.PhongBanID == 43).ToList();
+                //List<NguoiDung> TrBPql = db_context.NguoiDungs.Where(x => x.PhongBanID == DO.PhongBanID).ToList();
+                //List<NguoiDung> TrPCHN = db_context.NguoiDungs.Where(x => x.PhongBanID == DO.PBCHNID).ToList();
+               // List<NguoiDung> BGD = db_context.NguoiDungs.Where(x => x.PhongBanID == 43).ToList();
+                var TrBPql = (from ql in db_context.NguoiDungs.Where(x => x.PhongBanID == DO.PhongBanID)
+                          join a in db_context.NhanViens on ql.NhanVienID equals a.IDNhanVien
+                          select new CheckInforNguoiDung
+                          {
+                              IDNguoiDung = ql.IDNguoiDung,
+                              TenNV = a.TenNV + " - User: "+ql.TenDangNhap,
+                          }).ToList();
 
-                ViewBag.TrPBPQLList = new SelectList(TrBPql, "IDNguoiDung", "TenDangNhap");
-                ViewBag.TrPPCHNList = new SelectList(TrPCHN, "IDNguoiDung", "TenDangNhap");
-                ViewBag.BGDList = new SelectList(BGD, "IDNguoiDung", "TenDangNhap");
+                var TrPCHN = (from ql in db_context.NguoiDungs.Where(x => x.PhongBanID == DO.PBCHNID)
+                              join a in db_context.NhanViens on ql.NhanVienID equals a.IDNhanVien
+                              select new CheckInforNguoiDung
+                              {
+                                  IDNguoiDung = ql.IDNguoiDung,
+                                  TenNV = a.TenNV + " - User: " + ql.TenDangNhap,
+                              }).ToList();
+                //ID phòng ban của BGĐ:43
+                var BGD = (from ql in db_context.NguoiDungs.Where(x => x.PhongBanID == 43)
+                              join a in db_context.NhanViens on ql.NhanVienID equals a.IDNhanVien
+                              select new CheckInforNguoiDung
+                              {
+                                  IDNguoiDung = ql.IDNguoiDung,
+                                  TenNV = a.TenNV + " - User: " + ql.TenDangNhap,
+                              }).ToList();
+                ViewBag.TrPBPQLList = new SelectList(TrBPql, "IDNguoiDung", "TenNV");
+                ViewBag.TrPPCHNList = new SelectList(TrPCHN, "IDNguoiDung", "TenNV");
+                ViewBag.BGDList = new SelectList(BGD, "IDNguoiDung", "TenNV");
+                
+                _DO.HoSoID = id;
             }
 
-            return PartialView();
+            return PartialView(_DO);
+        }
+        [HttpPost]
+        public ActionResult CheckInformation(CheckInforContract _DO)
+        {
+            try
+            {
+                //Loại HS của hợp đồng là 1
+                //insert BP QL
+                db_context.PheDuyet_Insert(_DO.IDTrPBPQL,1,_DO.HoSoID, false, null);
+                //insert Phòng Ban Chức Năng
+                db_context.PheDuyet_Insert(_DO.IDTrPPCHN,1, _DO.HoSoID, false, null);
+                //insert BGĐ
+                db_context.PheDuyet_Insert(_DO.IDBGD,1, _DO.HoSoID, false, null);
+
+                TempData["msgSuccess"] = "<script>alert('Trình ký thành công');</script>";
+
+            }
+
+            catch (Exception e)
+            {
+                TempData["msgSuccess"] = "<script>alert('Trình ký thất bại: " + e.Message + "');</script>";
+            }
+            return RedirectToAction("Index", "Contract");
         }
     }
 }

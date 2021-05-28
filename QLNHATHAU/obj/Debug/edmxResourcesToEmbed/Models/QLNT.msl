@@ -189,6 +189,7 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NguoiDungID" ColumnName="NguoiDungID" />
           <ScalarProperty Name="LoaiHSID" ColumnName="LoaiHSID" />
+          <ScalarProperty Name="HoSoID" ColumnName="HoSoID" />
           <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
           <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
         </MappingFragment>
