@@ -48,7 +48,6 @@ namespace QLNHATHAU.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TongQuan> TongQuans { get; set; }
         public virtual DbSet<VanBan> VanBans { get; set; }
-        public virtual DbSet<ViPham> ViPhams { get; set; }
     
         public virtual int Card_Delete(Nullable<int> iDCard)
         {

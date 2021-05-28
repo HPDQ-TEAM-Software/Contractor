@@ -48,7 +48,7 @@ namespace QLNHATHAU.Controllers
             {
                 try
                 {
-                    var data = db_context.ViPham_insert(_DO.MaNVVP, _DO.TenNVVP, _DO.TenNhaThau, _DO.HangMuc, _DO.NDViPham, _DO.NgayVP, _DO.MucVP, _DO.TongVP, _DO.CatThe);
+                    var data = db_context.ViPham_insert(_DO.IDViPham,_DO.MaNVVP, _DO.TenNVVP, _DO.TenNhaThau, _DO.HangMuc, _DO.NDViPham, _DO.NgayVP, _DO.MucVP, _DO.TongVP, _DO.CatThe);
                 }
                 catch (Exception e)
                 {
