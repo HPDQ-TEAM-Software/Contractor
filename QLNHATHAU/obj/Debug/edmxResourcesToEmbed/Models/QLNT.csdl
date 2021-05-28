@@ -66,6 +66,7 @@
     <NavigationProperty Name="PhongBan" Relationship="Self.FK_HopDong_PhongBan" FromRole="HopDong" ToRole="PhongBan" />
     <NavigationProperty Name="KeQuaHocs" Relationship="Self.FK_KeQuaHoc_HopDong" FromRole="HopDong" ToRole="KeQuaHoc" />
     <NavigationProperty Name="PCHN_HopDong" Relationship="Self.FK_PCHN_HopDong_HopDong" FromRole="HopDong" ToRole="PCHN_HopDong" />
+    <Property Name="TinhTrang" Type="Int32" />
   </EntityType>
   <EntityType Name="KeQuaHoc">
     <Key>
@@ -536,10 +537,10 @@
       <Parameter Name="NgayKT" Mode="In" Type="DateTime" />
       <Parameter Name="GhiChu" Mode="In" Type="String" />
       <Parameter Name="File" Mode="In" Type="String" />
-      <Parameter Name="TinhTrang" Mode="In" Type="Boolean" />
       <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
       <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
       <Parameter Name="IDHD" Mode="InOut" Type="Int32" />
+      <Parameter Name="PCNID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="HopDong_SearchByID" ReturnType="Collection(QLNhaThauModel.HopDong_SearchByID_Result)">
       <Parameter Name="IDHD" Mode="In" Type="Int32" />
@@ -768,7 +769,6 @@
       <Parameter Name="QuyenID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="PheDuyet_Insert">
-      <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
       <Parameter Name="LoaiHSID" Mode="In" Type="Int32" />
       <Parameter Name="TinhTrang" Mode="In" Type="Boolean" />

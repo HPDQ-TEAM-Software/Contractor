@@ -814,7 +814,7 @@ aside.left-panel:hover {
     border: none;
     display: inline-block;
     margin: 0;
-    padding: 0;
+   /* padding: 0;*/
     vertical-align: top;
     z-index: 999;
 }
@@ -844,34 +844,42 @@ aside.left-panel:hover {
   float: none;
   position: relative; 
 }
-.navbar .navbar-nav > li {
+/*.navbar .navbar-nav > li {
   padding: .5rem 1rem;
   
-}
+}*/
 /*.navbar .navbar-nav > li.active {
   background: #fafafa; 
 }*/
 .navbar .navbar-nav li {
   width: 100%; 
 }
-.navbar .navbar-nav li.active .menu-icon, .navbar .navbar-nav li:hover .toggle_nav_button:before,
-.navbar .navbar-nav li .toggle_nav_button.nav-open:before {
-  color: #e7e5dc; 
-}
+    .navbar .navbar-nav li.active a {
+        color: #fff !important;
+        background-color: #1d428a !important;
+        /*border-radius: 20px;*/
+    }
+    .navbar .navbar-nav li a .menu-icon{color:#fff}
+    .navbar .navbar-nav li.active .menu-icon, .navbar .navbar-nav li:hover .toggle_nav_button:before,
+    .navbar .navbar-nav li .toggle_nav_button.nav-open:before {
+        color: #e7e5dc;
+    }
 .navbar .navbar-nav li .dropdown-toggle:after {
   display: none; 
 }
-.navbar .navbar-nav li > a {
-  background: none !important;
-  color: #555;
-  display: inline-block;
-  font-size: 12px;
-  line-height: 20px;
-  padding: 10px 0;
-  position: relative;
-  width: 100%; 
-  text-transform: uppercase;
-}
+    .navbar .navbar-nav li > a {
+        background: none !important;
+        color: #555;
+        display: inline-block;
+        font-size: 12px;
+        line-height: 20px;
+        padding: 10px 0;
+        position: relative;
+        width: 100%;
+        text-transform: uppercase;
+        padding: .9rem 2.5rem;
+        border-radius: 20px;
+    }
 .flat-theme .navbar .navbar-nav li > a {
     background: none !important;
     color: white;
@@ -889,7 +897,7 @@ aside.left-panel:hover {
   float: left;
   font-size: 16px;
   margin-top: 7px;
-  width: 40px;
+  width: 30px;
   text-align: left;
   z-index: 9; 
 }
@@ -959,7 +967,7 @@ aside.left-panel:hover {
   -webkit-box-shadow: none;
   box-shadow: none;
   overflow-y: hidden;
-  padding: 0 0 0 35px; 
+  padding: 0 0 0 50px; 
 }
 .navbar .navbar-nav li.menu-item-has-children .sub-menu li {
   position: relative; 
@@ -971,13 +979,15 @@ aside.left-panel:hover {
   position: absolute;
   left: 0;
   font-size: 14px;
-  top: 9px; 
+  top: 9px; z-index:1;
 }
 .flat-theme .navbar .navbar-nav li.menu-item-has-children .sub-menu i{
     color: white;
 }
 .navbar .navbar-nav li.menu-item-has-children .sub-menu a {
-  padding: 2px 0 2px 30px; 
+    padding: 2px 0 2px 30px;
+    background-color: #fff !important;
+    color:#000 !important;
 }
 .navbar .navbar-nav li.menu-item-has-children .sub-menu a:before {
   content: '';
@@ -998,15 +1008,16 @@ aside.left-panel:hover {
   border-color: transparent white white transparent; 
 }
 .navbar .navbar-nav li.menu-item-has-children.show .sub-menu {
-  max-height: 1000px;
-  opacity: 1;
-  position: static !important; 
+    max-height: 1000px;
+    opacity: 1;
+    position: static !important;
+    background-color: white;
 }
 
 .navbar .navbar-nav > .active > a,
 .navbar .navbar-nav > .active > a:focus,
 .navbar .navbar-nav > .active > a:hover {
-    color: #05428c;
+    color: #fff !important;
 }
 
 .navbar-nav li span.count {
@@ -2006,6 +2017,7 @@ header .form-inline .search-form.close {
 
 .flat-theme.purple .rad-sidebar li:hover a > span {
     color: rebeccapurple !important;
+
 }
 
 @media screen and (max-width: 850px) {
@@ -2071,7 +2083,7 @@ header .form-inline .search-form.close {
     width: 30px !important;
 }
 
-/*******  change nav li a ********/
+/*******  change li a ********/
 
 
 
@@ -2096,14 +2108,13 @@ header .form-inline .search-form.close {
     
 }
 .navbar .navbar-nav li > a:hover, .navbar .navbar-nav li > a:hover .menu-icon {
-    color: #05428c !important;
-    font-weight: bold;
+    color: #1d428a !important;
 }
 /** end  change nav li a **/
+        
+        /*** modal  config ****/
 
-/*** modal  config ****/
-
-.modal.show .modal-dialog{
+        .modal.show .modal-dialog{
     margin-top: 50px;
 }
 

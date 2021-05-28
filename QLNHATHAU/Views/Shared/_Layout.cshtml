@@ -23,7 +23,7 @@
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="">
+                    <li class="active">
                         <a href="@Url.Action("Index","Home")"><i class="menu-icon fa fa-laptop"></i><span>Tổng quan</span> </a>
                     </li>
                     <li class="">
@@ -439,28 +439,36 @@
 
 
 @*<script src='https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js'></script>
-<script src='https://code.jquery.com/ui/1.11.4/jquery-ui.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.3/jquery.slimscroll.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.8.0/lodash.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js'></script>
+    <script src='https://code.jquery.com/ui/1.11.4/jquery-ui.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.3/jquery.slimscroll.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.8.0/lodash.min.js'></script>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>*@
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>*@
+<script src="https://code.jquery.com/jquery-3.6.0.js"</script>
 
-<script >
-   
+<script>
 
-        function collapseAside() {
 
- 
-            var l = document.getElementById("left-panel");
-            l.classList.toggle("colapse");
+    function collapseAside() {
 
-            var r = document.getElementById("right-panel");
-            r.classList.toggle("colapse");
 
-            var sp = document.getElementById("main-menu");
-            sp.classList.toggle("colapse");
+        var l = document.getElementById("left-panel");
+        l.classList.toggle("colapse");
 
-        }
-        
+        var r = document.getElementById("right-panel");
+        r.classList.toggle("colapse");
+
+        var sp = document.getElementById("main-menu");
+        sp.classList.toggle("colapse");
+
+    }
+    }
+</script>
+<script>
+    $(document).on('click', 'ul li', function () {
+    $(this).addClass('active').siblings().removeClass('active')
+    })
+
+
 </script>

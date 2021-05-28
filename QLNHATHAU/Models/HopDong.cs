@@ -32,6 +32,7 @@ namespace QLNHATHAU.Models
         public string File { get; set; }
         public Nullable<int> NhaThauID { get; set; }
         public Nullable<int> PhongBanID { get; set; }
+        public Nullable<int> TinhTrang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GiaHanHD> GiaHanHDs { get; set; }

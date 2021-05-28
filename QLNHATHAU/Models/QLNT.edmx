@@ -63,6 +63,7 @@
           <Property Name="File" Type="nvarchar" MaxLength="250" />
           <Property Name="NhaThauID" Type="int" />
           <Property Name="PhongBanID" Type="int" />
+          <Property Name="TinhTrang" Type="int" />
         </EntityType>
         <EntityType Name="KeQuaHoc">
           <Key>
@@ -448,10 +449,10 @@
           <Parameter Name="NgayKT" Type="smalldatetime" Mode="In" />
           <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
           <Parameter Name="File" Type="nvarchar" Mode="In" />
-          <Parameter Name="TinhTrang" Type="bit" Mode="In" />
           <Parameter Name="NhaThauID" Type="int" Mode="In" />
           <Parameter Name="PhongBanID" Type="int" Mode="In" />
           <Parameter Name="IDHD" Type="int" Mode="InOut" />
+          <Parameter Name="PCNID" Type="int" Mode="In" />
         </Function>
         <Function Name="HopDong_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDHD" Type="int" Mode="In" />
@@ -683,7 +684,6 @@
           <Parameter Name="QuyenID" Type="int" Mode="In" />
         </Function>
         <Function Name="PheDuyet_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ID" Type="int" Mode="In" />
           <Parameter Name="NguoiDungID" Type="int" Mode="In" />
           <Parameter Name="LoaiHSID" Type="int" Mode="In" />
           <Parameter Name="TinhTrang" Type="bit" Mode="In" />
@@ -919,6 +919,7 @@
           <NavigationProperty Name="PhongBan" Relationship="Self.FK_HopDong_PhongBan" FromRole="HopDong" ToRole="PhongBan" />
           <NavigationProperty Name="KeQuaHocs" Relationship="Self.FK_KeQuaHoc_HopDong" FromRole="HopDong" ToRole="KeQuaHoc" />
           <NavigationProperty Name="PCHN_HopDong" Relationship="Self.FK_PCHN_HopDong_HopDong" FromRole="HopDong" ToRole="PCHN_HopDong" />
+          <Property Name="TinhTrang" Type="Int32" />
         </EntityType>
         <EntityType Name="KeQuaHoc">
           <Key>
@@ -1389,10 +1390,10 @@
             <Parameter Name="NgayKT" Mode="In" Type="DateTime" />
             <Parameter Name="GhiChu" Mode="In" Type="String" />
             <Parameter Name="File" Mode="In" Type="String" />
-            <Parameter Name="TinhTrang" Mode="In" Type="Boolean" />
             <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
             <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
             <Parameter Name="IDHD" Mode="InOut" Type="Int32" />
+            <Parameter Name="PCNID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="HopDong_SearchByID" ReturnType="Collection(QLNhaThauModel.HopDong_SearchByID_Result)">
           <Parameter Name="IDHD" Mode="In" Type="Int32" />
@@ -1621,7 +1622,6 @@
             <Parameter Name="QuyenID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PheDuyet_Insert">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
             <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
             <Parameter Name="LoaiHSID" Mode="In" Type="Int32" />
             <Parameter Name="TinhTrang" Mode="In" Type="Boolean" />
@@ -1717,7 +1717,7 @@
           </FunctionImport>
           <FunctionImport Name="TongQuan_Select" ReturnType="Collection(QLNhaThauModel.TongQuan_Select_Result)" />
           <FunctionImport Name="Nhathau_delete">
-            <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
+          <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Card_SearchByID_Result">
@@ -2084,6 +2084,7 @@
           <EntitySetMapping Name="HopDongs">
             <EntityTypeMapping TypeName="QLNhaThauModel.HopDong">
               <MappingFragment StoreEntitySet="HopDong">
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
                 <ScalarProperty Name="IDHD" ColumnName="IDHD" />
                 <ScalarProperty Name="SoHD" ColumnName="SoHD" />
                 <ScalarProperty Name="TenHD" ColumnName="TenHD" />

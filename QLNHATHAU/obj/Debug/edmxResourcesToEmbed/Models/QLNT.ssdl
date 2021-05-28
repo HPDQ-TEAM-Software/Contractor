@@ -58,6 +58,7 @@
     <Property Name="File" Type="nvarchar" MaxLength="250" />
     <Property Name="NhaThauID" Type="int" />
     <Property Name="PhongBanID" Type="int" />
+    <Property Name="TinhTrang" Type="int" />
   </EntityType>
   <EntityType Name="KeQuaHoc">
     <Key>
@@ -443,10 +444,10 @@
     <Parameter Name="NgayKT" Type="smalldatetime" Mode="In" />
     <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
     <Parameter Name="File" Type="nvarchar" Mode="In" />
-    <Parameter Name="TinhTrang" Type="bit" Mode="In" />
     <Parameter Name="NhaThauID" Type="int" Mode="In" />
     <Parameter Name="PhongBanID" Type="int" Mode="In" />
     <Parameter Name="IDHD" Type="int" Mode="InOut" />
+    <Parameter Name="PCNID" Type="int" Mode="In" />
   </Function>
   <Function Name="HopDong_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDHD" Type="int" Mode="In" />
@@ -678,7 +679,6 @@
     <Parameter Name="QuyenID" Type="int" Mode="In" />
   </Function>
   <Function Name="PheDuyet_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="NguoiDungID" Type="int" Mode="In" />
     <Parameter Name="LoaiHSID" Type="int" Mode="In" />
     <Parameter Name="TinhTrang" Type="bit" Mode="In" />

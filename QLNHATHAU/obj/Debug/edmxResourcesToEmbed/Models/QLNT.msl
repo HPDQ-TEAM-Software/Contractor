@@ -53,6 +53,7 @@
     <EntitySetMapping Name="HopDongs">
       <EntityTypeMapping TypeName="QLNhaThauModel.HopDong">
         <MappingFragment StoreEntitySet="HopDong">
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
           <ScalarProperty Name="IDHD" ColumnName="IDHD" />
           <ScalarProperty Name="SoHD" ColumnName="SoHD" />
           <ScalarProperty Name="TenHD" ColumnName="TenHD" />
