@@ -927,21 +927,21 @@ aside.left-panel:hover {
 .navbar .navbar-nav li.menu-item-has-children a {
   line-height: 30px; 
 }
-.navbar .navbar-nav li.menu-item-has-children a:before {
-  content: "";
-  position: absolute;
-  top: 21px;
-  right: 0;
-  width: 8px;
-  height: 8px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #555 #555 transparent transparent;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  -webkit-transition: all .25s ease;
-  transition: all .25s ease; 
-}
+    .navbar .navbar-nav li.menu-item-has-children a:before {
+        content: "";
+        position: absolute;
+        top: 21px;
+        left: 180px;
+        width: 8px;
+        height: 8px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #555 #555 transparent transparent;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -webkit-transition: all .25s ease;
+        transition: all .25s ease;
+    }
 .flat-theme .navbar .navbar-nav li.menu-item-has-children a:before {
   border-color: white white transparent transparent;
 }
