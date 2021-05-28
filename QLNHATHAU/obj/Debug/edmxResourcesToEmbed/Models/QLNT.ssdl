@@ -141,6 +141,14 @@
     <Property Name="DienThoai" Type="char" MaxLength="15" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="PCHN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TenVT" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenDai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="PCHN_HopDong">
     <Key>
       <PropertyRef Name="ID" />
@@ -219,6 +227,29 @@
     <Property Name="File" Type="nvarchar" MaxLength="250" />
     <Property Name="CreateDate" Type="datetime" />
     <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ViPham">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NhanVienNTID" Type="int" />
+    <Property Name="NhaThauID" Type="int" />
+    <Property Name="HopDongID" Type="int" />
+    <Property Name="NoiDungVP" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayVP" Type="smalldatetime" />
+    <Property Name="MucVP" Type="nvarchar" MaxLength="50" />
+    <Property Name="TSVP" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PHONGBANCHN_VIEW">
+    <Key>
+      <PropertyRef Name="IDPhongBan" />
+    </Key>
+    <Property Name="IDPhongBan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenVT" Type="varchar" MaxLength="10" />
+    <Property Name="TenDai" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <Association Name="FK_CardNhanVien_Card">
     <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
@@ -361,6 +392,42 @@
       </Principal>
       <Dependent Role="PhanQuyen">
         <PropertyRef Name="QuyenID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViPham_HopDong">
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="0..1" />
+    <End Role="ViPham" Type="Self.ViPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HopDong">
+        <PropertyRef Name="IDHD" />
+      </Principal>
+      <Dependent Role="ViPham">
+        <PropertyRef Name="HopDongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViPham_NhanVienNT">
+    <End Role="NhanVienNT" Type="Self.NhanVienNT" Multiplicity="0..1" />
+    <End Role="ViPham" Type="Self.ViPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVienNT">
+        <PropertyRef Name="IDNhanVienNT" />
+      </Principal>
+      <Dependent Role="ViPham">
+        <PropertyRef Name="NhanVienNTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViPham_NhaThau">
+    <End Role="NhaThau" Type="Self.NhaThau" Multiplicity="0..1" />
+    <End Role="ViPham" Type="Self.ViPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaThau">
+        <PropertyRef Name="IDNhaThau" />
+      </Principal>
+      <Dependent Role="ViPham">
+        <PropertyRef Name="NhaThauID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -787,6 +854,7 @@
     <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NhanVienNT" EntityType="Self.NhanVienNT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NhaThau" EntityType="Self.NhaThau" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PCHN" EntityType="Self.PCHN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PCHN_HopDong" EntityType="Self.PCHN_HopDong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhanQuyen" EntityType="Self.PhanQuyen" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PheDuyet" EntityType="Self.PheDuyet" Schema="dbo" store:Type="Tables" />
@@ -795,6 +863,14 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TongQuan" EntityType="Self.TongQuan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VanBan" EntityType="Self.VanBan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViPham" EntityType="Self.ViPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHONGBANCHN_VIEW" EntityType="Self.PHONGBANCHN_VIEW" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PHONGBANCHN_VIEW].[IDPhongBan] AS [IDPhongBan], 
+    [PHONGBANCHN_VIEW].[TenVT] AS [TenVT], 
+    [PHONGBANCHN_VIEW].[TenDai] AS [TenDai]
+    FROM [dbo].[PHONGBANCHN_VIEW] AS [PHONGBANCHN_VIEW]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_CardNhanVien_Card" Association="Self.FK_CardNhanVien_Card">
       <End Role="Card" EntitySet="Card" />
       <End Role="CardNhanVien" EntitySet="CardNhanVien" />
@@ -842,6 +918,18 @@
     <AssociationSet Name="FK_PhanQuyen_Quyen1" Association="Self.FK_PhanQuyen_Quyen1">
       <End Role="Quyen" EntitySet="Quyen" />
       <End Role="PhanQuyen" EntitySet="PhanQuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViPham_HopDong" Association="Self.FK_ViPham_HopDong">
+      <End Role="HopDong" EntitySet="HopDong" />
+      <End Role="ViPham" EntitySet="ViPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViPham_NhanVienNT" Association="Self.FK_ViPham_NhanVienNT">
+      <End Role="NhanVienNT" EntitySet="NhanVienNT" />
+      <End Role="ViPham" EntitySet="ViPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViPham_NhaThau" Association="Self.FK_ViPham_NhaThau">
+      <End Role="NhaThau" EntitySet="NhaThau" />
+      <End Role="ViPham" EntitySet="ViPham" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

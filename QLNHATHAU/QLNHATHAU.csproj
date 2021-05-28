@@ -141,7 +141,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\ConfigStatic.cs" />
+    <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Controllers\CongController.cs" />
+    <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\ContractExtensionController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\ContractorsController.cs" />
@@ -159,6 +162,7 @@
     <Compile Include="Controllers\PhanQuyenController.cs" />
     <Compile Include="Controllers\QuyenController.cs" />
     <Compile Include="Controllers\ResultsLearnSafeController.cs" />
+    <Compile Include="Controllers\ViPhamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -294,6 +298,9 @@
     <Compile Include="Models\NhaThau_select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PCHN.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PCHN_HopDong.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -323,6 +330,9 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhongBan.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PHONGBANCHN_VIEW.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhongBanValidation.cs" />
@@ -387,6 +397,10 @@
     <Compile Include="Models\VanBan.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViPham.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViPhamValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1138,6 +1152,12 @@
     <Content Include="Views\Contractors\Create.cshtml" />
     <Content Include="Views\Contractors\Edit.cshtml" />
     <Content Include="Views\Contractors\ImportExcel.cshtml" />
+    <Content Include="Views\ViPham\Index.cshtml" />
+    <Content Include="Views\ViPham\Create.cshtml" />
+    <Content Include="Views\ViPham\Edit.cshtml" />
+    <Content Include="Views\Contract\Index.cshtml" />
+    <Content Include="Views\Contract\Create.cshtml" />
+    <Content Include="Views\Contract\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

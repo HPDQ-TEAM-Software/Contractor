@@ -40,6 +40,7 @@ namespace QLNHATHAU.Models
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<NhanVienNT> NhanVienNTs { get; set; }
         public virtual DbSet<NhaThau> NhaThaus { get; set; }
+        public virtual DbSet<PCHN> PCHNs { get; set; }
         public virtual DbSet<PCHN_HopDong> PCHN_HopDong { get; set; }
         public virtual DbSet<PhanQuyen> PhanQuyens { get; set; }
         public virtual DbSet<PheDuyet> PheDuyets { get; set; }
@@ -48,6 +49,8 @@ namespace QLNHATHAU.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TongQuan> TongQuans { get; set; }
         public virtual DbSet<VanBan> VanBans { get; set; }
+        public virtual DbSet<ViPham> ViPhams { get; set; }
+        public virtual DbSet<PHONGBANCHN_VIEW> PHONGBANCHN_VIEW { get; set; }
     
         public virtual int Card_Delete(Nullable<int> iDCard)
         {
@@ -283,7 +286,11 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("HopDong_delete", iDHDParameter);
         }
     
+<<<<<<< HEAD
         public virtual int HopDong_insert(string soHD, string tenHD, string nguoiDaiDien, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT, string ghiChu, string file, Nullable<int> nhaThauID, Nullable<int> phongBanID, ObjectParameter iDHD, Nullable<int> pCNID)
+=======
+        public virtual int HopDong_insert(string soHD, string tenHD, string nguoiDaiDien, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT, string ghiChu, string file, Nullable<int> nhaThauID, Nullable<int> phongBanID, ObjectParameter iDHD)
+>>>>>>> 2e196b1ee8f2954d25079203910ce2531183f23c
         {
             var soHDParameter = soHD != null ?
                 new ObjectParameter("SoHD", soHD) :
@@ -321,11 +328,15 @@ namespace QLNHATHAU.Models
                 new ObjectParameter("PhongBanID", phongBanID) :
                 new ObjectParameter("PhongBanID", typeof(int));
     
+<<<<<<< HEAD
             var pCNIDParameter = pCNID.HasValue ?
                 new ObjectParameter("PCNID", pCNID) :
                 new ObjectParameter("PCNID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("HopDong_insert", soHDParameter, tenHDParameter, nguoiDaiDienParameter, ngayBDParameter, ngayKTParameter, ghiChuParameter, fileParameter, nhaThauIDParameter, phongBanIDParameter, iDHD, pCNIDParameter);
+=======
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("HopDong_insert", soHDParameter, tenHDParameter, nguoiDaiDienParameter, ngayBDParameter, ngayKTParameter, ghiChuParameter, fileParameter, nhaThauIDParameter, phongBanIDParameter, iDHD);
+>>>>>>> 2e196b1ee8f2954d25079203910ce2531183f23c
         }
     
         public virtual ObjectResult<HopDong_SearchByID_Result> HopDong_SearchByID(Nullable<int> iDHD)
@@ -915,6 +926,15 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("NhanVienNT_update", iDNVNTParameter, maNVParameter, sCMNDParameter, hoTenParameter, chucVuParameter, ngaySinhParameter, gioiTinhParameter, quocTichParameter);
         }
     
+        public virtual int Nhathau_delete(Nullable<int> iDNhaThau)
+        {
+            var iDNhaThauParameter = iDNhaThau.HasValue ?
+                new ObjectParameter("IDNhaThau", iDNhaThau) :
+                new ObjectParameter("IDNhaThau", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Nhathau_delete", iDNhaThauParameter);
+        }
+    
         public virtual int Nhathau_insert(string maNT, string mST, string ten, string diachi, string dienThoai, string email)
         {
             var maNTParameter = maNT != null ?
@@ -1424,15 +1444,6 @@ namespace QLNHATHAU.Models
         public virtual ObjectResult<TongQuan_Select_Result> TongQuan_Select()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TongQuan_Select_Result>("TongQuan_Select");
-        }
-    
-        public virtual int Nhathau_delete(Nullable<int> iDNhaThau)
-        {
-            var iDNhaThauParameter = iDNhaThau.HasValue ?
-                new ObjectParameter("IDNhaThau", iDNhaThau) :
-                new ObjectParameter("IDNhaThau", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Nhathau_delete", iDNhaThauParameter);
         }
     }
 }

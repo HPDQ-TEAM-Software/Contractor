@@ -64,6 +64,7 @@
           <ScalarProperty Name="File" ColumnName="File" />
           <ScalarProperty Name="NhaThauID" ColumnName="NhaThauID" />
           <ScalarProperty Name="PhongBanID" ColumnName="PhongBanID" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -155,6 +156,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PCHNs">
+      <EntityTypeMapping TypeName="QLNhaThauModel.PCHN">
+        <MappingFragment StoreEntitySet="PCHN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenVT" ColumnName="TenVT" />
+          <ScalarProperty Name="TenDai" ColumnName="TenDai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="PCHN_HopDong">
       <EntityTypeMapping TypeName="QLNhaThauModel.PCHN_HopDong">
         <MappingFragment StoreEntitySet="PCHN_HopDong">
@@ -239,6 +249,29 @@
           <ScalarProperty Name="File" ColumnName="File" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
           <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViPhams">
+      <EntityTypeMapping TypeName="QLNhaThauModel.ViPham">
+        <MappingFragment StoreEntitySet="ViPham">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NhanVienNTID" ColumnName="NhanVienNTID" />
+          <ScalarProperty Name="NhaThauID" ColumnName="NhaThauID" />
+          <ScalarProperty Name="HopDongID" ColumnName="HopDongID" />
+          <ScalarProperty Name="NoiDungVP" ColumnName="NoiDungVP" />
+          <ScalarProperty Name="NgayVP" ColumnName="NgayVP" />
+          <ScalarProperty Name="MucVP" ColumnName="MucVP" />
+          <ScalarProperty Name="TSVP" ColumnName="TSVP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHONGBANCHN_VIEW">
+      <EntityTypeMapping TypeName="QLNhaThauModel.PHONGBANCHN_VIEW">
+        <MappingFragment StoreEntitySet="PHONGBANCHN_VIEW">
+          <ScalarProperty Name="IDPhongBan" ColumnName="IDPhongBan" />
+          <ScalarProperty Name="TenVT" ColumnName="TenVT" />
+          <ScalarProperty Name="TenDai" ColumnName="TenDai" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -570,6 +603,7 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="NhanVienNT_update" FunctionName="QLNhaThauModel.Store.NhanVienNT_update" />
+    <FunctionImportMapping FunctionImportName="Nhathau_delete" FunctionName="QLNhaThauModel.Store.Nhathau_delete" />
     <FunctionImportMapping FunctionImportName="Nhathau_insert" FunctionName="QLNhaThauModel.Store.Nhathau_insert" />
     <FunctionImportMapping FunctionImportName="NhaThau_list" FunctionName="QLNhaThauModel.Store.NhaThau_list">
       <ResultMapping>
@@ -782,6 +816,5 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="Nhathau_delete" FunctionName="QLNhaThauModel.Store.Nhathau_delete" />
   </EntityContainerMapping>
 </Mapping>

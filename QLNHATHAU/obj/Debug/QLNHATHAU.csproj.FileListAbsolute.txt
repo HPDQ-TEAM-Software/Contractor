@@ -766,6 +766,7 @@ D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QL
 D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CopyComplete
 D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.dll
 D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.pdb
+<<<<<<< HEAD
 D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csprojAssemblyReference.cache
 C:\Users\HPDQ\Newcon\QLNHATHAU\bin\QLNHATHAU.dll.config
 C:\Users\HPDQ\Newcon\QLNHATHAU\bin\QLNHATHAU.dll
@@ -1042,7 +1043,7 @@ C:\Users\HPDQ\Contractor\QLNHATHAU\bin\Newtonsoft.Json.xml
 C:\Users\HPDQ\Contractor\QLNHATHAU\bin\Antlr3.Runtime.pdb
 C:\Users\HPDQ\Contractor\QLNHATHAU\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csprojAssemblyReference.cache
+=======
+>>>>>>> 2e196b1ee8f2954d25079203910ce2531183f23c
 C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CoreCompileInputs.cache
-C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CopyComplete
-C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.dll
-C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.pdb
+C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csprojAssemblyReference.cache
