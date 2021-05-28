@@ -71,11 +71,6 @@
     <Property Name="NgayHoc" Type="datetime" />
     <Property Name="KetQua" Type="bit" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Khach">
-          <Property Name="IDKhach" Type="int" />
-        </EntityType>-->
   <EntityType Name="LoaiHS">
     <Key>
       <PropertyRef Name="ID" />
@@ -519,7 +514,6 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="NhaThauID" Type="int" Mode="In" />
     <Parameter Name="PhongBanID" Type="int" Mode="In" />
     <Parameter Name="IDHD" Type="int" Mode="InOut" />
-    <Parameter Name="PCNID" Type="int" Mode="In" />
   </Function>
   <Function Name="HopDong_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDHD" Type="int" Mode="In" />

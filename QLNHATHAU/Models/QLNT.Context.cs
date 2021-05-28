@@ -286,7 +286,7 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("HopDong_delete", iDHDParameter);
         }
     
-        public virtual int HopDong_insert(string soHD, string tenHD, string nguoiDaiDien, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT, string ghiChu, string file, Nullable<int> nhaThauID, Nullable<int> phongBanID, ObjectParameter iDHD, Nullable<int> pCNID)
+        public virtual int HopDong_insert(string soHD, string tenHD, string nguoiDaiDien, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT, string ghiChu, string file, Nullable<int> nhaThauID, Nullable<int> phongBanID, ObjectParameter iDHD)
         {
             var soHDParameter = soHD != null ?
                 new ObjectParameter("SoHD", soHD) :
@@ -324,11 +324,7 @@ namespace QLNHATHAU.Models
                 new ObjectParameter("PhongBanID", phongBanID) :
                 new ObjectParameter("PhongBanID", typeof(int));
     
-            var pCNIDParameter = pCNID.HasValue ?
-                new ObjectParameter("PCNID", pCNID) :
-                new ObjectParameter("PCNID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("HopDong_insert", soHDParameter, tenHDParameter, nguoiDaiDienParameter, ngayBDParameter, ngayKTParameter, ghiChuParameter, fileParameter, nhaThauIDParameter, phongBanIDParameter, iDHD, pCNIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("HopDong_insert", soHDParameter, tenHDParameter, nguoiDaiDienParameter, ngayBDParameter, ngayKTParameter, ghiChuParameter, fileParameter, nhaThauIDParameter, phongBanIDParameter, iDHD);
         }
     
         public virtual ObjectResult<HopDong_SearchByID_Result> HopDong_SearchByID(Nullable<int> iDHD)

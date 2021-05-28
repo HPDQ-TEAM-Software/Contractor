@@ -34,7 +34,7 @@ namespace QLNHATHAU.Models
         public string TenNhaThau { get; set; }
         public string TenPhongBan { get; set; }
         public int PhongBanID { get; set; }
-
+        public int PCHN { get; set; }
         public IList<string> PhongBanCN { get; set; }
 
         public List<string> SelectedValues { get; set; }

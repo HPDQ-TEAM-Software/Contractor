@@ -626,7 +626,6 @@
       <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
       <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
       <Parameter Name="IDHD" Mode="InOut" Type="Int32" />
-      <Parameter Name="PCNID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="HopDong_SearchByID" ReturnType="Collection(QLNhaThauModel.HopDong_SearchByID_Result)">
       <Parameter Name="IDHD" Mode="In" Type="Int32" />

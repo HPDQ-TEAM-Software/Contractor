@@ -141,7 +141,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\ConfigStatic.cs" />
+    <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Controllers\CongController.cs" />
+    <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\ContractExtensionController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\ContractorsController.cs" />
@@ -1152,6 +1155,9 @@
     <Content Include="Views\ViPham\Index.cshtml" />
     <Content Include="Views\ViPham\Create.cshtml" />
     <Content Include="Views\ViPham\Edit.cshtml" />
+    <Content Include="Views\Contract\Index.cshtml" />
+    <Content Include="Views\Contract\Create.cshtml" />
+    <Content Include="Views\Contract\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
