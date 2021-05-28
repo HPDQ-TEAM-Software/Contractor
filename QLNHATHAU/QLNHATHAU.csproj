@@ -402,6 +402,12 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViPhamValidation.cs" />
+    <Compile Include="Models\ViPham_searchByID_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViPham_select_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

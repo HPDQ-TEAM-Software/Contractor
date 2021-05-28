@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="91e6835537284044ba1062cdceb2ae53" Name="Diagram1">
+      <Diagram DiagramId="34b4ab93dc774e18885fb17ae9345a90" Name="Diagram1">
         <EntityTypeShape EntityType="QLNhaThauModel.Card" Width="1.5" PointX="6" PointY="20.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLNhaThauModel.CardNhanVien" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLNhaThauModel.CauHinhPheDuyet" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLNhaThauModel.Cong" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLNhaThauModel.GiaHanHD" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLNhaThauModel.HopDong" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhaThauModel.HopDong" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLNhaThauModel.KeQuaHoc" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QLNhaThauModel.LoaiH" Width="1.5" PointX="7.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLNhaThauModel.LoaiKhach" Width="1.5" PointX="9.75" PointY="12.75" IsExpanded="true" />

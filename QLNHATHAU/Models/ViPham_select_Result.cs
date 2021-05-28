@@ -11,18 +11,15 @@ namespace QLNHATHAU.Models
 {
     using System;
     
-    public partial class HopDong_SearchByID_Result
+    public partial class ViPham_select_Result
     {
-        public int IDHD { get; set; }
-        public string SoHD { get; set; }
-        public string TenHD { get; set; }
-        public string NguoiDaiDien { get; set; }
-        public Nullable<System.DateTime> NgayBD { get; set; }
-        public Nullable<System.DateTime> NgayKT { get; set; }
-        public string GhiChu { get; set; }
-        public string File { get; set; }
+        public int ID { get; set; }
+        public Nullable<int> NhanVienNTID { get; set; }
         public Nullable<int> NhaThauID { get; set; }
-        public Nullable<int> PhongBanID { get; set; }
-        public Nullable<int> PBCHNID { get; set; }
+        public Nullable<int> HopDongID { get; set; }
+        public string NoiDungVP { get; set; }
+        public Nullable<System.DateTime> NgayVP { get; set; }
+        public string MucVP { get; set; }
+        public Nullable<int> TSVP { get; set; }
     }
 }

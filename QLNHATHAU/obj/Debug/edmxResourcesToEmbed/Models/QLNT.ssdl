@@ -58,6 +58,7 @@
     <Property Name="File" Type="nvarchar" MaxLength="250" />
     <Property Name="NhaThauID" Type="int" />
     <Property Name="PhongBanID" Type="int" />
+    <Property Name="PBCHNID" Type="int" />
     <Property Name="TinhTrang" Type="int" />
   </EntityType>
   <EntityType Name="KeQuaHoc">
@@ -518,6 +519,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="File" Type="nvarchar" Mode="In" />
     <Parameter Name="NhaThauID" Type="int" Mode="In" />
     <Parameter Name="PhongBanID" Type="int" Mode="In" />
+    <Parameter Name="PBCHNID" Type="int" Mode="In" />
     <Parameter Name="IDHD" Type="int" Mode="InOut" />
   </Function>
   <Function Name="HopDong_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -535,6 +537,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="File" Type="nvarchar" Mode="In" />
     <Parameter Name="NhaThauID" Type="int" Mode="In" />
     <Parameter Name="PhongBanID" Type="int" Mode="In" />
+    <Parameter Name="PBCHNID" Type="int" Mode="In" />
   </Function>
   <Function Name="IDKetQuaHoc_ByMaNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaNV" Type="nvarchar" Mode="In" />
@@ -844,6 +847,33 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="IDNhaThau" Type="int" Mode="In" />
   </Function>
   <Function Name="TongQuan_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ViPham_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ViPham_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
+    <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="HopDongID" Type="int" Mode="In" />
+    <Parameter Name="NoiDungVP" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayVP" Type="smalldatetime" Mode="In" />
+    <Parameter Name="MucVP" Type="nvarchar" Mode="In" />
+    <Parameter Name="TSVP" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ViPham_searchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ViPham_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ViPham_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
+    <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="HopDongID" Type="int" Mode="In" />
+    <Parameter Name="NoiDungVP" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayVP" Type="smalldatetime" Mode="In" />
+    <Parameter Name="MucVP" Type="nvarchar" Mode="In" />
+    <Parameter Name="TSVP" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="QLNhaThauModelStoreContainer">
     <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CardNhanVien" EntityType="Self.CardNhanVien" Schema="dbo" store:Type="Tables" />

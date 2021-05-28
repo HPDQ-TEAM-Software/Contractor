@@ -63,6 +63,7 @@
           <ScalarProperty Name="File" ColumnName="File" />
           <ScalarProperty Name="NhaThauID" ColumnName="NhaThauID" />
           <ScalarProperty Name="PhongBanID" ColumnName="PhongBanID" />
+          <ScalarProperty Name="PBCHNID" ColumnName="PBCHNID" />
           <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -380,6 +381,7 @@
           <ScalarProperty Name="File" ColumnName="File" />
           <ScalarProperty Name="NhaThauID" ColumnName="NhaThauID" />
           <ScalarProperty Name="PhongBanID" ColumnName="PhongBanID" />
+          <ScalarProperty Name="PBCHNID" ColumnName="PBCHNID" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -815,5 +817,36 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ViPham_delete" FunctionName="QLNhaThauModel.Store.ViPham_delete" />
+    <FunctionImportMapping FunctionImportName="ViPham_insert" FunctionName="QLNhaThauModel.Store.ViPham_insert" />
+    <FunctionImportMapping FunctionImportName="ViPham_searchByID" FunctionName="QLNhaThauModel.Store.ViPham_searchByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLNhaThauModel.ViPham_searchByID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NhanVienNTID" ColumnName="NhanVienNTID" />
+          <ScalarProperty Name="NhaThauID" ColumnName="NhaThauID" />
+          <ScalarProperty Name="HopDongID" ColumnName="HopDongID" />
+          <ScalarProperty Name="NoiDungVP" ColumnName="NoiDungVP" />
+          <ScalarProperty Name="NgayVP" ColumnName="NgayVP" />
+          <ScalarProperty Name="MucVP" ColumnName="MucVP" />
+          <ScalarProperty Name="TSVP" ColumnName="TSVP" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ViPham_select" FunctionName="QLNhaThauModel.Store.ViPham_select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLNhaThauModel.ViPham_select_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NhanVienNTID" ColumnName="NhanVienNTID" />
+          <ScalarProperty Name="NhaThauID" ColumnName="NhaThauID" />
+          <ScalarProperty Name="HopDongID" ColumnName="HopDongID" />
+          <ScalarProperty Name="NoiDungVP" ColumnName="NoiDungVP" />
+          <ScalarProperty Name="NgayVP" ColumnName="NgayVP" />
+          <ScalarProperty Name="MucVP" ColumnName="MucVP" />
+          <ScalarProperty Name="TSVP" ColumnName="TSVP" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ViPham_update" FunctionName="QLNhaThauModel.Store.ViPham_update" />
   </EntityContainerMapping>
 </Mapping>

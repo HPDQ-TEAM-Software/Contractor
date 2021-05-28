@@ -286,7 +286,7 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("HopDong_delete", iDHDParameter);
         }
     
-        public virtual int HopDong_insert(string soHD, string tenHD, string nguoiDaiDien, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT, string ghiChu, string file, Nullable<int> nhaThauID, Nullable<int> phongBanID, ObjectParameter iDHD)
+        public virtual int HopDong_insert(string soHD, string tenHD, string nguoiDaiDien, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT, string ghiChu, string file, Nullable<int> nhaThauID, Nullable<int> phongBanID, Nullable<int> pBCHNID, ObjectParameter iDHD)
         {
             var soHDParameter = soHD != null ?
                 new ObjectParameter("SoHD", soHD) :
@@ -324,7 +324,11 @@ namespace QLNHATHAU.Models
                 new ObjectParameter("PhongBanID", phongBanID) :
                 new ObjectParameter("PhongBanID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("HopDong_insert", soHDParameter, tenHDParameter, nguoiDaiDienParameter, ngayBDParameter, ngayKTParameter, ghiChuParameter, fileParameter, nhaThauIDParameter, phongBanIDParameter, iDHD);
+            var pBCHNIDParameter = pBCHNID.HasValue ?
+                new ObjectParameter("PBCHNID", pBCHNID) :
+                new ObjectParameter("PBCHNID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("HopDong_insert", soHDParameter, tenHDParameter, nguoiDaiDienParameter, ngayBDParameter, ngayKTParameter, ghiChuParameter, fileParameter, nhaThauIDParameter, phongBanIDParameter, pBCHNIDParameter, iDHD);
         }
     
         public virtual ObjectResult<HopDong_SearchByID_Result> HopDong_SearchByID(Nullable<int> iDHD)
@@ -341,7 +345,7 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<HopDong_select_Result>("HopDong_select");
         }
     
-        public virtual int HopDong_update(Nullable<int> iDHD, string soHD, string tenHD, string nguoiDaiDien, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT, string ghiChu, string file, Nullable<int> nhaThauID, Nullable<int> phongBanID)
+        public virtual int HopDong_update(Nullable<int> iDHD, string soHD, string tenHD, string nguoiDaiDien, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT, string ghiChu, string file, Nullable<int> nhaThauID, Nullable<int> phongBanID, Nullable<int> pBCHNID)
         {
             var iDHDParameter = iDHD.HasValue ?
                 new ObjectParameter("IDHD", iDHD) :
@@ -383,7 +387,11 @@ namespace QLNHATHAU.Models
                 new ObjectParameter("PhongBanID", phongBanID) :
                 new ObjectParameter("PhongBanID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("HopDong_update", iDHDParameter, soHDParameter, tenHDParameter, nguoiDaiDienParameter, ngayBDParameter, ngayKTParameter, ghiChuParameter, fileParameter, nhaThauIDParameter, phongBanIDParameter);
+            var pBCHNIDParameter = pBCHNID.HasValue ?
+                new ObjectParameter("PBCHNID", pBCHNID) :
+                new ObjectParameter("PBCHNID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("HopDong_update", iDHDParameter, soHDParameter, tenHDParameter, nguoiDaiDienParameter, ngayBDParameter, ngayKTParameter, ghiChuParameter, fileParameter, nhaThauIDParameter, phongBanIDParameter, pBCHNIDParameter);
         }
     
         public virtual ObjectResult<IDKetQuaHoc_ByMaNV_Result> IDKetQuaHoc_ByMaNV(string maNV)
@@ -1432,6 +1440,103 @@ namespace QLNHATHAU.Models
         public virtual ObjectResult<TongQuan_Select_Result> TongQuan_Select()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TongQuan_Select_Result>("TongQuan_Select");
+        }
+    
+        public virtual int ViPham_delete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ViPham_delete", iDParameter);
+        }
+    
+        public virtual int ViPham_insert(Nullable<int> iD, Nullable<int> nhanVienNTID, Nullable<int> nhaThauID, Nullable<int> hopDongID, string noiDungVP, Nullable<System.DateTime> ngayVP, string mucVP, Nullable<int> tSVP)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var nhanVienNTIDParameter = nhanVienNTID.HasValue ?
+                new ObjectParameter("NhanVienNTID", nhanVienNTID) :
+                new ObjectParameter("NhanVienNTID", typeof(int));
+    
+            var nhaThauIDParameter = nhaThauID.HasValue ?
+                new ObjectParameter("NhaThauID", nhaThauID) :
+                new ObjectParameter("NhaThauID", typeof(int));
+    
+            var hopDongIDParameter = hopDongID.HasValue ?
+                new ObjectParameter("HopDongID", hopDongID) :
+                new ObjectParameter("HopDongID", typeof(int));
+    
+            var noiDungVPParameter = noiDungVP != null ?
+                new ObjectParameter("NoiDungVP", noiDungVP) :
+                new ObjectParameter("NoiDungVP", typeof(string));
+    
+            var ngayVPParameter = ngayVP.HasValue ?
+                new ObjectParameter("NgayVP", ngayVP) :
+                new ObjectParameter("NgayVP", typeof(System.DateTime));
+    
+            var mucVPParameter = mucVP != null ?
+                new ObjectParameter("MucVP", mucVP) :
+                new ObjectParameter("MucVP", typeof(string));
+    
+            var tSVPParameter = tSVP.HasValue ?
+                new ObjectParameter("TSVP", tSVP) :
+                new ObjectParameter("TSVP", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ViPham_insert", iDParameter, nhanVienNTIDParameter, nhaThauIDParameter, hopDongIDParameter, noiDungVPParameter, ngayVPParameter, mucVPParameter, tSVPParameter);
+        }
+    
+        public virtual ObjectResult<ViPham_searchByID_Result> ViPham_searchByID(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViPham_searchByID_Result>("ViPham_searchByID", iDParameter);
+        }
+    
+        public virtual ObjectResult<ViPham_select_Result> ViPham_select()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViPham_select_Result>("ViPham_select");
+        }
+    
+        public virtual int ViPham_update(Nullable<int> iD, Nullable<int> nhanVienNTID, Nullable<int> nhaThauID, Nullable<int> hopDongID, string noiDungVP, Nullable<System.DateTime> ngayVP, string mucVP, Nullable<int> tSVP)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var nhanVienNTIDParameter = nhanVienNTID.HasValue ?
+                new ObjectParameter("NhanVienNTID", nhanVienNTID) :
+                new ObjectParameter("NhanVienNTID", typeof(int));
+    
+            var nhaThauIDParameter = nhaThauID.HasValue ?
+                new ObjectParameter("NhaThauID", nhaThauID) :
+                new ObjectParameter("NhaThauID", typeof(int));
+    
+            var hopDongIDParameter = hopDongID.HasValue ?
+                new ObjectParameter("HopDongID", hopDongID) :
+                new ObjectParameter("HopDongID", typeof(int));
+    
+            var noiDungVPParameter = noiDungVP != null ?
+                new ObjectParameter("NoiDungVP", noiDungVP) :
+                new ObjectParameter("NoiDungVP", typeof(string));
+    
+            var ngayVPParameter = ngayVP.HasValue ?
+                new ObjectParameter("NgayVP", ngayVP) :
+                new ObjectParameter("NgayVP", typeof(System.DateTime));
+    
+            var mucVPParameter = mucVP != null ?
+                new ObjectParameter("MucVP", mucVP) :
+                new ObjectParameter("MucVP", typeof(string));
+    
+            var tSVPParameter = tSVP.HasValue ?
+                new ObjectParameter("TSVP", tSVP) :
+                new ObjectParameter("TSVP", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ViPham_update", iDParameter, nhanVienNTIDParameter, nhaThauIDParameter, hopDongIDParameter, noiDungVPParameter, ngayVPParameter, mucVPParameter, tSVPParameter);
         }
     }
 }

@@ -65,19 +65,19 @@ namespace QLNHATHAU.Controllers
                 try
                 {
                     ObjectParameter returnId = new ObjectParameter("IDHD", typeof(int));
-                    //db_context.HopDong_insert(
-                    //    _DO.SoHD, _DO.TenHD, _DO.NguoiDaiDien, _DO.NgayBD, _DO.NgayKT, _DO.GhiChu, UploadFile(_DO), _DO.NhaThauID, _DO.PhongBanID, returnId);
-                    int idHD = Convert.ToInt32(returnId.Value);
-                    foreach (var p in _DO.PhongBanCN)
-                    {
-                        db_context.PCHN_HopDong_Insert(Int32.Parse(p), idHD);
-                    }
+                    db_context.HopDong_insert(
+                        _DO.SoHD, _DO.TenHD, _DO.NguoiDaiDien, _DO.NgayBD, _DO.NgayKT, _DO.GhiChu, UploadFile(_DO), _DO.NhaThauID, _DO.PhongBanID, _DO.PBCHNID,returnId);
+                    //int idHD = Convert.ToInt32(returnId.Value);
+                    //foreach (var p in _DO.PhongBanCN)
+                    //{
+                    //    db_context.PCHN_HopDong_Insert(Int32.Parse(p), idHD);
+                    //}
                     TempData["msgSuccess"] = "<script>alert('Thêm mới thành công');</script>";
 
                 }
                 catch (Exception e)
                 {
-                    TempData["msgError"] = "<script>alert('Có lỗi khi thêm mới hợp đồng');</script>";
+                    TempData["msgError"] = "<script>alert('Có lỗi khi thêm mới hợp đồng: "+e.Message+"');</script>";
                 }
             }
 
@@ -149,7 +149,7 @@ namespace QLNHATHAU.Controllers
             try
             {
                 db_context.HopDong_update(
-                    _DO.IDHD, _DO.SoHD, _DO.TenHD, _DO.NguoiDaiDien, _DO.NgayBD, _DO.NgayKT, _DO.GhiChu, UploadFile(_DO), _DO.NhaThauID, _DO.PhongBanID);
+                    _DO.IDHD, _DO.SoHD, _DO.TenHD, _DO.NguoiDaiDien, _DO.NgayBD, _DO.NgayKT, _DO.GhiChu, UploadFile(_DO), _DO.NhaThauID, _DO.PhongBanID,_DO.PBCHNID);
 
                 TempData["msgSuccess"] = "<script>alert('Cập nhập thành công');</script>";
 
@@ -157,7 +157,7 @@ namespace QLNHATHAU.Controllers
             
             catch (Exception e)
             {
-                TempData["msgSuccess"] = "<script>alert('Cập nhập thất bại');</script>";
+                TempData["msgSuccess"] = "<script>alert('Cập nhập thất bại: "+e.Message+"');</script>";
             }
 
             return RedirectToAction("Index", "HopDong");

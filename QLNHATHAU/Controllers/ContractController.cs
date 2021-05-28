@@ -68,10 +68,10 @@ namespace QLNHATHAU.Controllers
             try
             {
                 ObjectParameter returnId = new ObjectParameter("IDHD", typeof(int));
-                db_context.HopDong_insert(_DO.SoHD, _DO.TenHD, _DO.NguoiDaiDien, _DO.NgayBD, _DO.NgayKT, _DO.GhiChu, UploadFile(_DO), _DO.NhaThauID, _DO.PhongBanID, returnId);
-                int idHD = Convert.ToInt32(returnId.Value);
+                db_context.HopDong_insert(_DO.SoHD, _DO.TenHD, _DO.NguoiDaiDien, _DO.NgayBD, _DO.NgayKT, _DO.GhiChu, UploadFile(_DO), _DO.NhaThauID, _DO.PhongBanID,_DO.PBCHNID, returnId);
+                //int idHD = Convert.ToInt32(returnId.Value);
                 //Hiện tại chỉ cho 1 phòng ban chức năng
-                db_context.PCHN_HopDong_Insert(_DO.PCHN,idHD);
+                //db_context.PCHN_HopDong_Insert(_DO.PCHNID, idHD);
                 TempData["msgSuccess"] = "<script>alert('Thêm mới thành công');</script>";
             }
             catch (Exception e)
@@ -95,7 +95,9 @@ namespace QLNHATHAU.Controllers
                            GhiChu = hd.GhiChu,
                            FilePath = hd.File,
                            NhaThauID = (int)hd.NhaThauID,
-                           PhongBanID = (int)hd.PhongBanID
+                           PhongBanID = (int)hd.PhongBanID,
+                           PBCHNID =(int) hd.PhongBanID,
+                           
                        }).ToList();
 
             HopDongValidation DO = new HopDongValidation();
@@ -113,8 +115,10 @@ namespace QLNHATHAU.Controllers
                     DO.FilePath = hd.FilePath;
                     DO.NhaThauID = (int)hd.NhaThauID;
                     DO.PhongBanID = (int)hd.PhongBanID;
+                    DO.PBCHNID = (int)hd.PBCHNID;
                 }
-
+                List<PhongBan> pbchn = db_context.PhongBans.Where(x => x.PCHN == true).ToList();
+                ViewBag.CHNList = new SelectList(pbchn, "IDPhongBan", "TenDai", DO.PBCHNID);
 
                 List<NhaThau> nt = db_context.NhaThaus.ToList();
                 ViewBag.NTList = new SelectList(nt, "IDNhaThau", "Ten", DO.NhaThauID);
@@ -132,9 +136,7 @@ namespace QLNHATHAU.Controllers
                 //             });
                 // List<PCHNValidation> pbcn = model.ToList();
                 //List<PCHN> phcn = db_context.PCHNs.ToList(); 
-                List<PhongBan> pbchn = db_context.PhongBans.Where(x=>x.PCHN == true).ToList();
-                //var pbcn = db_context.PhongBan_PCHN_loadedit(DO.IDHD).SingleOrDefault();
-                ViewBag.PBCHNList = new SelectList(pbchn, "IDPhongBan", "TenDai", 37);
+
 
                 if (DO.FilePath != null)
                 {
@@ -142,6 +144,7 @@ namespace QLNHATHAU.Controllers
                 }
                 ViewBag.NgayBD = DO.NgayBD.HasValue ? DO.NgayBD.Value.ToString("yyyy-MM-dd") : "NULL";
                 ViewBag.NgayKT = DO.NgayKT.HasValue ? DO.NgayKT.Value.ToString("yyyy-MM-dd") : "NULL";
+                
             }
             else
             {
@@ -156,7 +159,7 @@ namespace QLNHATHAU.Controllers
             try
             {
                 db_context.HopDong_update(
-                    _DO.IDHD, _DO.SoHD, _DO.TenHD, _DO.NguoiDaiDien, _DO.NgayBD, _DO.NgayKT, _DO.GhiChu, UploadFile(_DO), _DO.NhaThauID, _DO.PhongBanID);
+                    _DO.IDHD, _DO.SoHD, _DO.TenHD, _DO.NguoiDaiDien, _DO.NgayBD, _DO.NgayKT, _DO.GhiChu, UploadFile(_DO), _DO.NhaThauID, _DO.PhongBanID,_DO.PBCHNID);
 
                 TempData["msgSuccess"] = "<script>alert('Cập nhập thành công');</script>";
 

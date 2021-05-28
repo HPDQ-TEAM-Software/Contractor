@@ -21,9 +21,11 @@ namespace QLNHATHAU.Models
         public string NguoiDaiDien { get; set; }
 
         [Required(ErrorMessage = "Ngày bắt đầu")]
+        [DataType(DataType.Date)]
         public DateTime? NgayBD { get; set; }
 
         [Required(ErrorMessage = "Ngày kết thúc")]
+        [DataType(DataType.Date)]
         public DateTime? NgayKT { get; set; }
 
         public string GhiChu { get; set; }
@@ -34,8 +36,8 @@ namespace QLNHATHAU.Models
         public string TenNhaThau { get; set; }
         public string TenPhongBan { get; set; }
         public int PhongBanID { get; set; }
-        public int PCHN { get; set; }
-        public IList<string> PhongBanCN { get; set; }
+        public int PBCHNID { get; set; }
+        //public IList<string> PhongBanCN { get; set; }
 
         public List<string> SelectedValues { get; set; }
     }

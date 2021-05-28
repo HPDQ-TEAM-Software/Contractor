@@ -63,6 +63,7 @@
           <Property Name="File" Type="nvarchar" MaxLength="250" />
           <Property Name="NhaThauID" Type="int" />
           <Property Name="PhongBanID" Type="int" />
+          <Property Name="PBCHNID" Type="int" />
           <Property Name="TinhTrang" Type="int" />
         </EntityType>
         <EntityType Name="KeQuaHoc">
@@ -523,6 +524,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Parameter Name="File" Type="nvarchar" Mode="In" />
           <Parameter Name="NhaThauID" Type="int" Mode="In" />
           <Parameter Name="PhongBanID" Type="int" Mode="In" />
+          <Parameter Name="PBCHNID" Type="int" Mode="In" />
           <Parameter Name="IDHD" Type="int" Mode="InOut" />
         </Function>
         <Function Name="HopDong_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -540,6 +542,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Parameter Name="File" Type="nvarchar" Mode="In" />
           <Parameter Name="NhaThauID" Type="int" Mode="In" />
           <Parameter Name="PhongBanID" Type="int" Mode="In" />
+          <Parameter Name="PBCHNID" Type="int" Mode="In" />
         </Function>
         <Function Name="IDKetQuaHoc_ByMaNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MaNV" Type="nvarchar" Mode="In" />
@@ -849,6 +852,33 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Parameter Name="IDNhaThau" Type="int" Mode="In" />
         </Function>
         <Function Name="TongQuan_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ViPham_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ViPham_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
+          <Parameter Name="NhaThauID" Type="int" Mode="In" />
+          <Parameter Name="HopDongID" Type="int" Mode="In" />
+          <Parameter Name="NoiDungVP" Type="nvarchar" Mode="In" />
+          <Parameter Name="NgayVP" Type="smalldatetime" Mode="In" />
+          <Parameter Name="MucVP" Type="nvarchar" Mode="In" />
+          <Parameter Name="TSVP" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ViPham_searchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ViPham_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ViPham_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
+          <Parameter Name="NhaThauID" Type="int" Mode="In" />
+          <Parameter Name="HopDongID" Type="int" Mode="In" />
+          <Parameter Name="NoiDungVP" Type="nvarchar" Mode="In" />
+          <Parameter Name="NgayVP" Type="smalldatetime" Mode="In" />
+          <Parameter Name="MucVP" Type="nvarchar" Mode="In" />
+          <Parameter Name="TSVP" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="QLNhaThauModelStoreContainer">
           <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CardNhanVien" EntityType="Self.CardNhanVien" Schema="dbo" store:Type="Tables" />
@@ -1008,6 +1038,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Property Name="File" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="NhaThauID" Type="Int32" />
           <Property Name="PhongBanID" Type="Int32" />
+          <Property Name="PBCHNID" Type="Int32" />
           <Property Name="TinhTrang" Type="Int32" />
           <NavigationProperty Name="GiaHanHDs" Relationship="Self.FK_GiaHanHD_HopDong" FromRole="HopDong" ToRole="GiaHanHD" />
           <NavigationProperty Name="PhongBan" Relationship="Self.FK_HopDong_PhongBan" FromRole="HopDong" ToRole="PhongBan" />
@@ -1571,6 +1602,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
             <Parameter Name="File" Mode="In" Type="String" />
             <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
             <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
+            <Parameter Name="PBCHNID" Mode="In" Type="Int32" />
             <Parameter Name="IDHD" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="HopDong_SearchByID" ReturnType="Collection(QLNhaThauModel.HopDong_SearchByID_Result)">
@@ -1588,6 +1620,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
             <Parameter Name="File" Mode="In" Type="String" />
             <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
             <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
+            <Parameter Name="PBCHNID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="IDKetQuaHoc_ByMaNV" ReturnType="Collection(QLNhaThauModel.IDKetQuaHoc_ByMaNV_Result)">
             <Parameter Name="MaNV" Mode="In" Type="String" />
@@ -1897,6 +1930,33 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
             <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="TongQuan_Select" ReturnType="Collection(QLNhaThauModel.TongQuan_Select_Result)" />
+          <FunctionImport Name="ViPham_delete">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ViPham_insert">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NhanVienNTID" Mode="In" Type="Int32" />
+            <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
+            <Parameter Name="HopDongID" Mode="In" Type="Int32" />
+            <Parameter Name="NoiDungVP" Mode="In" Type="String" />
+            <Parameter Name="NgayVP" Mode="In" Type="DateTime" />
+            <Parameter Name="MucVP" Mode="In" Type="String" />
+            <Parameter Name="TSVP" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ViPham_searchByID" ReturnType="Collection(QLNhaThauModel.ViPham_searchByID_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ViPham_select" ReturnType="Collection(QLNhaThauModel.ViPham_select_Result)" />
+          <FunctionImport Name="ViPham_update">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NhanVienNTID" Mode="In" Type="Int32" />
+            <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
+            <Parameter Name="HopDongID" Mode="In" Type="Int32" />
+            <Parameter Name="NoiDungVP" Mode="In" Type="String" />
+            <Parameter Name="NgayVP" Mode="In" Type="DateTime" />
+            <Parameter Name="MucVP" Mode="In" Type="String" />
+            <Parameter Name="TSVP" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Card_SearchByID_Result">
           <Property Type="Int32" Name="IDCard" Nullable="false" />
@@ -1955,6 +2015,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Property Type="String" Name="File" Nullable="true" MaxLength="250" />
           <Property Type="Int32" Name="NhaThauID" Nullable="true" />
           <Property Type="Int32" Name="PhongBanID" Nullable="true" />
+          <Property Type="Int32" Name="PBCHNID" Nullable="true" />
         </ComplexType>
         <ComplexType Name="HopDong_select_Result">
           <Property Type="Int32" Name="IDHD" Nullable="false" />
@@ -2204,6 +2265,26 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Property Type="String" Name="VBChuaDoc" Nullable="true" MaxLength="10" />
           <Property Type="Int32" Name="NhanvienID" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="ViPham_searchByID_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="NhanVienNTID" Nullable="true" />
+          <Property Type="Int32" Name="NhaThauID" Nullable="true" />
+          <Property Type="Int32" Name="HopDongID" Nullable="true" />
+          <Property Type="String" Name="NoiDungVP" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="NgayVP" Nullable="true" Precision="16" />
+          <Property Type="String" Name="MucVP" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="TSVP" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ViPham_select_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="NhanVienNTID" Nullable="true" />
+          <Property Type="Int32" Name="NhaThauID" Nullable="true" />
+          <Property Type="Int32" Name="HopDongID" Nullable="true" />
+          <Property Type="String" Name="NoiDungVP" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="NgayVP" Nullable="true" Precision="16" />
+          <Property Type="String" Name="MucVP" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="TSVP" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2272,6 +2353,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
                 <ScalarProperty Name="File" ColumnName="File" />
                 <ScalarProperty Name="NhaThauID" ColumnName="NhaThauID" />
                 <ScalarProperty Name="PhongBanID" ColumnName="PhongBanID" />
+                <ScalarProperty Name="PBCHNID" ColumnName="PBCHNID" />
                 <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2589,6 +2671,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
                 <ScalarProperty Name="File" ColumnName="File" />
                 <ScalarProperty Name="NhaThauID" ColumnName="NhaThauID" />
                 <ScalarProperty Name="PhongBanID" ColumnName="PhongBanID" />
+                <ScalarProperty Name="PBCHNID" ColumnName="PBCHNID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -3024,6 +3107,37 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ViPham_delete" FunctionName="QLNhaThauModel.Store.ViPham_delete" />
+          <FunctionImportMapping FunctionImportName="ViPham_insert" FunctionName="QLNhaThauModel.Store.ViPham_insert" />
+          <FunctionImportMapping FunctionImportName="ViPham_searchByID" FunctionName="QLNhaThauModel.Store.ViPham_searchByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLNhaThauModel.ViPham_searchByID_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NhanVienNTID" ColumnName="NhanVienNTID" />
+                <ScalarProperty Name="NhaThauID" ColumnName="NhaThauID" />
+                <ScalarProperty Name="HopDongID" ColumnName="HopDongID" />
+                <ScalarProperty Name="NoiDungVP" ColumnName="NoiDungVP" />
+                <ScalarProperty Name="NgayVP" ColumnName="NgayVP" />
+                <ScalarProperty Name="MucVP" ColumnName="MucVP" />
+                <ScalarProperty Name="TSVP" ColumnName="TSVP" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ViPham_select" FunctionName="QLNhaThauModel.Store.ViPham_select">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLNhaThauModel.ViPham_select_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NhanVienNTID" ColumnName="NhanVienNTID" />
+                <ScalarProperty Name="NhaThauID" ColumnName="NhaThauID" />
+                <ScalarProperty Name="HopDongID" ColumnName="HopDongID" />
+                <ScalarProperty Name="NoiDungVP" ColumnName="NoiDungVP" />
+                <ScalarProperty Name="NgayVP" ColumnName="NgayVP" />
+                <ScalarProperty Name="MucVP" ColumnName="MucVP" />
+                <ScalarProperty Name="TSVP" ColumnName="TSVP" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ViPham_update" FunctionName="QLNhaThauModel.Store.ViPham_update" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
