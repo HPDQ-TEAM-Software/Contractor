@@ -295,6 +295,9 @@
     <Compile Include="Models\NhaThau_select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PCHN.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PCHN_HopDong.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -324,6 +327,9 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhongBan.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PHONGBANCHN_VIEW.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhongBanValidation.cs" />
@@ -392,12 +398,6 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViPhamValidation.cs" />
-    <Compile Include="Models\ViPham_SearchByID_Result.cs">
-      <DependentUpon>QLNT.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ViPham_Select_Result.cs">
-      <DependentUpon>QLNT.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -766,6 +766,5 @@ D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QL
 D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CopyComplete
 D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.dll
 D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.pdb
-D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csprojAssemblyReference.cache
 C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CoreCompileInputs.cache
 C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csprojAssemblyReference.cache

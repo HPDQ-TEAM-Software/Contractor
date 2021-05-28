@@ -18,6 +18,7 @@ namespace QLNHATHAU.Models
         public NhaThau()
         {
             this.KeQuaHocs = new HashSet<KeQuaHoc>();
+            this.ViPhams = new HashSet<ViPham>();
         }
     
         public int IDNhaThau { get; set; }
@@ -30,5 +31,7 @@ namespace QLNHATHAU.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KeQuaHoc> KeQuaHocs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ViPham> ViPhams { get; set; }
     }
 }

@@ -71,6 +71,11 @@
     <Property Name="NgayHoc" Type="datetime" />
     <Property Name="KetQua" Type="bit" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Khach">
+          <Property Name="IDKhach" Type="int" />
+        </EntityType>-->
   <EntityType Name="LoaiHS">
     <Key>
       <PropertyRef Name="ID" />
@@ -140,6 +145,14 @@
     <Property Name="DiaChi" Type="nvarchar" MaxLength="550" />
     <Property Name="DienThoai" Type="char" MaxLength="15" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PCHN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TenVT" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenDai" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="PCHN_HopDong">
     <Key>
@@ -220,22 +233,28 @@
     <Property Name="CreateDate" Type="datetime" />
     <Property Name="UpdateDate" Type="datetime" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'QLNhaThau.dbo.ViPham' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ViPham">
     <Key>
-      <PropertyRef Name="IDViPham" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="IDViPham" Type="int" Nullable="false" />
-    <Property Name="MaNVVP" Type="char" MaxLength="10" />
-    <Property Name="TenNVVP" Type="nvarchar" MaxLength="150" />
-    <Property Name="TenNhaThau" Type="nvarchar" MaxLength="150" />
-    <Property Name="HangMuc" Type="nvarchar" MaxLength="150" />
-    <Property Name="NDViPham" Type="nvarchar" MaxLength="250" />
-    <Property Name="NgayVP" Type="datetime" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NhanVienNTID" Type="int" />
+    <Property Name="NhaThauID" Type="int" />
+    <Property Name="HopDongID" Type="int" />
+    <Property Name="NoiDungVP" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayVP" Type="smalldatetime" />
     <Property Name="MucVP" Type="nvarchar" MaxLength="50" />
-    <Property Name="TongVP" Type="int" />
-    <Property Name="CatThe" Type="bit" />
+    <Property Name="TSVP" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PHONGBANCHN_VIEW">
+    <Key>
+      <PropertyRef Name="IDPhongBan" />
+    </Key>
+    <Property Name="IDPhongBan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenVT" Type="varchar" MaxLength="10" />
+    <Property Name="TenDai" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <Association Name="FK_CardNhanVien_Card">
     <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
@@ -378,6 +397,42 @@ warning 6002: The table/view 'QLNhaThau.dbo.ViPham' does not have a primary key 
       </Principal>
       <Dependent Role="PhanQuyen">
         <PropertyRef Name="QuyenID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViPham_HopDong">
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="0..1" />
+    <End Role="ViPham" Type="Self.ViPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HopDong">
+        <PropertyRef Name="IDHD" />
+      </Principal>
+      <Dependent Role="ViPham">
+        <PropertyRef Name="HopDongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViPham_NhanVienNT">
+    <End Role="NhanVienNT" Type="Self.NhanVienNT" Multiplicity="0..1" />
+    <End Role="ViPham" Type="Self.ViPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVienNT">
+        <PropertyRef Name="IDNhanVienNT" />
+      </Principal>
+      <Dependent Role="ViPham">
+        <PropertyRef Name="NhanVienNTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViPham_NhaThau">
+    <End Role="NhaThau" Type="Self.NhaThau" Multiplicity="0..1" />
+    <End Role="ViPham" Type="Self.ViPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaThau">
+        <PropertyRef Name="IDNhaThau" />
+      </Principal>
+      <Dependent Role="ViPham">
+        <PropertyRef Name="NhaThauID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -790,37 +845,6 @@ warning 6002: The table/view 'QLNhaThau.dbo.ViPham' does not have a primary key 
     <Parameter Name="IDNhaThau" Type="int" Mode="In" />
   </Function>
   <Function Name="TongQuan_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="ViPham_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="IDViPham" Type="int" Mode="In" />
-  </Function>
-  <Function Name="ViPham_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="IDViPham" Type="int" Mode="In" />
-    <Parameter Name="MaNVVP" Type="char" Mode="In" />
-    <Parameter Name="TenNVVP" Type="nvarchar" Mode="In" />
-    <Parameter Name="TenNhaThau" Type="nvarchar" Mode="In" />
-    <Parameter Name="HangMuc" Type="nvarchar" Mode="In" />
-    <Parameter Name="NDViPham" Type="nvarchar" Mode="In" />
-    <Parameter Name="NgayVP" Type="datetime" Mode="In" />
-    <Parameter Name="MucVP" Type="nvarchar" Mode="In" />
-    <Parameter Name="TongVP" Type="int" Mode="In" />
-    <Parameter Name="CatThe" Type="bit" Mode="In" />
-  </Function>
-  <Function Name="ViPham_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="IDViPham" Type="int" Mode="In" />
-  </Function>
-  <Function Name="ViPham_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="ViPham_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="IDViPham" Type="int" Mode="In" />
-    <Parameter Name="MaNVVP" Type="char" Mode="In" />
-    <Parameter Name="TenNVVP" Type="nvarchar" Mode="In" />
-    <Parameter Name="TenNhaThau" Type="nvarchar" Mode="In" />
-    <Parameter Name="HangMuc" Type="nvarchar" Mode="In" />
-    <Parameter Name="NDViPham" Type="nvarchar" Mode="In" />
-    <Parameter Name="NgayVP" Type="datetime" Mode="In" />
-    <Parameter Name="MucVP" Type="nvarchar" Mode="In" />
-    <Parameter Name="TongVP" Type="int" Mode="In" />
-    <Parameter Name="CatThe" Type="bit" Mode="In" />
-  </Function>
   <EntityContainer Name="QLNhaThauModelStoreContainer">
     <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CardNhanVien" EntityType="Self.CardNhanVien" Schema="dbo" store:Type="Tables" />
@@ -835,6 +859,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.ViPham' does not have a primary key 
     <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NhanVienNT" EntityType="Self.NhanVienNT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NhaThau" EntityType="Self.NhaThau" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PCHN" EntityType="Self.PCHN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PCHN_HopDong" EntityType="Self.PCHN_HopDong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhanQuyen" EntityType="Self.PhanQuyen" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PheDuyet" EntityType="Self.PheDuyet" Schema="dbo" store:Type="Tables" />
@@ -843,19 +868,13 @@ warning 6002: The table/view 'QLNhaThau.dbo.ViPham' does not have a primary key 
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TongQuan" EntityType="Self.TongQuan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VanBan" EntityType="Self.VanBan" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ViPham" EntityType="Self.ViPham" store:Type="Tables" store:Schema="dbo">
+    <EntitySet Name="ViPham" EntityType="Self.ViPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHONGBANCHN_VIEW" EntityType="Self.PHONGBANCHN_VIEW" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [ViPham].[IDViPham] AS [IDViPham], 
-    [ViPham].[MaNVVP] AS [MaNVVP], 
-    [ViPham].[TenNVVP] AS [TenNVVP], 
-    [ViPham].[TenNhaThau] AS [TenNhaThau], 
-    [ViPham].[HangMuc] AS [HangMuc], 
-    [ViPham].[NDViPham] AS [NDViPham], 
-    [ViPham].[NgayVP] AS [NgayVP], 
-    [ViPham].[MucVP] AS [MucVP], 
-    [ViPham].[TongVP] AS [TongVP], 
-    [ViPham].[CatThe] AS [CatThe]
-    FROM [dbo].[ViPham] AS [ViPham]</DefiningQuery>
+    [PHONGBANCHN_VIEW].[IDPhongBan] AS [IDPhongBan], 
+    [PHONGBANCHN_VIEW].[TenVT] AS [TenVT], 
+    [PHONGBANCHN_VIEW].[TenDai] AS [TenDai]
+    FROM [dbo].[PHONGBANCHN_VIEW] AS [PHONGBANCHN_VIEW]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_CardNhanVien_Card" Association="Self.FK_CardNhanVien_Card">
       <End Role="Card" EntitySet="Card" />
@@ -904,6 +923,18 @@ warning 6002: The table/view 'QLNhaThau.dbo.ViPham' does not have a primary key 
     <AssociationSet Name="FK_PhanQuyen_Quyen1" Association="Self.FK_PhanQuyen_Quyen1">
       <End Role="Quyen" EntitySet="Quyen" />
       <End Role="PhanQuyen" EntitySet="PhanQuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViPham_HopDong" Association="Self.FK_ViPham_HopDong">
+      <End Role="HopDong" EntitySet="HopDong" />
+      <End Role="ViPham" EntitySet="ViPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViPham_NhanVienNT" Association="Self.FK_ViPham_NhanVienNT">
+      <End Role="NhanVienNT" EntitySet="NhanVienNT" />
+      <End Role="ViPham" EntitySet="ViPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViPham_NhaThau" Association="Self.FK_ViPham_NhaThau">
+      <End Role="NhaThau" EntitySet="NhaThau" />
+      <End Role="ViPham" EntitySet="ViPham" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

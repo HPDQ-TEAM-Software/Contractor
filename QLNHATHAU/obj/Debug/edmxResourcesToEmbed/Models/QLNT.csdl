@@ -62,11 +62,12 @@
     <Property Name="File" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="NhaThauID" Type="Int32" />
     <Property Name="PhongBanID" Type="Int32" />
+    <Property Name="TinhTrang" Type="Int32" />
     <NavigationProperty Name="GiaHanHDs" Relationship="Self.FK_GiaHanHD_HopDong" FromRole="HopDong" ToRole="GiaHanHD" />
     <NavigationProperty Name="PhongBan" Relationship="Self.FK_HopDong_PhongBan" FromRole="HopDong" ToRole="PhongBan" />
     <NavigationProperty Name="KeQuaHocs" Relationship="Self.FK_KeQuaHoc_HopDong" FromRole="HopDong" ToRole="KeQuaHoc" />
     <NavigationProperty Name="PCHN_HopDong" Relationship="Self.FK_PCHN_HopDong_HopDong" FromRole="HopDong" ToRole="PCHN_HopDong" />
-    <Property Name="TinhTrang" Type="Int32" />
+    <NavigationProperty Name="ViPhams" Relationship="Self.FK_ViPham_HopDong" FromRole="HopDong" ToRole="ViPham" />
   </EntityType>
   <EntityType Name="KeQuaHoc">
     <Key>
@@ -144,6 +145,7 @@
     <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="CardNhanViens" Relationship="Self.FK_CardNhanVien_NhanVienNT" FromRole="NhanVienNT" ToRole="CardNhanVien" />
     <NavigationProperty Name="KeQuaHocs" Relationship="Self.FK_KeQuaHoc_NhanVienNT" FromRole="NhanVienNT" ToRole="KeQuaHoc" />
+    <NavigationProperty Name="ViPhams" Relationship="Self.FK_ViPham_NhanVienNT" FromRole="NhanVienNT" ToRole="ViPham" />
   </EntityType>
   <EntityType Name="NhaThau">
     <Key>
@@ -157,6 +159,15 @@
     <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="KeQuaHocs" Relationship="Self.FK_KeQuaHoc_NhaThau" FromRole="NhaThau" ToRole="KeQuaHoc" />
+    <NavigationProperty Name="ViPhams" Relationship="Self.FK_ViPham_NhaThau" FromRole="NhaThau" ToRole="ViPham" />
+  </EntityType>
+  <EntityType Name="PCHN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="TenVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenDai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="PCHN_HopDong">
     <Key>
@@ -244,6 +255,30 @@
     <Property Name="CreateDate" Type="DateTime" Precision="3" />
     <Property Name="UpdateDate" Type="DateTime" Precision="3" />
   </EntityType>
+  <EntityType Name="ViPham">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NhanVienNTID" Type="Int32" />
+    <Property Name="NhaThauID" Type="Int32" />
+    <Property Name="HopDongID" Type="Int32" />
+    <Property Name="NoiDungVP" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayVP" Type="DateTime" Precision="0" />
+    <Property Name="MucVP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TSVP" Type="Int32" />
+    <NavigationProperty Name="HopDong" Relationship="Self.FK_ViPham_HopDong" FromRole="ViPham" ToRole="HopDong" />
+    <NavigationProperty Name="NhanVienNT" Relationship="Self.FK_ViPham_NhanVienNT" FromRole="ViPham" ToRole="NhanVienNT" />
+    <NavigationProperty Name="NhaThau" Relationship="Self.FK_ViPham_NhaThau" FromRole="ViPham" ToRole="NhaThau" />
+  </EntityType>
+  <EntityType Name="PHONGBANCHN_VIEW">
+    <Key>
+      <PropertyRef Name="IDPhongBan" />
+    </Key>
+    <Property Name="IDPhongBan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenVT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TenDai" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
   <Association Name="FK_CardNhanVien_Card">
     <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
     <End Role="CardNhanVien" Type="Self.CardNhanVien" Multiplicity="*" />
@@ -316,6 +351,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ViPham_HopDong">
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="0..1" />
+    <End Role="ViPham" Type="Self.ViPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HopDong">
+        <PropertyRef Name="IDHD" />
+      </Principal>
+      <Dependent Role="ViPham">
+        <PropertyRef Name="HopDongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_KeQuaHoc_NhanVienNT">
     <End Role="NhanVienNT" Type="Self.NhanVienNT" Multiplicity="0..1" />
     <End Role="KeQuaHoc" Type="Self.KeQuaHoc" Multiplicity="*" />
@@ -364,6 +411,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ViPham_NhanVienNT">
+    <End Role="NhanVienNT" Type="Self.NhanVienNT" Multiplicity="0..1" />
+    <End Role="ViPham" Type="Self.ViPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVienNT">
+        <PropertyRef Name="IDNhanVienNT" />
+      </Principal>
+      <Dependent Role="ViPham">
+        <PropertyRef Name="NhanVienNTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViPham_NhaThau">
+    <End Role="NhaThau" Type="Self.NhaThau" Multiplicity="0..1" />
+    <End Role="ViPham" Type="Self.ViPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaThau">
+        <PropertyRef Name="IDNhaThau" />
+      </Principal>
+      <Dependent Role="ViPham">
+        <PropertyRef Name="NhaThauID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PCHN_HopDong_PhongBan">
     <End Role="PhongBan" Type="Self.PhongBan" Multiplicity="0..1" />
     <End Role="PCHN_HopDong" Type="Self.PCHN_HopDong" Multiplicity="*" />
@@ -402,6 +473,7 @@
     <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
     <EntitySet Name="NhanVienNTs" EntityType="Self.NhanVienNT" />
     <EntitySet Name="NhaThaus" EntityType="Self.NhaThau" />
+    <EntitySet Name="PCHNs" EntityType="Self.PCHN" />
     <EntitySet Name="PCHN_HopDong" EntityType="Self.PCHN_HopDong" />
     <EntitySet Name="PhanQuyens" EntityType="Self.PhanQuyen" />
     <EntitySet Name="PheDuyets" EntityType="Self.PheDuyet" />
@@ -410,6 +482,8 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="TongQuans" EntityType="Self.TongQuan" />
     <EntitySet Name="VanBans" EntityType="Self.VanBan" />
+    <EntitySet Name="ViPhams" EntityType="Self.ViPham" />
+    <EntitySet Name="PHONGBANCHN_VIEW" EntityType="Self.PHONGBANCHN_VIEW" />
     <AssociationSet Name="FK_CardNhanVien_Card" Association="Self.FK_CardNhanVien_Card">
       <End Role="Card" EntitySet="Cards" />
       <End Role="CardNhanVien" EntitySet="CardNhanViens" />
@@ -434,6 +508,10 @@
       <End Role="HopDong" EntitySet="HopDongs" />
       <End Role="PCHN_HopDong" EntitySet="PCHN_HopDong" />
     </AssociationSet>
+    <AssociationSet Name="FK_ViPham_HopDong" Association="Self.FK_ViPham_HopDong">
+      <End Role="HopDong" EntitySet="HopDongs" />
+      <End Role="ViPham" EntitySet="ViPhams" />
+    </AssociationSet>
     <AssociationSet Name="FK_KeQuaHoc_NhanVienNT" Association="Self.FK_KeQuaHoc_NhanVienNT">
       <End Role="NhanVienNT" EntitySet="NhanVienNTs" />
       <End Role="KeQuaHoc" EntitySet="KeQuaHocs" />
@@ -449,6 +527,14 @@
     <AssociationSet Name="FK_PhanQuyen_NguoiDung" Association="Self.FK_PhanQuyen_NguoiDung">
       <End Role="NguoiDung" EntitySet="NguoiDungs" />
       <End Role="PhanQuyen" EntitySet="PhanQuyens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViPham_NhanVienNT" Association="Self.FK_ViPham_NhanVienNT">
+      <End Role="NhanVienNT" EntitySet="NhanVienNTs" />
+      <End Role="ViPham" EntitySet="ViPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViPham_NhaThau" Association="Self.FK_ViPham_NhaThau">
+      <End Role="NhaThau" EntitySet="NhaThaus" />
+      <End Role="ViPham" EntitySet="ViPhams" />
     </AssociationSet>
     <AssociationSet Name="FK_PCHN_HopDong_PhongBan" Association="Self.FK_PCHN_HopDong_PhongBan">
       <End Role="PhongBan" EntitySet="PhongBans" />
@@ -713,6 +799,9 @@
       <Parameter Name="GioiTinh" Mode="In" Type="Int32" />
       <Parameter Name="QuocTich" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="Nhathau_delete">
+      <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="Nhathau_insert">
       <Parameter Name="MaNT" Mode="In" Type="String" />
       <Parameter Name="MST" Mode="In" Type="String" />
@@ -863,41 +952,6 @@
       <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="TongQuan_Select" ReturnType="Collection(QLNhaThauModel.TongQuan_Select_Result)" />
-    <FunctionImport Name="Nhathau_delete">
-      <Parameter Name="IDNhaThau" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="ViPham_delete">
-      <Parameter Name="IDViPham" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="ViPham_insert">
-      <Parameter Name="IDViPham" Mode="In" Type="Int32" />
-      <Parameter Name="MaNVVP" Mode="In" Type="String" />
-      <Parameter Name="TenNVVP" Mode="In" Type="String" />
-      <Parameter Name="TenNhaThau" Mode="In" Type="String" />
-      <Parameter Name="HangMuc" Mode="In" Type="String" />
-      <Parameter Name="NDViPham" Mode="In" Type="String" />
-      <Parameter Name="NgayVP" Mode="In" Type="DateTime" />
-      <Parameter Name="MucVP" Mode="In" Type="String" />
-      <Parameter Name="TongVP" Mode="In" Type="Int32" />
-      <Parameter Name="CatThe" Mode="In" Type="Boolean" />
-    </FunctionImport>
-    <FunctionImport Name="ViPham_SearchByID" ReturnType="Collection(QLNhaThauModel.ViPham_SearchByID_Result)">
-      <Parameter Name="IDViPham" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="ViPham_Select" ReturnType="Collection(QLNhaThauModel.ViPham_Select_Result)" />
-    <FunctionImport Name="ViPham_update">
-      <Parameter Name="IDViPham" Mode="In" Type="Int32" />
-      <Parameter Name="MaNVVP" Mode="In" Type="String" />
-      <Parameter Name="TenNVVP" Mode="In" Type="String" />
-      <Parameter Name="TenNhaThau" Mode="In" Type="String" />
-      <Parameter Name="HangMuc" Mode="In" Type="String" />
-      <Parameter Name="NDViPham" Mode="In" Type="String" />
-      <Parameter Name="NgayVP" Mode="In" Type="DateTime" />
-      <Parameter Name="MucVP" Mode="In" Type="String" />
-      <Parameter Name="TongVP" Mode="In" Type="Int32" />
-      <Parameter Name="CatThe" Mode="In" Type="Boolean" />
-    </FunctionImport>
-    <EntitySet Name="ViPhams" EntityType="QLNhaThauModel.ViPham" />
   </EntityContainer>
   <ComplexType Name="Card_SearchByID_Result">
     <Property Type="Int32" Name="IDCard" Nullable="false" />
@@ -1205,43 +1259,4 @@
     <Property Type="String" Name="VBChuaDoc" Nullable="true" MaxLength="10" />
     <Property Type="Int32" Name="NhanvienID" Nullable="true" />
   </ComplexType>
-  <ComplexType Name="ViPham_SearchByID_Result">
-    <Property Type="Int32" Name="IDViPham" Nullable="false" />
-    <Property Type="String" Name="MaNVVP" Nullable="true" MaxLength="10" />
-    <Property Type="String" Name="TenNVVP" Nullable="true" MaxLength="150" />
-    <Property Type="String" Name="TenNhaThau" Nullable="true" MaxLength="150" />
-    <Property Type="String" Name="HangMuc" Nullable="true" MaxLength="150" />
-    <Property Type="String" Name="NDViPham" Nullable="true" MaxLength="250" />
-    <Property Type="DateTime" Name="NgayVP" Nullable="true" Precision="23" />
-    <Property Type="String" Name="MucVP" Nullable="true" MaxLength="50" />
-    <Property Type="Int32" Name="TongVP" Nullable="true" />
-    <Property Type="Boolean" Name="CatThe" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="ViPham_Select_Result">
-    <Property Type="Int32" Name="IDViPham" Nullable="false" />
-    <Property Type="String" Name="MaNVVP" Nullable="true" MaxLength="10" />
-    <Property Type="String" Name="TenNVVP" Nullable="true" MaxLength="150" />
-    <Property Type="String" Name="TenNhaThau" Nullable="true" MaxLength="150" />
-    <Property Type="String" Name="HangMuc" Nullable="true" MaxLength="150" />
-    <Property Type="String" Name="NDViPham" Nullable="true" MaxLength="250" />
-    <Property Type="DateTime" Name="NgayVP" Nullable="true" Precision="23" />
-    <Property Type="String" Name="MucVP" Nullable="true" MaxLength="50" />
-    <Property Type="Int32" Name="TongVP" Nullable="true" />
-    <Property Type="Boolean" Name="CatThe" Nullable="true" />
-  </ComplexType>
-  <EntityType Name="ViPham">
-    <Key>
-      <PropertyRef Name="IDViPham" />
-    </Key>
-    <Property Name="IDViPham" Type="Int32" Nullable="false" />
-    <Property Name="MaNVVP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-    <Property Name="TenNVVP" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="TenNhaThau" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="HangMuc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="NDViPham" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="NgayVP" Type="DateTime" Precision="3" />
-    <Property Name="MucVP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="TongVP" Type="Int32" />
-    <Property Name="CatThe" Type="Boolean" />
-  </EntityType>
 </Schema>

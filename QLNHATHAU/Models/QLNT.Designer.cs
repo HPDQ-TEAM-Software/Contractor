@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\HPDQ\Contractor\QLNHATHAU\Models\QLNT.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\Models\QLNT.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
