@@ -128,7 +128,8 @@ img {
 }
 
 .modal-header {
-  display: block; 
+    display: block;
+    background-color: #1d428a;color:#fff;font-weight:bold;
 }
 
 .mb-0 {
@@ -859,7 +860,9 @@ aside.left-panel:hover {
         background-color: #1d428a !important;
         /*border-radius: 20px;*/
     }
-    .navbar .navbar-nav li a .menu-icon{color:#fff}
+        .navbar .navbar-nav li.active a:hover .menu-icon {
+            color: #fff !important;
+        }
     .navbar .navbar-nav li.active .menu-icon, .navbar .navbar-nav li:hover .toggle_nav_button:before,
     .navbar .navbar-nav li .toggle_nav_button.nav-open:before {
         color: #e7e5dc;
@@ -877,7 +880,7 @@ aside.left-panel:hover {
         position: relative;
         width: 100%;
         text-transform: uppercase;
-        padding: .9rem 2.5rem;
+        padding: 1.0rem .8rem;
         border-radius: 20px;
     }
 .flat-theme .navbar .navbar-nav li > a {
@@ -896,7 +899,7 @@ aside.left-panel:hover {
   color: #555;
   float: left;
   font-size: 16px;
-  margin-top: 7px;
+  margin-top: 2px;
   width: 30px;
   text-align: left;
   z-index: 9; 
@@ -925,7 +928,7 @@ aside.left-panel:hover {
   text-transform: uppercase;
 }
 .navbar .navbar-nav li.menu-item-has-children a {
-  line-height: 30px; 
+  line-height: 20px; 
 }
     .navbar .navbar-nav li.menu-item-has-children a:before {
         content: "";
@@ -967,7 +970,7 @@ aside.left-panel:hover {
   -webkit-box-shadow: none;
   box-shadow: none;
   overflow-y: hidden;
-  padding: 0 0 0 50px; 
+  padding: 0 0 0 20px; 
 }
 .navbar .navbar-nav li.menu-item-has-children .sub-menu li {
   position: relative; 
@@ -2461,7 +2464,7 @@ header .form-inline .search-form.close {
   position: relative;
   width: 100%; 
   background-color: white;
-  border: 1px solid rgba(0,0,0,.125);
+  /*border: 1px solid rgba(0,0,0,.125);*/
   padding: 0;
   padding-bottom: 1.25rem;
   border-radius: 5px;
@@ -4396,4 +4399,8 @@ footer.site-footer .footer-inner a {
     text-align: center !important;
   }
 }
-
+.icon_action {
+    cursor: pointer;
+    color: #1d428a;
+}
+h5#ModalTitle{display:inline-block;text-transform:uppercase;font-weight:bold}

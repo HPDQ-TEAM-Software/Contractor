@@ -181,6 +181,7 @@
     <Compile Include="Models\CauHinhPheDuyet.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CheckInforContract.cs" />
     <Compile Include="Models\Cong.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -1158,6 +1159,7 @@
     <Content Include="Views\Contract\Index.cshtml" />
     <Content Include="Views\Contract\Create.cshtml" />
     <Content Include="Views\Contract\Edit.cshtml" />
+    <Content Include="Views\Contract\CheckInformation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

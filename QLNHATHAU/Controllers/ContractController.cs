@@ -132,9 +132,9 @@ namespace QLNHATHAU.Controllers
                 //             });
                 // List<PCHNValidation> pbcn = model.ToList();
                 //List<PCHN> phcn = db_context.PCHNs.ToList(); 
-                List<PCHN> pbchn = db_context.PCHNs.ToList();
+                List<PhongBan> pbchn = db_context.PhongBans.Where(x=>x.PCHN == true).ToList();
                 //var pbcn = db_context.PhongBan_PCHN_loadedit(DO.IDHD).SingleOrDefault();
-                ViewBag.PBCHNList = new SelectList(pbchn, "ID", "TenDai", 3);
+                ViewBag.PBCHNList = new SelectList(pbchn, "IDPhongBan", "TenDai", 37);
 
                 if (DO.FilePath != null)
                 {
@@ -217,6 +217,50 @@ namespace QLNHATHAU.Controllers
             if (br != fs.Length)
                 throw new System.IO.IOException(FullName);
             return data;
+        }
+        public ActionResult CheckInformation(int id)
+        {
+            var res = (from hd in db_context.HopDong_SearchByID(id)
+                       select new HopDongValidation
+                       {
+                           IDHD = hd.IDHD,
+                           SoHD = hd.SoHD,
+                           TenHD = hd.TenHD,
+                           NguoiDaiDien = hd.NguoiDaiDien,
+                           NgayBD = hd.NgayBD,
+                           NgayKT = hd.NgayKT,
+                           GhiChu = hd.GhiChu,
+                           FilePath = hd.File,
+                           NhaThauID = (int)hd.NhaThauID,
+                           PhongBanID = (int)hd.PhongBanID
+                       }).ToList();
+
+            HopDongValidation DO = new HopDongValidation();
+            if (res.Count > 0)
+            {
+                foreach (var hd in res)
+                {
+                    DO.IDHD = hd.IDHD;
+                    DO.SoHD = hd.SoHD;
+                    DO.TenHD = hd.TenHD;
+                    DO.NguoiDaiDien = hd.NguoiDaiDien;
+                    DO.NgayBD = hd.NgayBD;
+                    DO.NgayKT = hd.NgayKT;
+                    DO.GhiChu = hd.GhiChu;
+                    DO.FilePath = hd.FilePath;
+                    DO.NhaThauID = (int)hd.NhaThauID;
+                    DO.PhongBanID = (int)hd.PhongBanID;
+                }
+                List<NguoiDung> TrBPql = db_context.NguoiDungs.Where(x => x.PhongBanID == DO.PhongBanID).ToList();
+                List<NguoiDung> TrPCHN = db_context.NguoiDungs.Where(x => x.PhongBanID == DO.PhongBanID).ToList();
+                List<NguoiDung> BGD = db_context.NguoiDungs.Where(x => x.PhongBanID == 43).ToList();
+
+                ViewBag.TrPBPQLList = new SelectList(TrBPql, "IDNguoiDung", "TenDangNhap");
+                ViewBag.TrPPCHNList = new SelectList(TrPCHN, "IDNguoiDung", "TenDangNhap");
+                ViewBag.BGDList = new SelectList(BGD, "IDNguoiDung", "TenDangNhap");
+            }
+
+            return PartialView();
         }
     }
 }
