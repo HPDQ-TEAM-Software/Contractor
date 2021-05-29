@@ -811,6 +811,7 @@
     <Content Include="Content\assets\css\normalize.css" />
     <Content Include="Content\assets\css\pe-icon-7-filled.css" />
     <Content Include="Content\assets\css\style.css" />
+    <Content Include="Content\assets\css\style_login.css" />
     <Content Include="Content\assets\css\themify-icons.css" />
     <Content Include="Content\assets\css\variables.css" />
     <Content Include="Content\assets\fonts\codropsicons\codropsicons.svg" />
@@ -925,6 +926,8 @@
     <Content Include="Images\flag\it.png" />
     <Content Include="Images\flag\us.png" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\bg_login.jpg" />
+    <Content Include="Images\qlnt-bg.png" />
     <Content Include="Models\QLNT.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QLNT.edmx</DependentUpon>
