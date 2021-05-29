@@ -161,6 +161,7 @@
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\PhanQuyenController.cs" />
     <Compile Include="Controllers\QuyenController.cs" />
+    <Compile Include="Controllers\ReportAbuseController.cs" />
     <Compile Include="Controllers\ResultsLearnSafeController.cs" />
     <Compile Include="Controllers\ViPhamController.cs" />
     <Compile Include="Global.asax.cs">
@@ -375,6 +376,7 @@
     <Compile Include="Models\Quyen_select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ReportAbuseValidation.cs" />
     <Compile Include="Models\ResultAfterChange.cs" />
     <Compile Include="Models\ResultsLearnSafeValidation.cs" />
     <Compile Include="Models\SelectedTenQuyen.cs" />
@@ -1167,6 +1169,8 @@
     <Content Include="Views\Contract\Create.cshtml" />
     <Content Include="Views\Contract\Edit.cshtml" />
     <Content Include="Views\Contract\CheckInformation.cshtml" />
+    <Content Include="Views\ReportAbuse\Index.cshtml" />
+    <Content Include="Views\ReportAbuse\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

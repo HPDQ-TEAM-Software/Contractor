@@ -180,7 +180,7 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NguoiDungID" Type="int" />
           <Property Name="LoaiHSID" Type="int" />
           <Property Name="HoSoID" Type="int" />
@@ -858,7 +858,6 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
         <Function Name="ViPham_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ID" Type="int" Mode="In" />
           <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
           <Parameter Name="NhaThauID" Type="int" Mode="In" />
           <Parameter Name="HopDongID" Type="int" Mode="In" />
@@ -1172,7 +1171,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NguoiDungID" Type="Int32" />
           <Property Name="LoaiHSID" Type="Int32" />
           <Property Name="HoSoID" Type="Int32" />
@@ -1938,7 +1937,6 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ViPham_insert">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
             <Parameter Name="NhanVienNTID" Mode="In" Type="Int32" />
             <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
             <Parameter Name="HopDongID" Mode="In" Type="Int32" />
@@ -2210,7 +2208,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Property Type="String" Name="IDQuyen" Nullable="true" MaxLength="4000" />
         </ComplexType>
         <ComplexType Name="PheDuyet_SearchByID_Result">
-          <Property Type="String" Name="ID" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="Int32" Name="NguoiDungID" Nullable="true" />
           <Property Type="Int32" Name="LoaiHSID" Nullable="true" />
           <Property Type="Boolean" Name="TinhTrang" Nullable="true" />

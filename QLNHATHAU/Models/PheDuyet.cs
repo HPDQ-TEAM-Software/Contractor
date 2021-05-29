@@ -14,7 +14,7 @@ namespace QLNHATHAU.Models
     
     public partial class PheDuyet
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         public Nullable<int> NguoiDungID { get; set; }
         public Nullable<int> LoaiHSID { get; set; }
         public Nullable<int> HoSoID { get; set; }

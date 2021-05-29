@@ -13,7 +13,7 @@ namespace QLNHATHAU.Models
     
     public partial class PheDuyet_SearchByID_Result
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         public Nullable<int> NguoiDungID { get; set; }
         public Nullable<int> LoaiHSID { get; set; }
         public Nullable<bool> TinhTrang { get; set; }
