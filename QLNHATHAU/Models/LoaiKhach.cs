@@ -15,6 +15,6 @@ namespace QLNHATHAU.Models
     public partial class LoaiKhach
     {
         public int IDLoaiKhach { get; set; }
-        public string TenKhach { get; set; }
+        public string TenLoai { get; set; }
     }
 }

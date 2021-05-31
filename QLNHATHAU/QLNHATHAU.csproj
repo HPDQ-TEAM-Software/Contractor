@@ -1174,6 +1174,8 @@
     <Content Include="Views\Contract\CheckInformation.cshtml" />
     <Content Include="Views\ReportAbuse\Index.cshtml" />
     <Content Include="Views\ReportAbuse\Create.cshtml" />
+    <Content Include="Views\LoaiKhach\Edit.cshtml" />
+    <Content Include="Views\LoaiKhach\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

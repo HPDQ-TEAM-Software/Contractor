@@ -88,8 +88,8 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
     <Key>
       <PropertyRef Name="IDLoaiKhach" />
     </Key>
-    <Property Name="IDLoaiKhach" Type="int" Nullable="false" />
-    <Property Name="TenKhach" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDLoaiKhach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="NguoiDung">
     <Key>
@@ -572,8 +572,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
   </Function>
   <Function Name="LoaiKhach_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
-    <Parameter Name="TenKhach" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenLoai" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="LoaiKhach_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
@@ -581,7 +580,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
   <Function Name="LoaiKhach_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="LoaiKhach_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
-    <Parameter Name="TenKhach" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenLoai" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="MaNVNT_KQHocANT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NhanVienNTID" Type="int" Mode="In" />

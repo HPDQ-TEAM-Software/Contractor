@@ -19,11 +19,11 @@ namespace QLNHATHAU.Controllers
                       select new LoaiKhachValidation
                       {
                           IDLoaiKhach = a.IDLoaiKhach,
-                          TenKhach = a.TenKhach,
+                          TenLoai = a.TenLoai,
                       };
-                        if (page == null) page = 1;
-                        int pageSize = 5;
-                        int pageNumber = (page ?? 1);
+            if (page == null) page = 1;
+            int pageSize = Common.ConfigStatic.pageSize;
+            int pageNumber = (page ?? 1);
             return View(res.ToList().ToPagedList(pageNumber, pageSize));
         }
 
@@ -40,14 +40,11 @@ namespace QLNHATHAU.Controllers
             {
                 try
                 {
-                    var data = db_context.LoaiKhach_insert(
-                        _DO.IDLoaiKhach,
-                        _DO.TenKhach
-                 );
+                    db_context.LoaiKhach_insert(_DO.TenLoai);
                 }
                 catch (Exception e)
                 {
-                    TempData["msgError"] = "<script>alert('Có lỗi khi thêm mới khách ');</script>";
+                    TempData["msgError"] = "<script>alert('Có lỗi khi thêm mới loại khách: "+e.Message+" ');</script>";
                 }
             }
 
@@ -60,7 +57,7 @@ namespace QLNHATHAU.Controllers
                        select new LoaiKhachValidation
                        {
                            IDLoaiKhach = a.IDLoaiKhach,
-                           TenKhach = a.TenKhach,
+                           TenLoai = a.TenLoai,
 
                        }).ToList();
 
@@ -70,7 +67,7 @@ namespace QLNHATHAU.Controllers
                 foreach (var a in res)
                 {
                     DO.IDLoaiKhach = a.IDLoaiKhach;
-                    DO.TenKhach = a.TenKhach;
+                    DO.TenLoai = a.TenLoai;
 
                 }
 
@@ -87,13 +84,13 @@ namespace QLNHATHAU.Controllers
         {
             try
             {
-                db_context.LoaiKhach_update(_DO.IDLoaiKhach, _DO.TenKhach);
+                db_context.LoaiKhach_update(_DO.IDLoaiKhach, _DO.TenLoai);
                 TempData["msgSuccess"] = "<script>alert('Cập nhập thành công');</script>";
 
             }
             catch (Exception e)
             {
-                TempData["msgSuccess"] = "<script>alert('Cập nhập thất bại');</script>";
+                TempData["msgSuccess"] = "<script>alert('Cập nhập thất bại: "+e.Message+"');</script>";
             }
 
             return RedirectToAction("Index", "LoaiKhach");

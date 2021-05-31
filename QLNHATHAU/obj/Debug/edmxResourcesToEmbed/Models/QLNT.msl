@@ -92,7 +92,7 @@
       <EntityTypeMapping TypeName="QLNhaThauModel.LoaiKhach">
         <MappingFragment StoreEntitySet="LoaiKhach">
           <ScalarProperty Name="IDLoaiKhach" ColumnName="IDLoaiKhach" />
-          <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
+          <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -451,7 +451,7 @@
       <ResultMapping>
         <ComplexTypeMapping TypeName="QLNhaThauModel.LoaiKhach_SearchByID_Result">
           <ScalarProperty Name="IDLoaiKhach" ColumnName="IDLoaiKhach" />
-          <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
+          <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -459,7 +459,7 @@
       <ResultMapping>
         <ComplexTypeMapping TypeName="QLNhaThauModel.LoaiKhach_Select_Result">
           <ScalarProperty Name="IDLoaiKhach" ColumnName="IDLoaiKhach" />
-          <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
+          <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

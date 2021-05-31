@@ -498,17 +498,13 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LoaiKhach_delete", iDLoaiKhachParameter);
         }
     
-        public virtual int LoaiKhach_insert(Nullable<int> iDLoaiKhach, string tenKhach)
+        public virtual int LoaiKhach_insert(string tenLoai)
         {
-            var iDLoaiKhachParameter = iDLoaiKhach.HasValue ?
-                new ObjectParameter("IDLoaiKhach", iDLoaiKhach) :
-                new ObjectParameter("IDLoaiKhach", typeof(int));
+            var tenLoaiParameter = tenLoai != null ?
+                new ObjectParameter("TenLoai", tenLoai) :
+                new ObjectParameter("TenLoai", typeof(string));
     
-            var tenKhachParameter = tenKhach != null ?
-                new ObjectParameter("TenKhach", tenKhach) :
-                new ObjectParameter("TenKhach", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LoaiKhach_insert", iDLoaiKhachParameter, tenKhachParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LoaiKhach_insert", tenLoaiParameter);
         }
     
         public virtual ObjectResult<LoaiKhach_SearchByID_Result> LoaiKhach_SearchByID(Nullable<int> iDLoaiKhach)
@@ -525,17 +521,17 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LoaiKhach_Select_Result>("LoaiKhach_Select");
         }
     
-        public virtual int LoaiKhach_update(Nullable<int> iDLoaiKhach, string tenKhach)
+        public virtual int LoaiKhach_update(Nullable<int> iDLoaiKhach, string tenLoai)
         {
             var iDLoaiKhachParameter = iDLoaiKhach.HasValue ?
                 new ObjectParameter("IDLoaiKhach", iDLoaiKhach) :
                 new ObjectParameter("IDLoaiKhach", typeof(int));
     
-            var tenKhachParameter = tenKhach != null ?
-                new ObjectParameter("TenKhach", tenKhach) :
-                new ObjectParameter("TenKhach", typeof(string));
+            var tenLoaiParameter = tenLoai != null ?
+                new ObjectParameter("TenLoai", tenLoai) :
+                new ObjectParameter("TenLoai", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LoaiKhach_update", iDLoaiKhachParameter, tenKhachParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LoaiKhach_update", iDLoaiKhachParameter, tenLoaiParameter);
         }
     
         public virtual ObjectResult<string> MaNVNT_KQHocANT(Nullable<int> nhanVienNTID)

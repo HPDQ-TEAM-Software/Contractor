@@ -93,8 +93,8 @@ warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key d
           <Key>
             <PropertyRef Name="IDLoaiKhach" />
           </Key>
-          <Property Name="IDLoaiKhach" Type="int" Nullable="false" />
-          <Property Name="TenKhach" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDLoaiKhach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoai" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="NguoiDung">
           <Key>
@@ -577,8 +577,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
         </Function>
         <Function Name="LoaiKhach_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
-          <Parameter Name="TenKhach" Type="nvarchar" Mode="In" />
+          <Parameter Name="TenLoai" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="LoaiKhach_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
@@ -586,7 +585,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
         <Function Name="LoaiKhach_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="LoaiKhach_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
-          <Parameter Name="TenKhach" Type="nvarchar" Mode="In" />
+          <Parameter Name="TenLoai" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="MaNVNT_KQHocANT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
@@ -1072,8 +1071,8 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <Key>
             <PropertyRef Name="IDLoaiKhach" />
           </Key>
-          <Property Name="IDLoaiKhach" Type="Int32" Nullable="false" />
-          <Property Name="TenKhach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDLoaiKhach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="NguoiDung">
           <Key>
@@ -1656,8 +1655,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
             <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LoaiKhach_insert">
-            <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
-            <Parameter Name="TenKhach" Mode="In" Type="String" />
+            <Parameter Name="TenLoai" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="LoaiKhach_SearchByID" ReturnType="Collection(QLNhaThauModel.LoaiKhach_SearchByID_Result)">
             <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
@@ -1665,7 +1663,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
           <FunctionImport Name="LoaiKhach_Select" ReturnType="Collection(QLNhaThauModel.LoaiKhach_Select_Result)" />
           <FunctionImport Name="LoaiKhach_update">
             <Parameter Name="IDLoaiKhach" Mode="In" Type="Int32" />
-            <Parameter Name="TenKhach" Mode="In" Type="String" />
+            <Parameter Name="TenLoai" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MaNVNT_KQHocANT" ReturnType="Collection(String)">
             <Parameter Name="NhanVienNTID" Mode="In" Type="Int32" />
@@ -2059,11 +2057,11 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
         </ComplexType>
         <ComplexType Name="LoaiKhach_SearchByID_Result">
           <Property Type="Int32" Name="IDLoaiKhach" Nullable="false" />
-          <Property Type="String" Name="TenKhach" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TenLoai" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="LoaiKhach_Select_Result">
           <Property Type="Int32" Name="IDLoaiKhach" Nullable="false" />
-          <Property Type="String" Name="TenKhach" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TenLoai" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="NguoiDung_danhsach_Result">
           <Property Type="Int32" Name="IDNguoiDung" Nullable="false" />
@@ -2384,7 +2382,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
             <EntityTypeMapping TypeName="QLNhaThauModel.LoaiKhach">
               <MappingFragment StoreEntitySet="LoaiKhach">
                 <ScalarProperty Name="IDLoaiKhach" ColumnName="IDLoaiKhach" />
-                <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2743,7 +2741,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
             <ResultMapping>
               <ComplexTypeMapping TypeName="QLNhaThauModel.LoaiKhach_SearchByID_Result">
                 <ScalarProperty Name="IDLoaiKhach" ColumnName="IDLoaiKhach" />
-                <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2751,7 +2749,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
             <ResultMapping>
               <ComplexTypeMapping TypeName="QLNhaThauModel.LoaiKhach_Select_Result">
                 <ScalarProperty Name="IDLoaiKhach" ColumnName="IDLoaiKhach" />
-                <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

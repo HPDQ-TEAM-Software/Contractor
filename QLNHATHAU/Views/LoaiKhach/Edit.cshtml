@@ -3,8 +3,7 @@
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    
+@Html.AntiForgeryToken()
 <div class="modal-dialog" id="form">
     <div class="modal-content">
         <div class="modal-header">
@@ -12,47 +11,27 @@
             <a href="#" class="close" data-dismiss="modal">&times;</a>
         </div>
         <div class="modal-body">
-            <div class="form-row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="small mb-1">ID Loại Khách</label>
-                        @Html.EditorFor(model => model.IDLoaiKhach, new { htmlAttributes = new { @class = "form-control", placeholder = "ID loại khách", @id = "IDLoaiKhach" } })
-                        @Html.ValidationMessageFor(model => model.IDLoaiKhach, "", new { @class = "text-danger" })
-                    </div>
+            @Html.HiddenFor(model => model.IDLoaiKhach)
+                <div class="form-group">
+                    <label class="small mb-1">Loại khách</label>
+                    @Html.EditorFor(model => model.TenLoai, new { htmlAttributes = new { @class = "form-control", placeholder = "Tên Loại Khách", @id = "TenLoai" } })
+                    @Html.ValidationMessageFor(model => model.TenLoai, "", new { @class = "text-danger" })
                 </div>
-                
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label class="small mb-1">Tên nhân viên</label>
-                        @Html.EditorFor(model => model.TenKhach, new { htmlAttributes = new { @class = "form-control", placeholder = "Tên Loại Khách", @id = "TenKhach" } })
-                        @Html.ValidationMessageFor(model => model.TenKhach, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-         
-  
-                <div class="col-md-12">
-                    <input type="submit" value="Xác nhận" class="btn btn-success button_submit" />
-                    <input type="submit" value="Hủy" class="btn btn-danger button_cancel" data-dismiss="modal" />
-                </div>
+            <div class="col-md-12">
+                <input type="submit" id="btnupdate" value="Xác nhận" class="btn btn-primary pull-right" />
+               
             </div>
         </div>
+        </div>
     </div>
-</div>
+
 }
 
-
-<style>
-    .button_submit {
-        float: right;
-        margin-bottom: 15px;
-    }
-
-    .button_cancel {
-        float: right;
-        margin-right: 15px
-    }
-
-    .margin-checkbox {
-        margin-right: 30px;
-    }
-</style>
+<script>
+    $('#btnupdate').click(function () {
+        if ($('#TenLoai').val() == "") {
+            alert("Mời nhập loại khách")
+            return false;
+        }
+    });
+</script>

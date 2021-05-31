@@ -10,6 +10,6 @@ namespace QLNHATHAU.Models
     {
         //[Required]
         public int IDLoaiKhach { get; set; }
-        public string TenKhach { get; set; }
+        public string TenLoai { get; set; }
     }
 } 
