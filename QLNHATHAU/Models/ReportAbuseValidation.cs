@@ -29,5 +29,8 @@ namespace QLNHATHAU.Models
         public string MucVP { get; set; }
         public int TSVP { get; set; }
 
+
+        public int IDHD { get; set; }
+        public int IDNhaThau { get; set; }
     }
 }

@@ -43,8 +43,8 @@ namespace QLNHATHAU.Controllers
             List<NhanVienNT> nv = db_context.NhanVienNTs.ToList();
             ViewBag.NVNTList = new SelectList(nv, "IDNhanVienNT", "HoTen");
 
-            List<NhaThau> nt = db_context.NhaThaus.ToList();
-            ViewBag.NTList = new SelectList(nt, "IDNhaThau", "Ten");
+            //List<NhaThau> nt = db_context.NhaThaus.ToList();
+            //ViewBag.NTList = new SelectList(nt, "IDNhaThau", "Ten");
 
             List<HopDong> hd = db_context.HopDongs.ToList();
             ViewBag.HDList = new SelectList(hd, "IDHD", "TenHD");
@@ -59,7 +59,9 @@ namespace QLNHATHAU.Controllers
             {
                 try
                 {
-                    db_context.ViPham_insert(_DO.NhanVienNTID, _DO.NhaThauID, _DO.HopDongID, _DO.NoiDungVP, _DO.NgayVP, _DO.MucVP, _DO.TSVP);
+                    List<ContractorValidation> contractors = (List<ContractorValidation>)ViewNhaThau(_DO.HopDongID).Data;
+                    var IDNhaThau = contractors[0].IDNhaThau;
+                    db_context.ViPham_insert(_DO.NhanVienNTID, IDNhaThau, _DO.HopDongID, _DO.NoiDungVP, _DO.NgayVP, _DO.MucVP, _DO.TSVP);
                 }
                 catch (Exception e)
                 {
@@ -69,6 +71,70 @@ namespace QLNHATHAU.Controllers
             //return View();
             return RedirectToAction("Index", "ReportAbuse");
         }
+        public ActionResult Edit(int id)
+        {
+            List<NhanVienNT> nv = db_context.NhanVienNTs.ToList();
+            ViewBag.NVNTList = new SelectList(nv, "IDNhanVienNT", "HoTen");
+
+            //List<NhaThau> nt = db_context.NhaThaus.ToList();
+            //ViewBag.NTList = new SelectList(nt, "IDNhaThau", "Ten");
+
+            List<HopDong> hd = db_context.HopDongs.ToList();
+            ViewBag.HDList = new SelectList(hd, "IDHD", "TenHD");
+
+            var res = (from v in db_context.ViPham_searchByID(id)
+                       select new ReportAbuseValidation
+                       {
+                           ID = v.ID,
+                           NhanVienNTID = (int)v.NhanVienNTID,
+                           NhaThauID = (int)v.NhaThauID,
+                           HopDongID = (int)v.HopDongID,
+                           NoiDungVP = v.NoiDungVP,
+                           NgayVP = (DateTime)v.NgayVP,
+                           MucVP = v.MucVP,
+                           TSVP = (int)v.TSVP
+                       }).ToList();
+            ReportAbuseValidation DO = new ReportAbuseValidation();
+
+            if (res.Count > 0)
+            {
+                foreach (var vp in res)
+                {
+                    DO.NhanVienNTID = vp.NhanVienNTID;
+                    DO.NhaThauID = vp.NhaThauID;
+                    DO.HopDongID = vp.HopDongID;
+                    DO.NoiDungVP = vp.NoiDungVP;
+                    DO.NgayVP = (DateTime)vp.NgayVP;
+                    DO.MucVP = vp.MucVP;
+                    DO.TSVP = (int)vp.TSVP;
+                }
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+            return PartialView(DO);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(ReportAbuseValidation _DO)
+        {
+            try
+            {
+                List<ContractorValidation> contractors = (List<ContractorValidation>)ViewNhaThau(_DO.HopDongID).Data;
+                db_context.ViPham_update(_DO.ID, _DO.NhanVienNTID, _DO.NhaThauID, _DO.HopDongID, _DO.NoiDungVP, _DO.NgayVP, _DO.MucVP, _DO.TSVP);
+
+                TempData["msgSuccess"] = "<script>alert('Cập nhập thành công');</script>";
+            }
+            catch (Exception e)
+            {
+                TempData["msgSuccess"] = "<script>alert('Cập nhập thất bại " + e.Message + " ');</script>";
+            }
+
+            return RedirectToAction("Index", "ReportAbuse");
+        }
+
+
         public ActionResult Delete(int id)
         {
             try
@@ -81,5 +147,25 @@ namespace QLNHATHAU.Controllers
             }
             return RedirectToAction("Index", "ReportAbuse");
         }
+
+        public JsonResult ViewNhaThau(int id)
+        {
+            List<ContractorValidation> NTList = (from h in db_context.HopDongs join n in db_context.NhaThaus on h.NhaThauID equals n.IDNhaThau
+                                                 select new ContractorValidation()
+                                                 {
+                                                     IDHD = h.IDHD,
+                                                     MaNT = n.MaNT,
+                                                     MST = n.MST, 
+                                                     DiaChi = n.DiaChi,
+                                                     DienThoai = n.DienThoai,
+                                                     Email = n.Email,
+                                                     IDNhaThau = n.IDNhaThau,
+                                                     Ten = n.Ten
+                                                     
+                                                 }).Where(x => x.IDHD == id).ToList();
+
+            return Json(NTList, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

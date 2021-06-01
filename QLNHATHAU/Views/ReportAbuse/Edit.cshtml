@@ -13,8 +13,8 @@
                 <a href="#" class="close" data-dismiss="modal">&times;</a>
             </div>
             <div class="modal-body">
+                @Html.HiddenFor(model => model.ID)
                 <div class="form-row">
-
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="small mb-1">Nhân Viên</label>
@@ -27,7 +27,6 @@
                             @Html.DropDownListFor(model => model.HopDongID, ViewBag.HDList as SelectList, "--Chọn hạng mục--", new { @id = "HopDongID", @class = "form-control" })
                         </div>
                     </div>
-
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="small mb-1">Nhà Thầu</label>
@@ -76,6 +75,7 @@
                         <input type="submit" id="button_submit" value="Xác nhận" class="btn btn-success button_submit" />
                         <input type="reset" value="Hủy" class="btn btn-danger button_cancel" data-dismiss="modal" />
                     </div>
+
                 </div>
             </div>
         </div>
@@ -97,16 +97,4 @@
         margin-right: 30px;
     }
 </style>
-<script>
-    $('#form').each(() => {
-        $(this).data('serialized', $(this).serialize());
-
-    }).on('change input', 'input', 'select', (e) => {
-        var $form = $(this).closest("form");
-        var state = $form.serialize() === $form.data('serialized');
-        $('#button_submit').prop('disabled', state);
-    }).find('#button_submit').prop('disabled', true);
-
-</script>
-
 

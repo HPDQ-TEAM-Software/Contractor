@@ -32,10 +32,10 @@
                         <th>Nhân Viên</th>
                         <th>Nhà Thầu</th>
                         <th>Hạng Mục</th>
-                        <th>Nội Dung Vi Phạm</th>
-                        <th>Ngày Vi Phạm</th>
-                        <th>Mức Vi Phạm</th>
-                        <th class="center-td">Thao tác</th>
+                        <th class="text-center">Nội Dung Vi Phạm</th>
+                        <th class="text-center">Ngày Vi Phạm</th>
+                        <th class="text-center">Mức Vi Phạm</th>
+                        <th class="text-center">Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,13 +45,13 @@
                             <td>@item.TenNVNT </td>
                             <td>@item.TenNT</td>
                             <td>@item.TenHD</td>
-                            <td>@item.NoiDungVP</td>
-                            <td class="center-td">@Html.DisplayFor(modelItem => item.NgayVP)</td>
-                            <td>@item.MucVP</td>
-                            <td class="center-td">
+                            <td class="text-center">@item.NoiDungVP</td>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.NgayVP)</td>
+                            <td class="text-center">@item.MucVP</td>
+                            <td class="text-center">
 
                                 <a id="btn-edit_@item.ID" title="Sửa"><i class="fa fa-edit icon_action">Sửa</i></a>
-                                @*<div class="modal fade" id="myModaled_@item.ID" role="dialog" data-url='@Url.Action("Edit","ReportAbuse", new { id = item.ID })'></div>
+                                <div class="modal fade" id="myModaled_@item.ID" role="dialog" data-url='@Url.Action("Edit","ReportAbuse", new { id = item.ID })'></div>
                                     <script type="text/javascript">
                                         $("#btn-edit_@item.ID").click(function () {
                                             var url = $('#myModaled_@item.ID').data('url');
@@ -62,9 +62,10 @@
                                                 $("#myModal").modal('show');
                                             });
                                         });
-                                    </script>*@
-                                @*<a title="Xóa" href="@Url.Action("Delete", "ReportAbuse", new { id = item.ID })"
-                                    onclick="return confirm('Bạn muốn xóa nhân viên: @item.TenNVNT')"><i class="fa fa-trash icon_action"></i>Xóa</a>*@
+                                    </script>
+                                &nbsp;
+                                <a title="Xóa" href="@Url.Action("Delete", "ReportAbuse", new { id = item.ID })"
+                                    onclick="return confirm('Bạn muốn xóa nhân viên: @item.TenNVNT')"><i class="fa fa-trash icon_action"></i>Xóa</a>
                             </td>
                         </tr>
                     }
