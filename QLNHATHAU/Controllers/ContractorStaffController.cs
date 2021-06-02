@@ -28,7 +28,7 @@ namespace QLNHATHAU.Controllers
                            HovaTen = a.HoTen,
                            NgaySinh = a.NgaySinh,
                            GioiTinh = (Gender)a.GioiTinh,
-                           QuocTich = a.QuocTich
+                           QuocTich = a.QuocTich,
                        }).ToList();
 
             if (page == null) page = 1;

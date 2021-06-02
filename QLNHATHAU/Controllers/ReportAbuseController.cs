@@ -167,5 +167,7 @@ namespace QLNHATHAU.Controllers
             return Json(NTList, JsonRequestBehavior.AllowGet);
         }
 
+        
+
     }
 }
