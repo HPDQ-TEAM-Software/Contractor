@@ -24,8 +24,14 @@ namespace QLNHATHAU.Models
         public int HopDongID { get; set; }
         public string TenHD { get; set; }
 
+        [Required(ErrorMessage = "Noi dung Vi pham")]
         public string NoiDungVP { get; set; }
+
+        [Required(ErrorMessage = "Ngay VP")]
+
         public DateTime NgayVP { get; set; }
+
+        [Required(ErrorMessage = "Muc VP")]
         public string MucVP { get; set; }
         public int TSVP { get; set; }
 

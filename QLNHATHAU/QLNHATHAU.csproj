@@ -163,7 +163,6 @@
     <Compile Include="Controllers\QuyenController.cs" />
     <Compile Include="Controllers\ReportAbuseController.cs" />
     <Compile Include="Controllers\ResultsLearnSafeController.cs" />
-    <Compile Include="Controllers\ViPhamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -404,7 +403,6 @@
     <Compile Include="Models\ViPham.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViPhamValidation.cs" />
     <Compile Include="Models\ViPham_searchByID_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
