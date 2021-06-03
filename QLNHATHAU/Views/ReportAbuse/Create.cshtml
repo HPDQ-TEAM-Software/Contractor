@@ -17,21 +17,42 @@
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="small mb-1">Nhân Viên</label>
-                            @Html.DropDownListFor(model => model.NhanVienNTID, ViewBag.NVNTList as SelectList, "--Chọn nhân viên--", new { @id = "NhanvienNTID", @class = "form-control" })
+                            <label class="small mb-1">Nhà Thầu</label>
+                            @Html.DropDownListFor(model => model.IDNhaThau, ViewBag.NTList as SelectList, "--Chọn nhà thầu--", new { @id = "IDNhaThau", @class = "form-control" })
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    @*<div class="col-md-12">
                         <div class="form-group">
                             <label class="small mb-1">Hạng Mục</label>
                             @Html.DropDownListFor(model => model.HopDongID, ViewBag.HDList as SelectList, "--Chọn hạng mục--", new { @id = "HopDongID", @class = "form-control" })
+                        </div>
+                    </div>*@
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="small mb-1">Hạng Mục</label>
+                            <script>
+                                $(document).ready(function () {
+                                    $("#IDNhaThau").change(function () {
+                                        $.get("/ReportAbuse/GetHopDong", { id: $("#IDNhaThau").val() }, function (data) {
+                                            $("#HopDongID").empty();
+                                            $.each(data, function (index, row) {
+                                                $("#HopDongID").append("<option value ='" + row.IDHD + "'>" + row.TenHD + "</option>")
+                                            });
+                                        });
+                                    })
+                                });
+                            </script>
+                            @Html.DropDownListFor(model => model.HopDongID, new SelectList(" "), "--Chọn hạng mục--", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.HopDongID, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="small mb-1">Nhà Thầu</label>
-                            <script>
+                            <label class="small mb-1">Nhân Viên</label>
+
+                            @*<script>
                                 $(document).ready(function () {
                                     $("#IDNhaThau").text("Tên nhà thầu tương ứng");
                                     console.log($("#IDNhaThau").val());
@@ -46,7 +67,22 @@
                                     });
                                 });
                             </script>
-                            @Html.LabelFor(model => model.IDNhaThau, new { @id = "IDNhaThau" })
+                            @Html.LabelFor(model => model.IDNhaThau, new { @id = "IDNhaThau" })*@
+
+                            <script>
+                                $(document).ready(function () {
+                                    $("#IDNhaThau").change(function () {
+                                        $.get("/ReportAbuse/GetNhanVienNT", { id: $("#IDNhaThau").val() }, function (data) {
+                                            $("#NhanVienNTID").empty();
+                                            $.each(data, function (index, row) {
+                                                $("#NhanVienNTID").append("<option value ='" + row.IDNVNT + "'>" + row.HovaTen + "</option>")
+                                            });
+                                        });
+                                    })
+                                });
+                            </script>
+                            @Html.DropDownListFor(model => model.NhanVienNTID, new SelectList(" "), "--Chọn nhân viên--", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.NhanVienNTID, "", new { @class = "text-danger" })
                         </div>
                     </div>
 

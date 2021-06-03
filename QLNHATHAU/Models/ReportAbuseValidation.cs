@@ -30,6 +30,7 @@ namespace QLNHATHAU.Models
         public int TSVP { get; set; }
 
 
+        public int IDNVNT { get; set; }
         public int IDHD { get; set; }
         public int IDNhaThau { get; set; }
     }

@@ -184,7 +184,6 @@ D:\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATH
 D:\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CopyComplete
 D:\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.dll
 D:\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.pdb
-C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CoreCompileInputs.cache
 C:\Users\HPDQ\Contractor\QLNHATHAU\bin\QLNHATHAU.dll.config
 C:\Users\HPDQ\Contractor\QLNHATHAU\bin\QLNHATHAU.dll
 C:\Users\HPDQ\Contractor\QLNHATHAU\bin\QLNHATHAU.pdb
@@ -273,6 +272,7 @@ C:\Users\HPDQ\Contractor\QLNHATHAU\bin\System.Web.WebPages.Razor.xml
 C:\Users\HPDQ\Contractor\QLNHATHAU\bin\Newtonsoft.Json.xml
 C:\Users\HPDQ\Contractor\QLNHATHAU\bin\Antlr3.Runtime.pdb
 C:\Users\HPDQ\Contractor\QLNHATHAU\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CoreCompileInputs.cache
 C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CopyComplete
 C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.dll
 C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.pdb
