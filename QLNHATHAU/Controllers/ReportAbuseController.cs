@@ -87,9 +87,7 @@ namespace QLNHATHAU.Controllers
             //List<NhanVienNT> nv = db_context.NhanVienNTs.ToList();
             //ViewBag.NVNTList = new SelectList(nv, "IDNhanVienNT", "HoTen");
 
-            List<NhaThau> nt = db_context.NhaThaus.ToList();
-            ViewBag.NTList = new SelectList(nt, "IDNhaThau", "Ten");
-
+           
 
             //List<HopDong> hd = db_context.HopDongs.ToList();
             //ViewBag.HDList = new SelectList(hd, "IDHD", "TenHD");
@@ -121,6 +119,15 @@ namespace QLNHATHAU.Controllers
                     DO.MucVP = vp.MucVP;
                     DO.TSVP = (int)vp.TSVP;
                 }
+                List<NhaThau> nt = db_context.NhaThaus.ToList();
+                ViewBag.NTList = new SelectList(nt, "IDNhaThau", "Ten", DO.NhaThauID);
+
+                List<HopDong> h = db_context.HopDongs.ToList();
+                ViewBag.HDList = new SelectList(h, "IDHD", "TenHD", DO.HopDongID);
+
+                List<NhanVienNT> nv = db_context.NhanVienNTs.ToList();
+                ViewBag.NVNTList = new SelectList(nv, "IDNVNT", "HovaTen", DO.NhanVienNTID);
+
             }
             else
             {

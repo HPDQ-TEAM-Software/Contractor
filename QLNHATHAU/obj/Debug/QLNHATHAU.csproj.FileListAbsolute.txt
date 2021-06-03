@@ -276,3 +276,4 @@ C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CoreCompileInputs.
 C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CopyComplete
 C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.dll
 C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.pdb
+C:\Users\HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csprojAssemblyReference.cache
