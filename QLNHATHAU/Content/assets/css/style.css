@@ -629,6 +629,7 @@ canvas {
   height: 37px;
   width: 10px;
   background: #e8e9ef; 
+  display: none;
 }
 .order-table:after {
   right: -1px; 
