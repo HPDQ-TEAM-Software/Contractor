@@ -163,7 +163,6 @@
     <Compile Include="Controllers\QuyenController.cs" />
     <Compile Include="Controllers\ReportAbuseController.cs" />
     <Compile Include="Controllers\ResultsLearnSafeController.cs" />
-    <Compile Include="Controllers\ViPhamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -405,7 +404,6 @@
     <Compile Include="Models\ViPham.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViPhamValidation.cs" />
     <Compile Include="Models\ViPham_searchByID_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -1166,17 +1164,15 @@
     <Content Include="Views\Contractors\Create.cshtml" />
     <Content Include="Views\Contractors\Edit.cshtml" />
     <Content Include="Views\Contractors\ImportExcel.cshtml" />
-    <Content Include="Views\ViPham\Index.cshtml" />
-    <Content Include="Views\ViPham\Create.cshtml" />
-    <Content Include="Views\ViPham\Edit.cshtml" />
     <Content Include="Views\Contract\Index.cshtml" />
     <Content Include="Views\Contract\Create.cshtml" />
     <Content Include="Views\Contract\Edit.cshtml" />
     <Content Include="Views\Contract\CheckInformation.cshtml" />
     <Content Include="Views\ReportAbuse\Index.cshtml" />
-    <Content Include="Views\ReportAbuse\Create.cshtml" />
     <Content Include="Views\LoaiKhach\Edit.cshtml" />
     <Content Include="Views\LoaiKhach\Details.cshtml" />
+    <Content Include="Views\ReportAbuse\Edit.cshtml" />
+    <Content Include="Views\ReportAbuse\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

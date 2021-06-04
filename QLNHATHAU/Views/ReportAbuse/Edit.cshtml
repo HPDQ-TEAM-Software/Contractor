@@ -22,11 +22,11 @@
                         </div>
                     </div>
                     @*<div class="col-md-12">
-                        <div class="form-group">
-                            <label class="small mb-1">Hạng Mục</label>
-                            @Html.DropDownListFor(model => model.HopDongID, ViewBag.HDList as SelectList, "--Chọn hạng mục--", new { @id = "HopDongID", @class = "form-control" })
-                        </div>
-                    </div>*@
+                            <div class="form-group">
+                                <label class="small mb-1">Hạng Mục</label>
+                                @Html.DropDownListFor(model => model.HopDongID, ViewBag.HDList as SelectList, "--Chọn hạng mục--", new { @id = "HopDongID", @class = "form-control" })
+                            </div>
+                        </div>*@
 
                     <div class="col-md-12">
                         <div class="form-group">
@@ -53,21 +53,21 @@
                             <label class="small mb-1">Nhân Viên</label>
 
                             @*<script>
-                                $(document).ready(function () {
-                                    $("#IDNhaThau").text("Tên nhà thầu tương ứng");
-                                    console.log($("#IDNhaThau").val());
-                                    $("#HopDongID").change(function () {
-                                        $.get("/ReportAbuse/ViewNhaThau", { id: $("#HopDongID").val() }, function (data) {
-                                            if (data[0] != null && data[0] != undefined) {
-                                                $("#IDNhaThau").text(data[0].Ten);
-                                            } else {
-                                                $("#IDNhaThau").text("Không có nhà thầu");
-                                            }
+                                    $(document).ready(function () {
+                                        $("#IDNhaThau").text("Tên nhà thầu tương ứng");
+                                        console.log($("#IDNhaThau").val());
+                                        $("#HopDongID").change(function () {
+                                            $.get("/ReportAbuse/ViewNhaThau", { id: $("#HopDongID").val() }, function (data) {
+                                                if (data[0] != null && data[0] != undefined) {
+                                                    $("#IDNhaThau").text(data[0].Ten);
+                                                } else {
+                                                    $("#IDNhaThau").text("Không có nhà thầu");
+                                                }
+                                            });
                                         });
                                     });
-                                });
-                            </script>
-                            @Html.LabelFor(model => model.IDNhaThau, new { @id = "IDNhaThau" })*@
+                                </script>
+                                @Html.LabelFor(model => model.IDNhaThau, new { @id = "IDNhaThau" })*@
 
                             <script>
                                 $(document).ready(function () {
@@ -133,16 +133,4 @@
         margin-right: 30px;
     }
 </style>
-<script>
-    $('#form').each(() => {
-        $(this).data('serialized', $(this).serialize());
-
-    }).on('change input', 'input', 'select', (e) => {
-        var $form = $(this).closest("form");
-        var state = $form.serialize() === $form.data('serialized');
-        $('#button_submit').prop('disabled', state);
-    }).find('#button_submit').prop('disabled', true);
-
-</script>
-
 
