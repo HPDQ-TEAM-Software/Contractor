@@ -410,6 +410,7 @@
     <Compile Include="Models\TongQuan_Select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\VanBan.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
