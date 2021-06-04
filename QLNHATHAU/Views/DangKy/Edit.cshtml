@@ -1,0 +1,148 @@
+﻿
+@model QLNHATHAU.Models.DangKyValidation
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="~/Content/assets/Chonse/chosen.jquery.js"></script>
+<link href="~/Content/assets/Chonse/chosen.css" rel="stylesheet" />
+
+
+@using (Html.BeginForm("Edit", "DangKy", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-dialog" id="form">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="ModalTitle"></h5>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+            </div>
+            @Html.HiddenFor(model => model.IDKhach)
+            <div class="modal-body">
+                <div class="form-row">
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="small mb-1">Họ Và Têm</label>
+                            @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control", placeholder = "Họ Và Tên", @id = "HoTen" } })
+                            @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="small mb-1">Cổng</label>
+                            @Html.DropDownListFor(model => model.CongID, ViewBag.CongList as SelectList, "--Chọn Cổng--", new { @id = "CongID", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="small mb-1">Loại Khách</label>
+                            @Html.DropDownListFor(model => model.LoaiKhachID, ViewBag.LKList as SelectList, "--Chọn Loại Khách--", new { @id = "LoaiKhachID", @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="small mb-1">Nhà Thầu</label>
+                            @Html.DropDownListFor(model => model.NhaThauID, ViewBag.NTList as SelectList, "--Chọn Nhà Thầu--", new { @id = "NhaThauID", @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="small mb-1">Phòng Chức Năng</label>
+                            @Html.DropDownListFor(model => model.PHCDNID, ViewBag.PHCDNList as SelectList, "--Chọn Phòng Ban--", new { @id = "PHCDNID", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="small mb-1">Phòng Ban</label>
+                            @Html.DropDownListFor(model => model.PhongBanID, ViewBag.PBList as SelectList, "--Chọn Phòng Ban--", new { @id = "PhongBanID", @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="small mb-1">Phương Tiện</label>
+                            @Html.EditorFor(model => model.PhuongTien, new { htmlAttributes = new { @class = "form-control", placeholder = "PhuongTien", @id = "PhuongTien" } })
+                            @Html.ValidationMessageFor(model => model.PhuongTien, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="small mb-1">Biển Số</label>
+                            @Html.EditorFor(model => model.BienSo, new { htmlAttributes = new { @class = "form-control", placeholder = "BienSo", @id = "BienSo" } })
+                            @Html.ValidationMessageFor(model => model.BienSo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="small mb-1">Ngày</label>
+                            @Html.EditorFor(model => model.Ngay, new { @value = DateTime.Today, htmlAttributes = new { @class = "form-control", @type = "Ngay", placeholder = "Ngay", @id = "Ngay" } })
+                            @Html.ValidationMessageFor(model => model.Ngay, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="small mb-1">Ghi Chú</label>
+                            @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "form-control", placeholder = "GhiChu", @id = "GhiChu" } })
+                            @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="submit" id="button_submit" value="Xác nhận" class="btn btn-success button_submit" />
+                        <input type="reset" value="Hủy" class="btn btn-danger button_cancel" data-dismiss="modal" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<style>
+    .button_submit {
+        float: right;
+        margin-bottom: 15px;
+    }
+
+    .button_cancel {
+        float: right;
+        margin-right: 15px
+    }
+
+    .margin-checkbox {
+        margin-right: 30px;
+    }
+
+    #GhiChu {
+        width: 100%;
+    }
+
+    .name-file {
+        width: 100%;
+        border: none;
+    }
+
+    .icon-delete {
+        color: red;
+        margin-top: 8px;
+        cursor: pointer;
+    }
+
+    #upload-file {
+        margin-top: 15px;
+    }
+</style>
+<script type="text/javascript">
+    $("#PhongBanID").chosen({
+        width: "100%"
+    });
+    $("#NhaThauID").chosen({
+        width: "100%"
+    });
+    $("#PHCDNID").chosen({
+        width: "100%"
+    });
+</script>
+
+

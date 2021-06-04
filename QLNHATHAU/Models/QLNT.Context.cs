@@ -34,6 +34,7 @@ namespace QLNHATHAU.Models
         public virtual DbSet<GiaHanHD> GiaHanHDs { get; set; }
         public virtual DbSet<HopDong> HopDongs { get; set; }
         public virtual DbSet<KeQuaHoc> KeQuaHocs { get; set; }
+        public virtual DbSet<Khach> Khaches { get; set; }
         public virtual DbSet<LoaiH> LoaiHS { get; set; }
         public virtual DbSet<LoaiKhach> LoaiKhaches { get; set; }
         public virtual DbSet<NguoiDung> NguoiDungs { get; set; }
@@ -487,6 +488,119 @@ namespace QLNHATHAU.Models
                 new ObjectParameter("KetQua", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("KetQuaHoc_update", iDKQHATParameter, nhanVienNTIDParameter, hDIDParameter, nhaThauIDParameter, ngayHocParameter, ketQuaParameter);
+        }
+    
+        public virtual int Khach_Delete(Nullable<int> iDKhach)
+        {
+            var iDKhachParameter = iDKhach.HasValue ?
+                new ObjectParameter("IDKhach", iDKhach) :
+                new ObjectParameter("IDKhach", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Khach_Delete", iDKhachParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> Khach_Insert(Nullable<int> congID, Nullable<int> loaiKhachID, Nullable<int> nhaThauID, Nullable<int> phongBanID, Nullable<int> pHCDNID, Nullable<System.DateTime> ngay, string hoTen, string phuongTien, string bienSo, string ghiChu)
+        {
+            var congIDParameter = congID.HasValue ?
+                new ObjectParameter("CongID", congID) :
+                new ObjectParameter("CongID", typeof(int));
+    
+            var loaiKhachIDParameter = loaiKhachID.HasValue ?
+                new ObjectParameter("LoaiKhachID", loaiKhachID) :
+                new ObjectParameter("LoaiKhachID", typeof(int));
+    
+            var nhaThauIDParameter = nhaThauID.HasValue ?
+                new ObjectParameter("NhaThauID", nhaThauID) :
+                new ObjectParameter("NhaThauID", typeof(int));
+    
+            var phongBanIDParameter = phongBanID.HasValue ?
+                new ObjectParameter("PhongBanID", phongBanID) :
+                new ObjectParameter("PhongBanID", typeof(int));
+    
+            var pHCDNIDParameter = pHCDNID.HasValue ?
+                new ObjectParameter("PHCDNID", pHCDNID) :
+                new ObjectParameter("PHCDNID", typeof(int));
+    
+            var ngayParameter = ngay.HasValue ?
+                new ObjectParameter("Ngay", ngay) :
+                new ObjectParameter("Ngay", typeof(System.DateTime));
+    
+            var hoTenParameter = hoTen != null ?
+                new ObjectParameter("HoTen", hoTen) :
+                new ObjectParameter("HoTen", typeof(string));
+    
+            var phuongTienParameter = phuongTien != null ?
+                new ObjectParameter("PhuongTien", phuongTien) :
+                new ObjectParameter("PhuongTien", typeof(string));
+    
+            var bienSoParameter = bienSo != null ?
+                new ObjectParameter("BienSo", bienSo) :
+                new ObjectParameter("BienSo", typeof(string));
+    
+            var ghiChuParameter = ghiChu != null ?
+                new ObjectParameter("GhiChu", ghiChu) :
+                new ObjectParameter("GhiChu", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Khach_Insert", congIDParameter, loaiKhachIDParameter, nhaThauIDParameter, phongBanIDParameter, pHCDNIDParameter, ngayParameter, hoTenParameter, phuongTienParameter, bienSoParameter, ghiChuParameter);
+        }
+    
+        public virtual ObjectResult<Khach_SearchByID_Result> Khach_SearchByID(Nullable<int> iDKhach)
+        {
+            var iDKhachParameter = iDKhach.HasValue ?
+                new ObjectParameter("IDKhach", iDKhach) :
+                new ObjectParameter("IDKhach", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Khach_SearchByID_Result>("Khach_SearchByID", iDKhachParameter);
+        }
+    
+        public virtual ObjectResult<Khach_Select_Result> Khach_Select()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Khach_Select_Result>("Khach_Select");
+        }
+    
+        public virtual int Khach_Update(Nullable<int> iDKhach, Nullable<int> congID, Nullable<int> loaiKhachID, Nullable<int> nhaThauID, Nullable<int> phongBanID, Nullable<System.DateTime> ngay, string hoTen, string phuongTien, string bienSo, string ghiChu)
+        {
+            var iDKhachParameter = iDKhach.HasValue ?
+                new ObjectParameter("IDKhach", iDKhach) :
+                new ObjectParameter("IDKhach", typeof(int));
+    
+            var congIDParameter = congID.HasValue ?
+                new ObjectParameter("CongID", congID) :
+                new ObjectParameter("CongID", typeof(int));
+    
+            var loaiKhachIDParameter = loaiKhachID.HasValue ?
+                new ObjectParameter("LoaiKhachID", loaiKhachID) :
+                new ObjectParameter("LoaiKhachID", typeof(int));
+    
+            var nhaThauIDParameter = nhaThauID.HasValue ?
+                new ObjectParameter("NhaThauID", nhaThauID) :
+                new ObjectParameter("NhaThauID", typeof(int));
+    
+            var phongBanIDParameter = phongBanID.HasValue ?
+                new ObjectParameter("PhongBanID", phongBanID) :
+                new ObjectParameter("PhongBanID", typeof(int));
+    
+            var ngayParameter = ngay.HasValue ?
+                new ObjectParameter("Ngay", ngay) :
+                new ObjectParameter("Ngay", typeof(System.DateTime));
+    
+            var hoTenParameter = hoTen != null ?
+                new ObjectParameter("HoTen", hoTen) :
+                new ObjectParameter("HoTen", typeof(string));
+    
+            var phuongTienParameter = phuongTien != null ?
+                new ObjectParameter("PhuongTien", phuongTien) :
+                new ObjectParameter("PhuongTien", typeof(string));
+    
+            var bienSoParameter = bienSo != null ?
+                new ObjectParameter("BienSo", bienSo) :
+                new ObjectParameter("BienSo", typeof(string));
+    
+            var ghiChuParameter = ghiChu != null ?
+                new ObjectParameter("GhiChu", ghiChu) :
+                new ObjectParameter("GhiChu", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Khach_Update", iDKhachParameter, congIDParameter, loaiKhachIDParameter, nhaThauIDParameter, phongBanIDParameter, ngayParameter, hoTenParameter, phuongTienParameter, bienSoParameter, ghiChuParameter);
         }
     
         public virtual int LoaiKhach_delete(Nullable<int> iDLoaiKhach)
