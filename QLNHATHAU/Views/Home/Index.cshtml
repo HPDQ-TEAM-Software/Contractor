@@ -75,140 +75,154 @@
         </div>
     </div>
 </div>
-
-
-
-
 <div class="clearfix"></div>
-<div class="orders">
+
+
+<div class="chart">
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
-                <div class="card-body">
-                    <h4 class="box-title">Hạng mục thi công</h4>
+                <div class="card-header">
+                    <h4 class="box-title">Hạng mục đang triển khai</h4>
                 </div>
-                <div class="card-body--">
-                    <div class="table-responsive order-table">
-                        <table class="table table-bordered table-hover" id="table" width="100%" cellpadding="0">
-                            <thead>
-                                <tr>
-                                    <th class="serial">STT</th>
-                                    <th>Mã Hạng Mục</th>
-                                    <th>Tên Hạng Mục</th>
-                                    <th>Nhà Thầu</th>
-                                    <th>BP/NM Đầu Mối</th>
-                                    <th>SL Nhân Viên</th>
-                                    <th>Trạng Thái</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="serial">1.</td>
-
-                                    <td> 5469 </td>
-                                    <td> <span class="name">Louis Stanley</span> </td>
-                                    <td> <span class="product">iMax</span> </td>
-                                    <td> <span class="name">B.CNTT</span> </td>
-                                    <td><span class="count">231</span></td>
-                                    <td>
-                                        <span class="badge badge-complete">đang triển khai</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="serial">2.</td>
-
-                                    <td> 5468 </td>
-                                    <td> <span class="name">Gregory Dixon</span> </td>
-                                    <td> <span class="product">iPad</span> </td>
-                                    <td> <span class="name">B.CNTT</span> </td>
-                                    <td><span class="count">250</span></td>
-                                    <td>
-                                        <span class="badge badge-complete">đang triển khai</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="serial">3.</td>
-
-                                    <td> 5467 </td>
-                                    <td> <span class="name">Catherine Dixon</span> </td>
-                                    <td> <span class="product">SSD</span> </td>
-                                    <td> <span class="name">B.CNTT</span> </td>
-                                    <td><span class="count">250</span></td>
-                                    <td>
-                                        <span class="badge badge-complete">đang triển khai</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="serial">4.</td>
-
-                                    <td> 5466 </td>
-                                    <td> <span class="name">Mary Silva</span> </td>
-                                    <td> <span class="product">Magic Mouse</span> </td>
-                                    <td> <span class="name">B.CNTT</span> </td>
-                                    <td><span class="count">250</span></td>
-                                    <td>
-                                        <span class="badge badge-pending">Trong quá trình</span>
-                                    </td>
-                                </tr>
-                                <tr class=" pb-0">
-                                    <td class="serial">5.</td>
-
-                                    <td> 5465 </td>
-                                    <td> <span class="name">Johnny Stephens</span> </td>
-                                    <td> <span class="product">Monitor</span> </td>
-                                    <td> <span class="name">B.CNTT</span> </td>
-                                    <td><span class="count">250</span></td>
-                                    <td>
-                                        <span class="badge badge-complete">đang triển khai</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-
+                <div class="card-body">
+                    <canvas id="myChart" width="400" height="100"></canvas>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
-<canvas id="myChart" width="400" height="100"></canvas>
-<script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['NM Luyện gang', 'NM Luyện thép', 'NM Luyện cốc', 'BP Cảng', 'NM Chế tạo cơ khí', 'NM Cán thép dài', 'NM Cán thép SQP', 'NM Vôi - Xi măng', 'NM Thiêu kết - Vê viên', 'B.CNTT', 'NM Nguyên liệu'],
-        datasets: [{
-            label: '',
-            data: [13, 19, 115, 115, 120, 300, 19, 115, 115, 120, 300],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-</script>
+        <div class="clearfix"></div>
+        <div class="orders">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="box-title">Hạng mục thi công</h4>
+                        </div>
+                        <div class="card-body--">
+                            <div class="table-responsive order-table">
+                                <table class="table table-bordered table-hover" id="table" width="100%" cellpadding="0">
+                                    <thead>
+                                        <tr>
+                                            <th class="serial">STT</th>
+                                            <th>Mã Hạng Mục</th>
+                                            <th>Tên Hạng Mục</th>
+                                            <th>Nhà Thầu</th>
+                                            <th>BP/NM Đầu Mối</th>
+                                            <th>SL Nhân Viên</th>
+                                            <th>Trạng Thái</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="serial">1.</td>
+
+                                            <td> 5469 </td>
+                                            <td> <span class="name">Louis Stanley</span> </td>
+                                            <td> <span class="product">iMax</span> </td>
+                                            <td> <span class="name">B.CNTT</span> </td>
+                                            <td><span class="count">231</span></td>
+                                            <td>
+                                                <span class="badge badge-complete">đang triển khai</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="serial">2.</td>
+
+                                            <td> 5468 </td>
+                                            <td> <span class="name">Gregory Dixon</span> </td>
+                                            <td> <span class="product">iPad</span> </td>
+                                            <td> <span class="name">B.CNTT</span> </td>
+                                            <td><span class="count">250</span></td>
+                                            <td>
+                                                <span class="badge badge-complete">đang triển khai</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="serial">3.</td>
+
+                                            <td> 5467 </td>
+                                            <td> <span class="name">Catherine Dixon</span> </td>
+                                            <td> <span class="product">SSD</span> </td>
+                                            <td> <span class="name">B.CNTT</span> </td>
+                                            <td><span class="count">250</span></td>
+                                            <td>
+                                                <span class="badge badge-complete">đang triển khai</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="serial">4.</td>
+
+                                            <td> 5466 </td>
+                                            <td> <span class="name">Mary Silva</span> </td>
+                                            <td> <span class="product">Magic Mouse</span> </td>
+                                            <td> <span class="name">B.CNTT</span> </td>
+                                            <td><span class="count">250</span></td>
+                                            <td>
+                                                <span class="badge badge-pending">Trong quá trình</span>
+                                            </td>
+                                        </tr>
+                                        <tr class=" pb-0">
+                                            <td class="serial">5.</td>
+
+                                            <td> 5465 </td>
+                                            <td> <span class="name">Johnny Stephens</span> </td>
+                                            <td> <span class="product">Monitor</span> </td>
+                                            <td> <span class="name">B.CNTT</span> </td>
+                                            <td><span class="count">250</span></td>
+                                            <td>
+                                                <span class="badge badge-complete">đang triển khai</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['NM Luyện gang', 'NM Luyện thép', 'NM Luyện cốc', 'BP Cảng', 'NM Chế tạo cơ khí', 'NM Cán thép dài', 'NM Cán thép SQP', 'NM Vôi - Xi măng', 'NM Thiêu kết - Vê viên', 'B.CNTT', 'NM Nguyên liệu'],
+                    datasets: [{
+                        label: 'Nhà máy, Bộ phận',
+                        data: [13, 19, 115, 115, 120, 300, 19, 115, 115, 120, 300],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
