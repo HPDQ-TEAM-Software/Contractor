@@ -14,7 +14,16 @@ namespace QLNHATHAU.Models
     
     public partial class Cong
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Cong()
+        {
+            this.Khaches = new HashSet<Khach>();
+        }
+    
         public int IDCONG { get; set; }
         public string TenCong { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Khach> Khaches { get; set; }
     }
 }

@@ -161,6 +161,7 @@
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\PhanQuyenController.cs" />
     <Compile Include="Controllers\QuyenController.cs" />
+    <Compile Include="Controllers\DangKyController.cs" />
     <Compile Include="Controllers\ReportAbuseController.cs" />
     <Compile Include="Controllers\ResultsLearnSafeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -182,6 +183,7 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CheckInforContract.cs" />
+    <Compile Include="Models\CheckInforDK.cs" />
     <Compile Include="Models\CheckInformation.cs" />
     <Compile Include="Models\Cong.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
@@ -197,6 +199,7 @@
     <Compile Include="Models\ContractorStaffValidation.cs" />
     <Compile Include="Models\ContractorValidation.cs" />
     <Compile Include="Models\CardValidation.cs" />
+    <Compile Include="Models\DangKyValidation.cs" />
     <Compile Include="Models\EmplIndentityCard_SearchByID_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -233,6 +236,15 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KetQuaHoc_select_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Khach.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Khach_SearchByID_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Khach_Select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiH.cs">
@@ -411,6 +423,7 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\RegistrationValidation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\AdminLayout\css\ace-ie.css" />
@@ -1171,8 +1184,16 @@
     <Content Include="Views\ReportAbuse\Index.cshtml" />
     <Content Include="Views\LoaiKhach\Edit.cshtml" />
     <Content Include="Views\LoaiKhach\Details.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\ReportAbuse\Edit.cshtml" />
     <Content Include="Views\ReportAbuse\Create.cshtml" />
+=======
+    <Content Include="Views\DangKy\Create.cshtml" />
+    <Content Include="Views\DangKy\Edit.cshtml" />
+    <Content Include="Views\DangKy\ImportExcel.cshtml" />
+    <Content Include="Views\DangKy\Index.cshtml" />
+    <Content Include="Views\DangKy\CheckInformation.cshtml" />
+>>>>>>> f55cf21160e805bcfb2c73d805242c4da0bdc14b
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

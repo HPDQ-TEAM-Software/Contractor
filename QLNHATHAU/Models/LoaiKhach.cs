@@ -14,7 +14,16 @@ namespace QLNHATHAU.Models
     
     public partial class LoaiKhach
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public LoaiKhach()
+        {
+            this.Khaches = new HashSet<Khach>();
+        }
+    
         public int IDLoaiKhach { get; set; }
         public string TenLoai { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Khach> Khaches { get; set; }
     }
 }

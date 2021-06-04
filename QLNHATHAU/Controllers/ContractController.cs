@@ -96,7 +96,7 @@ namespace QLNHATHAU.Controllers
                            FilePath = hd.File,
                            NhaThauID = (int)hd.NhaThauID,
                            PhongBanID = (int)hd.PhongBanID,
-                           PBCHNID =(int) hd.PhongBanID,
+                           PBCHNID =(int)hd.PBCHNID
                            
                        }).ToList();
 
