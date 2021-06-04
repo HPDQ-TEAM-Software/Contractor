@@ -93,6 +93,7 @@
     <Property Name="CongID" Type="Int32" />
     <Property Name="LoaiKhachID" Type="Int32" />
     <Property Name="NhaThauID" Type="Int32" />
+    <Property Name="PHCDNID" Type="Int32" />
     <Property Name="PhongBanID" Type="Int32" />
     <Property Name="Ngay" Type="DateTime" Precision="3" />
     <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -102,7 +103,6 @@
     <NavigationProperty Name="Cong" Relationship="Self.FK_Khach_Cong" FromRole="Khach" ToRole="Cong" />
     <NavigationProperty Name="LoaiKhach" Relationship="Self.FK_Khach_LoaiKhach" FromRole="Khach" ToRole="LoaiKhach" />
     <NavigationProperty Name="NhaThau" Relationship="Self.FK_Khach_NhaThau" FromRole="Khach" ToRole="NhaThau" />
-    <Property Name="PHCDNID" Type="Int32" />
   </EntityType>
   <EntityType Name="LoaiH">
     <Key>
@@ -1192,6 +1192,7 @@
     <Property Type="String" Name="BienSo" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="GhiChu" Nullable="true" MaxLength="150" />
     <Property Type="Int32" Name="PhongBanID" Nullable="true" />
+    <Property Type="Int32" Name="PHCDNID" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Khach_Select_Result">
     <Property Type="Int32" Name="IDKhach" Nullable="false" />

@@ -150,7 +150,6 @@
     <Compile Include="Controllers\ContractorsController.cs" />
     <Compile Include="Controllers\ContractorStaffController.cs" />
     <Compile Include="Controllers\CardController.cs" />
-    <Compile Include="Controllers\DangKyController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeIndetityCardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -162,6 +161,7 @@
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\PhanQuyenController.cs" />
     <Compile Include="Controllers\QuyenController.cs" />
+    <Compile Include="Controllers\DangKyController.cs" />
     <Compile Include="Controllers\ReportAbuseController.cs" />
     <Compile Include="Controllers\ResultsLearnSafeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -423,6 +423,7 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\RegistrationValidation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\AdminLayout\css\ace-ie.css" />
@@ -1176,22 +1177,23 @@
     <Content Include="Views\Contractors\Create.cshtml" />
     <Content Include="Views\Contractors\Edit.cshtml" />
     <Content Include="Views\Contractors\ImportExcel.cshtml" />
-    <Content Include="Views\ViPham\Index.cshtml" />
-    <Content Include="Views\ViPham\Create.cshtml" />
-    <Content Include="Views\ViPham\Edit.cshtml" />
     <Content Include="Views\Contract\Index.cshtml" />
     <Content Include="Views\Contract\Create.cshtml" />
     <Content Include="Views\Contract\Edit.cshtml" />
     <Content Include="Views\Contract\CheckInformation.cshtml" />
     <Content Include="Views\ReportAbuse\Index.cshtml" />
-    <Content Include="Views\ReportAbuse\Create.cshtml" />
     <Content Include="Views\LoaiKhach\Edit.cshtml" />
     <Content Include="Views\LoaiKhach\Details.cshtml" />
-    <Content Include="Views\DangKy\CheckInformation.cshtml" />
+
+    <Content Include="Views\ReportAbuse\Edit.cshtml" />
+    <Content Include="Views\ReportAbuse\Create.cshtml" />
+
     <Content Include="Views\DangKy\Create.cshtml" />
     <Content Include="Views\DangKy\Edit.cshtml" />
     <Content Include="Views\DangKy\ImportExcel.cshtml" />
     <Content Include="Views\DangKy\Index.cshtml" />
+    <Content Include="Views\DangKy\CheckInformation.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

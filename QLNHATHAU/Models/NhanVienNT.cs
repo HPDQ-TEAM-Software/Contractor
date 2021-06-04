@@ -37,7 +37,5 @@ namespace QLNHATHAU.Models
         public virtual ICollection<KeQuaHoc> KeQuaHocs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ViPham> ViPhams { get; set; }
-
-        public int IDNhaThau { get; set; }
     }
 }

@@ -90,7 +90,6 @@ D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QL
 D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CopyComplete
 D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.dll
 D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.pdb
-D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csprojAssemblyReference.cache
 D:\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\bin\QLNHATHAU.dll.config
 D:\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\bin\QLNHATHAU.dll
 D:\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\bin\QLNHATHAU.pdb
@@ -369,3 +368,4 @@ C:\Users\HPDQ\QLNT-TEST\QLNHATHAU\bin\Microsoft.CodeDom.Providers.DotNetCompiler
 C:\Users\HPDQ\QLNT-TEST\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CopyComplete
 C:\Users\HPDQ\QLNT-TEST\QLNHATHAU\obj\Debug\QLNHATHAU.dll
 C:\Users\HPDQ\QLNT-TEST\QLNHATHAU\obj\Debug\QLNHATHAU.pdb
+D:\HPDQ\OneDrive - hoaphat.com.vn\Project_HPDQ\Contractor\QLNHATHAU\obj\Debug\QLNHATHAU.csprojAssemblyReference.cache

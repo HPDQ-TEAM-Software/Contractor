@@ -18,13 +18,13 @@ namespace QLNHATHAU.Models
         public Nullable<int> CongID { get; set; }
         public Nullable<int> LoaiKhachID { get; set; }
         public Nullable<int> NhaThauID { get; set; }
+        public Nullable<int> PHCDNID { get; set; }
         public Nullable<int> PhongBanID { get; set; }
         public Nullable<System.DateTime> Ngay { get; set; }
         public string HoTen { get; set; }
         public string PhuongTien { get; set; }
         public string BienSo { get; set; }
         public string GhiChu { get; set; }
-        public Nullable<int> PHCDNID { get; set; }
     
         public virtual Cong Cong { get; set; }
         public virtual LoaiKhach LoaiKhach { get; set; }

@@ -83,11 +83,11 @@
     <EntitySetMapping Name="Khaches">
       <EntityTypeMapping TypeName="QLNhaThauModel.Khach">
         <MappingFragment StoreEntitySet="Khach">
-          <ScalarProperty Name="PHCDNID" ColumnName="PHCDNID" />
           <ScalarProperty Name="IDKhach" ColumnName="IDKhach" />
           <ScalarProperty Name="CongID" ColumnName="CongID" />
           <ScalarProperty Name="LoaiKhachID" ColumnName="LoaiKhachID" />
           <ScalarProperty Name="NhaThauID" ColumnName="NhaThauID" />
+          <ScalarProperty Name="PHCDNID" ColumnName="PHCDNID" />
           <ScalarProperty Name="PhongBanID" ColumnName="PhongBanID" />
           <ScalarProperty Name="Ngay" ColumnName="Ngay" />
           <ScalarProperty Name="HoTen" ColumnName="HoTen" />
@@ -477,6 +477,7 @@
           <ScalarProperty Name="BienSo" ColumnName="BienSo" />
           <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
           <ScalarProperty Name="PhongBanID" ColumnName="PhongBanID" />
+          <ScalarProperty Name="PHCDNID" ColumnName="PHCDNID" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

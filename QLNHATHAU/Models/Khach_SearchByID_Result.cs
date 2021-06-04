@@ -23,5 +23,6 @@ namespace QLNHATHAU.Models
         public string BienSo { get; set; }
         public string GhiChu { get; set; }
         public Nullable<int> PhongBanID { get; set; }
+        public Nullable<int> PHCDNID { get; set; }
     }
 }
