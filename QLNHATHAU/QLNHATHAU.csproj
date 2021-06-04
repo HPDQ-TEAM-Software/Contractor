@@ -150,6 +150,7 @@
     <Compile Include="Controllers\ContractorsController.cs" />
     <Compile Include="Controllers\ContractorStaffController.cs" />
     <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\DangKyController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeIndetityCardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -182,6 +183,7 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CheckInforContract.cs" />
+    <Compile Include="Models\CheckInforDK.cs" />
     <Compile Include="Models\CheckInformation.cs" />
     <Compile Include="Models\Cong.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
@@ -197,6 +199,7 @@
     <Compile Include="Models\ContractorStaffValidation.cs" />
     <Compile Include="Models\ContractorValidation.cs" />
     <Compile Include="Models\CardValidation.cs" />
+    <Compile Include="Models\DangKyValidation.cs" />
     <Compile Include="Models\EmplIndentityCard_SearchByID_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -235,6 +238,15 @@
     <Compile Include="Models\KetQuaHoc_select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Khach.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Khach_SearchByID_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Khach_Select_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LoaiH.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -249,6 +261,7 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModelT.cs" />
+    <Compile Include="Models\MyAuthentication.cs" />
     <Compile Include="Models\NguoiDung.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -1163,15 +1176,22 @@
     <Content Include="Views\Contractors\Create.cshtml" />
     <Content Include="Views\Contractors\Edit.cshtml" />
     <Content Include="Views\Contractors\ImportExcel.cshtml" />
+    <Content Include="Views\ViPham\Index.cshtml" />
+    <Content Include="Views\ViPham\Create.cshtml" />
+    <Content Include="Views\ViPham\Edit.cshtml" />
     <Content Include="Views\Contract\Index.cshtml" />
     <Content Include="Views\Contract\Create.cshtml" />
     <Content Include="Views\Contract\Edit.cshtml" />
     <Content Include="Views\Contract\CheckInformation.cshtml" />
     <Content Include="Views\ReportAbuse\Index.cshtml" />
+    <Content Include="Views\ReportAbuse\Create.cshtml" />
     <Content Include="Views\LoaiKhach\Edit.cshtml" />
     <Content Include="Views\LoaiKhach\Details.cshtml" />
-    <Content Include="Views\ReportAbuse\Edit.cshtml" />
-    <Content Include="Views\ReportAbuse\Create.cshtml" />
+    <Content Include="Views\DangKy\CheckInformation.cshtml" />
+    <Content Include="Views\DangKy\Create.cshtml" />
+    <Content Include="Views\DangKy\Edit.cshtml" />
+    <Content Include="Views\DangKy\ImportExcel.cshtml" />
+    <Content Include="Views\DangKy\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

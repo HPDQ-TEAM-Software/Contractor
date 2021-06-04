@@ -55,7 +55,7 @@ namespace QLNHATHAU.Controllers
             }
             catch(Exception e)
             {
-                TempData["msgError"] = "<script>alert('Có lỗi khi thêm mới hợp đồng');</script>";
+                TempData["msgError"] = "<script>alert('Có lỗi : "+e.Message+"');</script>";
             }
 
             return RedirectToAction("Index", "Permission");

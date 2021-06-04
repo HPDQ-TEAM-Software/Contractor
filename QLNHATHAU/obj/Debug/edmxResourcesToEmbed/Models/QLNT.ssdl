@@ -72,11 +72,22 @@
     <Property Name="NgayHoc" Type="datetime" />
     <Property Name="KetQua" Type="bit" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'QLNhaThau.dbo.Khach' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Khach">
-          <Property Name="IDKhach" Type="int" />
-        </EntityType>-->
+  <EntityType Name="Khach">
+    <Key>
+      <PropertyRef Name="IDKhach" />
+    </Key>
+    <Property Name="IDKhach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CongID" Type="int" />
+    <Property Name="LoaiKhachID" Type="int" />
+    <Property Name="NhaThauID" Type="int" />
+    <Property Name="PHCDNID" Type="int" />
+    <Property Name="PhongBanID" Type="int" />
+    <Property Name="Ngay" Type="datetime" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhuongTien" Type="nvarchar" MaxLength="50" />
+    <Property Name="BienSo" Type="nvarchar" MaxLength="50" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="150" />
+  </EntityType>
   <EntityType Name="LoaiHS">
     <Key>
       <PropertyRef Name="ID" />
@@ -342,6 +353,42 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Khach_Cong">
+    <End Role="Cong" Type="Self.Cong" Multiplicity="0..1" />
+    <End Role="Khach" Type="Self.Khach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cong">
+        <PropertyRef Name="IDCONG" />
+      </Principal>
+      <Dependent Role="Khach">
+        <PropertyRef Name="CongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Khach_LoaiKhach">
+    <End Role="LoaiKhach" Type="Self.LoaiKhach" Multiplicity="0..1" />
+    <End Role="Khach" Type="Self.Khach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiKhach">
+        <PropertyRef Name="IDLoaiKhach" />
+      </Principal>
+      <Dependent Role="Khach">
+        <PropertyRef Name="LoaiKhachID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Khach_NhaThau">
+    <End Role="NhaThau" Type="Self.NhaThau" Multiplicity="0..1" />
+    <End Role="Khach" Type="Self.Khach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaThau">
+        <PropertyRef Name="IDNhaThau" />
+      </Principal>
+      <Dependent Role="Khach">
+        <PropertyRef Name="NhaThauID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_NguoiDung_NhanVien">
     <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
     <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="*" />
@@ -567,6 +614,37 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="NhaThauID" Type="int" Mode="In" />
     <Parameter Name="NgayHoc" Type="datetime" Mode="In" />
     <Parameter Name="KetQua" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Khach_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDKhach" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Khach_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CongID" Type="int" Mode="In" />
+    <Parameter Name="LoaiKhachID" Type="int" Mode="In" />
+    <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="PhongBanID" Type="int" Mode="In" />
+    <Parameter Name="PHCDNID" Type="int" Mode="In" />
+    <Parameter Name="Ngay" Type="datetime" Mode="In" />
+    <Parameter Name="HoTen" Type="varchar" Mode="In" />
+    <Parameter Name="PhuongTien" Type="varchar" Mode="In" />
+    <Parameter Name="BienSo" Type="varchar" Mode="In" />
+    <Parameter Name="GhiChu" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Khach_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDKhach" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Khach_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Khach_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDKhach" Type="int" Mode="In" />
+    <Parameter Name="CongID" Type="int" Mode="In" />
+    <Parameter Name="LoaiKhachID" Type="int" Mode="In" />
+    <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="PhongBanID" Type="int" Mode="In" />
+    <Parameter Name="Ngay" Type="datetime" Mode="In" />
+    <Parameter Name="HoTen" Type="nvarchar" Mode="In" />
+    <Parameter Name="PhuongTien" Type="nvarchar" Mode="In" />
+    <Parameter Name="BienSo" Type="nvarchar" Mode="In" />
+    <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="LoaiKhach_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDLoaiKhach" Type="int" Mode="In" />
@@ -882,6 +960,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <EntitySet Name="GiaHanHD" EntityType="Self.GiaHanHD" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HopDong" EntityType="Self.HopDong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KeQuaHoc" EntityType="Self.KeQuaHoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Khach" EntityType="Self.Khach" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoaiHS" EntityType="Self.LoaiHS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoaiKhach" EntityType="Self.LoaiKhach" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
@@ -932,6 +1011,18 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <AssociationSet Name="FK_KeQuaHoc_NhaThau" Association="Self.FK_KeQuaHoc_NhaThau">
       <End Role="NhaThau" EntitySet="NhaThau" />
       <End Role="KeQuaHoc" EntitySet="KeQuaHoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Khach_Cong" Association="Self.FK_Khach_Cong">
+      <End Role="Cong" EntitySet="Cong" />
+      <End Role="Khach" EntitySet="Khach" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Khach_LoaiKhach" Association="Self.FK_Khach_LoaiKhach">
+      <End Role="LoaiKhach" EntitySet="LoaiKhach" />
+      <End Role="Khach" EntitySet="Khach" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Khach_NhaThau" Association="Self.FK_Khach_NhaThau">
+      <End Role="NhaThau" EntitySet="NhaThau" />
+      <End Role="Khach" EntitySet="Khach" />
     </AssociationSet>
     <AssociationSet Name="FK_NguoiDung_NhanVien" Association="Self.FK_NguoiDung_NhanVien">
       <End Role="NhanVien" EntitySet="NhanVien" />
