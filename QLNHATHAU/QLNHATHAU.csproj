@@ -250,6 +250,7 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModelT.cs" />
+    <Compile Include="Models\MyAuthentication.cs" />
     <Compile Include="Models\NguoiDung.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
