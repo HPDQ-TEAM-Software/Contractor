@@ -144,12 +144,13 @@
     <Compile Include="Common\ConfigStatic.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Controllers\CongController.cs" />
+    <Compile Include="Controllers\ConStaffStatisticsController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\ContractExtensionController.cs" />
-    <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\ContractorsController.cs" />
     <Compile Include="Controllers\ContractorStaffController.cs" />
     <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\ContractorStatisticsController.cs" />
     <Compile Include="Controllers\DangKyController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeIndetityCardController.cs" />
@@ -1176,9 +1177,6 @@
     <Content Include="Views\Contractors\Create.cshtml" />
     <Content Include="Views\Contractors\Edit.cshtml" />
     <Content Include="Views\Contractors\ImportExcel.cshtml" />
-    <Content Include="Views\ViPham\Index.cshtml" />
-    <Content Include="Views\ViPham\Create.cshtml" />
-    <Content Include="Views\ViPham\Edit.cshtml" />
     <Content Include="Views\Contract\Index.cshtml" />
     <Content Include="Views\Contract\Create.cshtml" />
     <Content Include="Views\Contract\Edit.cshtml" />
@@ -1192,6 +1190,8 @@
     <Content Include="Views\DangKy\Edit.cshtml" />
     <Content Include="Views\DangKy\ImportExcel.cshtml" />
     <Content Include="Views\DangKy\Index.cshtml" />
+    <Content Include="Views\ConStaffStatistics\Index.cshtml" />
+    <Content Include="Views\ContractorStatistics\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

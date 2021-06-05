@@ -26,6 +26,8 @@ namespace QLNHATHAU.Models
         public int PhongBanID { get; set; }
         public int IDHD { get; set; }
         public int IDNhaThau { get; set; }
+        public string TenHD { get; set; }
+        public string TenNhaThau { get; set; }
     }
 
     public enum Gender
