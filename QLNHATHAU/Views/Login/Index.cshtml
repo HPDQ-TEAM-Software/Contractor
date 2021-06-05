@@ -1,4 +1,4 @@
-﻿
+﻿@model QLNHATHAU.Models.UserLogin
 @{
     Layout = null;
 }
@@ -13,24 +13,33 @@
     <meta charset="utf-8" />
     <meta name="description" content="overview &amp; stats" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-
+    <link rel="stylesheet" href="~/Content/assets/css/font-awesome.min.css">
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" type="image/png" />
+   
     <link href="~/Content/assets/css/style_login.css" rel="stylesheet" />
 </head>
 <body>
     <div class="bg-text">
         <div class="container" id="container">
             <div class="form-container log-in-container">
-                <form action="#">
+                @using (Html.BeginForm("Index", "Login", new { id = "myForm" }))
+                {
                     <h1>Login</h1>
-                    <input type="text" placeholder="Username" />
-                    <input type="password" placeholder="Password" />
-                    <input type="checkbox" id="remember" name="remember" value="password" />
-                    <span for="remember">Save your password</span><br>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                        <input type="text" id="input1-group1" name="input1-group1" placeholder="Username" class="form-control">
+                    </div>
+                    @Html.TextBoxFor(m => m.Username)
+                    @Html.ValidationMessageFor(m => m.Username, "", new { @class = "error" })
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @*<input type="checkbox" id="remember" name="remember" value="password" />
+            <span for="remember">Save your password</span><br>*@
                     <a href="#">Forgot your password?</a>
                     <button>Log In</button>
-                </form>
+                }
             </div>
             <div class="overlay-container">
                 <div class="overlay">
