@@ -53,7 +53,7 @@
                                 <a id="btn-edit_@item.ID" title="Sửa"><i class="fa fa-edit icon_action">Sửa</i></a>
                                 <div class="modal fade" id="myModaled_@item.ID" role="dialog" data-url='@Url.Action("Edit","ReportAbuse", new { id = item.ID })'></div>
                                     <script type="text/javascript">
-                                        $("#btn-edit_@item.ID").click(function () {l
+                                        $("#btn-edit_@item.ID").click(function () {
                                             var url = $('#myModaled_@item.ID').data('url');
                                             console.log(url);
                                             $.get(url, function (data) {
