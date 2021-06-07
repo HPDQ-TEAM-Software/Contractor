@@ -39,5 +39,6 @@ namespace QLNHATHAU.Models
         public virtual ICollection<ViPham> ViPhams { get; set; }
 
         public int IDNhaThau { get; set; }
+        public int IDHD { get; set; }
     }
 }

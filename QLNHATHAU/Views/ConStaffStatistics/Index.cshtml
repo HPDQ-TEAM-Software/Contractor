@@ -20,14 +20,31 @@
 
 <div class="card mb-4">
     <div class="card-header">
+        <div class="row">
 
-        <label class="pull-left">Thống kê Nhân viên</label>
-        
-        <div class="pull-left form-group">
-            <label class="">Nhà Thầu</label>
-            @*@Html.DropDownListFor(model => model.IDNhaThau, ViewBag.NTList as SelectList, "--Chọn nhà thầu--", new { @id = "IDNhaThau", @class = "form-control" })*@
+            <div class="col-md-12">
+                <div class="">
+                    <label class="pull-left">Thống kê Nhân viên</label>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                @Html.DropDownList("NTList", null, "--Nhà thầu--", new { id = "IDNhaThau", @class = "form-control", @style = "width:100%", @*@onChange = "ChangeNhaThau(this)"*@ })
+            </div>
+
+            @*
+
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.DropDownList("HDList", ViewBag.HDList as SelectList, "--Chọn hợp đồng--", new { @id = "IDHD", @class = "form-control" })
+            </div>
+        </div>*@
+
+            <div class="col-md-3 text-center">
+                <button type="button" id="btn-search" onClick ="ChangeNhaThau(IDNhaThau)" class="btn btn-primary"><i class="fa fa-search">&nbsp;</i>&nbsp;Search </button>
+            </div>
+
         </div>
-
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -74,6 +91,10 @@
     </div>
 </div>
 
-
+<script type="text/javascript">
+    function ChangeNhaThau(obj) {
+            window.location.href = '@Url.Action("Index", "ConStaffStatistics")?IDNhaThau=' + obj.value;
+        }
+</script>
 
 
