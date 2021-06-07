@@ -24,7 +24,7 @@
         <label class="pull-left">Thống kê Nhân viên</label>
         <div class="pull-left form-group">
             <label class="small mb-1">Nhà Thầu</label>
-            @Html.DropDownListFor(model => model.IDNhaThau, ViewBag.NTList as SelectList, "--Chọn nhà thầu--", new { @id = "IDNhaThau", @class = "form-control" })
+            @*@Html.DropDownListFor(model => model.IDNhaThau, ViewBag.NTList as SelectList, "--Chọn nhà thầu--", new { @id = "IDNhaThau", @class = "form-control" })*@
         </div>
         <label class="pull-right">Tổng số Nhân viên : </label>
     </div>
@@ -37,8 +37,8 @@
                         <th width="180px">Mã Nhân Viên</th>
                         <th width="320px">Họ và Tên</th>
                         <th width="180px">Số CMND</th>
-                        <th class="text-center" width="300px">Hạng mục</th>
-                        <th class="text-center">Nhà thầu</th>
+                        <th width="300px">Hạng mục</th>
+                        <th >Nhà thầu</th>
                         <th class="text-center" width="150px">Tình trạng</th>
                     </tr>
                 </thead>
@@ -57,8 +57,8 @@
                         <td>@item.MaNV </td>
                         <td>@item.HovaTen</td>
                         <td>@item.CMND</td>
-                        <td class="text-center">@item.TenHD</td>
-                        <td class="text-center">@item.TenNhaThau</td>
+                        <td >@item.TenHD</td>
+                        <td >@item.TenNhaThau</td>
                         <td class="text-center">
                         </td>
                     </tr>
