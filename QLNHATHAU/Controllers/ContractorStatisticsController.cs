@@ -30,7 +30,7 @@ namespace QLNHATHAU.Controllers
                                 MaNT = nt.MaNT,
                                 Ten = nt.Ten,
                                 TenHD = hd.TenHD,
-                                //SLNhanVien = (int)kq.NhaThauID,
+                                SLNhanVien = nt.IDNhaThau,
             
                             }).OrderBy(x => x.IDNhaThau).ToList();
 
