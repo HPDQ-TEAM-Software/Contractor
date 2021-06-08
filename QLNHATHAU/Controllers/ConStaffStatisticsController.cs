@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using System.Data;
+using System.IO;
 
 
 
@@ -103,10 +104,29 @@ namespace QLNHATHAU.Controllers
                     return model.ToList();
                 }
             }
-            
-            
 
-        
+        public JsonResult GetNVNT(string search)
+        {
+            var result = (from u in db_context.NhanVienNTs
+                          from kq in db_context.KeQuaHocs
+                          join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
+                          join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
+                          join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
+                          select new ContractorStaffValidation()
+                          {
+                              IDNVNT = nv.IDNhanVienNT,
+                              MaNV = nv.MaNV,
+                              HovaTen = nv.HoTen,
+                              CMND = nv.SCMND,
+                              IDHD = hd.IDHD,
+                              TenHD = hd.TenHD,
+                              IDNhaThau = nt.IDNhaThau,
+                              TenNhaThau = nt.Ten
+                          }).Where(x => x.MaNV.Contains(search) || x.HovaTen.Contains(search)).Take(30).ToList();
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+
 
 
 

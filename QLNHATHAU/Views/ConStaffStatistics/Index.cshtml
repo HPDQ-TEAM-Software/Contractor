@@ -28,15 +28,16 @@
                 </div>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-6">
                 @Html.DropDownList("NTList", null, "--Nhà thầu--", new { id = "IDNhaThau", @class = "form-control", @style = "width:100%", @*@onChange = "ChangeNhaThau(this)"*@ })
             </div>
 
-            @*
+            
 
-        <div class="col-md-4">
+        @*<div class="col-md-4">
             <div class="form-group">
-                @Html.DropDownList("HDList", ViewBag.HDList as SelectList, "--Chọn hợp đồng--", new { @id = "IDHD", @class = "form-control" })
+                <input id="txtsearch" class="form-control" type="text" placeholder="Tìm kiếm ...">
+                <div class="input-group-append"><input class="btn btn-primary" type="submit" value="Tìm kiếm" id="bsearch" /></div>
             </div>
         </div>*@
 
@@ -84,7 +85,7 @@
                 </tbody>
             </table>
             <div class="pager">
-                @Html.PagedListPager(Model, page => Url.Action("Index", "ConStaffStatistics", new { page }))
+                @Html.PagedListPager(Model, page => Url.Action("Index", "ConStaffStatistics", new { page, MaNV = Request.QueryString["MaNV"] }))
                 <span class="pageoff">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</span>
             </div>
         </div>
@@ -92,6 +93,18 @@
 </div>
 
 <script type="text/javascript">
+
+    @*$("#bsearch").on('click', function () {
+            var search = $('#txtsearch').val();
+        var MaNV = $('#MaNV').val();
+        window.location.href = '@Url.Action("Index", "ConStaffStatistics")?MaNV=' + MaNV+'&search=' + search;
+        });
+    $("#txtsearch").keyup(function (event) {
+            if (event.keyCode == 13) {
+                $("#bsearch").click();
+            }
+        });*@
+
     function ChangeNhaThau(obj) {
             window.location.href = '@Url.Action("Index", "ConStaffStatistics")?IDNhaThau=' + obj.value;
         }

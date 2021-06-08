@@ -21,19 +21,18 @@ namespace QLNHATHAU.Controllers
         {
             
 
-            var dataList = (from kq in db_context.KeQuaHocs
-                            join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
-                            join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
-                            join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
+            var dataList = (from hd in db_context.HopDongs
+                            join nt in db_context.NhaThaus on hd.NhaThauID equals nt.IDNhaThau
+                            //join kq in db_context.KeQuaHocs on hd.IDHD equals kq.HDID
                             select new NhaThauValidation()
                             {
                                 IDNhaThau = nt.IDNhaThau,
                                 MaNT = nt.MaNT,
                                 Ten = nt.Ten,
                                 TenHD = hd.TenHD,
-                                //SLNhanVien = nv.IDNhanVienNT,
+                                //SLNhanVien = (int)kq.NhaThauID,
             
-                            }).ToList();
+                            }).OrderBy(x => x.IDNhaThau).ToList();
 
             if (page == null) page = 1;
             int pageSize = 20;
@@ -43,6 +42,9 @@ namespace QLNHATHAU.Controllers
 
             
         }
+
+        
+
 
     }
 }
