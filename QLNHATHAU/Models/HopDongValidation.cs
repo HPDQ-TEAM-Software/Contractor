@@ -38,7 +38,7 @@ namespace QLNHATHAU.Models
         public int PhongBanID { get; set; }
         public int PBCHNID { get; set; }
         //public IList<string> PhongBanCN { get; set; }
-
+        public int SLNhanVien { get; set; }
         public List<string> SelectedValues { get; set; }
     }
 }

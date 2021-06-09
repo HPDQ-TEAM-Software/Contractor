@@ -151,6 +151,7 @@
     <Compile Include="Controllers\ContractorStaffController.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\ContractorStatisticsController.cs" />
+    <Compile Include="Controllers\ContractStatisticsController.cs" />
     <Compile Include="Controllers\DangKyController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeIndetityCardController.cs" />
@@ -1193,6 +1194,7 @@
     <Content Include="Views\DangKy\Index.cshtml" />
     <Content Include="Views\ConStaffStatistics\Index.cshtml" />
     <Content Include="Views\ContractorStatistics\Index.cshtml" />
+    <Content Include="Views\ContractStatistics\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

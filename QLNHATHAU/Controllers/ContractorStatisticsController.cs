@@ -8,9 +8,6 @@ using System.Web.Mvc;
 
 
 
-
-
-
 namespace QLNHATHAU.Controllers
 {
     public class ContractorStatisticsController : Controller
