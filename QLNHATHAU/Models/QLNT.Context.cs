@@ -1267,19 +1267,19 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PheDuyet_SearchByID_Result>("PheDuyet_SearchByID", iDParameter);
         }
     
-        public virtual int PheDuyet_Updata(Nullable<int> iD, string nguoiDungID, string loaiHSID, Nullable<bool> tinhTrang, string ghiChu)
+        public virtual int PheDuyet_Updata(Nullable<int> iD, Nullable<int> nguoiDungID, Nullable<int> loaiHSID, Nullable<bool> tinhTrang, string ghiChu)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
     
-            var nguoiDungIDParameter = nguoiDungID != null ?
+            var nguoiDungIDParameter = nguoiDungID.HasValue ?
                 new ObjectParameter("NguoiDungID", nguoiDungID) :
-                new ObjectParameter("NguoiDungID", typeof(string));
+                new ObjectParameter("NguoiDungID", typeof(int));
     
-            var loaiHSIDParameter = loaiHSID != null ?
+            var loaiHSIDParameter = loaiHSID.HasValue ?
                 new ObjectParameter("LoaiHSID", loaiHSID) :
-                new ObjectParameter("LoaiHSID", typeof(string));
+                new ObjectParameter("LoaiHSID", typeof(int));
     
             var tinhTrangParameter = tinhTrang.HasValue ?
                 new ObjectParameter("TinhTrang", tinhTrang) :

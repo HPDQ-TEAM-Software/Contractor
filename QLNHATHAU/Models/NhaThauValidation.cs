@@ -17,5 +17,6 @@ namespace QLNHATHAU.Models
         public int IDHD { get; set; }
         public int SLNhanVien { get; set; }
         public string TenHD { get; set; }
+        public int SLHD { get; set; }
     }
 }

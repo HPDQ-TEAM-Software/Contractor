@@ -29,14 +29,14 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 @Html.DropDownList("NTList", null, "--Nhà thầu--", new
                 {
                     id = "IDNhaThau",
                     @class = "form-control",
                     @style = "width:100%",@*@onChange = "ChangeNhaThau(this)"*@})
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 @Html.DropDownList("HDList", null, "--Hợp đồng--", new
                 {
                     id = "IDHD",
@@ -65,7 +65,7 @@
                     </div>
                 </div>*@
 
-            <div class="col-md-4 pull-right">
+            <div class="col-md-6 text-center">
                 <button type="button" id="btn-search" class="btn btn-primary"><i class="fa fa-search">&nbsp;</i>&nbsp;Search </button>
             </div>
 

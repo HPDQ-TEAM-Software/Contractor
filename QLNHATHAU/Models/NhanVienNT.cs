@@ -30,6 +30,7 @@ namespace QLNHATHAU.Models
         public Nullable<int> GioiTinh { get; set; }
         public string QuocTich { get; set; }
         public string ChucVu { get; set; }
+        public Nullable<int> NTID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CardNhanVien> CardNhanViens { get; set; }
@@ -37,8 +38,5 @@ namespace QLNHATHAU.Models
         public virtual ICollection<KeQuaHoc> KeQuaHocs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ViPham> ViPhams { get; set; }
-
-        public int IDNhaThau { get; set; }
-        public int IDHD { get; set; }
     }
 }

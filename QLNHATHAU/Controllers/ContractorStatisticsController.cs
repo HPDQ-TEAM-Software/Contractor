@@ -19,19 +19,18 @@ namespace QLNHATHAU.Controllers
 
         public ActionResult Index(int? page)
         {
-            
 
-            var dataList = (from hd in db_context.HopDongs
-                            join nt in db_context.NhaThaus on hd.NhaThauID equals nt.IDNhaThau
-                            //join kq in db_context.KeQuaHocs on hd.IDHD equals kq.HDID
+            var dataList = (from nt in db_context.NhaThaus
+                            join hd in db_context.HopDongs on nt.IDNhaThau equals hd.NhaThauID into NhaThauIDHD
+                            join kq in db_context.KeQuaHocs on nt.IDNhaThau equals kq.NhaThauID into NhaThauIDNV
                             select new NhaThauValidation()
                             {
                                 IDNhaThau = nt.IDNhaThau,
                                 MaNT = nt.MaNT,
                                 Ten = nt.Ten,
-                                TenHD = hd.TenHD,
-                                SLNhanVien = nt.IDNhaThau,
-            
+                                SLHD = NhaThauIDHD.Count(),
+                                SLNhanVien = NhaThauIDNV.Count(),
+
                             }).OrderBy(x => x.IDNhaThau).ToList();
 
             if (page == null) page = 1;
@@ -40,11 +39,9 @@ namespace QLNHATHAU.Controllers
 
             return View(dataList.ToPagedList(pageNumber, pageSize));
 
-            
+
         }
 
-        
-
-
+    
     }
 }
