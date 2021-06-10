@@ -168,6 +168,7 @@
     <NavigationProperty Name="CardNhanViens" Relationship="Self.FK_CardNhanVien_NhanVienNT" FromRole="NhanVienNT" ToRole="CardNhanVien" />
     <NavigationProperty Name="KeQuaHocs" Relationship="Self.FK_KeQuaHoc_NhanVienNT" FromRole="NhanVienNT" ToRole="KeQuaHoc" />
     <NavigationProperty Name="ViPhams" Relationship="Self.FK_ViPham_NhanVienNT" FromRole="NhanVienNT" ToRole="ViPham" />
+    <Property Name="NTID" Type="Int32" />
   </EntityType>
   <EntityType Name="NhaThau">
     <Key>
@@ -222,6 +223,8 @@
     <Property Name="HoSoID" Type="Int32" />
     <Property Name="TinhTrang" Type="Boolean" />
     <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NhaThauID" Type="Int32" />
+    <Property Name="Ngay" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="PhongBan">
     <Key>
@@ -973,8 +976,8 @@
     </FunctionImport>
     <FunctionImport Name="PheDuyet_Updata">
       <Parameter Name="ID" Mode="In" Type="Int32" />
-      <Parameter Name="NguoiDungID" Mode="In" Type="String" />
-      <Parameter Name="LoaiHSID" Mode="In" Type="String" />
+      <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
+      <Parameter Name="LoaiHSID" Mode="In" Type="Int32" />
       <Parameter Name="TinhTrang" Mode="In" Type="Boolean" />
       <Parameter Name="GhiChu" Mode="In" Type="String" />
     </FunctionImport>

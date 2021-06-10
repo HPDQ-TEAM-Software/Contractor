@@ -145,6 +145,7 @@
     <Property Name="GioiTinh" Type="int" />
     <Property Name="QuocTich" Type="nvarchar" MaxLength="50" />
     <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
+    <Property Name="NTID" Type="int" />
   </EntityType>
   <EntityType Name="NhaThau">
     <Key>
@@ -189,7 +190,9 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NguoiDungID" Type="int" />
     <Property Name="LoaiHSID" Type="int" />
+    <Property Name="NhaThauID" Type="int" />
     <Property Name="HoSoID" Type="int" />
+    <Property Name="Ngay" Type="datetime" />
     <Property Name="TinhTrang" Type="bit" />
     <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
   </EntityType>
@@ -842,8 +845,8 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
   </Function>
   <Function Name="PheDuyet_Updata" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="NguoiDungID" Type="nvarchar" Mode="In" />
-    <Parameter Name="LoaiHSID" Type="nvarchar" Mode="In" />
+    <Parameter Name="NguoiDungID" Type="int" Mode="In" />
+    <Parameter Name="LoaiHSID" Type="int" Mode="In" />
     <Parameter Name="TinhTrang" Type="bit" Mode="In" />
     <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
   </Function>

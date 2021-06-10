@@ -14,5 +14,9 @@ namespace QLNHATHAU.Models
         public string DiaChi { get; set; }
         public string DienThoai { get; set; }
         public string Email { get; set; }
+        public int IDHD { get; set; }
+        public int SLNhanVien { get; set; }
+        public string TenHD { get; set; }
+        public int SLHD { get; set; }
     }
 }
