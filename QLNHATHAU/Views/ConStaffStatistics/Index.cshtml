@@ -58,14 +58,14 @@
             </div>
 
 
-            @*<div class="col-md-4">
-                    <div class="form-group">
-                        <input id="txtsearch" class="form-control" type="text" placeholder="Tìm kiếm ...">
-                        <div class="input-group-append"><input class="btn btn-primary" type="submit" value="Tìm kiếm" id="bsearch" /></div>
-                    </div>
-                </div>*@
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input id="txtsearch" class="form-control" type="text" placeholder="Tìm kiếm nhân viên ...">
+                    
+                </div>
+            </div>
 
-            <div class="col-md-6 text-center">
+            <div class="col-md-3 text-center">
                 <button type="button" id="btn-search" class="btn btn-primary"><i class="fa fa-search">&nbsp;</i>&nbsp;Search </button>
             </div>
 
@@ -97,7 +97,7 @@
 
                         <tr>
                             <td class="text-center"> @RowNo@{RowNo++;}</td>
-                            <td>@item.MaNV </td>
+                            <td id ="MaNV">@item.MaNV </td>
                             <td>@item.HovaTen</td>
                             <td>@item.CMND</td>
                             <td>@item.TenHD</td>
@@ -109,7 +109,7 @@
                 </tbody>
             </table>
             <div class="pager">
-                @Html.PagedListPager(Model, page => Url.Action("Index", "ConStaffStatistics", new { page }))
+                @Html.PagedListPager(Model, page => Url.Action("Index", "ConStaffStatistics", new { page, IDNhaThau = Request.QueryString["IDNhaThau"] }))
                 <span class="pageoff">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</span>
             </div>
         </div>
@@ -122,6 +122,9 @@
         console.log($('#IDNhaThau').val());
         console.log($('#IDHD').val());
         window.location.href = '@Url.Action("Index", "ConStaffStatistics")?IDNhaThau=' + $('#IDNhaThau').val() + '&HDID=' + $('#IDHD').val();
+        var search = $('#txtsearch').val();
+        var IDNhaThau = $('#IDNhaThau').val();
+        window.location.href = '@Url.Action("Index", "ConStaffStatistics")?IDNhaThau=' + IDNhaThau+'&search=' + search;
     });
 
     @*function ChangeNhaThau(obj) {
@@ -130,7 +133,32 @@
     $("#IDNhaThau").chosen({
         width: "100%"
     });
-   
+
+    @*$("#bsearch").on('click', function () {
+        var search = $('#txtsearch').val();
+        var IDNhaThau = $('#IDNhaThau').val();
+        window.location.href = '@Url.Action("Index", "ConStaffStatistics")?IDNhaThau=' + IDNhaThau+'&search=' + search;
+    });*@
+
+    $("#txtsearch").keyup(function (event) {
+         if (event.keyCode == 13) {
+             $("#btn-search").click();
+         }
+    });
+
 </script>
 
-
+<style>
+    .chosen-container-single .chosen-single {
+        color: #495057;
+        background: #fff;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.8;
+    }
+</style>

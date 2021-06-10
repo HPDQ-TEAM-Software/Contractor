@@ -61,7 +61,7 @@ namespace QLNHATHAU.Controllers
             if (page == null) page = 1;
             int pageSize = 50;
             int pageNumber = (page ?? 1);
-            return View(GetlistConStaffStatistics(IDNhaThau,HDID).ToPagedList(pageNumber, pageSize));
+            return View(GetlistConStaffStatistics(IDNhaThau,HDID,search).ToPagedList(pageNumber, pageSize));
 
         }
         public JsonResult GetHopDong(int NhaThauID)
@@ -70,33 +70,16 @@ namespace QLNHATHAU.Controllers
             List<HopDong> HopdongList = db_context.HopDongs.Where(x => x.NhaThauID == NhaThauID).ToList();
             return Json(HopdongList, JsonRequestBehavior.AllowGet);
         }
-        List<ContractorStaffValidation> GetlistConStaffStatistics(int? IDNhaThau, int? HDID)
+        List<ContractorStaffValidation> GetlistConStaffStatistics(int? IDNhaThau, int? HDID ,string search)
         {
             if (IDNhaThau == null) IDNhaThau = 0;
             if (HDID == null) HDID = 0;
 
-            if(IDNhaThau!=0 && HDID!=0)
+            if (search == "")
             {
-                var model = (from kq in db_context.KeQuaHocs.Where(x=>x.NhaThauID==IDNhaThau && x.HDID==HDID )
-                             join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
-                             join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
-                             join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
-                             select new ContractorStaffValidation()
-                             {
-                                 IDNVNT = nv.IDNhanVienNT,
-                                 MaNV = nv.MaNV,
-                                 HovaTen = nv.HoTen,
-                                 CMND = nv.SCMND,
-                                 IDHD = hd.IDHD,
-                                 TenHD = hd.TenHD,
-                                 IDNhaThau = nt.IDNhaThau,
-                                 TenNhaThau = nt.Ten
-                             }).OrderBy(x => x.MaNV);
-                return model.ToList();
-            }    
-            else if (IDNhaThau == 0 && HDID!=0)
-            {
-                    var model = (from kq in db_context.KeQuaHocs.Where(x=>x.HDID==HDID)
+                if (IDNhaThau != 0 && HDID != 0)
+                {
+                    var model = (from kq in db_context.KeQuaHocs.Where(x => x.NhaThauID == IDNhaThau && x.HDID == HDID)
                                  join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
                                  join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
                                  join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
@@ -112,49 +95,167 @@ namespace QLNHATHAU.Controllers
                                      TenNhaThau = nt.Ten
                                  }).OrderBy(x => x.MaNV);
                     return model.ToList();
-             }
-            else if(IDNhaThau != 0 && HDID == 0)
-            {
-                var model = (from kq in db_context.KeQuaHocs.Where(x => x.NhaThauID == IDNhaThau)
-                             join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
-                             join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
-                             join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
-                             select new ContractorStaffValidation()
-                             {
-                                 IDNVNT = nv.IDNhanVienNT,
-                                 MaNV = nv.MaNV,
-                                 HovaTen = nv.HoTen,
-                                 CMND = nv.SCMND,
-                                 IDHD = hd.IDHD,
-                                 TenHD = hd.TenHD,
-                                 IDNhaThau = nt.IDNhaThau,
-                                 TenNhaThau = nt.Ten
-                             }).OrderBy(x => x.MaNV);
-                return model.ToList();
+                }
+                else if (IDNhaThau == 0 && HDID != 0)
+                {
+                    var model = (from kq in db_context.KeQuaHocs.Where(x => x.HDID == HDID)
+                                 join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
+                                 join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
+                                 join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
+                                 select new ContractorStaffValidation()
+                                 {
+                                     IDNVNT = nv.IDNhanVienNT,
+                                     MaNV = nv.MaNV,
+                                     HovaTen = nv.HoTen,
+                                     CMND = nv.SCMND,
+                                     IDHD = hd.IDHD,
+                                     TenHD = hd.TenHD,
+                                     IDNhaThau = nt.IDNhaThau,
+                                     TenNhaThau = nt.Ten
+                                 }).OrderBy(x => x.MaNV);
+                    return model.ToList();
+                }
+                else if (IDNhaThau != 0 && HDID == 0)
+                {
+                    var model = (from kq in db_context.KeQuaHocs.Where(x => x.NhaThauID == IDNhaThau)
+                                 join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
+                                 join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
+                                 join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
+                                 select new ContractorStaffValidation()
+                                 {
+                                     IDNVNT = nv.IDNhanVienNT,
+                                     MaNV = nv.MaNV,
+                                     HovaTen = nv.HoTen,
+                                     CMND = nv.SCMND,
+                                     IDHD = hd.IDHD,
+                                     TenHD = hd.TenHD,
+                                     IDNhaThau = nt.IDNhaThau,
+                                     TenNhaThau = nt.Ten
+                                 }).OrderBy(x => x.MaNV);
+                    return model.ToList();
 
+                }
+                else
+                {
+                    var model = (from kq in db_context.KeQuaHocs
+                                 join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
+                                 join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
+                                 join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
+                                 select new ContractorStaffValidation()
+                                 {
+                                     IDNVNT = nv.IDNhanVienNT,
+                                     MaNV = nv.MaNV,
+                                     HovaTen = nv.HoTen,
+                                     CMND = nv.SCMND,
+                                     IDHD = hd.IDHD,
+                                     TenHD = hd.TenHD,
+                                     IDNhaThau = nt.IDNhaThau,
+                                     TenNhaThau = nt.Ten
+                                 }).OrderBy(x => x.MaNV);
+                    return model.ToList();
+                }
             }
             else
             {
-                var model = (from kq in db_context.KeQuaHocs
-                             join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
-                             join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
-                             join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
-                             select new ContractorStaffValidation()
-                             {
-                                 IDNVNT = nv.IDNhanVienNT,
-                                 MaNV = nv.MaNV,
-                                 HovaTen = nv.HoTen,
-                                 CMND = nv.SCMND,
-                                 IDHD = hd.IDHD,
-                                 TenHD = hd.TenHD,
-                                 IDNhaThau = nt.IDNhaThau,
-                                 TenNhaThau = nt.Ten
-                             }).OrderBy(x => x.MaNV);
-                return model.ToList();
+                if (IDNhaThau != 0 && HDID != 0)
+                {
+                    var model = (from kq in db_context.KeQuaHocs.Where(x => x.NhaThauID == IDNhaThau && x.HDID == HDID && (x.NhanVienNT.HoTen.Contains(search)))
+                                 join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
+                                 join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
+                                 join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
+                                 select new ContractorStaffValidation()
+                                 {
+                                     IDNVNT = nv.IDNhanVienNT,
+                                     MaNV = nv.MaNV,
+                                     HovaTen = nv.HoTen,
+                                     CMND = nv.SCMND,
+                                     IDHD = hd.IDHD,
+                                     TenHD = hd.TenHD,
+                                     IDNhaThau = nt.IDNhaThau,
+                                     TenNhaThau = nt.Ten
+                                 }).OrderBy(x => x.MaNV);
+                    return model.ToList();
+                }
+                else if (IDNhaThau == 0 && HDID != 0)
+                {
+                    var model = (from kq in db_context.KeQuaHocs.Where(x => x.HDID == HDID && (x.NhanVienNT.HoTen.Contains(search)))
+                                 join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
+                                 join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
+                                 join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
+                                 select new ContractorStaffValidation()
+                                 {
+                                     IDNVNT = nv.IDNhanVienNT,
+                                     MaNV = nv.MaNV,
+                                     HovaTen = nv.HoTen,
+                                     CMND = nv.SCMND,
+                                     IDHD = hd.IDHD,
+                                     TenHD = hd.TenHD,
+                                     IDNhaThau = nt.IDNhaThau,
+                                     TenNhaThau = nt.Ten
+                                 }).OrderBy(x => x.MaNV);
+                    return model.ToList();
+                }
+                else if (IDNhaThau != 0 && HDID == 0)
+                {
+                    var model = (from kq in db_context.KeQuaHocs.Where(x => x.NhaThauID == IDNhaThau && (x.NhanVienNT.HoTen.Contains(search)))
+                                 join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
+                                 join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
+                                 join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
+                                 select new ContractorStaffValidation()
+                                 {
+                                     IDNVNT = nv.IDNhanVienNT,
+                                     MaNV = nv.MaNV,
+                                     HovaTen = nv.HoTen,
+                                     CMND = nv.SCMND,
+                                     IDHD = hd.IDHD,
+                                     TenHD = hd.TenHD,
+                                     IDNhaThau = nt.IDNhaThau,
+                                     TenNhaThau = nt.Ten
+                                 }).OrderBy(x => x.MaNV);
+                    return model.ToList();
+
+                }
+                else
+                {
+                    var model = (from kq in db_context.KeQuaHocs.Where(x=> x.NhanVienNT.HoTen.Contains(search))
+                                 join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
+                                 join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
+                                 join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
+                                 select new ContractorStaffValidation()
+                                 {
+                                     IDNVNT = nv.IDNhanVienNT,
+                                     MaNV = nv.MaNV,
+                                     HovaTen = nv.HoTen,
+                                     CMND = nv.SCMND,
+                                     IDHD = hd.IDHD,
+                                     TenHD = hd.TenHD,
+                                     IDNhaThau = nt.IDNhaThau,
+                                     TenNhaThau = nt.Ten
+                                 }).OrderBy(x => x.MaNV);
+                    return model.ToList();
+                }
             }
         }
+        public JsonResult GetNhanvien(string search)
+        {
+            var result = (from kq in db_context.KeQuaHocs.Where(x => x.NhanVienNT.MaNV.Contains(search) || x.NhanVienNT.HoTen.Contains(search))
+                          join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
+                          join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
+                          join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
+                          select new ContractorStaffValidation()
+                          {
+                              IDNVNT = nv.IDNhanVienNT,
+                              MaNV = nv.MaNV,
+                              HovaTen = nv.HoTen,
+                              CMND = nv.SCMND,
+                              IDHD = hd.IDHD,
+                              TenHD = hd.TenHD,
+                              IDNhaThau = nt.IDNhaThau,
+                              TenNhaThau = nt.Ten
+                          }).Take(30).ToList();
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
 
-        
 
 
 
