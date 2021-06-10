@@ -57,7 +57,7 @@ namespace QLNHATHAU.Controllers
             ViewBag.NTList = new SelectList(nt, "IDNhaThau", "Ten", IDNhaThau);
             List<HopDong> hd = db_context.HopDongs.Where(x=>x.NhaThauID==IDNhaThau).ToList();
             ViewBag.HDList = new SelectList(hd, "IDHD", "TenHD",HDID);
-
+            ViewBag.search = search;
             if (page == null) page = 1;
             int pageSize = 50;
             int pageNumber = (page ?? 1);
