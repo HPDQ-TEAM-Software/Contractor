@@ -159,7 +159,7 @@ namespace QLNHATHAU.Controllers
             {
                 if (IDNhaThau != 0 && HDID != 0)
                 {
-                    var model = (from kq in db_context.KeQuaHocs.Where(x => x.NhaThauID == IDNhaThau && x.HDID == HDID && (x.NhanVienNT.HoTen.Contains(search)))
+                    var model = (from kq in db_context.KeQuaHocs.Where(x => x.NhaThauID == IDNhaThau && x.HDID == HDID && (x.NhanVienNT.MaNV.Contains(search) || x.NhanVienNT.HoTen.Contains(search)))
                                  join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
                                  join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
                                  join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
@@ -178,7 +178,7 @@ namespace QLNHATHAU.Controllers
                 }
                 else if (IDNhaThau == 0 && HDID != 0)
                 {
-                    var model = (from kq in db_context.KeQuaHocs.Where(x => x.HDID == HDID && (x.NhanVienNT.HoTen.Contains(search)))
+                    var model = (from kq in db_context.KeQuaHocs.Where(x => x.HDID == HDID && (x.NhanVienNT.MaNV.Contains(search) || x.NhanVienNT.HoTen.Contains(search)))
                                  join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
                                  join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
                                  join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
@@ -197,7 +197,7 @@ namespace QLNHATHAU.Controllers
                 }
                 else if (IDNhaThau != 0 && HDID == 0)
                 {
-                    var model = (from kq in db_context.KeQuaHocs.Where(x => x.NhaThauID == IDNhaThau && (x.NhanVienNT.HoTen.Contains(search)))
+                    var model = (from kq in db_context.KeQuaHocs.Where(x => x.NhaThauID == IDNhaThau && (x.NhanVienNT.MaNV.Contains(search) || x.NhanVienNT.HoTen.Contains(search)))
                                  join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
                                  join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
                                  join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
@@ -217,7 +217,7 @@ namespace QLNHATHAU.Controllers
                 }
                 else
                 {
-                    var model = (from kq in db_context.KeQuaHocs.Where(x=> x.NhanVienNT.HoTen.Contains(search))
+                    var model = (from kq in db_context.KeQuaHocs.Where(x=> x.NhanVienNT.MaNV.Contains(search) || x.NhanVienNT.HoTen.Contains(search))
                                  join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
                                  join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
                                  join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
