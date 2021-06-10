@@ -121,10 +121,11 @@
     $("#btn-search").on('click', function () {
         console.log($('#IDNhaThau').val());
         console.log($('#IDHD').val());
-        window.location.href = '@Url.Action("Index", "ConStaffStatistics")?IDNhaThau=' + $('#IDNhaThau').val() + '&HDID=' + $('#IDHD').val();
+        @*window.location.href = '@Url.Action("Index", "ConStaffStatistics")?IDNhaThau=' + $('#IDNhaThau').val() + '&HDID=' + $('#IDHD').val();*@
         var search = $('#txtsearch').val();
         var IDNhaThau = $('#IDNhaThau').val();
-        window.location.href = '@Url.Action("Index", "ConStaffStatistics")?IDNhaThau=' + IDNhaThau+'&search=' + search;
+        var IDHD = $('#IDHD').val();
+        window.location.href = '@Url.Action("Index", "ConStaffStatistics")?IDNhaThau=' + IDNhaThau + '&HDID=' + IDHD +'&search=' + search;
     });
 
     @*function ChangeNhaThau(obj) {
