@@ -1192,13 +1192,13 @@
     <Content Include="Views\DangKy\Edit.cshtml" />
     <Content Include="Views\DangKy\ImportExcel.cshtml" />
     <Content Include="Views\DangKy\Index.cshtml" />
-<<<<<<< HEAD
+
     <Content Include="Views\ReportAbuse\Edit.cshtml" />
-=======
+
     <Content Include="Views\ConStaffStatistics\Index.cshtml" />
     <Content Include="Views\ContractorStatistics\Index.cshtml" />
     <Content Include="Views\ContractStatistics\Index.cshtml" />
->>>>>>> 4114eb40f1cbd68c0846b1161b3085e1e53161c6
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
