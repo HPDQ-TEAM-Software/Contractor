@@ -1193,6 +1193,7 @@
     <Content Include="Views\DangKy\Edit.cshtml" />
     <Content Include="Views\DangKy\ImportExcel.cshtml" />
     <Content Include="Views\DangKy\Index.cshtml" />
+    <Content Include="Views\ReportAbuse\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

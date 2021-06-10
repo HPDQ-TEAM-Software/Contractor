@@ -3,15 +3,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link href="~/Content/assets/css/pe-icon-7-filled.css" rel="stylesheet" />
 
-
-<div class="row">
+<div class="overview row">
     <div class="col-lg-3 col-md-6">
         <div class="card">
-            <div class="card-header text-light">
+            <div class="card-header text-light bg-arielle-smile">
                 <div class="stat-widget-five">
-                    <div class="stat-icon dib flat-color-1">
-                        <i class="pe-7f-cash"></i>
+                    <div class="stat-icon dib white-color">
+                        <i class="pe-7f-users"></i>
                     </div>
                     <div class="stat-content">
                         <div class="text-left dib text-light">
@@ -25,10 +25,10 @@
     </div>
     <div class="col-lg-3 col-md-6">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-midnight-bloom">
                 <div class="stat-widget-five">
-                    <div class="stat-icon dib flat-color-2">
-                        <i class="pe-7f-cart"></i>
+                    <div class="stat-icon dib white-color">
+                        <i class="pe-7f-portfolio"></i>
                     </div>
                     <div class="stat-content">
                         <div class="text-left dib">
@@ -42,10 +42,10 @@
     </div>
     <div class="col-lg-3 col-md-6">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-grow-early">
                 <div class="stat-widget-five">
-                    <div class="stat-icon dib flat-color-3">
-                        <i class="pe-7f-browser"></i>
+                    <div class="stat-icon dib white-color">
+                        <i class="pe-7f-config"></i>
                     </div>
                     <div class="stat-content">
                         <div class="text-left dib">
@@ -59,10 +59,10 @@
     </div>
     <div class="col-lg-3 col-md-6">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-midnight-bloom">
                 <div class="stat-widget-five">
-                    <div class="stat-icon dib flat-color-4">
-                        <i class="pe-7f-users"></i>
+                    <div class="stat-icon dib white-color">
+                        <i class="pe-7f-home"></i>
                     </div>
                     <div class="stat-content">
                         <div class="text-left dib">
@@ -75,188 +75,154 @@
         </div>
     </div>
 </div>
-
-
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="box-title">Traffic </h4>
-            </div>
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="card-body">
-
-                        <div id="traffic-chart" class="traffic-chart"><svg width="100%" height="100%" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-grids"><line y1="300" y2="300" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="264.375" y2="264.375" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="228.75" y2="228.75" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="193.125" y2="193.125" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="157.5" y2="157.5" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="121.875" y2="121.875" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="86.25" y2="86.25" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="50.625" y2="50.625" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line><line y1="15" y2="15" x1="50" x2="981.984375" class="ct-grid ct-vertical"></line></g><g><g class="ct-series ct-series-a"><path d="M50,300L50,157.5C84.518,162.25,119.036,171.75,153.554,171.75C188.072,171.75,222.59,50.625,257.108,50.625C291.626,50.625,326.144,171.75,360.661,171.75C395.179,171.75,429.697,126.031,464.215,121.875C498.733,117.719,533.251,114.75,567.769,114.75C602.287,114.75,636.805,136.917,671.323,143.25C705.841,149.583,740.359,152.75,774.877,157.5C809.395,162.25,843.913,171.75,878.431,171.75C912.948,171.75,947.466,91,981.984,50.625L981.984,300Z" class="ct-area"></path></g><g class="ct-series ct-series-b"><path d="M50,300L50,193.125C84.518,174.125,119.036,136.125,153.554,136.125C188.072,136.125,222.59,193.125,257.108,193.125C291.626,193.125,326.144,86.25,360.661,86.25C395.179,86.25,429.697,157.5,464.215,157.5C498.733,157.5,533.251,79.125,567.769,79.125C602.287,79.125,636.805,193.125,671.323,193.125C705.841,193.125,740.359,193.125,774.877,193.125C809.395,193.125,843.913,136.125,878.431,136.125C912.948,136.125,947.466,174.125,981.984,193.125L981.984,300Z" class="ct-area"></path></g><g class="ct-series ct-series-c"><path d="M50,300L50,121.875C84.518,145.625,119.036,193.125,153.554,193.125C188.072,193.125,222.59,29.25,257.108,29.25C291.626,29.25,326.144,91.207,360.661,118.313C395.179,145.418,429.697,193.125,464.215,193.125C498.733,193.125,533.251,157.5,567.769,139.688C602.287,121.875,636.805,86.25,671.323,86.25C705.841,86.25,740.359,106.042,774.877,121.875C809.395,137.708,843.913,193.125,878.431,193.125C912.948,193.125,947.466,83.875,981.984,29.25L981.984,300Z" class="ct-area"></path></g></g><g class="ct-labels"><foreignObject style="overflow: visible;" x="50" y="305" width="103.55381944444444" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Sun</span></foreignObject><foreignObject style="overflow: visible;" x="153.55381944444446" y="305" width="103.55381944444444" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Mon</span></foreignObject><foreignObject style="overflow: visible;" x="257.1076388888889" y="305" width="103.55381944444443" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Tue</span></foreignObject><foreignObject style="overflow: visible;" x="360.6614583333333" y="305" width="103.55381944444446" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Wed</span></foreignObject><foreignObject style="overflow: visible;" x="464.21527777777777" y="305" width="103.5538194444444" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Thu</span></foreignObject><foreignObject style="overflow: visible;" x="567.7690972222222" y="305" width="103.55381944444446" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Fri</span></foreignObject><foreignObject style="overflow: visible;" x="671.3229166666666" y="305" width="103.55381944444446" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Sat</span></foreignObject><foreignObject style="overflow: visible;" x="774.8767361111111" y="305" width="103.55381944444446" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Sun</span></foreignObject><foreignObject style="overflow: visible;" x="878.4305555555555" y="305" width="103.55381944444446" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 104px; height: 20px;">Mon</span></foreignObject><foreignObject style="overflow: visible;" x="981.984375" y="305" width="30" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 30px; height: 20px;">Tue</span></foreignObject><foreignObject style="overflow: visible;" y="264.375" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">0</span></foreignObject><foreignObject style="overflow: visible;" y="228.75" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">5000</span></foreignObject><foreignObject style="overflow: visible;" y="193.125" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">10000</span></foreignObject><foreignObject style="overflow: visible;" y="157.5" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">15000</span></foreignObject><foreignObject style="overflow: visible;" y="121.875" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">20000</span></foreignObject><foreignObject style="overflow: visible;" y="86.25" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">25000</span></foreignObject><foreignObject style="overflow: visible;" y="50.625" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">30000</span></foreignObject><foreignObject style="overflow: visible;" y="15" x="10" height="35.625" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 36px; width: 30px;">35000</span></foreignObject><foreignObject style="overflow: visible;" y="-15" x="10" height="30" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 30px; width: 30px;">40000</span></foreignObject></g></svg></div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card-body">
-                        <div class="progress-box progress-1">
-                            <h4 class="por-title">Visits</h4>
-                            <div class="por-txt">96,930 Users (40%)</div>
-                            <div class="progress mb-2">
-                                <div class="progress-bar bg-flat-color-1" role="progressbar" style="width: 40%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="progress-box progress-2">
-                            <h4 class="por-title">Bounce Rate</h4>
-                            <div class="por-txt">3,220 Users (24%)</div>
-                            <div class="progress mb-2">
-                                <div class="progress-bar bg-flat-color-2" role="progressbar" style="width: 24%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="progress-box progress-2">
-                            <h4 class="por-title">Unique Visitors</h4>
-                            <div class="por-txt">29,658 Users (60%)</div>
-                            <div class="progress mb-2">
-                                <div class="progress-bar bg-flat-color-3" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="progress-box progress-2">
-                            <h4 class="por-title">Targeted Visitors</h4>
-                            <div class="por-txt">99,658 Users (90%)</div>
-                            <div class="progress mb-2">
-                                <div class="progress-bar bg-flat-color-4" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="clearfix"></div>
-<div class="orders">
+
+
+<div class="chart">
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
-                <div class="card-body">
-                    <h4 class="box-title">Hạng mục thi công</h4>
+                <div class="card-header">
+                    <h4 class="box-title">Hạng mục đang triển khai</h4>
                 </div>
-                <div class="card-body--">
-                    <div class="table-stats order-table ov-h">
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th class="serial">STT</th>
-                                    <th>Mã Hạng Mục</th>
-                                    <th>Tên Hạng Mục</th>
-                                    <th>Nhà Thầu</th>
-                                    <th>BP/NM Đầu Mối</th>
-                                    <th>SL Nhân Viên</th>
-                                    <th>Trạng Thái</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="serial">1.</td>
-
-                                    <td> 5469 </td>
-                                    <td> <span class="name">Louis Stanley</span> </td>
-                                    <td> <span class="product">iMax</span> </td>
-                                    <td> <span class="name">B.CNTT</span> </td>
-                                    <td><span class="count">231</span></td>
-                                    <td>
-                                        <span class="badge badge-complete">đang triển khai</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="serial">2.</td>
-
-                                    <td> 5468 </td>
-                                    <td> <span class="name">Gregory Dixon</span> </td>
-                                    <td> <span class="product">iPad</span> </td>
-                                    <td> <span class="name">B.CNTT</span> </td>
-                                    <td><span class="count">250</span></td>
-                                    <td>
-                                        <span class="badge badge-complete">đang triển khai</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="serial">3.</td>
-
-                                    <td> 5467 </td>
-                                    <td> <span class="name">Catherine Dixon</span> </td>
-                                    <td> <span class="product">SSD</span> </td>
-                                    <td> <span class="name">B.CNTT</span> </td>
-                                    <td><span class="count">250</span></td>
-                                    <td>
-                                        <span class="badge badge-complete">đang triển khai</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="serial">4.</td>
-
-                                    <td> 5466 </td>
-                                    <td> <span class="name">Mary Silva</span> </td>
-                                    <td> <span class="product">Magic Mouse</span> </td>
-                                    <td> <span class="name">B.CNTT</span> </td>
-                                    <td><span class="count">250</span></td>
-                                    <td>
-                                        <span class="badge badge-pending">Trong quá trình</span>
-                                    </td>
-                                </tr>
-                                <tr class=" pb-0">
-                                    <td class="serial">5.</td>
-
-                                    <td> 5465 </td>
-                                    <td> <span class="name">Johnny Stephens</span> </td>
-                                    <td> <span class="product">Monitor</span> </td>
-                                    <td> <span class="name">B.CNTT</span> </td>
-                                    <td><span class="count">250</span></td>
-                                    <td>
-                                        <span class="badge badge-complete">đang triển khai</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-
+                <div class="card-body">
+                    <canvas id="myChart" width="400" height="100"></canvas>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
-<canvas id="myChart" width="400" height="100"></canvas>
-<script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-</script>
+        <div class="clearfix"></div>
+        <div class="orders">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="box-title">Hạng mục thi công</h4>
+                        </div>
+                        <div class="card-body--">
+                            <div class="table-responsive order-table">
+                                <table class="table table-bordered table-hover" id="table" width="100%" cellpadding="0">
+                                    <thead>
+                                        <tr>
+                                            <th class="serial">STT</th>
+                                            <th>Mã Hạng Mục</th>
+                                            <th>Tên Hạng Mục</th>
+                                            <th>Nhà Thầu</th>
+                                            <th>BP/NM Đầu Mối</th>
+                                            <th>SL Nhân Viên</th>
+                                            <th>Trạng Thái</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="serial">1.</td>
+
+                                            <td> 5469 </td>
+                                            <td> <span class="name">Louis Stanley</span> </td>
+                                            <td> <span class="product">iMax</span> </td>
+                                            <td> <span class="name">B.CNTT</span> </td>
+                                            <td><span class="count">231</span></td>
+                                            <td>
+                                                <span class="badge badge-complete">đang triển khai</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="serial">2.</td>
+
+                                            <td> 5468 </td>
+                                            <td> <span class="name">Gregory Dixon</span> </td>
+                                            <td> <span class="product">iPad</span> </td>
+                                            <td> <span class="name">B.CNTT</span> </td>
+                                            <td><span class="count">250</span></td>
+                                            <td>
+                                                <span class="badge badge-complete">đang triển khai</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="serial">3.</td>
+
+                                            <td> 5467 </td>
+                                            <td> <span class="name">Catherine Dixon</span> </td>
+                                            <td> <span class="product">SSD</span> </td>
+                                            <td> <span class="name">B.CNTT</span> </td>
+                                            <td><span class="count">250</span></td>
+                                            <td>
+                                                <span class="badge badge-complete">đang triển khai</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="serial">4.</td>
+
+                                            <td> 5466 </td>
+                                            <td> <span class="name">Mary Silva</span> </td>
+                                            <td> <span class="product">Magic Mouse</span> </td>
+                                            <td> <span class="name">B.CNTT</span> </td>
+                                            <td><span class="count">250</span></td>
+                                            <td>
+                                                <span class="badge badge-pending">Trong quá trình</span>
+                                            </td>
+                                        </tr>
+                                        <tr class=" pb-0">
+                                            <td class="serial">5.</td>
+
+                                            <td> 5465 </td>
+                                            <td> <span class="name">Johnny Stephens</span> </td>
+                                            <td> <span class="product">Monitor</span> </td>
+                                            <td> <span class="name">B.CNTT</span> </td>
+                                            <td><span class="count">250</span></td>
+                                            <td>
+                                                <span class="badge badge-complete">đang triển khai</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['NM Luyện gang', 'NM Luyện thép', 'NM Luyện cốc', 'BP Cảng', 'NM Chế tạo cơ khí', 'NM Cán thép dài', 'NM Cán thép SQP', 'NM Vôi - Xi măng', 'NM Thiêu kết - Vê viên', 'B.CNTT', 'NM Nguyên liệu'],
+                    datasets: [{
+                        label: 'Nhà máy, Bộ phận',
+                        data: [13, 19, 115, 115, 120, 300, 19, 115, 115, 120, 300],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>

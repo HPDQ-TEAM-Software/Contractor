@@ -10,10 +10,14 @@ namespace QLNHATHAU.Models
     {
         public int UserId { get; set; }
 
-        [Required(ErrorMessage = "Required.")]
+        [Required(ErrorMessage = "Nhập tài khoản")]
+        [RegularExpression(@"[A-Za-z0-9]*$", ErrorMessage = "Tài khoản chứa kí tự đặc biệt")]
+        [MaxLength(30, ErrorMessage = "Vượt quá số kí tự 30")]
         public string Username { get; set; }
 
-        [Required(ErrorMessage = "Required.")]
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Nhập mật khẩu")]
+        [MaxLength(50, ErrorMessage = "Vượt quá số kí tự 50")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Required.")]
