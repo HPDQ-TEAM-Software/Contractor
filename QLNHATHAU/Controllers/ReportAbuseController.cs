@@ -32,7 +32,7 @@ namespace QLNHATHAU.Controllers
                                 TenNVNT = d.HoTen,
                                 NoiDungVP = a.NoiDungVP,
                                 NgayVP = (DateTime)a.NgayVP,
-                                MucVP = a.MucVP,
+                                MucVP = (int)a.MucVP,
                                 TSVP = (int)a.TSVP
                             }).ToList();
 
@@ -102,7 +102,7 @@ namespace QLNHATHAU.Controllers
                            HopDongID = (int)v.HopDongID,
                            NoiDungVP = v.NoiDungVP,
                            NgayVP = (DateTime)v.NgayVP,
-                           MucVP = v.MucVP,
+                           MucVP = (int)v.MucVP,
                            TSVP = (int)v.TSVP
                        }).ToList();
             ReportAbuseValidation DO = new ReportAbuseValidation();

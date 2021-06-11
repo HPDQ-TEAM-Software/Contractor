@@ -166,6 +166,7 @@
     <Compile Include="Controllers\QuyenController.cs" />
     <Compile Include="Controllers\ReportAbuseController.cs" />
     <Compile Include="Controllers\ResultsLearnSafeController.cs" />
+    <Compile Include="Controllers\WarningNoticeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -344,6 +345,12 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PheDuyet_SearchByID_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PheDuyet_SelectAll_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PheDuyet_select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhongBan.cs">
@@ -1192,13 +1199,11 @@
     <Content Include="Views\DangKy\Edit.cshtml" />
     <Content Include="Views\DangKy\ImportExcel.cshtml" />
     <Content Include="Views\DangKy\Index.cshtml" />
-
     <Content Include="Views\ReportAbuse\Edit.cshtml" />
-
     <Content Include="Views\ConStaffStatistics\Index.cshtml" />
     <Content Include="Views\ContractorStatistics\Index.cshtml" />
     <Content Include="Views\ContractStatistics\Index.cshtml" />
-
+    <Content Include="Views\WarningNotice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

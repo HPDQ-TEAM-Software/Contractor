@@ -165,10 +165,10 @@
     <Property Name="GioiTinh" Type="Int32" />
     <Property Name="QuocTich" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NTID" Type="Int32" />
     <NavigationProperty Name="CardNhanViens" Relationship="Self.FK_CardNhanVien_NhanVienNT" FromRole="NhanVienNT" ToRole="CardNhanVien" />
     <NavigationProperty Name="KeQuaHocs" Relationship="Self.FK_KeQuaHoc_NhanVienNT" FromRole="NhanVienNT" ToRole="KeQuaHoc" />
     <NavigationProperty Name="ViPhams" Relationship="Self.FK_ViPham_NhanVienNT" FromRole="NhanVienNT" ToRole="ViPham" />
-    <Property Name="NTID" Type="Int32" />
   </EntityType>
   <EntityType Name="NhaThau">
     <Key>
@@ -220,11 +220,11 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NguoiDungID" Type="Int32" />
     <Property Name="LoaiHSID" Type="Int32" />
+    <Property Name="NhaThauID" Type="Int32" />
     <Property Name="HoSoID" Type="Int32" />
+    <Property Name="Ngay" Type="DateTime" Precision="3" />
     <Property Name="TinhTrang" Type="Boolean" />
     <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NhaThauID" Type="Int32" />
-    <Property Name="Ngay" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="PhongBan">
     <Key>
@@ -292,7 +292,7 @@
     <Property Name="HopDongID" Type="Int32" />
     <Property Name="NoiDungVP" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="NgayVP" Type="DateTime" Precision="0" />
-    <Property Name="MucVP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MucVP" Type="Int32" />
     <Property Name="TSVP" Type="Int32" />
     <NavigationProperty Name="HopDong" Relationship="Self.FK_ViPham_HopDong" FromRole="ViPham" ToRole="HopDong" />
     <NavigationProperty Name="NhanVienNT" Relationship="Self.FK_ViPham_NhanVienNT" FromRole="ViPham" ToRole="NhanVienNT" />
@@ -964,6 +964,9 @@
       <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
       <Parameter Name="QuyenID" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="PheDuyet_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="PheDuyet_Insert">
       <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
       <Parameter Name="LoaiHSID" Mode="In" Type="Int32" />
@@ -974,10 +977,14 @@
     <FunctionImport Name="PheDuyet_SearchByID" ReturnType="Collection(QLNhaThauModel.PheDuyet_SearchByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="PheDuyet_select" ReturnType="Collection(QLNhaThauModel.PheDuyet_select_Result)">
+      <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PheDuyet_SelectAll" ReturnType="Collection(QLNhaThauModel.PheDuyet_SelectAll_Result)">
+      <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="PheDuyet_Updata">
       <Parameter Name="ID" Mode="In" Type="Int32" />
-      <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
-      <Parameter Name="LoaiHSID" Mode="In" Type="Int32" />
       <Parameter Name="TinhTrang" Mode="In" Type="Boolean" />
       <Parameter Name="GhiChu" Mode="In" Type="String" />
     </FunctionImport>
@@ -1069,7 +1076,7 @@
       <Parameter Name="HopDongID" Mode="In" Type="Int32" />
       <Parameter Name="NoiDungVP" Mode="In" Type="String" />
       <Parameter Name="NgayVP" Mode="In" Type="DateTime" />
-      <Parameter Name="MucVP" Mode="In" Type="String" />
+      <Parameter Name="MucVP" Mode="In" Type="Int32" />
       <Parameter Name="TSVP" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="ViPham_searchByID" ReturnType="Collection(QLNhaThauModel.ViPham_searchByID_Result)">
@@ -1083,7 +1090,7 @@
       <Parameter Name="HopDongID" Mode="In" Type="Int32" />
       <Parameter Name="NoiDungVP" Mode="In" Type="String" />
       <Parameter Name="NgayVP" Mode="In" Type="DateTime" />
-      <Parameter Name="MucVP" Mode="In" Type="String" />
+      <Parameter Name="MucVP" Mode="In" Type="Int32" />
       <Parameter Name="TSVP" Mode="In" Type="Int32" />
     </FunctionImport>
   </EntityContainer>
@@ -1361,7 +1368,19 @@
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="Int32" Name="NguoiDungID" Nullable="true" />
     <Property Type="Int32" Name="LoaiHSID" Nullable="true" />
+    <Property Type="Int32" Name="HoSoID" Nullable="true" />
     <Property Type="Boolean" Name="TinhTrang" Nullable="true" />
+    <Property Type="String" Name="GhiChu" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PheDuyet_select_Result">
+    <Property Type="String" Name="TenHD" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Ten" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="PheDuyet_SelectAll_Result">
+    <Property Type="String" Name="TenHD" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Ten" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="GhiChu" Nullable="true" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="PhongBan_ISPCHN_Result">
@@ -1424,7 +1443,7 @@
     <Property Type="Int32" Name="HopDongID" Nullable="true" />
     <Property Type="String" Name="NoiDungVP" Nullable="true" MaxLength="500" />
     <Property Type="DateTime" Name="NgayVP" Nullable="true" Precision="16" />
-    <Property Type="String" Name="MucVP" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MucVP" Nullable="true" />
     <Property Type="Int32" Name="TSVP" Nullable="true" />
   </ComplexType>
   <ComplexType Name="ViPham_select_Result">
@@ -1434,7 +1453,7 @@
     <Property Type="Int32" Name="HopDongID" Nullable="true" />
     <Property Type="String" Name="NoiDungVP" Nullable="true" MaxLength="500" />
     <Property Type="DateTime" Name="NgayVP" Nullable="true" Precision="16" />
-    <Property Type="String" Name="MucVP" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MucVP" Nullable="true" />
     <Property Type="Int32" Name="TSVP" Nullable="true" />
   </ComplexType>
 </Schema>

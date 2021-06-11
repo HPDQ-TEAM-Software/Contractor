@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using QLNHATHAU.Models;
+@model PagedList.IPagedList<ReportAbuseValidation>
+@using PagedList.Mvc;
+
+@if (TempData["msgSuccess"] != null)
+{
+    @Html.Raw(TempData["msgSuccess"])
+}
+@if (TempData["msgError"] != null)
+{
+    @Html.Raw(TempData["msgError"])
+}
+<link href="~/Content/assets/css/PagedList.css" rel="stylesheet" />
+
+<div class="card mb-4">
+    <div class="card-header">
+        <label class="pull-left">Thông báo Cảnh báo Vi phạm </label>
+        
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="table" width="100%" cellpadding="0">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Nhân Viên</th>
+                        <th>Nhà Thầu</th>
+                        <th>Hạng Mục</th>
+                        <th class="text-center">Tổng số VP</th>
+                        <th class="text-center">Cảnh báo cắt thẻ</th>
+
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.TenNVNT </td>
+                            <td>@item.TenNT</td>
+                            <td>@item.TenHD</td>
+                            <td class="text-center">@item.TSVP</td>
+                            <td class="text-center"></td>
+                            
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="pager">
+                @Html.PagedListPager(Model, page => Url.Action("Index", "WarningNotice", new { page }))
+                <span class="pageoff">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</span>
+            </div>
+        </div>
+    </div>
+</div>
+

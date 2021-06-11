@@ -26,9 +26,9 @@
                         <a href="@Url.Action("Index","Home")"><i class="menu-icon fa fa-laptop"></i><span>Tổng quan</span> </a>
                     </li>
                     @*<li class="">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i><span>Charts</span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i><span>Charts</span></a>
 
-                        </li>*@
+        </li>*@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cog"></i><span>Quản trị</span></a>
                         <ul class="sub-menu children dropdown-menu">
@@ -56,13 +56,13 @@
 
 
                     @*<li class="">
-                            <a href="@Url.Action("Index","Contract")"> <i class="menu-icon fa fa-file-text-o"></i><span>QL Hợp Đồng</span></a>
+            <a href="@Url.Action("Index","Contract")"> <i class="menu-icon fa fa-file-text-o"></i><span>QL Hợp Đồng</span></a>
 
-                        </li>
-                        <li class="">
-                            <a href="@Url.Action("Index","ContractExtension")"> <i class="menu-icon fa fa-file-text-o"></i><span>QL gia hạn hợp đồng</span></a>
+        </li>
+        <li class="">
+            <a href="@Url.Action("Index","ContractExtension")"> <i class="menu-icon fa fa-file-text-o"></i><span>QL gia hạn hợp đồng</span></a>
 
-                        </li>*@
+        </li>*@
 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-suitcase"></i><span>QL học an toàn</span></a>
@@ -71,9 +71,13 @@
                             <li><i class="fa fa-leanpub"></i><a href="@Url.Action("Index","ResultsLearnSafe")"><span>Kết quả học an toàn</span></a></li>
                         </ul>
                     </li>
-                    <li class="">
-                        <a href="@Url.Action("Index","ReportAbuse")"> <i class="menu-icon fa fa-exclamation-triangle"></i><span>QL vi phạm</span></a>
-
+                    
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-file-text-o"></i><span>QL Vi Phạm</span></a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><a href="@Url.Action("Index","ReportAbuse")"><span>QL Vi phạm</span></a></li>
+                            <li><a href="@Url.Action("Index","WarningNotice")">Cảnh báo Vi phạm<span></span></a></li>
+                        </ul>
                     </li>
 
 

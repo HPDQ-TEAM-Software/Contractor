@@ -20,7 +20,7 @@ namespace QLNHATHAU.Models
         public Nullable<int> HopDongID { get; set; }
         public string NoiDungVP { get; set; }
         public Nullable<System.DateTime> NgayVP { get; set; }
-        public string MucVP { get; set; }
+        public Nullable<int> MucVP { get; set; }
         public Nullable<int> TSVP { get; set; }
     
         public virtual HopDong HopDong { get; set; }

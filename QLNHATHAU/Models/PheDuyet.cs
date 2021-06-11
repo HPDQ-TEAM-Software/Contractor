@@ -17,10 +17,10 @@ namespace QLNHATHAU.Models
         public int ID { get; set; }
         public Nullable<int> NguoiDungID { get; set; }
         public Nullable<int> LoaiHSID { get; set; }
+        public Nullable<int> NhaThauID { get; set; }
         public Nullable<int> HoSoID { get; set; }
+        public Nullable<System.DateTime> Ngay { get; set; }
         public Nullable<bool> TinhTrang { get; set; }
         public string GhiChu { get; set; }
-        public Nullable<int> NhaThauID { get; set; }
-        public Nullable<System.DateTime> Ngay { get; set; }
     }
 }

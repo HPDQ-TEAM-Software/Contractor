@@ -259,7 +259,7 @@
     <Property Name="HopDongID" Type="int" />
     <Property Name="NoiDungVP" Type="nvarchar" MaxLength="500" />
     <Property Name="NgayVP" Type="smalldatetime" />
-    <Property Name="MucVP" Type="nvarchar" MaxLength="50" />
+    <Property Name="MucVP" Type="int" />
     <Property Name="TSVP" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -833,6 +833,9 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="NguoiDungID" Type="int" Mode="In" />
     <Parameter Name="QuyenID" Type="int" Mode="In" />
   </Function>
+  <Function Name="PheDuyet_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
   <Function Name="PheDuyet_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NguoiDungID" Type="int" Mode="In" />
     <Parameter Name="LoaiHSID" Type="int" Mode="In" />
@@ -843,10 +846,14 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
   <Function Name="PheDuyet_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
+  <Function Name="PheDuyet_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NguoiDungID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PheDuyet_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NguoiDungID" Type="int" Mode="In" />
+  </Function>
   <Function Name="PheDuyet_Updata" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="NguoiDungID" Type="int" Mode="In" />
-    <Parameter Name="LoaiHSID" Type="int" Mode="In" />
     <Parameter Name="TinhTrang" Type="bit" Mode="In" />
     <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
   </Function>
@@ -938,7 +945,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="HopDongID" Type="int" Mode="In" />
     <Parameter Name="NoiDungVP" Type="nvarchar" Mode="In" />
     <Parameter Name="NgayVP" Type="smalldatetime" Mode="In" />
-    <Parameter Name="MucVP" Type="nvarchar" Mode="In" />
+    <Parameter Name="MucVP" Type="int" Mode="In" />
     <Parameter Name="TSVP" Type="int" Mode="In" />
   </Function>
   <Function Name="ViPham_searchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -952,7 +959,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="HopDongID" Type="int" Mode="In" />
     <Parameter Name="NoiDungVP" Type="nvarchar" Mode="In" />
     <Parameter Name="NgayVP" Type="smalldatetime" Mode="In" />
-    <Parameter Name="MucVP" Type="nvarchar" Mode="In" />
+    <Parameter Name="MucVP" Type="int" Mode="In" />
     <Parameter Name="TSVP" Type="int" Mode="In" />
   </Function>
   <EntityContainer Name="QLNhaThauModelStoreContainer">

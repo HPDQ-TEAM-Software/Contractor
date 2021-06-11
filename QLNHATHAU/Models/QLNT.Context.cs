@@ -1233,6 +1233,15 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PhanQuyen_update", iDPhanQuyenParameter, nguoiDungIDParameter, quyenIDParameter);
         }
     
+        public virtual int PheDuyet_Delete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PheDuyet_Delete", iDParameter);
+        }
+    
         public virtual int PheDuyet_Insert(Nullable<int> nguoiDungID, Nullable<int> loaiHSID, Nullable<int> hoSoID, Nullable<bool> tinhTrang, string ghiChu)
         {
             var nguoiDungIDParameter = nguoiDungID.HasValue ?
@@ -1267,19 +1276,29 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PheDuyet_SearchByID_Result>("PheDuyet_SearchByID", iDParameter);
         }
     
-        public virtual int PheDuyet_Updata(Nullable<int> iD, Nullable<int> nguoiDungID, Nullable<int> loaiHSID, Nullable<bool> tinhTrang, string ghiChu)
+        public virtual ObjectResult<PheDuyet_select_Result> PheDuyet_select(Nullable<int> nguoiDungID)
         {
-            var iDParameter = iD.HasValue ?
-                new ObjectParameter("ID", iD) :
-                new ObjectParameter("ID", typeof(int));
-    
             var nguoiDungIDParameter = nguoiDungID.HasValue ?
                 new ObjectParameter("NguoiDungID", nguoiDungID) :
                 new ObjectParameter("NguoiDungID", typeof(int));
     
-            var loaiHSIDParameter = loaiHSID.HasValue ?
-                new ObjectParameter("LoaiHSID", loaiHSID) :
-                new ObjectParameter("LoaiHSID", typeof(int));
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PheDuyet_select_Result>("PheDuyet_select", nguoiDungIDParameter);
+        }
+    
+        public virtual ObjectResult<PheDuyet_SelectAll_Result> PheDuyet_SelectAll(Nullable<int> nguoiDungID)
+        {
+            var nguoiDungIDParameter = nguoiDungID.HasValue ?
+                new ObjectParameter("NguoiDungID", nguoiDungID) :
+                new ObjectParameter("NguoiDungID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PheDuyet_SelectAll_Result>("PheDuyet_SelectAll", nguoiDungIDParameter);
+        }
+    
+        public virtual int PheDuyet_Updata(Nullable<int> iD, Nullable<bool> tinhTrang, string ghiChu)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
     
             var tinhTrangParameter = tinhTrang.HasValue ?
                 new ObjectParameter("TinhTrang", tinhTrang) :
@@ -1289,7 +1308,7 @@ namespace QLNHATHAU.Models
                 new ObjectParameter("GhiChu", ghiChu) :
                 new ObjectParameter("GhiChu", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PheDuyet_Updata", iDParameter, nguoiDungIDParameter, loaiHSIDParameter, tinhTrangParameter, ghiChuParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PheDuyet_Updata", iDParameter, tinhTrangParameter, ghiChuParameter);
         }
     
         public virtual int PhongBan_delete(Nullable<int> iDPhongBan)
@@ -1565,7 +1584,7 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ViPham_delete", iDParameter);
         }
     
-        public virtual int ViPham_insert(Nullable<int> nhanVienNTID, Nullable<int> nhaThauID, Nullable<int> hopDongID, string noiDungVP, Nullable<System.DateTime> ngayVP, string mucVP, Nullable<int> tSVP)
+        public virtual int ViPham_insert(Nullable<int> nhanVienNTID, Nullable<int> nhaThauID, Nullable<int> hopDongID, string noiDungVP, Nullable<System.DateTime> ngayVP, Nullable<int> mucVP, Nullable<int> tSVP)
         {
             var nhanVienNTIDParameter = nhanVienNTID.HasValue ?
                 new ObjectParameter("NhanVienNTID", nhanVienNTID) :
@@ -1587,9 +1606,9 @@ namespace QLNHATHAU.Models
                 new ObjectParameter("NgayVP", ngayVP) :
                 new ObjectParameter("NgayVP", typeof(System.DateTime));
     
-            var mucVPParameter = mucVP != null ?
+            var mucVPParameter = mucVP.HasValue ?
                 new ObjectParameter("MucVP", mucVP) :
-                new ObjectParameter("MucVP", typeof(string));
+                new ObjectParameter("MucVP", typeof(int));
     
             var tSVPParameter = tSVP.HasValue ?
                 new ObjectParameter("TSVP", tSVP) :
@@ -1612,7 +1631,7 @@ namespace QLNHATHAU.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViPham_select_Result>("ViPham_select");
         }
     
-        public virtual int ViPham_update(Nullable<int> iD, Nullable<int> nhanVienNTID, Nullable<int> nhaThauID, Nullable<int> hopDongID, string noiDungVP, Nullable<System.DateTime> ngayVP, string mucVP, Nullable<int> tSVP)
+        public virtual int ViPham_update(Nullable<int> iD, Nullable<int> nhanVienNTID, Nullable<int> nhaThauID, Nullable<int> hopDongID, string noiDungVP, Nullable<System.DateTime> ngayVP, Nullable<int> mucVP, Nullable<int> tSVP)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
@@ -1638,9 +1657,9 @@ namespace QLNHATHAU.Models
                 new ObjectParameter("NgayVP", ngayVP) :
                 new ObjectParameter("NgayVP", typeof(System.DateTime));
     
-            var mucVPParameter = mucVP != null ?
+            var mucVPParameter = mucVP.HasValue ?
                 new ObjectParameter("MucVP", mucVP) :
-                new ObjectParameter("MucVP", typeof(string));
+                new ObjectParameter("MucVP", typeof(int));
     
             var tSVPParameter = tSVP.HasValue ?
                 new ObjectParameter("TSVP", tSVP) :

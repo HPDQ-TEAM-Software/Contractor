@@ -32,7 +32,7 @@ namespace QLNHATHAU.Models
         public DateTime NgayVP { get; set; }
 
         [Required(ErrorMessage = "Muc VP")]
-        public string MucVP { get; set; }
+        public int MucVP { get; set; }
         public int TSVP { get; set; }
 
 
