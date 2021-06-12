@@ -13,6 +13,8 @@
     <EntitySetMapping Name="CardNhanViens">
       <EntityTypeMapping TypeName="QLNhaThauModel.CardNhanVien">
         <MappingFragment StoreEntitySet="CardNhanVien">
+          <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
+          <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CardID" ColumnName="CardID" />
           <ScalarProperty Name="NhanVienNTID" ColumnName="NhanVienNTID" />
@@ -276,6 +278,7 @@
     <EntitySetMapping Name="ViPhams">
       <EntityTypeMapping TypeName="QLNhaThauModel.ViPham">
         <MappingFragment StoreEntitySet="ViPham">
+          <ScalarProperty Name="CatThe" ColumnName="CatThe" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NhanVienNTID" ColumnName="NhanVienNTID" />
           <ScalarProperty Name="NhaThauID" ColumnName="NhaThauID" />

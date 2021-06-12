@@ -72,7 +72,7 @@ namespace QLNHATHAU.Controllers
                     //List<ContractorStaffValidation> contractorstaffs = (List<ContractorStaffValidation>)GetNhanVienNT(_DO.IDNhaThau).Data;
                     //var NhanVienNTID = contractorstaffs[0].IDNVNT;
 
-                    db_context.ViPham_insert(_DO.NhanVienNTID, _DO.IDNhaThau, _DO.HopDongID, _DO.NoiDungVP, _DO.NgayVP, _DO.MucVP, _DO.TSVP);
+                    db_context.ViPham_insert(_DO.NhanVienNTID, _DO.IDNhaThau, _DO.HopDongID, _DO.NoiDungVP, _DO.NgayVP, _DO.MucVP, _DO.TSVP, _DO.CatThe);
                 }
                 catch (Exception e)
                 {
@@ -143,7 +143,7 @@ namespace QLNHATHAU.Controllers
             {
                 //List<ContractorStaffValidation> contractorstaffs = (List<ContractorStaffValidation>)ViewNVNT(_DO.IDNhaThau).Data;
                
-                db_context.ViPham_update(_DO.ID, _DO.NhanVienNTID, _DO.IDNhaThau, _DO.HopDongID, _DO.NoiDungVP, _DO.NgayVP, _DO.MucVP, _DO.TSVP);
+                db_context.ViPham_update(_DO.ID, _DO.NhanVienNTID, _DO.IDNhaThau, _DO.HopDongID, _DO.NoiDungVP, _DO.NgayVP, _DO.MucVP, _DO.TSVP, _DO.CatThe);
 
                 TempData["msgSuccess"] = "<script>alert('Cập nhập thành công');</script>";
             }
