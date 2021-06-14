@@ -40,7 +40,7 @@
 
     
     .slider.round {
-        border-radius: 34px;
+        border-radius: 28px;
     }
 
     .slider.round:before {
@@ -50,8 +50,8 @@
     .switch {
         position: relative;
         display: inline-block;
-        width: 90px;
-        height: 34px;
+        width: 83px;
+        height: 28px;
     }
 
     .switch input {
@@ -73,8 +73,8 @@
     .slider:before {
          position: absolute;
          content: "";
-         height: 26px;
-         width: 26px;
+         height: 20px;
+         width: 20px;
          left: 4px;
          bottom: 4px;
          background-color: white;
@@ -152,7 +152,6 @@
                                         var changeTogle = [];
                                         $("#textToggl_@item.ID").click((i, v) => {
                                             var a = $("#textToggl_@item.ID").find('span').text();
-                                            console.log(a);
                                             if (a == 'OFF') {
                                                 var htmlOn = '<span class="on">ON</span>';
                                                 $("#textToggl_@item.ID").html(htmlOn);
