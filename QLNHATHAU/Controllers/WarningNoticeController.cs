@@ -23,7 +23,7 @@ namespace QLNHATHAU.Controllers
                                 TenNT = e.NhaThau.Ten,
                                 TenHD = e.HopDong.TenHD,
                                 TenNVNT = d.HoTen,
-                                TSVP = NVNTIDVP.Count(),
+                                TSVP = (int)NVNTIDVP.Sum(x => x.MucVP),
                                 TtThe = true,
                             }).Where(x=>x.TSVP >= 1).ToList();
 

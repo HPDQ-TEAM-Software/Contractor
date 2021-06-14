@@ -71,7 +71,7 @@
 
                             <script>
                                 $(document).ready(function () {
-                                    $("#HopDongID").change(function () {
+                                    $("#HopDongID").click(function () {
                                         $.get("/ReportAbuse/GetNhanVienNT", { id: $("#HopDongID").val() }, function (data) {
                                             $("#NhanVienNTID").empty();
                                             $.each(data, function (index, row) {
