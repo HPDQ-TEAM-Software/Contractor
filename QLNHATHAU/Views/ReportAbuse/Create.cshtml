@@ -71,8 +71,8 @@
 
                             <script>
                                 $(document).ready(function () {
-                                    $("#IDNhaThau").change(function () {
-                                        $.get("/ReportAbuse/GetNhanVienNT", { id: $("#IDNhaThau").val() }, function (data) {
+                                    $("#HopDongID").change(function () {
+                                        $.get("/ReportAbuse/GetNhanVienNT", { id: $("#HopDongID").val() }, function (data) {
                                             $("#NhanVienNTID").empty();
                                             $.each(data, function (index, row) {
                                                 $("#NhanVienNTID").append("<option value ='" + row.IDNVNT + "'>" + row.HovaTen + "</option>")

@@ -205,18 +205,19 @@ namespace QLNHATHAU.Controllers
             return Json(HDList, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult GetNhanVienNT(int id)
+        public JsonResult GetNhanVienNT( int id)
         {
-            List<ContractorStaffValidation> NhanVienNTList = (from k in db_context.KeQuaHocs
-                                                 join n in db_context.NhaThaus on k.NhaThauID equals n.IDNhaThau
-                                                 join nv in db_context.NhanVienNTs on k.NhanVienNTID equals nv.IDNhanVienNT
-                                                 select new ContractorStaffValidation()
-                                                 {
-                                                     IDNVNT = nv.IDNhanVienNT,
-                                                     HovaTen = nv.HoTen,
-                                                     IDNhaThau = n.IDNhaThau
-
-                                                 }).Where(x => x.IDNhaThau == id).ToList();
+            List<ContractorStaffValidation> NhanVienNTList = (from kq in db_context.KeQuaHocs
+                                                              join nv in db_context.NhanVienNTs on kq.NhanVienNTID equals nv.IDNhanVienNT
+                                                              join hd in db_context.HopDongs on kq.HDID equals hd.IDHD
+                                                              join nt in db_context.NhaThaus on kq.NhaThauID equals nt.IDNhaThau
+                                                              select new ContractorStaffValidation()
+                                                              {
+                                                                  IDNVNT = nv.IDNhanVienNT,
+                                                                  HovaTen = nv.HoTen,
+                                                                  IDHD = hd.IDHD,
+                                                                  IDNhaThau = nt.IDNhaThau,
+                                                              }).Where(x => x.IDHD == id).ToList();
 
             return Json(NhanVienNTList, JsonRequestBehavior.AllowGet);
         }

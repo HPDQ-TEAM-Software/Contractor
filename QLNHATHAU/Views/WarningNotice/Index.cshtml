@@ -134,21 +134,22 @@
                             <td class="text-center">@item.TSVP</td>
                             <td class="text-center">
                                 <label class="switch">
-                                    @if (@item.TtThe == true)
+                                    @if (@item.TSVP >= 3)
                                     {
-                                        <input type="checkbox" checked id="togBtn_@item.ID">
+                                        <input type="checkbox" id="togBtn_@item.ID" disabled>
+                                        <span class="slider round" id="textToggl_@item.ID">
+                                            <span class="off">OFF</span>
+                                        </span>
+
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" checked id="togBtn_@item.ID" disabled>
                                         <span class="slider round" id="textToggl_@item.ID">
                                             <span class="on">ON</span>
                                         </span>
                                     }
-                                    else
-                                    {
-                                        <input type="checkbox" id="togBtn_@item.ID">
-                                        <span class="slider round" id="textToggl_@item.ID">
-                                            <span class="off">OFF</span>
-                                        </span>
-                                    }
-                                    <script type="text/javascript">
+                                    @*<script type="text/javascript">
                                         var changeTogle = [];
                                         $("#textToggl_@item.ID").click((i, v) => {
                                             var a = $("#textToggl_@item.ID").find('span').text();
@@ -162,7 +163,7 @@
                                                 changeTogle.push({ ID: @item.ID, TtThe: false });
                                             }
                                         });
-                                    </script>
+                                    </script>*@
                                 </label>
                             </td>
 
