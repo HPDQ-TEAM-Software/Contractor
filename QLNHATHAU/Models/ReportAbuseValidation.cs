@@ -31,6 +31,7 @@ namespace QLNHATHAU.Models
 
         public DateTime NgayVP { get; set; }
 
+        [RegularExpression(@"^1$|^3$", ErrorMessage = "Nhap lai Muc VP")]
         [Required(ErrorMessage = "Muc VP")]
         public int MucVP { get; set; }
         public int TSVP { get; set; }
