@@ -22,7 +22,7 @@ namespace QLNHATHAU.Models
         public Nullable<System.DateTime> NgayVP { get; set; }
         public Nullable<int> MucVP { get; set; }
         public Nullable<int> TSVP { get; set; }
-        public Nullable<bool> CatThe { get; set; }
+        public Nullable<bool> TtThe { get; set; }
     
         public virtual HopDong HopDong { get; set; }
         public virtual NhanVienNT NhanVienNT { get; set; }

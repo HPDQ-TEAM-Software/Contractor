@@ -24,6 +24,7 @@ namespace QLNHATHAU.Controllers
                                 TenHD = e.HopDong.TenHD,
                                 TenNVNT = d.HoTen,
                                 TSVP = NVNTIDVP.Count(),
+                                TtThe = true,
                             }).Where(x=>x.TSVP >= 1).ToList();
 
             if (page == null) page = 1;

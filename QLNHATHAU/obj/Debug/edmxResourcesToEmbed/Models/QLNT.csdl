@@ -299,7 +299,7 @@
     <NavigationProperty Name="HopDong" Relationship="Self.FK_ViPham_HopDong" FromRole="ViPham" ToRole="HopDong" />
     <NavigationProperty Name="NhanVienNT" Relationship="Self.FK_ViPham_NhanVienNT" FromRole="ViPham" ToRole="NhanVienNT" />
     <NavigationProperty Name="NhaThau" Relationship="Self.FK_ViPham_NhaThau" FromRole="ViPham" ToRole="NhaThau" />
-    <Property Name="CatThe" Type="Boolean" />
+    <Property Name="TtThe" Type="Boolean" />
   </EntityType>
   <EntityType Name="PHONGBANCHN_VIEW">
     <Key>
@@ -1081,7 +1081,7 @@
       <Parameter Name="NgayVP" Mode="In" Type="DateTime" />
       <Parameter Name="MucVP" Mode="In" Type="Int32" />
       <Parameter Name="TSVP" Mode="In" Type="Int32" />
-      <Parameter Name="CatThe" Mode="In" Type="Boolean" />
+      <Parameter Name="TtThe" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="ViPham_searchByID" ReturnType="Collection(QLNhaThauModel.ViPham_searchByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -1096,7 +1096,7 @@
       <Parameter Name="NgayVP" Mode="In" Type="DateTime" />
       <Parameter Name="MucVP" Mode="In" Type="Int32" />
       <Parameter Name="TSVP" Mode="In" Type="Int32" />
-      <Parameter Name="CatThe" Mode="In" Type="Boolean" />
+      <Parameter Name="TtThe" Mode="In" Type="Boolean" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="Card_SearchByID_Result">

@@ -34,7 +34,7 @@ namespace QLNHATHAU.Models
         [Required(ErrorMessage = "Muc VP")]
         public int MucVP { get; set; }
         public int TSVP { get; set; }
-        public bool CatThe { get; set; }
+        public bool TtThe { get; set; }
 
         public int IDNVNT { get; set; }
         public int IDHD { get; set; }

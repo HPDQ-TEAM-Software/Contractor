@@ -263,7 +263,7 @@
     <Property Name="NgayVP" Type="smalldatetime" />
     <Property Name="MucVP" Type="int" />
     <Property Name="TSVP" Type="int" />
-    <Property Name="CatThe" Type="bit" />
+    <Property Name="TtThe" Type="bit" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -950,7 +950,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="NgayVP" Type="smalldatetime" Mode="In" />
     <Parameter Name="MucVP" Type="int" Mode="In" />
     <Parameter Name="TSVP" Type="int" Mode="In" />
-    <Parameter Name="CatThe" Type="bit" Mode="In" />
+    <Parameter Name="TtThe" Type="bit" Mode="In" />
   </Function>
   <Function Name="ViPham_searchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
@@ -965,7 +965,7 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="NgayVP" Type="smalldatetime" Mode="In" />
     <Parameter Name="MucVP" Type="int" Mode="In" />
     <Parameter Name="TSVP" Type="int" Mode="In" />
-    <Parameter Name="CatThe" Type="bit" Mode="In" />
+    <Parameter Name="TtThe" Type="bit" Mode="In" />
   </Function>
   <EntityContainer Name="QLNhaThauModelStoreContainer">
     <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
