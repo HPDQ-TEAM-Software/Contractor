@@ -151,9 +151,8 @@
                                     <script type="text/javascript">
                                         var changeTogle = [];
                                         $("#textToggl_@item.ID").click((i, v) => {
-                                            let button = document.querySelector("#btn-save");
-                                            button.disabled = false;
                                             var a = $("#textToggl_@item.ID").find('span').text();
+                                            console.log(a);
                                             if (a == 'OFF') {
                                                 var htmlOn = '<span class="on">ON</span>';
                                                 $("#textToggl_@item.ID").html(htmlOn);
