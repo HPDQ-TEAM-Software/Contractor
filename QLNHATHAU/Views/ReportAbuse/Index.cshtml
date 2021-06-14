@@ -29,30 +29,37 @@
             <table class="table table-bordered table-hover" id="table" width="100%" cellpadding="0">
                 <thead class="thead-light">
                     <tr>
+                        <th class="text-center">STT</th>
                         <th>Nhân Viên</th>
                         <th>Nhà Thầu</th>
                         <th>Hạng Mục</th>
                         <th class="text-center">Nội Dung Vi Phạm</th>
                         <th class="text-center">Ngày Vi Phạm</th>
-                        <th class="text-center">Mức Vi Phạm</th>
+                        <th class="text-center" width="150px">Mức Vi Phạm</th>
                         <th class="text-center">Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @{
+                        int pageno = (int)Model.PageNumber;
+                        int itemperpage = (int)Model.PageSize;
+                        int RowNo = ((pageno - 1) * itemperpage) + 1;
+                    }
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td class="text-center">@RowNo@{RowNo++;}</td>
                             <td>@item.TenNVNT </td>
                             <td>@item.TenNT</td>
                             <td>@item.TenHD</td>
                             <td class="text-center">@item.NoiDungVP</td>
-                            <td class="text-center">@Html.DisplayFor(modelItem => item.NgayVP)</td>
+                            <td class="text-center">@item.NgayVP.ToString("dd-MM-yyyy")</td>
                             <td class="text-center">@item.MucVP</td>
                             <td class="text-center">
 
                                 <a id="btn-edit_@item.ID" title="Sửa"><i class="fa fa-edit icon_action">Sửa</i></a>
                                 <div class="modal fade" id="myModaled_@item.ID" role="dialog" data-url='@Url.Action("Edit","ReportAbuse", new { id = item.ID })'></div>
-                                    <script type="text/javascript">
+                                <script type="text/javascript">
                                         $("#btn-edit_@item.ID").click(function () {
                                             var url = $('#myModaled_@item.ID').data('url');
                                             console.log(url);
@@ -62,10 +69,10 @@
                                                 $("#myModal").modal('show');
                                             });
                                         });
-                                    </script>
+                                </script>
                                 &nbsp;
                                 <a title="Xóa" href="@Url.Action("Delete", "ReportAbuse", new { id = item.ID })"
-                                    onclick="return confirm('Bạn muốn xóa nhân viên: @item.TenNVNT')"><i class="fa fa-trash icon_action"></i>Xóa</a>
+                                   onclick="return confirm('Bạn muốn xóa nhân viên: @item.TenNVNT')"><i class="fa fa-trash icon_action"></i>Xóa</a>
                             </td>
                         </tr>
                     }

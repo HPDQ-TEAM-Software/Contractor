@@ -108,19 +108,26 @@
             <table class="table table-bordered table-hover" id="table" width="100%" cellpadding="0">
                 <thead class="thead-light">
                     <tr>
+                        <th class="text-center" width="80px">STT</th>
                         <th>Nhân Viên</th>
                         <th>Nhà Thầu</th>
                         <th>Hạng Mục</th>
-                        <th class="text-center">Tổng số VP</th>
-                        <th class="text-center">Trạng thái Thẻ</th>
+                        <th class="text-center" width="120px">Tổng số VP</th>
+                        <th class="text-center" width="180px">Trạng thái Thẻ</th>
 
-                        
+
                     </tr>
                 </thead>
                 <tbody>
+                    @{
+                        int pageno = (int)Model.PageNumber;
+                        int itemperpage = (int)Model.PageSize;
+                        int RowNo = ((pageno - 1) * itemperpage) + 1;
+                    }
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td class="text-center">@RowNo@{RowNo++;}</td>
                             <td>@item.TenNVNT </td>
                             <td>@item.TenNT</td>
                             <td>@item.TenHD</td>
@@ -141,7 +148,7 @@
                                             <span class="off">OFF</span>
                                         </div>
                                     }
-                                <script type="text/javascript">
+                                    <script type="text/javascript">
                                         var changeTogle = [];
                                         $("#textToggl_@item.ID").click((i, v) => {
                                             let button = document.querySelector("#btn-save");
@@ -157,10 +164,10 @@
                                                 changeTogle.push({ ID: @item.ID, KetQua: false, TtThe: @item.TtThe });
                                             }
                                         });
-                                </script>
+                                    </script>
                                 </label>
                             </td>
-                            
+
                         </tr>
                     }
                 </tbody>
