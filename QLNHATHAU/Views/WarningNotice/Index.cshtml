@@ -137,16 +137,16 @@
                                     @if (@item.TtThe == true)
                                     {
                                         <input type="checkbox" checked id="togBtn_@item.ID">
-                                        <div class="slider round" id="textToggl_@item.ID">
+                                        <span class="slider round" id="textToggl_@item.ID">
                                             <span class="on">ON</span>
-                                        </div>
+                                        </span>
                                     }
                                     else
                                     {
                                         <input type="checkbox" id="togBtn_@item.ID">
-                                        <div class="slider round" id="textToggl_@item.ID">
+                                        <span class="slider round" id="textToggl_@item.ID">
                                             <span class="off">OFF</span>
-                                        </div>
+                                        </span>
                                     }
                                     <script type="text/javascript">
                                         var changeTogle = [];
@@ -154,14 +154,14 @@
                                             let button = document.querySelector("#btn-save");
                                             button.disabled = false;
                                             var a = $("#textToggl_@item.ID").find('span').text();
-                                            if (a == 'Chưa') {
+                                            if (a == 'OFF') {
                                                 var htmlOn = '<span class="on">ON</span>';
                                                 $("#textToggl_@item.ID").html(htmlOn);
-                                                changeTogle.push({ ID: @item.ID, KetQua: true, TtThe: @item.TtThe });
+                                                changeTogle.push({ ID: @item.ID, TtThe: true});
                                             } else {
                                                 var htmlOff = '<span class="off">OFF</span>';
                                                 $("#textToggl_@item.ID").html(htmlOff);
-                                                changeTogle.push({ ID: @item.ID, KetQua: false, TtThe: @item.TtThe });
+                                                changeTogle.push({ ID: @item.ID, TtThe: false });
                                             }
                                         });
                                     </script>
