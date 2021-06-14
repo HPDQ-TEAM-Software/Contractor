@@ -97,7 +97,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="small mb-1">Ngày Vi Phạm</label>
-                            @Html.EditorFor(model => model.NgayVP, new { @value = DateTime.Today, htmlAttributes = new { @class = "form-control", @type = "date", placeholder = "Ngày Vi phạm", @id = "NgayVP" } })
+                            @Html.EditorFor(model => model.NgayVP, new { htmlAttributes = new { @class = "form-control", @type = "date", placeholder = "Ngày Vi phạm", @id = "NgayVP", @Value = ViewBag.NgayVP } })
                             @Html.ValidationMessageFor(model => model.NgayVP, "", new { @class = "text-danger" })
                         </div>
                     </div>
