@@ -16,5 +16,9 @@ namespace QLNHATHAU.Models
         public int ID { get; set; }
         public Nullable<int> CardID { get; set; }
         public Nullable<int> NhanVienNTID { get; set; }
+        public Nullable<System.DateTime> NgayBatDau { get; set; }
+        public Nullable<System.DateTime> NgayHetHan { get; set; }
+        public string MSCard { get; set; }
+        public Nullable<int> NhaThauID { get; set; }
     }
 }

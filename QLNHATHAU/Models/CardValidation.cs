@@ -10,5 +10,6 @@ namespace QLNHATHAU.Models
         public int IDCard { get; set; }
         public string MaCard { get; set; }
         public DateTime? NgayHetHan { get; set; }
+        public int NVNTID { get; set; }
     }
 }

@@ -143,6 +143,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\ConfigStatic.cs" />
     <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Controllers\ManageCardController.cs" />
     <Compile Include="Controllers\CongController.cs" />
     <Compile Include="Controllers\ConStaffStatisticsController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
@@ -176,6 +177,12 @@
     <Compile Include="Models\CardNhanVien.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CardNhanVien_searchByID_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CardNhanVien_select_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Card_SearchByID_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -185,31 +192,21 @@
     <Compile Include="Models\CauHinhPheDuyet.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CheckInforContract.cs" />
-    <Compile Include="Models\CheckInforDK.cs" />
-    <Compile Include="Models\CheckInformation.cs" />
     <Compile Include="Models\Cong.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CongValidation.cs" />
     <Compile Include="Models\Cong_SearchByID_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cong_Select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ContractExtensionValidation.cs" />
-    <Compile Include="Models\ContractorStaffValidation.cs" />
-    <Compile Include="Models\ContractorValidation.cs" />
-    <Compile Include="Models\CardValidation.cs" />
-    <Compile Include="Models\DangKyValidation.cs" />
     <Compile Include="Models\EmplIndentityCard_SearchByID_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EmplIndentityCard_select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmployeeIndetityCardValidation.cs" />
     <Compile Include="Models\GiaHanHD.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -222,7 +219,6 @@
     <Compile Include="Models\HopDong.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\HopDongValidation.cs" />
     <Compile Include="Models\HopDong_SearchByID_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -256,13 +252,25 @@
     <Compile Include="Models\LoaiKhach.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LoaiKhachValidation.cs" />
     <Compile Include="Models\LoaiKhach_SearchByID_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiKhach_Select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ManageCardValidation.cs" />
+    <Compile Include="Models\CheckInforContract.cs" />
+    <Compile Include="Models\CheckInforDK.cs" />
+    <Compile Include="Models\CheckInformation.cs" />
+    <Compile Include="Models\CongValidation.cs" />
+    <Compile Include="Models\ContractExtensionValidation.cs" />
+    <Compile Include="Models\ContractorStaffValidation.cs" />
+    <Compile Include="Models\ContractorValidation.cs" />
+    <Compile Include="Models\CardValidation.cs" />
+    <Compile Include="Models\DangKyValidation.cs" />
+    <Compile Include="Models\EmployeeIndetityCardValidation.cs" />
+    <Compile Include="Models\HopDongValidation.cs" />
+    <Compile Include="Models\LoaiKhachValidation.cs" />
     <Compile Include="Models\ModelT.cs" />
     <Compile Include="Models\MyAuthentication.cs" />
     <Compile Include="Models\NguoiDung.cs">
@@ -347,7 +355,19 @@
     <Compile Include="Models\PheDuyet_SearchByID_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PheDuyet_SelectAllAT_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PheDuyet_SelectAllGH_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PheDuyet_SelectAll_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PheDuyet_selectAT_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PheDuyet_selectGH_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PheDuyet_select_Result.cs">
@@ -1204,6 +1224,8 @@
     <Content Include="Views\ContractorStatistics\Index.cshtml" />
     <Content Include="Views\ContractStatistics\Index.cshtml" />
     <Content Include="Views\WarningNotice\Index.cshtml" />
+    <Content Include="Views\ManageCard\Index.cshtml" />
+    <Content Include="Views\ManageCard\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,5 +21,6 @@ namespace QLNHATHAU.Models
         public Nullable<System.DateTime> NgayVP { get; set; }
         public Nullable<int> MucVP { get; set; }
         public Nullable<int> TSVP { get; set; }
+        public Nullable<bool> TtThe { get; set; }
     }
 }

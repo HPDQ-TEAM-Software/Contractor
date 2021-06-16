@@ -15,11 +15,9 @@ namespace QLNHATHAU.Models
     {
         public int IDKhach { get; set; }
         public Nullable<int> CongID { get; set; }
-        public Nullable<int> NhaThauID { get; set; }
+        public Nullable<int> LoaiKhachID { get; set; }
         public Nullable<System.DateTime> Ngay { get; set; }
         public string HoTen { get; set; }
-        public string PhuongTien { get; set; }
-        public string BienSo { get; set; }
         public string GhiChu { get; set; }
     }
 }
