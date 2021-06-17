@@ -82,17 +82,8 @@ namespace QLNHATHAU.Controllers
             //return View();
             return RedirectToAction("Index", "ReportAbuse");
         }
-        public ActionResult Edit(int id , int? IDNhaThau , int?HDID)
+        public ActionResult Edit(int id)
         {
-            //List<NhanVienNT> nv = db_context.NhanVienNTs.ToList();
-            //ViewBag.NVNTList = new SelectList(nv, "IDNhanVienNT", "HoTen");
-            List<NhaThau> nt = db_context.NhaThaus.ToList();
-            ViewBag.NTList = new SelectList(nt, "IDNhaThau", "Ten", IDNhaThau);
-
-            List<HopDong> hd = db_context.HopDongs.Where(x => x.NhaThauID == IDNhaThau).ToList();
-            ViewBag.HDList = new SelectList(hd, "IDHD", "TenHD", HDID);
-
-
             var res = (from v in db_context.ViPham_searchByID(id)
                        select new ReportAbuseValidation
                        {
@@ -121,13 +112,14 @@ namespace QLNHATHAU.Controllers
                     DO.TSVP = (int)vp.TSVP;
                 }
 
+                List<NhaThau> nt = db_context.NhaThaus.ToList();
+                ViewBag.IDNhaThau = new SelectList(nt, "IDNhaThau", "Ten", DO.NhaThauID);
 
-                //List<HopDong> h = db_context.HopDongs.ToList();
-                //ViewBag.HDList = new SelectList(h, "IDHD", "TenHD", DO.HopDongID);
+                List<HopDong> hd = db_context.HopDongs.Where(x=>x.NhaThauID==DO.NhaThauID).ToList();
+                ViewBag.HopDongID = new SelectList(hd, "IDHD", "TenHD", DO.HopDongID);
 
-                //List<NhanVienNT> nv = db_context.NhanVienNTs.ToList();
-                //ViewBag.NVNTList = new SelectList(nv, "IDNVNT", "HovaTen", DO.NhanVienNTID);
-
+                List<NhanVienNT> nvnt = db_context.NhanVienNTs.ToList();
+                ViewBag.NhanVienNTID = new SelectList(nvnt, "IDNhanVienNT", "HoTen", DO.NhanVienNTID);
                 ViewBag.NgayVP =  DO.NgayVP.ToString("yyyy-MM-dd");
 
             }
