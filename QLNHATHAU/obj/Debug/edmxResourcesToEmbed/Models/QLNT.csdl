@@ -7,20 +7,18 @@
     <Property Name="IDCard" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaCard" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="NgayHetHan" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="CardNhanViens" Relationship="Self.FK_CardNhanVien_Card" FromRole="Card" ToRole="CardNhanVien" />
   </EntityType>
   <EntityType Name="CardNhanVien">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CardID" Type="Int32" />
     <Property Name="NhanVienNTID" Type="Int32" />
     <Property Name="NgayBatDau" Type="DateTime" Precision="0" />
     <Property Name="NgayHetHan" Type="DateTime" Precision="0" />
     <Property Name="MSCard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="NhaThauID" Type="Int32" />
-    <NavigationProperty Name="Card" Relationship="Self.FK_CardNhanVien_Card" FromRole="CardNhanVien" ToRole="Card" />
+    <Property Name="TTThe" Type="Boolean" />
     <NavigationProperty Name="NhanVienNT" Relationship="Self.FK_CardNhanVien_NhanVienNT" FromRole="CardNhanVien" ToRole="NhanVienNT" />
   </EntityType>
   <EntityType Name="CauHinhPheDuyet">
@@ -41,7 +39,61 @@
     </Key>
     <Property Name="IDCONG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenCong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Khaches" Relationship="Self.FK_Khach_Cong" FromRole="Cong" ToRole="Khach" />
+  </EntityType>
+  <EntityType Name="DangKyHAT">
+    <Key>
+      <PropertyRef Name="IDDKHAT" />
+    </Key>
+    <Property Name="IDDKHAT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PhongBanID" Type="Int32" />
+    <Property Name="HopDongID" Type="Int32" />
+    <Property Name="NhaThauID" Type="Int32" />
+    <Property Name="ChiHuyTruong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayDuKienHoc" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TinhTrang" Type="Int32" />
+    <Property Name="GhiChu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiDungID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HopDong" Relationship="Self.FK_DKHAnToan_HopDong" FromRole="DangKyHAT" ToRole="HopDong" />
+    <NavigationProperty Name="NhaThau" Relationship="Self.FK_DKHAnToan_NhaThau" FromRole="DangKyHAT" ToRole="NhaThau" />
+    <NavigationProperty Name="PhongBan" Relationship="Self.FK_DKHAnToan_PhongBan" FromRole="DangKyHAT" ToRole="PhongBan" />
+  </EntityType>
+  <EntityType Name="DanhSachHAT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DKHATID" Type="Int32" />
+    <Property Name="CMND" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="HoTen" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="Int32" />
+    <Property Name="QuocTich" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiHanThe" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DKKhach">
+    <Key>
+      <PropertyRef Name="IDDangKyKH" />
+    </Key>
+    <Property Name="IDDangKyKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NhaThauID" Type="Int32" />
+    <Property Name="PhongBanID" Type="Int32" />
+    <Property Name="LoaiKhachID" Type="Int32" />
+    <Property Name="CongID" Type="Int32" />
+    <Property Name="NguoiDaiDien" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="BienSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhuongTien" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NgayBL" Type="DateTime" Precision="3" />
+    <Property Name="Ghi_Chu" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TinhTrang" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DSKhach">
+    <Key>
+      <PropertyRef Name="IDKhach" />
+    </Key>
+    <Property Name="IDKhach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DangKyKHID" Type="Int32" />
+    <Property Name="CMND" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="GiaHanHD">
     <Key>
@@ -49,11 +101,9 @@
     </Key>
     <Property Name="IDGHHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="HDID" Type="Int32" />
-    <Property Name="PBCHNID" Type="Int32" />
-    <Property Name="PhongBanID" Type="Int32" />
-    <Property Name="NhaThauID" Type="Int32" />
     <Property Name="LyDo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="NgayKetThuc" Type="DateTime" Precision="3" />
+    <Property Name="TinhTrang" Type="Int32" />
     <NavigationProperty Name="HopDong" Relationship="Self.FK_GiaHanHD_HopDong" FromRole="GiaHanHD" ToRole="HopDong" />
   </EntityType>
   <EntityType Name="HopDong">
@@ -72,6 +122,7 @@
     <Property Name="PhongBanID" Type="Int32" />
     <Property Name="PBCHNID" Type="Int32" />
     <Property Name="TinhTrang" Type="Int32" />
+    <NavigationProperty Name="DangKyHATs" Relationship="Self.FK_DKHAnToan_HopDong" FromRole="HopDong" ToRole="DangKyHAT" />
     <NavigationProperty Name="GiaHanHDs" Relationship="Self.FK_GiaHanHD_HopDong" FromRole="HopDong" ToRole="GiaHanHD" />
     <NavigationProperty Name="PhongBan" Relationship="Self.FK_HopDong_PhongBan" FromRole="HopDong" ToRole="PhongBan" />
     <NavigationProperty Name="KeQuaHocs" Relationship="Self.FK_KeQuaHoc_HopDong" FromRole="HopDong" ToRole="KeQuaHoc" />
@@ -92,25 +143,6 @@
     <NavigationProperty Name="NhanVienNT" Relationship="Self.FK_KeQuaHoc_NhanVienNT" FromRole="KeQuaHoc" ToRole="NhanVienNT" />
     <NavigationProperty Name="NhaThau" Relationship="Self.FK_KeQuaHoc_NhaThau" FromRole="KeQuaHoc" ToRole="NhaThau" />
   </EntityType>
-  <EntityType Name="Khach">
-    <Key>
-      <PropertyRef Name="IDKhach" />
-    </Key>
-    <Property Name="IDKhach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CongID" Type="Int32" />
-    <Property Name="LoaiKhachID" Type="Int32" />
-    <Property Name="NhaThauID" Type="Int32" />
-    <Property Name="PHCDNID" Type="Int32" />
-    <Property Name="PhongBanID" Type="Int32" />
-    <Property Name="Ngay" Type="DateTime" Precision="3" />
-    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="PhuongTien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="BienSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="GhiChu" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Cong" Relationship="Self.FK_Khach_Cong" FromRole="Khach" ToRole="Cong" />
-    <NavigationProperty Name="LoaiKhach" Relationship="Self.FK_Khach_LoaiKhach" FromRole="Khach" ToRole="LoaiKhach" />
-    <NavigationProperty Name="NhaThau" Relationship="Self.FK_Khach_NhaThau" FromRole="Khach" ToRole="NhaThau" />
-  </EntityType>
   <EntityType Name="LoaiH">
     <Key>
       <PropertyRef Name="ID" />
@@ -124,7 +156,6 @@
     </Key>
     <Property Name="IDLoaiKhach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Khaches" Relationship="Self.FK_Khach_LoaiKhach" FromRole="LoaiKhach" ToRole="Khach" />
   </EntityType>
   <EntityType Name="NguoiDung">
     <Key>
@@ -188,8 +219,8 @@
     <Property Name="DiaChi" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
     <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DangKyHATs" Relationship="Self.FK_DKHAnToan_NhaThau" FromRole="NhaThau" ToRole="DangKyHAT" />
     <NavigationProperty Name="KeQuaHocs" Relationship="Self.FK_KeQuaHoc_NhaThau" FromRole="NhaThau" ToRole="KeQuaHoc" />
-    <NavigationProperty Name="Khaches" Relationship="Self.FK_Khach_NhaThau" FromRole="NhaThau" ToRole="Khach" />
     <NavigationProperty Name="ViPhams" Relationship="Self.FK_ViPham_NhaThau" FromRole="NhaThau" ToRole="ViPham" />
   </EntityType>
   <EntityType Name="PCHN">
@@ -241,6 +272,7 @@
     <Property Name="TenVT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="TenDai" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="PCHN" Type="Boolean" />
+    <NavigationProperty Name="DangKyHATs" Relationship="Self.FK_DKHAnToan_PhongBan" FromRole="PhongBan" ToRole="DangKyHAT" />
     <NavigationProperty Name="HopDongs" Relationship="Self.FK_HopDong_PhongBan" FromRole="PhongBan" ToRole="HopDong" />
     <NavigationProperty Name="PCHN_HopDong" Relationship="Self.FK_PCHN_HopDong_PhongBan" FromRole="PhongBan" ToRole="PCHN_HopDong" />
   </EntityType>
@@ -314,18 +346,6 @@
     <Property Name="TenVT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="TenDai" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
   </EntityType>
-  <Association Name="FK_CardNhanVien_Card">
-    <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
-    <End Role="CardNhanVien" Type="Self.CardNhanVien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Card">
-        <PropertyRef Name="IDCard" />
-      </Principal>
-      <Dependent Role="CardNhanVien">
-        <PropertyRef Name="CardID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_CardNhanVien_NhanVienNT">
     <End Role="NhanVienNT" Type="Self.NhanVienNT" Multiplicity="0..1" />
     <End Role="CardNhanVien" Type="Self.CardNhanVien" Multiplicity="*" />
@@ -338,15 +358,39 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Khach_Cong">
-    <End Role="Cong" Type="Self.Cong" Multiplicity="0..1" />
-    <End Role="Khach" Type="Self.Khach" Multiplicity="*" />
+  <Association Name="FK_DKHAnToan_HopDong">
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="0..1" />
+    <End Role="DangKyHAT" Type="Self.DangKyHAT" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Cong">
-        <PropertyRef Name="IDCONG" />
+      <Principal Role="HopDong">
+        <PropertyRef Name="IDHD" />
       </Principal>
-      <Dependent Role="Khach">
-        <PropertyRef Name="CongID" />
+      <Dependent Role="DangKyHAT">
+        <PropertyRef Name="HopDongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DKHAnToan_NhaThau">
+    <End Role="NhaThau" Type="Self.NhaThau" Multiplicity="0..1" />
+    <End Role="DangKyHAT" Type="Self.DangKyHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaThau">
+        <PropertyRef Name="IDNhaThau" />
+      </Principal>
+      <Dependent Role="DangKyHAT">
+        <PropertyRef Name="NhaThauID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DKHAnToan_PhongBan">
+    <End Role="PhongBan" Type="Self.PhongBan" Multiplicity="0..1" />
+    <End Role="DangKyHAT" Type="Self.DangKyHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhongBan">
+        <PropertyRef Name="IDPhongBan" />
+      </Principal>
+      <Dependent Role="DangKyHAT">
+        <PropertyRef Name="PhongBanID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -434,30 +478,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Khach_LoaiKhach">
-    <End Role="LoaiKhach" Type="Self.LoaiKhach" Multiplicity="0..1" />
-    <End Role="Khach" Type="Self.Khach" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LoaiKhach">
-        <PropertyRef Name="IDLoaiKhach" />
-      </Principal>
-      <Dependent Role="Khach">
-        <PropertyRef Name="LoaiKhachID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Khach_NhaThau">
-    <End Role="NhaThau" Type="Self.NhaThau" Multiplicity="0..1" />
-    <End Role="Khach" Type="Self.Khach" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NhaThau">
-        <PropertyRef Name="IDNhaThau" />
-      </Principal>
-      <Dependent Role="Khach">
-        <PropertyRef Name="NhaThauID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_NguoiDung_NhanVien">
     <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
     <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="*" />
@@ -535,10 +555,13 @@
     <EntitySet Name="CardNhanViens" EntityType="Self.CardNhanVien" />
     <EntitySet Name="CauHinhPheDuyets" EntityType="Self.CauHinhPheDuyet" />
     <EntitySet Name="Congs" EntityType="Self.Cong" />
+    <EntitySet Name="DangKyHATs" EntityType="Self.DangKyHAT" />
+    <EntitySet Name="DanhSachHATs" EntityType="Self.DanhSachHAT" />
+    <EntitySet Name="DKKhaches" EntityType="Self.DKKhach" />
+    <EntitySet Name="DSKhaches" EntityType="Self.DSKhach" />
     <EntitySet Name="GiaHanHDs" EntityType="Self.GiaHanHD" />
     <EntitySet Name="HopDongs" EntityType="Self.HopDong" />
     <EntitySet Name="KeQuaHocs" EntityType="Self.KeQuaHoc" />
-    <EntitySet Name="Khaches" EntityType="Self.Khach" />
     <EntitySet Name="LoaiHS" EntityType="Self.LoaiH" />
     <EntitySet Name="LoaiKhaches" EntityType="Self.LoaiKhach" />
     <EntitySet Name="NguoiDungs" EntityType="Self.NguoiDung" />
@@ -556,17 +579,21 @@
     <EntitySet Name="VanBans" EntityType="Self.VanBan" />
     <EntitySet Name="ViPhams" EntityType="Self.ViPham" />
     <EntitySet Name="PHONGBANCHN_VIEW" EntityType="Self.PHONGBANCHN_VIEW" />
-    <AssociationSet Name="FK_CardNhanVien_Card" Association="Self.FK_CardNhanVien_Card">
-      <End Role="Card" EntitySet="Cards" />
-      <End Role="CardNhanVien" EntitySet="CardNhanViens" />
-    </AssociationSet>
     <AssociationSet Name="FK_CardNhanVien_NhanVienNT" Association="Self.FK_CardNhanVien_NhanVienNT">
       <End Role="NhanVienNT" EntitySet="NhanVienNTs" />
       <End Role="CardNhanVien" EntitySet="CardNhanViens" />
     </AssociationSet>
-    <AssociationSet Name="FK_Khach_Cong" Association="Self.FK_Khach_Cong">
-      <End Role="Cong" EntitySet="Congs" />
-      <End Role="Khach" EntitySet="Khaches" />
+    <AssociationSet Name="FK_DKHAnToan_HopDong" Association="Self.FK_DKHAnToan_HopDong">
+      <End Role="HopDong" EntitySet="HopDongs" />
+      <End Role="DangKyHAT" EntitySet="DangKyHATs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DKHAnToan_NhaThau" Association="Self.FK_DKHAnToan_NhaThau">
+      <End Role="NhaThau" EntitySet="NhaThaus" />
+      <End Role="DangKyHAT" EntitySet="DangKyHATs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DKHAnToan_PhongBan" Association="Self.FK_DKHAnToan_PhongBan">
+      <End Role="PhongBan" EntitySet="PhongBans" />
+      <End Role="DangKyHAT" EntitySet="DangKyHATs" />
     </AssociationSet>
     <AssociationSet Name="FK_GiaHanHD_HopDong" Association="Self.FK_GiaHanHD_HopDong">
       <End Role="HopDong" EntitySet="HopDongs" />
@@ -595,14 +622,6 @@
     <AssociationSet Name="FK_KeQuaHoc_NhaThau" Association="Self.FK_KeQuaHoc_NhaThau">
       <End Role="NhaThau" EntitySet="NhaThaus" />
       <End Role="KeQuaHoc" EntitySet="KeQuaHocs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Khach_LoaiKhach" Association="Self.FK_Khach_LoaiKhach">
-      <End Role="LoaiKhach" EntitySet="LoaiKhaches" />
-      <End Role="Khach" EntitySet="Khaches" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Khach_NhaThau" Association="Self.FK_Khach_NhaThau">
-      <End Role="NhaThau" EntitySet="NhaThaus" />
-      <End Role="Khach" EntitySet="Khaches" />
     </AssociationSet>
     <AssociationSet Name="FK_NguoiDung_NhanVien" Association="Self.FK_NguoiDung_NhanVien">
       <End Role="NhanVien" EntitySet="NhanViens" />
@@ -648,12 +667,12 @@
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="CardNhanVien_insert">
-      <Parameter Name="CardID" Mode="In" Type="Int32" />
       <Parameter Name="NhanVienNTID" Mode="In" Type="Int32" />
       <Parameter Name="NgayBatDau" Mode="In" Type="DateTime" />
       <Parameter Name="NgayHetHan" Mode="In" Type="DateTime" />
       <Parameter Name="MSCard" Mode="In" Type="String" />
       <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
+      <Parameter Name="TTThe" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="CardNhanVien_searchByID" ReturnType="Collection(QLNhaThauModel.CardNhanVien_searchByID_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -661,12 +680,12 @@
     <FunctionImport Name="CardNhanVien_select" ReturnType="Collection(QLNhaThauModel.CardNhanVien_select_Result)" />
     <FunctionImport Name="CardNhanVien_update">
       <Parameter Name="ID" Mode="In" Type="Int32" />
-      <Parameter Name="CardID" Mode="In" Type="Int32" />
       <Parameter Name="NhanVienNTID" Mode="In" Type="Int32" />
       <Parameter Name="NgayBatDau" Mode="In" Type="DateTime" />
       <Parameter Name="NgayHetHan" Mode="In" Type="DateTime" />
       <Parameter Name="MSCard" Mode="In" Type="String" />
       <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
+      <Parameter Name="TTThe" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="Cong_delete">
       <Parameter Name="IDCong" Mode="In" Type="Int32" />
@@ -682,25 +701,76 @@
       <Parameter Name="IDCong" Mode="In" Type="Int32" />
       <Parameter Name="TenCong" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="DangKyHAT_insert">
+      <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
+      <Parameter Name="HopDongID" Mode="In" Type="Int32" />
+      <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
+      <Parameter Name="ChiHuyTruong" Mode="In" Type="String" />
+      <Parameter Name="NgayDuKienHoc" Mode="In" Type="DateTime" />
+      <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
+      <Parameter Name="IDDKHAT" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DangKyHAT_Select" ReturnType="Collection(QLNhaThauModel.DangKyHAT_Select_Result)">
+      <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
+      <Parameter Name="TinhTrang" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DanhSachHAT_Insert">
+      <Parameter Name="DKHATID" Mode="In" Type="Int32" />
+      <Parameter Name="CMND" Mode="In" Type="String" />
+      <Parameter Name="HoTen" Mode="In" Type="String" />
+      <Parameter Name="GioiTinh" Mode="In" Type="Int32" />
+      <Parameter Name="QuocTich" Mode="In" Type="String" />
+      <Parameter Name="ChucVu" Mode="In" Type="String" />
+      <Parameter Name="ThoiHanThe" Mode="In" Type="DateTime" />
+    </FunctionImport>
     <FunctionImport Name="Delete_PhanQyen">
       <Parameter Name="NguoiDungID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="EmplIndentityCard_Delete">
-      <Parameter Name="ID" Mode="In" Type="Int32" />
-      <Parameter Name="a" Mode="In" Type="Int32" />
+    <FunctionImport Name="DKKhach_delete">
+      <Parameter Name="IDDangKyKH" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="EmplIndentityCard_insert">
-      <Parameter Name="CardId" Mode="In" Type="Int32" />
-      <Parameter Name="NhanVienNTID" Mode="In" Type="Int32" />
+    <FunctionImport Name="DKKhach_Insert">
+      <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
+      <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
+      <Parameter Name="LoaiKhachID" Mode="In" Type="Int32" />
+      <Parameter Name="CongID" Mode="In" Type="Int32" />
+      <Parameter Name="NguoiDaiDien" Mode="In" Type="String" />
+      <Parameter Name="PhuongTien" Mode="In" Type="String" />
+      <Parameter Name="BienSo" Mode="In" Type="String" />
+      <Parameter Name="NgayBL" Mode="In" Type="DateTime" />
+      <Parameter Name="TinhTrang" Mode="In" Type="Int32" />
+      <Parameter Name="IDDangKyKH" Mode="InOut" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="EmplIndentityCard_SearchByID" ReturnType="Collection(QLNhaThauModel.EmplIndentityCard_SearchByID_Result)">
-      <Parameter Name="ID" Mode="In" Type="Int32" />
+    <FunctionImport Name="DKKhach_InsertKH">
+      <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
+      <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
+      <Parameter Name="LoaiKhachID" Mode="In" Type="Int32" />
+      <Parameter Name="CongID" Mode="In" Type="Int32" />
+      <Parameter Name="NguoiDaiDien" Mode="In" Type="String" />
+      <Parameter Name="PhuongTien" Mode="In" Type="String" />
+      <Parameter Name="BienSo" Mode="In" Type="String" />
+      <Parameter Name="NgayBL" Mode="In" Type="DateTime" />
+      <Parameter Name="TinhTrang" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="EmplIndentityCard_select" ReturnType="Collection(QLNhaThauModel.EmplIndentityCard_select_Result)" />
-    <FunctionImport Name="EmplIndentityCard_update">
-      <Parameter Name="ID" Mode="In" Type="Int32" />
-      <Parameter Name="CardId" Mode="In" Type="Int32" />
-      <Parameter Name="NhanVienNTID" Mode="In" Type="Int32" />
+    <FunctionImport Name="DKKhach_SearchByID" ReturnType="Collection(QLNhaThauModel.DKKhach_SearchByID_Result)">
+      <Parameter Name="IDDangKyKH" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DKKhach_Update">
+      <Parameter Name="IDDangKyKH" Mode="In" Type="Int32" />
+      <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
+      <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
+      <Parameter Name="LoaiKhachID" Mode="In" Type="Int32" />
+      <Parameter Name="CongID" Mode="In" Type="Int32" />
+      <Parameter Name="NguoiDaiDien" Mode="In" Type="String" />
+      <Parameter Name="PhuongTien" Mode="In" Type="String" />
+      <Parameter Name="BienSo" Mode="In" Type="String" />
+      <Parameter Name="NgayBL" Mode="In" Type="DateTime" />
+      <Parameter Name="TinhTrang" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DSKhach_Insert">
+      <Parameter Name="DangKyKHID" Mode="In" Type="Int32" />
+      <Parameter Name="CMND" Mode="In" Type="String" />
+      <Parameter Name="HoTen" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="GiaHanHopDong_Delete">
       <Parameter Name="IDGHHD" Mode="In" Type="Int32" />
@@ -721,9 +791,6 @@
       <Parameter Name="IDGHHD" Mode="In" Type="Int32" />
       <Parameter Name="HDID" Mode="In" Type="Int32" />
       <Parameter Name="LyDo" Mode="In" Type="String" />
-      <Parameter Name="PBCHNID" Mode="In" Type="Int32" />
-      <Parameter Name="PhongBanID" Mode="In" Type="Int32" />
-      <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
       <Parameter Name="NgayKetThuc" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="HopDong_delete">
@@ -790,7 +857,7 @@
     <FunctionImport Name="Khach_Delete">
       <Parameter Name="IDKhach" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Khach_Insert" ReturnType="Collection(Int32)">
+    <FunctionImport Name="Khach_Insert">
       <Parameter Name="CongID" Mode="In" Type="Int32" />
       <Parameter Name="LoaiKhachID" Mode="In" Type="Int32" />
       <Parameter Name="NhaThauID" Mode="In" Type="Int32" />
@@ -802,10 +869,10 @@
       <Parameter Name="BienSo" Mode="In" Type="String" />
       <Parameter Name="GhiChu" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="Khach_SearchByID" ReturnType="Collection(QLNhaThauModel.Khach_SearchByID_Result)">
+    <FunctionImport Name="Khach_SearchByID">
       <Parameter Name="IDKhach" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="Khach_Select" ReturnType="Collection(QLNhaThauModel.Khach_Select_Result)" />
+    <FunctionImport Name="Khach_Select" />
     <FunctionImport Name="Khach_Update">
       <Parameter Name="IDKhach" Mode="In" Type="Int32" />
       <Parameter Name="CongID" Mode="In" Type="Int32" />
@@ -1158,21 +1225,21 @@
   </ComplexType>
   <ComplexType Name="CardNhanVien_searchByID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="Int32" Name="CardID" Nullable="true" />
     <Property Type="Int32" Name="NhanVienNTID" Nullable="true" />
     <Property Type="DateTime" Name="NgayBatDau" Nullable="true" />
     <Property Type="DateTime" Name="NgayHetHan" Nullable="true" />
     <Property Type="String" Name="MSCard" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="NhaThauID" Nullable="true" />
+    <Property Type="Boolean" Name="TTThe" Nullable="true" />
   </ComplexType>
   <ComplexType Name="CardNhanVien_select_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="Int32" Name="NhanVienNTID" Nullable="true" />
-    <Property Type="Int32" Name="CardID" Nullable="true" />
     <Property Type="DateTime" Name="NgayBatDau" Nullable="true" />
     <Property Type="DateTime" Name="NgayHetHan" Nullable="true" />
     <Property Type="String" Name="MSCard" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="NhaThauID" Nullable="true" />
+    <Property Type="Boolean" Name="TTThe" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Cong_SearchByID_Result">
     <Property Type="Int32" Name="IDCONG" Nullable="false" />
@@ -1182,31 +1249,30 @@
     <Property Type="Int32" Name="IDCong" Nullable="false" />
     <Property Type="String" Name="TenCong" Nullable="true" MaxLength="50" />
   </ComplexType>
-  <ComplexType Name="EmplIndentityCard_SearchByID_Result">
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="Int32" Name="CardID" Nullable="true" />
-    <Property Type="Int32" Name="NhanVienNTID" Nullable="true" />
-    <Property Type="DateTime" Name="NgayBatDau" Nullable="true" />
-    <Property Type="DateTime" Name="NgayHetHan" Nullable="true" />
-    <Property Type="String" Name="MSCard" Nullable="true" MaxLength="50" />
-    <Property Type="Int32" Name="NhaThauID" Nullable="true" />
+  <ComplexType Name="DangKyHAT_Select_Result">
+    <Property Type="Int32" Name="IDDKHAT" Nullable="false" />
+    <Property Type="Int32" Name="HopDongID" Nullable="true" />
+    <Property Type="String" Name="TenHD" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="ChiHuyTruong" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Ten" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="NgayDuKienHoc" Nullable="false" />
   </ComplexType>
-  <ComplexType Name="EmplIndentityCard_select_Result">
-    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="150" />
-    <Property Type="String" Name="MaNV" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="MaCard" Nullable="true" MaxLength="10" />
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="Int32" Name="CardID" Nullable="true" />
-    <Property Type="Int32" Name="NhanVienNTID" Nullable="true" />
-    <Property Type="DateTime" Name="NgayHetHan" Nullable="true" Precision="23" />
+  <ComplexType Name="DKKhach_SearchByID_Result">
+    <Property Type="Int32" Name="IDDangKyKH" Nullable="false" />
+    <Property Type="Int32" Name="NhaThauID" Nullable="true" />
+    <Property Type="Int32" Name="PhongBanID" Nullable="true" />
+    <Property Type="Int32" Name="LoaiKhachID" Nullable="true" />
+    <Property Type="Int32" Name="CongID" Nullable="true" />
+    <Property Type="String" Name="NguoiDaiDien" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="BienSo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PhuongTien" Nullable="true" MaxLength="150" />
+    <Property Type="DateTime" Name="NgayBL" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TinhTrang" Nullable="true" />
   </ComplexType>
   <ComplexType Name="GiaHanHopDong_SearchByID_Result">
     <Property Type="Int32" Name="IDGHHD" Nullable="false" />
     <Property Type="Int32" Name="HDID" Nullable="true" />
     <Property Type="String" Name="LyDo" Nullable="true" MaxLength="250" />
-    <Property Type="Int32" Name="PBCHNID" Nullable="true" />
-    <Property Type="Int32" Name="PhongBanID" Nullable="true" />
-    <Property Type="Int32" Name="NhaThauID" Nullable="true" />
     <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" Precision="23" />
   </ComplexType>
   <ComplexType Name="GiaHanHopDong_select_Result">
@@ -1267,27 +1333,6 @@
     <Property Type="String" Name="Ten" Nullable="true" MaxLength="250" />
     <Property Type="DateTime" Name="NgayHoc" Nullable="true" Precision="23" />
     <Property Type="Boolean" Name="KetQua" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="Khach_SearchByID_Result">
-    <Property Type="Int32" Name="IDKhach" Nullable="false" />
-    <Property Type="Int32" Name="CongID" Nullable="true" />
-    <Property Type="Int32" Name="LoaiKhachID" Nullable="true" />
-    <Property Type="Int32" Name="NhaThauID" Nullable="true" />
-    <Property Type="DateTime" Name="Ngay" Nullable="true" Precision="23" />
-    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="PhuongTien" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="BienSo" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="GhiChu" Nullable="true" MaxLength="150" />
-    <Property Type="Int32" Name="PhongBanID" Nullable="true" />
-    <Property Type="Int32" Name="PHCDNID" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="Khach_Select_Result">
-    <Property Type="Int32" Name="IDKhach" Nullable="false" />
-    <Property Type="Int32" Name="CongID" Nullable="true" />
-    <Property Type="Int32" Name="LoaiKhachID" Nullable="true" />
-    <Property Type="DateTime" Name="Ngay" Nullable="true" Precision="23" />
-    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="GhiChu" Nullable="true" MaxLength="150" />
   </ComplexType>
   <ComplexType Name="LoaiKhach_SearchByID_Result">
     <Property Type="Int32" Name="IDLoaiKhach" Nullable="false" />

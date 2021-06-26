@@ -44,7 +44,7 @@ namespace QLNHATHAU.Controllers
                     db_context.KetQuaHoc_save(i.IDKQHAT, i.KetQua);
                     if (i.KetQua)
                     {
-                        db_context.EmplIndentityCard_insert(1, i.IDNhanVienNT);
+                        //db_context.EmplIndentityCard_insert(1, i.IDNhanVienNT);
                     }
 
                 }
@@ -82,7 +82,7 @@ namespace QLNHATHAU.Controllers
                         db_context.KetQuaHoc_update(IDKQHAT[0].IDKQHAT, IDKQHAT[0].IDNhanVienNT, DO.HDID, IDNhaThau, DO.NgayHoc, DO.KetQua);
                         if ((bool)DO.KetQua)
                         {
-                            db_context.EmplIndentityCard_insert(1 ,IDKQHAT[0].IDNhanVienNT);
+                            //db_context.EmplIndentityCard_insert(1 ,IDKQHAT[0].IDNhanVienNT);
                         }
                         TempData["msgError"] = "<script>alert('Cập nhật kết quả học tập số lượng nhiều thành công!');</script>";
                     }

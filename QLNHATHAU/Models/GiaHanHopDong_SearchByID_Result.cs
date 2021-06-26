@@ -16,9 +16,6 @@ namespace QLNHATHAU.Models
         public int IDGHHD { get; set; }
         public Nullable<int> HDID { get; set; }
         public string LyDo { get; set; }
-        public Nullable<int> PBCHNID { get; set; }
-        public Nullable<int> PhongBanID { get; set; }
-        public Nullable<int> NhaThauID { get; set; }
         public Nullable<System.DateTime> NgayKetThuc { get; set; }
     }
 }

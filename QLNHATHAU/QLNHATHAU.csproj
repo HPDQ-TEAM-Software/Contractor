@@ -165,8 +165,10 @@
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\PhanQuyenController.cs" />
     <Compile Include="Controllers\QuyenController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\ReportAbuseController.cs" />
     <Compile Include="Controllers\ResultsLearnSafeController.cs" />
+    <Compile Include="Controllers\SignerController.cs" />
     <Compile Include="Controllers\WarningNoticeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -192,6 +194,8 @@
     <Compile Include="Models\CauHinhPheDuyet.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CheckInforContractExtension.cs" />
+    <Compile Include="Models\CheckInforRegistration.cs" />
     <Compile Include="Models\Cong.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -201,10 +205,22 @@
     <Compile Include="Models\Cong_Select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmplIndentityCard_SearchByID_Result.cs">
+    <Compile Include="Models\DangKyHAT.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmplIndentityCard_select_Result.cs">
+    <Compile Include="Models\DangKyHAT_Select_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DanhSachHAT.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DKKhach.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DKKhach_SearchByID_Result.cs">
+      <DependentUpon>QLNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DSKhach.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GiaHanHD.cs">
@@ -216,6 +232,7 @@
     <Compile Include="Models\GiaHanHopDong_select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GroupValidation.cs" />
     <Compile Include="Models\HopDong.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -235,15 +252,6 @@
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KetQuaHoc_select_Result.cs">
-      <DependentUpon>QLNT.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Khach.cs">
-      <DependentUpon>QLNT.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Khach_SearchByID_Result.cs">
-      <DependentUpon>QLNT.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Khach_Select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiH.cs">
@@ -267,7 +275,6 @@
     <Compile Include="Models\ContractorStaffValidation.cs" />
     <Compile Include="Models\ContractorValidation.cs" />
     <Compile Include="Models\CardValidation.cs" />
-    <Compile Include="Models\DangKyValidation.cs" />
     <Compile Include="Models\EmployeeIndetityCardValidation.cs" />
     <Compile Include="Models\HopDongValidation.cs" />
     <Compile Include="Models\LoaiKhachValidation.cs" />
@@ -417,10 +424,13 @@
     <Compile Include="Models\Quyen_select_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RegistrationlistValidation.cs" />
+    <Compile Include="Models\RegistrationValidation.cs" />
     <Compile Include="Models\ReportAbuseValidation.cs" />
     <Compile Include="Models\ResultAfterChange.cs" />
     <Compile Include="Models\ResultsLearnSafeValidation.cs" />
     <Compile Include="Models\SelectedTenQuyen.cs" />
+    <Compile Include="Models\SignerValidation.cs" />
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>QLNT.tt</DependentUpon>
     </Compile>
@@ -1226,6 +1236,21 @@
     <Content Include="Views\WarningNotice\Index.cshtml" />
     <Content Include="Views\ManageCard\Index.cshtml" />
     <Content Include="Views\ManageCard\Create.cshtml" />
+    <Content Include="Views\DangKy\Security.cshtml" />
+    <Content Include="Views\ContractExtension\CheckInformationExtension.cshtml" />
+    <Content Include="Views\Signer\Approved.cshtml" />
+    <Content Include="Views\Signer\Pending.cshtml" />
+    <Content Include="Views\Signer\GHHD.cshtml" />
+    <Content Include="Views\Signer\HAT.cshtml" />
+    <Content Include="Views\Signer\GHHD1.cshtml" />
+    <Content Include="Views\Signer\HAT1.cshtml" />
+    <Content Include="Views\Registration\Create.cshtml" />
+    <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Views\Registration\Edit.cshtml" />
+    <Content Include="Views\Registration\ImportExcel.cshtml" />
+    <Content Include="Views\Registration\CheckInformation.cshtml" />
+    <Content Include="Views\Registration\Detail.cshtml" />
+    <Content Include="Views\Registration\CheckInformationoften.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

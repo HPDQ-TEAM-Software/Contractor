@@ -11,14 +11,13 @@ namespace QLNHATHAU.Models
 {
     using System;
     
-    public partial class EmplIndentityCard_SearchByID_Result
+    public partial class DangKyHAT_Select_Result
     {
-        public int ID { get; set; }
-        public Nullable<int> CardID { get; set; }
-        public Nullable<int> NhanVienNTID { get; set; }
-        public Nullable<System.DateTime> NgayBatDau { get; set; }
-        public Nullable<System.DateTime> NgayHetHan { get; set; }
-        public string MSCard { get; set; }
-        public Nullable<int> NhaThauID { get; set; }
+        public int IDDKHAT { get; set; }
+        public Nullable<int> HopDongID { get; set; }
+        public string TenHD { get; set; }
+        public string ChiHuyTruong { get; set; }
+        public string Ten { get; set; }
+        public System.DateTime NgayDuKienHoc { get; set; }
     }
 }

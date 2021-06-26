@@ -13,12 +13,12 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CardID" Type="int" />
     <Property Name="NhanVienNTID" Type="int" />
     <Property Name="NgayBatDau" Type="date" />
     <Property Name="NgayHetHan" Type="date" />
     <Property Name="MSCard" Type="nvarchar" MaxLength="50" />
     <Property Name="NhaThauID" Type="int" />
+    <Property Name="TTThe" Type="bit" />
   </EntityType>
   <EntityType Name="CauHinhPheDuyet">
     <Key>
@@ -39,17 +39,67 @@
     <Property Name="IDCONG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenCong" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="DangKyHAT">
+    <Key>
+      <PropertyRef Name="IDDKHAT" />
+    </Key>
+    <Property Name="IDDKHAT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhongBanID" Type="int" />
+    <Property Name="HopDongID" Type="int" />
+    <Property Name="NhaThauID" Type="int" />
+    <Property Name="ChiHuyTruong" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayDuKienHoc" Type="date" Nullable="false" />
+    <Property Name="TinhTrang" Type="int" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="250" />
+    <Property Name="NguoiDungID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DanhSachHAT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DKHATID" Type="int" />
+    <Property Name="CMND" Type="varchar" MaxLength="15" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="150" />
+    <Property Name="GioiTinh" Type="int" />
+    <Property Name="QuocTich" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
+    <Property Name="ThoiHanThe" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DKKhach">
+    <Key>
+      <PropertyRef Name="IDDangKyKH" />
+    </Key>
+    <Property Name="IDDangKyKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NhaThauID" Type="int" />
+    <Property Name="PhongBanID" Type="int" />
+    <Property Name="LoaiKhachID" Type="int" />
+    <Property Name="CongID" Type="int" />
+    <Property Name="NguoiDaiDien" Type="nvarchar" MaxLength="150" />
+    <Property Name="BienSo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhuongTien" Type="nvarchar" MaxLength="150" />
+    <Property Name="NgayBL" Type="datetime" />
+    <Property Name="Ghi Chu" Type="nvarchar" MaxLength="150" />
+    <Property Name="TinhTrang" Type="int" />
+  </EntityType>
+  <EntityType Name="DSKhach">
+    <Key>
+      <PropertyRef Name="IDKhach" />
+    </Key>
+    <Property Name="IDKhach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DangKyKHID" Type="int" />
+    <Property Name="CMND" Type="nvarchar" MaxLength="15" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="GiaHanHD">
     <Key>
       <PropertyRef Name="IDGHHD" />
     </Key>
     <Property Name="IDGHHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="HDID" Type="int" />
-    <Property Name="PBCHNID" Type="int" />
-    <Property Name="PhongBanID" Type="int" />
-    <Property Name="NhaThauID" Type="int" />
     <Property Name="LyDo" Type="nvarchar" MaxLength="250" />
     <Property Name="NgayKetThuc" Type="datetime" />
+    <Property Name="TinhTrang" Type="int" />
   </EntityType>
   <EntityType Name="HopDong">
     <Key>
@@ -78,22 +128,6 @@
     <Property Name="NhaThauID" Type="int" />
     <Property Name="NgayHoc" Type="datetime" />
     <Property Name="KetQua" Type="bit" />
-  </EntityType>
-  <EntityType Name="Khach">
-    <Key>
-      <PropertyRef Name="IDKhach" />
-    </Key>
-    <Property Name="IDKhach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CongID" Type="int" />
-    <Property Name="LoaiKhachID" Type="int" />
-    <Property Name="NhaThauID" Type="int" />
-    <Property Name="PHCDNID" Type="int" />
-    <Property Name="PhongBanID" Type="int" />
-    <Property Name="Ngay" Type="datetime" />
-    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
-    <Property Name="PhuongTien" Type="nvarchar" MaxLength="50" />
-    <Property Name="BienSo" Type="nvarchar" MaxLength="50" />
-    <Property Name="GhiChu" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="LoaiHS">
     <Key>
@@ -280,18 +314,6 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Property Name="TenVT" Type="varchar" MaxLength="10" />
     <Property Name="TenDai" Type="nvarchar" MaxLength="150" />
   </EntityType>
-  <Association Name="FK_CardNhanVien_Card">
-    <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
-    <End Role="CardNhanVien" Type="Self.CardNhanVien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Card">
-        <PropertyRef Name="IDCard" />
-      </Principal>
-      <Dependent Role="CardNhanVien">
-        <PropertyRef Name="CardID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_CardNhanVien_NhanVienNT">
     <End Role="NhanVienNT" Type="Self.NhanVienNT" Multiplicity="0..1" />
     <End Role="CardNhanVien" Type="Self.CardNhanVien" Multiplicity="*" />
@@ -301,6 +323,42 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
       </Principal>
       <Dependent Role="CardNhanVien">
         <PropertyRef Name="NhanVienNTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DKHAnToan_HopDong">
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="0..1" />
+    <End Role="DangKyHAT" Type="Self.DangKyHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HopDong">
+        <PropertyRef Name="IDHD" />
+      </Principal>
+      <Dependent Role="DangKyHAT">
+        <PropertyRef Name="HopDongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DKHAnToan_NhaThau">
+    <End Role="NhaThau" Type="Self.NhaThau" Multiplicity="0..1" />
+    <End Role="DangKyHAT" Type="Self.DangKyHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaThau">
+        <PropertyRef Name="IDNhaThau" />
+      </Principal>
+      <Dependent Role="DangKyHAT">
+        <PropertyRef Name="NhaThauID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DKHAnToan_PhongBan">
+    <End Role="PhongBan" Type="Self.PhongBan" Multiplicity="0..1" />
+    <End Role="DangKyHAT" Type="Self.DangKyHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhongBan">
+        <PropertyRef Name="IDPhongBan" />
+      </Principal>
+      <Dependent Role="DangKyHAT">
+        <PropertyRef Name="PhongBanID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -360,42 +418,6 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
         <PropertyRef Name="IDNhaThau" />
       </Principal>
       <Dependent Role="KeQuaHoc">
-        <PropertyRef Name="NhaThauID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Khach_Cong">
-    <End Role="Cong" Type="Self.Cong" Multiplicity="0..1" />
-    <End Role="Khach" Type="Self.Khach" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cong">
-        <PropertyRef Name="IDCONG" />
-      </Principal>
-      <Dependent Role="Khach">
-        <PropertyRef Name="CongID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Khach_LoaiKhach">
-    <End Role="LoaiKhach" Type="Self.LoaiKhach" Multiplicity="0..1" />
-    <End Role="Khach" Type="Self.Khach" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LoaiKhach">
-        <PropertyRef Name="IDLoaiKhach" />
-      </Principal>
-      <Dependent Role="Khach">
-        <PropertyRef Name="LoaiKhachID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Khach_NhaThau">
-    <End Role="NhaThau" Type="Self.NhaThau" Multiplicity="0..1" />
-    <End Role="Khach" Type="Self.Khach" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NhaThau">
-        <PropertyRef Name="IDNhaThau" />
-      </Principal>
-      <Dependent Role="Khach">
         <PropertyRef Name="NhaThauID" />
       </Dependent>
     </ReferentialConstraint>
@@ -516,12 +538,12 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
   <Function Name="CardNhanVien_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="CardID" Type="int" Mode="In" />
     <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
     <Parameter Name="NgayBatDau" Type="datetime" Mode="In" />
     <Parameter Name="NgayHetHan" Type="datetime" Mode="In" />
     <Parameter Name="MSCard" Type="nvarchar" Mode="In" />
     <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="TTThe" Type="bit" Mode="In" />
   </Function>
   <Function Name="CardNhanVien_searchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
@@ -529,12 +551,12 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
   <Function Name="CardNhanVien_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="CardNhanVien_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="CardID" Type="int" Mode="In" />
     <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
     <Parameter Name="NgayBatDau" Type="smalldatetime" Mode="In" />
     <Parameter Name="NgayHetHan" Type="smalldatetime" Mode="In" />
     <Parameter Name="MSCard" Type="nvarchar" Mode="In" />
     <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="TTThe" Type="bit" Mode="In" />
   </Function>
   <Function Name="Cong_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDCong" Type="int" Mode="In" />
@@ -550,25 +572,76 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="IDCong" Type="int" Mode="In" />
     <Parameter Name="TenCong" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="DangKyHAT_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PhongBanID" Type="int" Mode="In" />
+    <Parameter Name="HopDongID" Type="int" Mode="In" />
+    <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="ChiHuyTruong" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayDuKienHoc" Type="date" Mode="In" />
+    <Parameter Name="NguoiDungID" Type="int" Mode="In" />
+    <Parameter Name="IDDKHAT" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="DangKyHAT_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PhongBanID" Type="int" Mode="In" />
+    <Parameter Name="TinhTrang" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DanhSachHAT_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DKHATID" Type="int" Mode="In" />
+    <Parameter Name="CMND" Type="varchar" Mode="In" />
+    <Parameter Name="HoTen" Type="nvarchar" Mode="In" />
+    <Parameter Name="GioiTinh" Type="int" Mode="In" />
+    <Parameter Name="QuocTich" Type="nvarchar" Mode="In" />
+    <Parameter Name="ChucVu" Type="nvarchar" Mode="In" />
+    <Parameter Name="ThoiHanThe" Type="datetime" Mode="In" />
+  </Function>
   <Function Name="Delete_PhanQyen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NguoiDungID" Type="int" Mode="In" />
   </Function>
-  <Function Name="EmplIndentityCard_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="a" Type="int" Mode="In" />
+  <Function Name="DKKhach_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDDangKyKH" Type="int" Mode="In" />
   </Function>
-  <Function Name="EmplIndentityCard_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="CardId" Type="int" Mode="In" />
-    <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
+  <Function Name="DKKhach_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="PhongBanID" Type="int" Mode="In" />
+    <Parameter Name="LoaiKhachID" Type="int" Mode="In" />
+    <Parameter Name="CongID" Type="int" Mode="In" />
+    <Parameter Name="NguoiDaiDien" Type="nvarchar" Mode="In" />
+    <Parameter Name="PhuongTien" Type="varchar" Mode="In" />
+    <Parameter Name="BienSo" Type="varchar" Mode="In" />
+    <Parameter Name="NgayBL" Type="datetime" Mode="In" />
+    <Parameter Name="TinhTrang" Type="int" Mode="In" />
+    <Parameter Name="IDDangKyKH" Type="int" Mode="InOut" />
   </Function>
-  <Function Name="EmplIndentityCard_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
+  <Function Name="DKKhach_InsertKH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="PhongBanID" Type="int" Mode="In" />
+    <Parameter Name="LoaiKhachID" Type="int" Mode="In" />
+    <Parameter Name="CongID" Type="int" Mode="In" />
+    <Parameter Name="NguoiDaiDien" Type="nvarchar" Mode="In" />
+    <Parameter Name="PhuongTien" Type="varchar" Mode="In" />
+    <Parameter Name="BienSo" Type="varchar" Mode="In" />
+    <Parameter Name="NgayBL" Type="datetime" Mode="In" />
+    <Parameter Name="TinhTrang" Type="int" Mode="In" />
   </Function>
-  <Function Name="EmplIndentityCard_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="EmplIndentityCard_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="CardId" Type="int" Mode="In" />
-    <Parameter Name="NhanVienNTID" Type="int" Mode="In" />
+  <Function Name="DKKhach_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDDangKyKH" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DKKhach_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDDangKyKH" Type="int" Mode="In" />
+    <Parameter Name="NhaThauID" Type="int" Mode="In" />
+    <Parameter Name="PhongBanID" Type="int" Mode="In" />
+    <Parameter Name="LoaiKhachID" Type="int" Mode="In" />
+    <Parameter Name="CongID" Type="int" Mode="In" />
+    <Parameter Name="NguoiDaiDien" Type="nvarchar" Mode="In" />
+    <Parameter Name="PhuongTien" Type="varchar" Mode="In" />
+    <Parameter Name="BienSo" Type="varchar" Mode="In" />
+    <Parameter Name="NgayBL" Type="datetime" Mode="In" />
+    <Parameter Name="TinhTrang" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DSKhach_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DangKyKHID" Type="int" Mode="In" />
+    <Parameter Name="CMND" Type="nvarchar" Mode="In" />
+    <Parameter Name="HoTen" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
   <Function Name="GiaHanHopDong_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -590,9 +663,6 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <Parameter Name="IDGHHD" Type="int" Mode="In" />
     <Parameter Name="HDID" Type="int" Mode="In" />
     <Parameter Name="LyDo" Type="nvarchar" Mode="In" />
-    <Parameter Name="PBCHNID" Type="int" Mode="In" />
-    <Parameter Name="PhongBanID" Type="int" Mode="In" />
-    <Parameter Name="NhaThauID" Type="int" Mode="In" />
     <Parameter Name="NgayKetThuc" Type="datetime" Mode="In" />
   </Function>
   <Function Name="HopDong_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1019,10 +1089,13 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <EntitySet Name="CardNhanVien" EntityType="Self.CardNhanVien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CauHinhPheDuyet" EntityType="Self.CauHinhPheDuyet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cong" EntityType="Self.Cong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DangKyHAT" EntityType="Self.DangKyHAT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DanhSachHAT" EntityType="Self.DanhSachHAT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DKKhach" EntityType="Self.DKKhach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DSKhach" EntityType="Self.DSKhach" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GiaHanHD" EntityType="Self.GiaHanHD" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HopDong" EntityType="Self.HopDong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KeQuaHoc" EntityType="Self.KeQuaHoc" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Khach" EntityType="Self.Khach" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoaiHS" EntityType="Self.LoaiHS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoaiKhach" EntityType="Self.LoaiKhach" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
@@ -1046,13 +1119,21 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     [PHONGBANCHN_VIEW].[TenDai] AS [TenDai]
     FROM [dbo].[PHONGBANCHN_VIEW] AS [PHONGBANCHN_VIEW]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK_CardNhanVien_Card" Association="Self.FK_CardNhanVien_Card">
-      <End Role="Card" EntitySet="Card" />
-      <End Role="CardNhanVien" EntitySet="CardNhanVien" />
-    </AssociationSet>
     <AssociationSet Name="FK_CardNhanVien_NhanVienNT" Association="Self.FK_CardNhanVien_NhanVienNT">
       <End Role="NhanVienNT" EntitySet="NhanVienNT" />
       <End Role="CardNhanVien" EntitySet="CardNhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DKHAnToan_HopDong" Association="Self.FK_DKHAnToan_HopDong">
+      <End Role="HopDong" EntitySet="HopDong" />
+      <End Role="DangKyHAT" EntitySet="DangKyHAT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DKHAnToan_NhaThau" Association="Self.FK_DKHAnToan_NhaThau">
+      <End Role="NhaThau" EntitySet="NhaThau" />
+      <End Role="DangKyHAT" EntitySet="DangKyHAT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DKHAnToan_PhongBan" Association="Self.FK_DKHAnToan_PhongBan">
+      <End Role="PhongBan" EntitySet="PhongBan" />
+      <End Role="DangKyHAT" EntitySet="DangKyHAT" />
     </AssociationSet>
     <AssociationSet Name="FK_GiaHanHD_HopDong" Association="Self.FK_GiaHanHD_HopDong">
       <End Role="HopDong" EntitySet="HopDong" />
@@ -1073,18 +1154,6 @@ warning 6002: The table/view 'QLNhaThau.dbo.PHONGBANCHN_VIEW' does not have a pr
     <AssociationSet Name="FK_KeQuaHoc_NhaThau" Association="Self.FK_KeQuaHoc_NhaThau">
       <End Role="NhaThau" EntitySet="NhaThau" />
       <End Role="KeQuaHoc" EntitySet="KeQuaHoc" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Khach_Cong" Association="Self.FK_Khach_Cong">
-      <End Role="Cong" EntitySet="Cong" />
-      <End Role="Khach" EntitySet="Khach" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Khach_LoaiKhach" Association="Self.FK_Khach_LoaiKhach">
-      <End Role="LoaiKhach" EntitySet="LoaiKhach" />
-      <End Role="Khach" EntitySet="Khach" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Khach_NhaThau" Association="Self.FK_Khach_NhaThau">
-      <End Role="NhaThau" EntitySet="NhaThau" />
-      <End Role="Khach" EntitySet="Khach" />
     </AssociationSet>
     <AssociationSet Name="FK_NguoiDung_NhanVien" Association="Self.FK_NguoiDung_NhanVien">
       <End Role="NhanVien" EntitySet="NhanVien" />

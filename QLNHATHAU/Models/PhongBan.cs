@@ -17,6 +17,7 @@ namespace QLNHATHAU.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PhongBan()
         {
+            this.DangKyHATs = new HashSet<DangKyHAT>();
             this.HopDongs = new HashSet<HopDong>();
             this.PCHN_HopDong = new HashSet<PCHN_HopDong>();
         }
@@ -26,6 +27,8 @@ namespace QLNHATHAU.Models
         public string TenDai { get; set; }
         public Nullable<bool> PCHN { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DangKyHAT> DangKyHATs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HopDong> HopDongs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

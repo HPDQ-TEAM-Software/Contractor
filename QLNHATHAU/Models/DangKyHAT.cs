@@ -12,22 +12,20 @@ namespace QLNHATHAU.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Khach
+    public partial class DangKyHAT
     {
-        public int IDKhach { get; set; }
-        public Nullable<int> CongID { get; set; }
-        public Nullable<int> LoaiKhachID { get; set; }
-        public Nullable<int> NhaThauID { get; set; }
-        public Nullable<int> PHCDNID { get; set; }
+        public int IDDKHAT { get; set; }
         public Nullable<int> PhongBanID { get; set; }
-        public Nullable<System.DateTime> Ngay { get; set; }
-        public string HoTen { get; set; }
-        public string PhuongTien { get; set; }
-        public string BienSo { get; set; }
+        public Nullable<int> HopDongID { get; set; }
+        public Nullable<int> NhaThauID { get; set; }
+        public string ChiHuyTruong { get; set; }
+        public System.DateTime NgayDuKienHoc { get; set; }
+        public Nullable<int> TinhTrang { get; set; }
         public string GhiChu { get; set; }
+        public int NguoiDungID { get; set; }
     
-        public virtual Cong Cong { get; set; }
-        public virtual LoaiKhach LoaiKhach { get; set; }
+        public virtual HopDong HopDong { get; set; }
         public virtual NhaThau NhaThau { get; set; }
+        public virtual PhongBan PhongBan { get; set; }
     }
 }

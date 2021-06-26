@@ -10,15 +10,17 @@
 namespace QLNHATHAU.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class EmplIndentityCard_select_Result
+    public partial class DanhSachHAT
     {
-        public string HoTen { get; set; }
-        public string MaNV { get; set; }
-        public string MaCard { get; set; }
         public int ID { get; set; }
-        public Nullable<int> CardID { get; set; }
-        public Nullable<int> NhanVienNTID { get; set; }
-        public Nullable<System.DateTime> NgayHetHan { get; set; }
+        public Nullable<int> DKHATID { get; set; }
+        public string CMND { get; set; }
+        public string HoTen { get; set; }
+        public Nullable<int> GioiTinh { get; set; }
+        public string QuocTich { get; set; }
+        public string ChucVu { get; set; }
+        public Nullable<System.DateTime> ThoiHanThe { get; set; }
     }
 }

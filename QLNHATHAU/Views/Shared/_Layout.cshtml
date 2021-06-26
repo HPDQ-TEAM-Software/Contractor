@@ -25,10 +25,6 @@
                     <li class="active">
                         <a href="@Url.Action("Index","Home")"><i class="menu-icon fa fa-laptop"></i><span>Tổng quan</span> </a>
                     </li>
-                    @*<li class="">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i><span>Charts</span></a>
-
-        </li>*@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cog"></i><span>Quản trị</span></a>
                         <ul class="sub-menu children dropdown-menu">
@@ -42,27 +38,29 @@
                             <li><a href="@Url.Action("Index","ContractorStaff")"><span>8. Nhân Viên Nhà thầu</span></a></li>
                         </ul>
                     </li>
-                    <li class="">
-                        <a href="@Url.Action("Index","DangKy")"> <i class="menu-icon fa fa-pencil-square"></i><span>Đăng Ký Khách</span></a>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-file-word-o"></i><span> Phê Duyệt </span></a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><a href="@Url.Action("Approved","Signer")"><span>1. Chờ Phê Duyệt </span></a></li>
+                            <li><a href="@Url.Action("Pending","Signer")">2. Đã Phê Duyệt <span></span></a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square"></i><span>Đăng Ký Khách</span></a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><a href="@Url.Action("Index","Registration")"><span>1. Đăng Ký Khách </span></a></li>
+                        </ul>
                     </li>
 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-file-text-o"></i><span>QL Hợp Đồng</span></a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><a href="@Url.Action("Index","Contract")"><span>1. Hợp đồng</span></a></li>
-                            <li><a href="@Url.Action("Index","ResultsLearnSafe")">2. Gia hạn hợp đồng<span></span></a></li>
+                            <li><a href="@Url.Action("Index","ContractExtension")">2. Gia hạn hợp đồng<span></span></a></li>
                         </ul>
                     </li>
-
-
-                    @*<li class="">
-            <a href="@Url.Action("Index","Contract")"> <i class="menu-icon fa fa-file-text-o"></i><span>QL Hợp Đồng</span></a>
-
-        </li>
-        <li class="">
-            <a href="@Url.Action("Index","ContractExtension")"> <i class="menu-icon fa fa-file-text-o"></i><span>QL gia hạn hợp đồng</span></a>
-
-        </li>*@
 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-suitcase"></i><span>QL học an toàn</span></a>
@@ -119,8 +117,6 @@
             <nav class="rad-navigation">
                 <div class="rad-logo-container">
                     <a class="rad-logo" href="@Url.Action("Index","Home")"><img src="/images/logoH50.png" alt="logo"></a>
-                    @*<a href="./" class="rad-logo">Quản Lý Nhà Thầu</a>*@
-
                     <a href="#" class="rad-toggle-btn pull-right" onclick=collapseAside()><i class="fa fa-bars"></i></a>
                 </div>
                 <a href="#" class="rad-logo-title">Phần Mềm Quản Lý Nhà Thầu</a>

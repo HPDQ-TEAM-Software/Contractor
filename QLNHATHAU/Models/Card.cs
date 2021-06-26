@@ -14,17 +14,8 @@ namespace QLNHATHAU.Models
     
     public partial class Card
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Card()
-        {
-            this.CardNhanViens = new HashSet<CardNhanVien>();
-        }
-    
         public int IDCard { get; set; }
         public string MaCard { get; set; }
         public Nullable<System.DateTime> NgayHetHan { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CardNhanVien> CardNhanViens { get; set; }
     }
 }

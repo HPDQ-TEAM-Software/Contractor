@@ -10,14 +10,13 @@
 namespace QLNHATHAU.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class Khach_Select_Result
+    public partial class DSKhach
     {
         public int IDKhach { get; set; }
-        public Nullable<int> CongID { get; set; }
-        public Nullable<int> LoaiKhachID { get; set; }
-        public Nullable<System.DateTime> Ngay { get; set; }
+        public Nullable<int> DangKyKHID { get; set; }
+        public string CMND { get; set; }
         public string HoTen { get; set; }
-        public string GhiChu { get; set; }
     }
 }

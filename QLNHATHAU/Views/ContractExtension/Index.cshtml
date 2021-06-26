@@ -95,23 +95,40 @@
                             <tr>
                                 <td>@item.TenHD </td>
                                 <td>@item.LyDo</td>
-                                <td class="center-td">@item.NgayKetThuc.Value.ToString("dd/MM/yyyy")</td>
+                                <td class="center-td">@item.NgayKetThuc</td>
+
                                 <td class="center-td">
-                                    <a id="btn-edit_@item.IDGHHD" title="Sửa" class="fa fa-pencil-square-o icon_action">Sửa</a>
+                                    <a id="btn-edit_@item.IDGHHD" href="#" title="Sửa" class="icon_action"><i class="fa fa-edit"></i></a>
+
                                     <div class="modal fade" id="myModale_@item.IDGHHD" role="dialog" data-url='@Url.Action("Edit","ContractExtension", new { id = item.IDGHHD })'></div>
                                     <script type="text/javascript">
                                     $("#btn-edit_@item.IDGHHD").click(function () {
                                         var url = $('#myModale_@item.IDGHHD').data('url');
-                                        console.log(url);
                                         $.get(url, function (data) {
                                             $("#myModal").html(data);
-                                            $("#ModalTitle").html("Cập nhật gia hạn hợp đồng");
+                                            $("#ModalTitle").html("Cập nhật hợp đồng");
                                             $("#myModal").modal('show');
                                         });
                                     });
                                     </script>
+                                    &nbsp;
                                     <a class="fa fa-trash icon_action" ,title="Xóa" href="@Url.Action("Delete", "ContractExtension", new { id = item.IDGHHD })"
-                                       onclick="return confirm('Bạn muốn xóa gia hạn hợp đồng có tên: @item.TenHD')" title="Xóa">Xóa</a>
+                                       onclick="return confirm('Bạn muốn xóa gia hạn hợp đồng có tên: @item.TenHD')" title="Xóa"></a>
+
+                                    &nbsp;
+                                    <a id="Check_@item.IDGHHD" href="#" class="icon_action" title="Trình ký"><i class="fa fa-share-square"></i></a>
+
+                                    <div class="modal fade" id="myModale_Check_@item.IDGHHD" role="dialog" data-url='@Url.Action("CheckInformationExtension","ContractExtension", new { id = item.IDGHHD })'></div>
+                                    <script type="text/javascript">
+                                    $("#Check_@item.IDGHHD").click(function () {
+                                        var url = $('#myModale_Check_@item.IDGHHD').data('url');
+                                        $.get(url, function (data) {
+                                            $("#myModal").html(data);
+                                            $("#ModalTitle").html("Trình ký");
+                                            $("#myModal").modal('show');
+                                        });
+                                    });
+                                    </script>
                                 </td>
                             </tr>
                         }
@@ -137,8 +154,3 @@
         });
     });
 </script>
-
-@section scripts{
-
-
-}

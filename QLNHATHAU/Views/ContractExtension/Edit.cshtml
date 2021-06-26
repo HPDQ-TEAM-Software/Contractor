@@ -5,7 +5,6 @@
 @using (Html.BeginForm("Edit", "ContractExtension", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(model => model.IDGHHD)
     <div class="modal-dialog" id="form">
         <div class="modal-content">
             <div class="modal-header">
@@ -20,10 +19,31 @@
                             @Html.DropDownListFor(model => model.IDHD, ViewBag.HDList as SelectList, "--Chọn hợp đồng--", new { @id = "IDHD", @class = "form-control" })
                         </div>
                     </div>
+
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="small mb-1">Ngày kết thúc</label>
-                            @Html.EditorFor(model => model.NgayKetThuc, new { @value = DateTime.Today, htmlAttributes = new { @class = "form-control", @type = "date", placeholder = "Ngày kết thúc", @id = "NgayKetThuc", @Value = ViewBag.NgayKetThuc } })
+                            <label class="small mb-1">Nhà Thầu</label>
+                            @Html.DropDownListFor(model => model.NhaThauID, ViewBag.NTList as SelectList, "NhaThauID", new { @id = "NhaThauID", @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label class="small mb-1">BP quản lý</label>
+                            @Html.DropDownListFor(model => model.PhongBanID, ViewBag.PBList as SelectList, new { @id = "PhongBanID", @class = "form-control" })
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1">Phòng chức năng</label>
+                                @Html.DropDownListFor(model => model.PBCHNID, ViewBag.CHNList as SelectList, new { @id = "PBCHNID", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="small mb-1">Ngày</label>
+                            @Html.EditorFor(model => model.NgayKetThuc, new { @value = DateTime.Today, htmlAttributes = new { @class = "form-control", @type = "NgayKetThuc", placeholder = "Ngày kết thúc", @id = "NgayKetThuc" } })
                             @Html.ValidationMessageFor(model => model.NgayKetThuc, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -66,5 +86,13 @@
     $("#IDHD").chosen({
         width: "100%"
     });
+    $("#PhongBanID").chosen({
+        width: "100%"
+    });
+    $("#NhaThauID").chosen({
+        width: "100%"
+    });
+    $("#PBCHNID").chosen({
+        width: "100%"
+    });
 </script>
-

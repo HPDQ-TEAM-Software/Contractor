@@ -19,6 +19,27 @@
                             @Html.DropDownListFor(model => model.IDHD, ViewBag.HDList as SelectList, "--Chọn hợp đồng--", new { @id = "IDHD", @class = "form-control" })
                         </div>
                     </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="small mb-1">Nhà Thầu</label>
+                            @Html.DropDownListFor(model => model.NhaThauID, ViewBag.NTList as SelectList, "--Chọn nhà thầu--", new { @id = "NhaThauID", @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label class="small mb-1">BP quản lý</label>
+                            @Html.DropDownListFor(model => model.PhongBanID, ViewBag.PBList as SelectList, "--Chọn phòng quản lý--", new { @id = "PhongBanID", @class = "form-control" })
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1">Phòng chức năng</label>
+                                @Html.DropDownListFor(model => model.PBCHNID, ViewBag.PCHNList as SelectList, "--Chọn phòng chức năng--", new { @id = "PBCHNID", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="small mb-1">Ngày kết thúc</label>
@@ -65,5 +86,13 @@
     $("#IDHD").chosen({
         width: "100%"
     });
+    $("#PhongBanID").chosen({
+        width: "100%"
+    });
+    $("#NhaThauID").chosen({
+        width: "100%"
+    });
+    $("#PBCHNID").chosen({
+        width: "100%"
+    });
 </script>
-

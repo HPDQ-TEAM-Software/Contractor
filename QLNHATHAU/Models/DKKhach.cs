@@ -10,19 +10,20 @@
 namespace QLNHATHAU.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class Khach_SearchByID_Result
+    public partial class DKKhach
     {
-        public int IDKhach { get; set; }
-        public Nullable<int> CongID { get; set; }
-        public Nullable<int> LoaiKhachID { get; set; }
+        public int IDDangKyKH { get; set; }
         public Nullable<int> NhaThauID { get; set; }
-        public Nullable<System.DateTime> Ngay { get; set; }
-        public string HoTen { get; set; }
-        public string PhuongTien { get; set; }
-        public string BienSo { get; set; }
-        public string GhiChu { get; set; }
         public Nullable<int> PhongBanID { get; set; }
-        public Nullable<int> PHCDNID { get; set; }
+        public Nullable<int> LoaiKhachID { get; set; }
+        public Nullable<int> CongID { get; set; }
+        public string NguoiDaiDien { get; set; }
+        public string BienSo { get; set; }
+        public string PhuongTien { get; set; }
+        public Nullable<System.DateTime> NgayBL { get; set; }
+        public string Ghi_Chu { get; set; }
+        public Nullable<int> TinhTrang { get; set; }
     }
 }

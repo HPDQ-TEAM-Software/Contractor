@@ -10,26 +10,26 @@ namespace QLNHATHAU.Controllers
     {
         QLNhaThauEntities db_context = new QLNhaThauEntities();
         // GET: Quyen
-        public ActionResult Index(int? page, int? id)
-        {
-            var res = from a in db_context.EmplIndentityCard_select()
-                      select new EmployeeIndetityCardValidation
-                      {
-                           Id = a.ID,
-                           CardId = (int)a.CardID,
-                           NhanVienNTID = (int)a.NhanVienNTID,
-                           TenNVNT = a.HoTen,
-                           MaNVNT = a.MaNV,
-                           MaCard = a.MaCard,
-                           NgayHetHan = a.NgayHetHan
-                      };
+        //public ActionResult Index(int? page, int? id)
+        //{
+        //    var res = from a in db_context.EmplIndentityCard_select()
+        //              select new EmployeeIndetityCardValidation
+        //              {
+        //                   Id = a.ID,
+        //                   CardId = (int)a.CardID,
+        //                   NhanVienNTID = (int)a.NhanVienNTID,
+        //                   TenNVNT = a.HoTen,
+        //                   MaNVNT = a.MaNV,
+        //                   MaCard = a.MaCard,
+        //                   NgayHetHan = a.NgayHetHan
+        //              };
 
-            if (page == null) page = 1;
-            int pageSize = 5;
-            int pageNumber = (page ?? 1);
+        //    if (page == null) page = 1;
+        //    int pageSize = 5;
+        //    int pageNumber = (page ?? 1);
 
-            return View(res.ToList().ToPagedList(pageNumber, pageSize));
-        }
+        //    return View(res.ToList().ToPagedList(pageNumber, pageSize));
+        //}
 
         // GET: Create Quyen
         public ActionResult Create()

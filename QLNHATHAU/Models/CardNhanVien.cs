@@ -15,14 +15,13 @@ namespace QLNHATHAU.Models
     public partial class CardNhanVien
     {
         public int ID { get; set; }
-        public Nullable<int> CardID { get; set; }
         public Nullable<int> NhanVienNTID { get; set; }
         public Nullable<System.DateTime> NgayBatDau { get; set; }
         public Nullable<System.DateTime> NgayHetHan { get; set; }
         public string MSCard { get; set; }
         public Nullable<int> NhaThauID { get; set; }
+        public Nullable<bool> TTThe { get; set; }
     
-        public virtual Card Card { get; set; }
         public virtual NhanVienNT NhanVienNT { get; set; }
     }
 }

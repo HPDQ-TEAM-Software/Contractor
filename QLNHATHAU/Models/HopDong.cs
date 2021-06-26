@@ -17,6 +17,7 @@ namespace QLNHATHAU.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HopDong()
         {
+            this.DangKyHATs = new HashSet<DangKyHAT>();
             this.GiaHanHDs = new HashSet<GiaHanHD>();
             this.KeQuaHocs = new HashSet<KeQuaHoc>();
             this.PCHN_HopDong = new HashSet<PCHN_HopDong>();
@@ -36,6 +37,8 @@ namespace QLNHATHAU.Models
         public Nullable<int> PBCHNID { get; set; }
         public Nullable<int> TinhTrang { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DangKyHAT> DangKyHATs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GiaHanHD> GiaHanHDs { get; set; }
         public virtual PhongBan PhongBan { get; set; }

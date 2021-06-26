@@ -16,6 +16,14 @@ namespace QLNHATHAU.Models
         [Required(ErrorMessage = "Nhập ID hợp đồng")]
         public int IDHD { get; set; }
 
+        public int NhaThauID { get; set; }
+        public string TenNhaThau { get; set; }
+
+        public string TenPhongBan { get; set; }
+        public int PhongBanID { get; set; }
+
+        public int PBCHNID { get; set; }
+
         [Required(ErrorMessage = "Nhập ID hợp đồng")]
         public string LyDo { get; set; }
 
