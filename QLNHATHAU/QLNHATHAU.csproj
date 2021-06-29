@@ -1251,6 +1251,7 @@
     <Content Include="Views\Registration\CheckInformation.cshtml" />
     <Content Include="Views\Registration\Detail.cshtml" />
     <Content Include="Views\Registration\CheckInformationoften.cshtml" />
+    <Content Include="Views\Registration\Security.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
