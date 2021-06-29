@@ -51,7 +51,7 @@
             }
 </style>
 <link href="~/Content/assets/css/PagedList.css" rel="stylesheet" />
-<div class="card mb-4" style="margin-top: 175px; width: 1620px; height: auto; margin-left: 270px;">
+<div class="card mb-4" style="margin-top: 100px; width: 600px; height: auto; margin-left: 700px;">
     <div class="card-header">
         <label class="card-title pull-left">Danh Sách Khách</label>
         <a href="#" class="close" data-dismiss="modal">&times;</a>
@@ -63,16 +63,7 @@
                     <tr>
                         <th width="30px">STT</th>
                         <th class="text-center"> Họ Và Tên </th>
-                        <th class="text-center"> Nhà Thầu </th>
-                        <th class="text-center"> CMNN </th>
-                        <th class="text-center"> Người Đại Diện </th>
-
-                        <th class="text-center"> Loại Khách </th>
-                        <th class="text-center"> Ngày Bảo Lãnh </th>
-                        <th class="text-center"> Phương Tiện</th>
-                        <th class="text-center"> Biển Số </th>
-                        <th class="text-center"> Cổng </th>
-
+                        <th width="250px" class="text-center"> CMNN </th>
                     </tr>
                 </thead>
 
@@ -84,23 +75,14 @@
                     }
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td class="text-center"> @RowNo@{RowNo++;}</td>
-                        <td>@item.HoTen </td>
-                        <td class="text-center">@item.TenNhaThau</td>
-                        <td class="text-center">@item.CMNN</td>
-                        <td class="text-center">@item.NguoiDaiDien</td>
-
-                        <td class="text-center">@item.TenKhach</td>
-                        <td class="center-td">@item.NgayBL.Value.ToString("dd-MM-yyyy")</td>
-                        <td class="text-center">@item.PhuongTien</td>
-                        <td class="text-center">@item.BienSo</td>
-                        <td class="text-center">@item.TenCong</td>
-
-                    </tr>
+                        <tr>
+                            <td class="text-center"> @RowNo@{RowNo++;}</td>
+                            <td>@item.HoTen </td>
+                            <td class="text-center">@item.CMNN</td>
+                        </tr>
                     }
                 </tbody>
-                            @*<thead class="thead-light">
+                @*<thead class="thead-light">
 
                         @foreach (var item in Model)
                         {
@@ -154,15 +136,16 @@
 
                     </tbody>*@
 
-                </table>
+            </table>
             <div class="pager">
-                @Html.PagedListPager(Model, page => Url.Action("Detail", "Registration", new { page }))
+                @Html.PagedListPager(Model, page => Url.Action("Security", "Security", new { page }))
                 <span class="pageoff"> Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</span>
 
             </div>
         </div>
     </div>
 </div>
+
 
 
 

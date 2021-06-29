@@ -168,6 +168,7 @@
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\ReportAbuseController.cs" />
     <Compile Include="Controllers\ResultsLearnSafeController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Controllers\SignerController.cs" />
     <Compile Include="Controllers\WarningNoticeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1251,7 +1252,8 @@
     <Content Include="Views\Registration\CheckInformation.cshtml" />
     <Content Include="Views\Registration\Detail.cshtml" />
     <Content Include="Views\Registration\CheckInformationoften.cshtml" />
-    <Content Include="Views\Registration\Security.cshtml" />
+    <Content Include="Views\Security\Index.cshtml" />
+    <Content Include="Views\Security\Security.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

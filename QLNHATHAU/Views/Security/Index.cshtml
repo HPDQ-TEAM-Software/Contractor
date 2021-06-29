@@ -1,11 +1,10 @@
-﻿
-@{
-    ViewBag.Title = "Security";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@using QLNHATHAU.Models
+﻿@using QLNHATHAU.Models
 @model PagedList.IPagedList<RegistrationValidation>
 @using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @if (TempData["msgSuccess"] != null)
 {
     @Html.Raw(TempData["msgSuccess"])
@@ -71,12 +70,9 @@
 <div class="card mb-4">
     <div class="card-header">
         <label class="card-title pull-left">Quản lý khách</label>
-
-        <button type="button" id="btn-Import" class="btn btn-success pull-right"><i class="fa fa-file-excel-o">&nbsp;</i>&nbsp;Import Excel </button>
-        <div class="modal fade" id="myModalimport" role="dialog" data-url='@Url.Action("ImportExcel","Registration")'></div>
-        &nbsp;
         <button type="button" id="btn-add" class="btn btn-primary pull-right"><i class="fa fa-plus">&nbsp;</i>&nbsp;Thêm mới </button>
         <div class="modal fade" id="myModal" role="dialog" data-url='@Url.Action("Create","Registration")'></div>
+ 
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -115,12 +111,11 @@
                             <td class="center-td">@item.NgayBL.Value.ToString("dd-MM-yyyy")</td>
 
                             <td class="center-td">
-                                &nbsp;
-                                <a id="btn-detail_@item.IDDangKyKH" title="Chi Tiết" class="fa fa-list-ul"></a>
-                                <div class="modal fade" id="myModal_detail_@item.IDDangKyKH" role="dialog" data-url='@Url.Action("Detail","Registration", new { id = item.IDDangKyKH })'></div>
+                                <a id="btn-Security_@item.IDDangKyKH" title="Chi Tiết" class="fa fa-list-ul"></a>
+                                <div class="modal fade" id="myModal_Security_@item.IDDangKyKH" role="dialog" data-url='@Url.Action("Security","Security", new { id = item.IDDangKyKH })'></div>
                                 <script type="text/javascript">
-                                                $("#btn-detail_@item.IDDangKyKH").click(function () {
-                                                    var url = $('#myModal_detail_@item.IDDangKyKH').data('url');
+                                    $("#btn-Security_@item.IDDangKyKH").click(function () {
+                                        var url = $('#myModal_Security_@item.IDDangKyKH').data('url');
 
                                                     $.get(url, function (data) {
                                                         $("#myModal").html(data);
@@ -135,7 +130,7 @@
                 </tbody>
             </table>
             <div class="pager">
-                @Html.PagedListPager(Model, page => Url.Action("Security", "Registration", new { page }))
+                @Html.PagedListPager(Model, page => Url.Action("Index", "Security", new { page }))
                 <span class="pageoff"> Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</span>
 
             </div>
@@ -152,16 +147,4 @@
             $("#myModal").modal('show');
         });
     });
-    $('#btn-Import').click(function () {
-        var url = $('#myModalimport').data('url');
-        $.get(url, function (data) {
-            $("#myModal").html(data);
-            $("#ModalTitle").html("Import");
-            $("#myModal").modal('show');
-        });
-    });
 </script>
-
-
-
-

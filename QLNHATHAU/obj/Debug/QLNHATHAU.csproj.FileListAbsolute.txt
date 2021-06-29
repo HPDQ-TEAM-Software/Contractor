@@ -461,4 +461,3 @@ C:\Users\HPDQ\QLNT-LDT\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CoreCompileInputs.ca
 C:\Users\HPDQ\QLNT-LDT\QLNHATHAU\obj\Debug\QLNHATHAU.csproj.CopyComplete
 C:\Users\HPDQ\QLNT-LDT\QLNHATHAU\obj\Debug\QLNHATHAU.dll
 C:\Users\HPDQ\QLNT-LDT\QLNHATHAU\obj\Debug\QLNHATHAU.pdb
-C:\Users\HPDQ\QLNT-LDT\QLNHATHAU\obj\Debug\QLNHATHAU.csprojAssemblyReference.cache

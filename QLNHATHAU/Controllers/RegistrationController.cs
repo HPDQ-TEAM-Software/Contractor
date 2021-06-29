@@ -295,7 +295,7 @@ namespace QLNHATHAU.Controllers
             else
                 return false;
         }
-
+        // Trình ký khach vip
         public ActionResult CheckInformation(int id)
         {
             CheckInforRegistration _DO = new CheckInforRegistration();
@@ -512,37 +512,6 @@ namespace QLNHATHAU.Controllers
             int pageNumber = (page ?? 1);
             return PartialView(res.ToPagedList(pageNumber, pageSize));
           
-        }
-
-        public ActionResult Security(int? page)
-        {
-            var res = (from a in db_context.DKKhaches
-                       join nt in db_context.NhaThaus on a.NhaThauID equals nt.IDNhaThau
-                       join pb in db_context.PhongBans on a.PhongBanID equals pb.IDPhongBan
-                       join lk in db_context.LoaiKhaches on a.LoaiKhachID equals lk.IDLoaiKhach
-                       join c in db_context.Congs on a.CongID equals c.IDCONG
-                       select new RegistrationValidation()
-                       {
-                           IDDangKyKH = a.IDDangKyKH,
-                           NhaThauID = (int)a.NhaThauID,
-                           TenNhaThau = nt.Ten,
-                           PhongBanID = (int)a.PhongBanID,
-                           TenPhongBan = pb.TenDai,
-                           LoaiKhachID = (int)a.LoaiKhachID,
-                           TenKhach = lk.TenLoai,
-                           CongID = (int)a.CongID,
-                           TenCong = c.TenCong,
-                           NguoiDaiDien = a.NguoiDaiDien,
-                           BienSo = a.BienSo,
-                           PhuongTien = a.PhuongTien,
-                           NgayBL = a.NgayBL,
-                           TinhTrang = (int)a.TinhTrang
-                       }).ToList();
-
-            if (page == null) page = 1;
-            int pageSize = 10;
-            int pageNumber = ((int)(page ?? 1));
-            return View(res.ToList().ToPagedList(pageNumber, pageSize));
         }
     }
   }
