@@ -9,8 +9,8 @@ namespace QLNHATHAU.Models
     public class RegistrationValidation
     {
         public int IDDangKyKH { get; set; }
-
    
+        
         public int NhaThauID { get; set; }
         public string TenNhaThau { get; set; }
 

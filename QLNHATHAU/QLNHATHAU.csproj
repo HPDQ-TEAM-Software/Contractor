@@ -1254,6 +1254,9 @@
     <Content Include="Views\Registration\CheckInformationoften.cshtml" />
     <Content Include="Views\Security\Index.cshtml" />
     <Content Include="Views\Security\Security.cshtml" />
+    <Content Include="Views\Security\List.cshtml" />
+    <Content Include="Views\Registration\Security.cshtml" />
+    <Content Include="Views\Registration\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

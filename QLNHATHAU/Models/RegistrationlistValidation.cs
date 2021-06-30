@@ -18,6 +18,6 @@ namespace QLNHATHAU.Models
         public string HoTen { get; set; }
 
         [Required(ErrorMessage = "Nhập CMND")]
-        public int CMND { get; set; }
+        public string CMND { get; set; }
     }
 }

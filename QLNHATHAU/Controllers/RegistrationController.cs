@@ -464,6 +464,7 @@ namespace QLNHATHAU.Controllers
             try
             {
                 //Loại HS của đăng ký khách là 4
+
                 //insert BP QL
                 db_context.PheDuyet_Insert(_DO.IDTrPBPQL, 4, _DO.HoSoID, false, null);
                 //insert Phòng Hành Chính Đối Ngoại
@@ -481,13 +482,45 @@ namespace QLNHATHAU.Controllers
         }
 
 
-        public ActionResult Detail(int? page, int? id)
+        //public ActionResult Detail(int? page, int? id)
+        //{
+        //    var res = (from a in db_context.DKKhaches.Where(x=> x.IDDangKyKH == id)
+        //               join lk in db_context.LoaiKhaches on a.LoaiKhachID equals lk.IDLoaiKhach
+        //               join c in db_context.Congs on a.CongID equals c.IDCONG
+        //               join nt in db_context.NhaThaus on a.NhaThauID equals nt.IDNhaThau
+        //               join ds in db_context.DSKhaches on a.IDDangKyKH equals ds.DangKyKHID
+        //               select new RegistrationValidation()
+        //               {
+        //                   IDDangKyKH = a.IDDangKyKH,
+        //                   NhaThauID = (int)nt.IDNhaThau,
+        //                   TenNhaThau = nt.Ten,
+        //                   LoaiKhachID = (int)a.LoaiKhachID,
+        //                   TenKhach = lk.TenLoai,
+        //                   CongID = (int)a.CongID,
+        //                   HoTen = ds.HoTen,
+        //                   CMNN = ds.CMND,
+        //                   TenCong = c.TenCong,
+        //                   NguoiDaiDien = a.NguoiDaiDien,
+        //                   PhuongTien = a.PhuongTien,
+        //                   BienSo = a.BienSo,
+        //                   NgayBL = a.NgayBL
+
+
+        //               }).ToList();
+
+        //    if (page == null) page = 1;
+        //    int pageSize = 20;
+        //    int pageNumber = (page ?? 1);
+        //    return PartialView(res.ToPagedList(pageNumber, pageSize));
+          
+        //}
+
+        public ActionResult Security(int? id)
         {
-            var res = (from a in db_context.DKKhaches.Where(x=> x.IDDangKyKH == id)
+            var res = (from a in db_context.DKKhaches.Where(x => x.IDDangKyKH == id)
                        join lk in db_context.LoaiKhaches on a.LoaiKhachID equals lk.IDLoaiKhach
                        join c in db_context.Congs on a.CongID equals c.IDCONG
                        join nt in db_context.NhaThaus on a.NhaThauID equals nt.IDNhaThau
-                       join ds in db_context.DSKhaches on a.IDDangKyKH equals ds.DangKyKHID
                        select new RegistrationValidation()
                        {
                            IDDangKyKH = a.IDDangKyKH,
@@ -496,22 +529,44 @@ namespace QLNHATHAU.Controllers
                            LoaiKhachID = (int)a.LoaiKhachID,
                            TenKhach = lk.TenLoai,
                            CongID = (int)a.CongID,
-                           HoTen = ds.HoTen,
-                           CMNN = ds.CMND,
                            TenCong = c.TenCong,
                            NguoiDaiDien = a.NguoiDaiDien,
                            PhuongTien = a.PhuongTien,
                            BienSo = a.BienSo,
                            NgayBL = a.NgayBL
-
-
                        }).ToList();
+            RegistrationValidation DO = new RegistrationValidation();
+            if (res.Count > 0)
+            {
+                foreach (var a in res)
+                {
+                    DO.IDDangKyKH = a.IDDangKyKH;
+                    DO.NhaThauID = (int)a.NhaThauID;
+                    DO.PhongBanID = (int)a.PhongBanID;
+                    DO.LoaiKhachID = (int)a.LoaiKhachID;
+                    DO.CongID = (int)a.CongID;
+                    DO.NguoiDaiDien = a.NguoiDaiDien;
+                    DO.BienSo = a.BienSo;
+                    DO.PhuongTien = a.PhuongTien;
+                    DO.NgayBL = a.NgayBL;
+                    DO.TinhTrang = (int)a.TinhTrang;
+                }
+                return View(DO);
+            }
+            return View();
+        }
 
-            if (page == null) page = 1;
-            int pageSize = 20;
-            int pageNumber = (page ?? 1);
-            return PartialView(res.ToPagedList(pageNumber, pageSize));
-          
+        public ActionResult List(int id)
+        {
+            var res = from a in db_context.DSKhaches.Where(x => x.DangKyKHID == id)
+                      select new RegistrationlistValidation()
+                      {
+                          IDKhach = a.IDKhach,
+                          DangKyKHID = (int)a.DangKyKHID,
+                          CMND = a.CMND,
+                          HoTen = a.HoTen
+                      };
+            return PartialView(res.ToList());
         }
     }
   }

@@ -107,22 +107,22 @@
                     }
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td class="text-center"> @RowNo@{RowNo++;}</td>
-                            <td>@item.TenNhaThau </td>
-                            <td class="text-center">@item.TenPhongBan</td>
-                            <td class="text-center">@item.TenKhach</td>
-                            <td class="text-center">@item.TenCong</td>
-                            <td class="text-center">@item.NguoiDaiDien</td>
-                            <td class="text-center">@item.PhuongTien</td>
-                            <td class="text-center">@item.BienSo</td>
-                            <td class="center-td">@item.NgayBL.Value.ToString("dd-MM-yyyy")</td>
+                    <tr>
+                        <td class="text-center"> @RowNo@{RowNo++;}</td>
+                        <td>@item.TenNhaThau </td>
+                        <td class="text-center">@item.TenPhongBan</td>
+                        <td class="text-center">@item.TenKhach</td>
+                        <td class="text-center">@item.TenCong</td>
+                        <td class="text-center">@item.NguoiDaiDien</td>
+                        <td class="text-center">@item.PhuongTien</td>
+                        <td class="text-center">@item.BienSo</td>
+                        <td class="text-center">@item.NgayBL.Value.ToString("dd-MM-yyyy")</td>
 
-                            <td class="center-td">
+                        <td class="center-td">
 
-                                <a id="btn-edit_@item.IDDangKyKH" title="Sửa" class="fa fa-pencil-square-o icon_action"></a>
-                                <div class="modal fade" id="myModale_@item.IDDangKyKH" role="dialog" data-url='@Url.Action("Edit","Registration", new { id = item.IDDangKyKH })'></div>
-                                <script type="text/javascript">
+                            <a id="btn-edit_@item.IDDangKyKH" title="Sửa" class="fa fa-pencil-square-o icon_action"></a>
+                            <div class="modal fade" id="myModale_@item.IDDangKyKH" role="dialog" data-url='@Url.Action("Edit","Registration", new { id = item.IDDangKyKH })'></div>
+                            <script type="text/javascript">
                                     $("#btn-edit_@item.IDDangKyKH").click(function () {
                                         var url = $('#myModale_@item.IDDangKyKH').data('url');
                                         console.log(url);
@@ -132,13 +132,13 @@
                                             $("#myModal").modal('show');
                                         });
                                     });
-                                </script>
-                                &nbsp;
-                                <a id="btn-detail_@item.IDDangKyKH" title="Chi Tiết" class="fa fa-list-ul"></a>
-                                <div class="modal fade" id="myModal_detail_@item.IDDangKyKH" role="dialog" data-url='@Url.Action("Detail","Registration", new { id = item.IDDangKyKH })'></div>
-                                <script type="text/javascript">
-                                                $("#btn-detail_@item.IDDangKyKH").click(function () {
-                                                    var url = $('#myModal_detail_@item.IDDangKyKH').data('url');
+                            </script>
+                            &nbsp;
+                            <a id="btn-Security_@item.IDDangKyKH" title="Chi Tiết" class="fa fa-list-ul"></a>
+                            <div class="modal fade" id="myModal_Security_@item.IDDangKyKH" role="dialog" data-url='@Url.Action("Security","Security", new { id = item.IDDangKyKH })'></div>
+                            <script type="text/javascript">
+                                    $("#btn-Security_@item.IDDangKyKH").click(function () {
+                                        var url = $('#myModal_Security_@item.IDDangKyKH').data('url');
 
                                                     $.get(url, function (data) {
                                                         $("#myModal").html(data);
@@ -146,17 +146,17 @@
                                                         $("#myModal").modal('show');
                                                     });
                                                 });
-                                </script>
-                                &nbsp;
+                            </script>
+                            &nbsp;
 
-                                <a class="fa fa-trash icon_action" ,title="Xóa" href="@Url.Action("Delete", "Registration", new { id = item.IDDangKyKH })"
-                                   onclick="return confirm('Bạn muốn xóa khách có tên: @item.NguoiDaiDien')" title="Xóa"></a>
-                                &nbsp;
-                                @if (@item.LoaiKhachID == 11246)
-                                {
-                                    <a id="Check_@item.IDDangKyKH" href="#" class="icon_action" title="Trình ký"><i class="fa fa-share-square"></i></a>
-                                    <div class="modal fade" id="myModale_Check_@item.IDDangKyKH" role="dialog" data-url='@Url.Action("CheckInformation","Registration", new { id = item.IDDangKyKH })'></div>
-                                    <script type="text/javascript">
+                            <a class="fa fa-trash icon_action" ,title="Xóa" href="@Url.Action("Delete", "Registration", new { id = item.IDDangKyKH })"
+                               onclick="return confirm('Bạn muốn xóa khách có tên: @item.NguoiDaiDien')" title="Xóa"></a>
+                            &nbsp;
+                            @if (@item.LoaiKhachID == 11246)
+                            {
+                                <a id="Check_@item.IDDangKyKH" href="#" class="icon_action" title="Trình ký"><i class="fa fa-share-square"></i></a>
+                                <div class="modal fade" id="myModale_Check_@item.IDDangKyKH" role="dialog" data-url='@Url.Action("CheckInformation","Registration", new { id = item.IDDangKyKH })'></div>
+                                <script type="text/javascript">
                                     $("#Check_@item.IDDangKyKH").click(function () {
                                         var url = $('#myModale_Check_@item.IDDangKyKH').data('url');
                                         $.get(url, function (data) {
@@ -165,11 +165,11 @@
                                             $("#myModal").modal('show');
                                         });
                                     });
-                                    </script>
+                                </script>
 
-                                }
-                                else
-                                {
+                            }
+                            else
+                            {
                                 <a id="Checkoften_@item.IDDangKyKH" href="#" class="icon_action" title="Trình ký"><i class="fa fa-share-square"></i></a>
                                 <div class="modal fade" id="myModale_Checkoften_@item.IDDangKyKH" role="dialog" data-url='@Url.Action("CheckInformationoften","Registration", new { id = item.IDDangKyKH })'></div>
                                 <script type="text/javascript">
@@ -183,12 +183,12 @@
                                     });
                                 </script>
 
-                                }
+                            }
 
 
 
-                            </td>
-                        </tr>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>
